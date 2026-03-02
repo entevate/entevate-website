@@ -573,11 +573,13 @@
     if (!matched) select.value = 'other';
   })();
 
-  // ─── Contact form handler (static demo — replace with Formspree submit) ───
+  // ─── Contact form → HubSpot submission ───
   document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
     var form    = document.getElementById('contactForm');
     var success = document.getElementById('formSuccess');
+    var submitBtn = form.querySelector('.form-submit-btn');
+
     // Basic validation
     var required = form.querySelectorAll('[required]');
     var valid = true;
@@ -586,20 +588,49 @@
       else { field.style.borderColor = ''; }
     });
     if (!valid) return;
-    // Show success
-    form.style.display    = 'none';
-    success.style.display = 'block';
-    // Scroll success into view
-    success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    /* ── Formspree integration example ──
-    fetch('https://formspree.io/f/YOUR_FORM_ID', {
+
+    // Disable button while submitting
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Sending…';
+
+    // Map form fields to HubSpot field names
+    var payload = {
+      portalId: '44191993',
+      formGuid: 'f16835f5-6a44-40f7-bd9f-b276c3894ba7',
+      fields: [
+        { name: 'firstname', value: form.firstName.value },
+        { name: 'lastname',  value: form.lastName.value },
+        { name: 'email',     value: form.email.value },
+        { name: 'phone',     value: form.phone.value },
+        { name: 'company',   value: form.company.value },
+        { name: '0-2/name', value: form.service.options[form.service.selectedIndex].text },
+        { name: 'message',   value: form.message.value }
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/44191993/f16835f5-6a44-40f7-bd9f-b276c3894ba7', {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     }).then(function (r) {
-      if (r.ok) { form.style.display = 'none'; success.style.display = 'block'; }
+      if (r.ok) {
+        form.style.display    = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
+        alert('Something went wrong. Please try again or email us at hello@entevate.com.');
+      }
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
+      alert('Something went wrong. Please try again or email us at hello@entevate.com.');
     });
-    */
   });
 
   // ─── Mobile Drawer ───
