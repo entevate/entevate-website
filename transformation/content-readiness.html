@@ -564,7 +564,7 @@
       <div class="lead-form-wrap" id="leadFormWrap">
         <h3>Get Your Personalized Action Plan</h3>
         <p>Share your contact details and we'll send you a detailed action plan based on your Content Readiness™ score — along with recommendations for each pillar.</p>
-        <form id="leadForm" action="https://formspree.io/f/REPLACE_ME" method="POST">
+        <form id="leadForm" action="#" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Content Readiness Assessment Submission" />
           <input type="hidden" name="score" id="hiddenScore" />
           <input type="hidden" name="stage" id="hiddenStage" />
@@ -746,6 +746,56 @@
     if (servBtn) { servBtn.addEventListener('click', function() { var o = servSub.classList.toggle('open'); servBtn.classList.toggle('open',o); servBtn.setAttribute('aria-expanded',String(o)); }); }
     document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeDrawer(); });
   })();
+
+  // ─── Content Readiness Lead Form → HubSpot submission ───
+  document.getElementById('leadForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = document.getElementById('leadForm');
+    var btn = form.querySelector('.btn-submit');
+    var required = form.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function (field) {
+      if (!field.value.trim()) { field.style.borderColor = '#CB632F'; valid = false; }
+      else { field.style.borderColor = ''; }
+    });
+    if (!valid) return;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    var payload = {
+      fields: [
+        { name: 'firstname', value: form.first_name.value },
+        { name: 'lastname',  value: form.last_name.value },
+        { name: 'company',   value: form.company.value },
+        { name: 'jobtitle',  value: form.role.value },
+        { name: 'email',     value: form.email.value },
+        { name: 'phone',     value: form.phone.value },
+        { name: 'industry',  value: form.industry.value },
+        { name: 'content_readiness_score', value: form.querySelector('#hiddenScore').value },
+        { name: 'content_readiness_stage', value: form.querySelector('#hiddenStage').value },
+        { name: 'people_score',   value: form.querySelector('#hiddenPeople').value },
+        { name: 'platform_score', value: form.querySelector('#hiddenPlatform').value },
+        { name: 'process_score',  value: form.querySelector('#hiddenProcess').value }
+      ],
+      context: { pageUri: window.location.href, pageName: document.title }
+    };
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/44191993/ef7b3576-d3f9-4afe-9d2c-80c10fadfd86', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      if (r.ok) {
+        form.innerHTML = '<div style="text-align:center;padding:32px 0;"><h3 style="font-size:22px;font-weight:400;margin-bottom:10px;">Action Plan Requested!</h3><p style="font-size:14px;color:#6B6B6B;">Thanks! We\'ll send your personalized Content Readiness™ report shortly.</p></div>';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send Me My Action Plan →';
+        alert('Something went wrong. Please try again or email us at hello@entevate.com.');
+      }
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = 'Send Me My Action Plan →';
+      alert('Something went wrong. Please try again or email us at hello@entevate.com.');
+    });
+  });
 
   // ─── Newsletter → HubSpot submission ───
   (function () {
