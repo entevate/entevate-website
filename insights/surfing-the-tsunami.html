@@ -329,7 +329,7 @@
       </div>
       <div class="footer-col"><h5>Services</h5><ul><li><a href="/experiential.html">Experiential Branding &amp; Marketing</a></li><li><a href="/transformation.html">Digital &amp; Content Transformation</a></li><li><a href="/innovation.html">Innovation | Ventures | Ecosystem</a></li><li><a href="https://www.momentifyapp.com/" target="_blank">Momentify App ↗</a></li></ul></div>
       <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About Us</a></li><li><a href="/our-work.html">Our Work</a></li><li><a href="/contact.html">Get In Touch</a></li><li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=b5c58f21-00f2-4ee2-9391-79a13199d76c" target="_blank">Privacy Policy</a></li></ul></div>
-      <div class="footer-col footer-newsletter"><h5>Get Updates</h5><p>Innovation insights and perspectives, straight to your inbox.</p><form class="newsletter-form" id="newsletterForm" onsubmit="return false;"><input type="text" name="firstname" placeholder="Name" required /><input type="email" name="email" placeholder="Email" required /><button type="submit">Subscribe →</button><p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p></form></div>
+      <div class="footer-col footer-newsletter"><h5>Get Updates</h5><p>Innovation insights and perspectives, straight to your inbox.</p><form class="newsletter-form" id="newsletterForm" onsubmit="return false;"><input type="text" name="firstname" placeholder="Name" required /><input type="email" name="email" placeholder="Email" required /><div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website_url" tabindex="-1" autocomplete="off" /></div><button type="submit">Subscribe →</button><p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p></form></div>
     </div>
     <div class="footer-bottom">
       <span>©2026 | ENTEVATE | All Rights Reserved</span>
@@ -366,6 +366,8 @@
         var msg = form.querySelector('.newsletter-msg');
         var nameInput = form.querySelector('input[name="firstname"]');
         var emailInput = form.querySelector('input[name="email"]');
+        var honeypot = form.querySelector('input[name="website_url"]');
+        if (honeypot && honeypot.value) { form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>'; return; }
         if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
         btn.disabled = true;
         btn.textContent = 'Sending…';

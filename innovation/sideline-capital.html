@@ -639,6 +639,7 @@
         <form class="newsletter-form" id="newsletterForm" onsubmit="return false;">
           <input type="text" name="firstname" placeholder="Name" required />
           <input type="email" name="email" placeholder="Email" required />
+          <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website_url" tabindex="-1" autocomplete="off" /></div>
           <button type="submit">Subscribe →</button>
           <p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p>
         </form>
@@ -718,6 +719,8 @@
         var msg = form.querySelector('.newsletter-msg');
         var nameInput = form.querySelector('input[name="firstname"]');
         var emailInput = form.querySelector('input[name="email"]');
+        var honeypot = form.querySelector('input[name="website_url"]');
+        if (honeypot && honeypot.value) { form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>'; return; }
         if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
         btn.disabled = true;
         btn.textContent = 'Sending…';

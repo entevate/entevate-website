@@ -443,6 +443,11 @@
           <textarea id="message" name="message" rows="5" placeholder="Share what you're working on, the challenge you're facing, or the outcome you're hoping for…" required></textarea>
         </div>
 
+        <!-- Honeypot -->
+        <div style="position:absolute;left:-9999px;" aria-hidden="true">
+          <input type="text" name="website_url" tabindex="-1" autocomplete="off" />
+        </div>
+
         <button type="submit" class="form-submit-btn">
           Send Message
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -524,6 +529,7 @@
         <form class="newsletter-form" id="newsletterForm" onsubmit="return false;">
           <input type="text" name="firstname" placeholder="Name" required />
           <input type="email" name="email" placeholder="Email" required />
+          <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website_url" tabindex="-1" autocomplete="off" /></div>
           <button type="submit">Subscribe →</button>
           <p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p>
         </form>
@@ -580,6 +586,13 @@
     var form    = document.getElementById('contactForm');
     var success = document.getElementById('formSuccess');
     var submitBtn = form.querySelector('.form-submit-btn');
+
+    // Honeypot check
+    if (form.website_url && form.website_url.value) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+      return;
+    }
 
     // Basic validation
     var required = form.querySelectorAll('[required]');
@@ -679,6 +692,8 @@
         var msg = form.querySelector('.newsletter-msg');
         var nameInput = form.querySelector('input[name="firstname"]');
         var emailInput = form.querySelector('input[name="email"]');
+        var honeypot = form.querySelector('input[name="website_url"]');
+        if (honeypot && honeypot.value) { form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>'; return; }
         if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
         btn.disabled = true;
         btn.textContent = 'Sending…';

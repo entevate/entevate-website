@@ -594,6 +594,7 @@
               </select>
             </div>
           </div>
+          <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website_url" tabindex="-1" autocomplete="off" /></div>
           <button type="submit" class="btn-submit">Send Me My Action Plan →</button>
           <p class="form-note">We respect your privacy. Your information is used only to deliver your personalized Content Readiness report.</p>
         </form>
@@ -632,7 +633,7 @@
       </div>
       <div class="footer-col"><h5>Services</h5><ul><li><a href="/experiential.html">Experiential Branding &amp; Marketing</a></li><li><a href="/transformation.html">Digital &amp; Content Transformation</a></li><li><a href="/innovation.html">Innovation | Ventures | Ecosystem</a></li></ul></div>
       <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About Us</a></li><li><a href="/our-work.html">Our Work</a></li><li><a href="/contact.html">Get In Touch</a></li></ul></div>
-      <div class="footer-col footer-newsletter"><h5>Get Updates</h5><p>Innovation insights and perspectives, straight to your inbox.</p><form class="newsletter-form" id="newsletterForm" onsubmit="return false;"><input type="text" name="firstname" placeholder="Name" required /><input type="email" name="email" placeholder="Email" required /><button type="submit">Subscribe →</button><p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p></form></div>
+      <div class="footer-col footer-newsletter"><h5>Get Updates</h5><p>Innovation insights and perspectives, straight to your inbox.</p><form class="newsletter-form" id="newsletterForm" onsubmit="return false;"><input type="text" name="firstname" placeholder="Name" required /><input type="email" name="email" placeholder="Email" required /><div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website_url" tabindex="-1" autocomplete="off" /></div><button type="submit">Subscribe →</button><p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p></form></div>
     </div>
     <div class="footer-bottom">
       <span>©2026 | ENTEVATE | All Rights Reserved</span>
@@ -752,6 +753,12 @@
     e.preventDefault();
     var form = document.getElementById('leadForm');
     var btn = form.querySelector('.btn-submit');
+    // Honeypot check
+    var honeypot = form.querySelector('input[name="website_url"]');
+    if (honeypot && honeypot.value) {
+      form.innerHTML = '<div style="text-align:center;padding:32px 0;"><h3 style="font-size:22px;font-weight:400;margin-bottom:10px;">Action Plan Requested!</h3><p style="font-size:14px;color:#6B6B6B;">Thanks! We\'ll send your personalized Content Readiness™ report shortly.</p></div>';
+      return;
+    }
     var required = form.querySelectorAll('[required]');
     var valid = true;
     required.forEach(function (field) {
@@ -807,6 +814,8 @@
         var msg = form.querySelector('.newsletter-msg');
         var nameInput = form.querySelector('input[name="firstname"]');
         var emailInput = form.querySelector('input[name="email"]');
+        var honeypot = form.querySelector('input[name="website_url"]');
+        if (honeypot && honeypot.value) { form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>'; return; }
         if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
         btn.disabled = true;
         btn.textContent = 'Sending…';
