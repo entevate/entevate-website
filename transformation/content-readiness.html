@@ -632,7 +632,7 @@
       </div>
       <div class="footer-col"><h5>Services</h5><ul><li><a href="/experiential.html">Experiential Branding &amp; Marketing</a></li><li><a href="/transformation.html">Digital &amp; Content Transformation</a></li><li><a href="/innovation.html">Innovation | Ventures | Ecosystem</a></li></ul></div>
       <div class="footer-col"><h5>Company</h5><ul><li><a href="/about.html">About Us</a></li><li><a href="/our-work.html">Our Work</a></li><li><a href="/contact.html">Get In Touch</a></li></ul></div>
-      <div class="footer-col footer-newsletter"><h5>Get Updates</h5><p>Innovation insights and perspectives, straight to your inbox.</p><div class="newsletter-form"><input type="text" placeholder="Name" /><input type="email" placeholder="Email" /><button type="submit">Subscribe →</button></div></div>
+      <div class="footer-col footer-newsletter"><h5>Get Updates</h5><p>Innovation insights and perspectives, straight to your inbox.</p><form class="newsletter-form" id="newsletterForm" onsubmit="return false;"><input type="text" name="firstname" placeholder="Name" required /><input type="email" name="email" placeholder="Email" required /><button type="submit">Subscribe →</button><p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p></form></div>
     </div>
     <div class="footer-bottom">
       <span>©2026 | ENTEVATE | All Rights Reserved</span>
@@ -745,6 +745,45 @@
     if (overlay)   overlay.addEventListener('click', closeDrawer);
     if (servBtn) { servBtn.addEventListener('click', function() { var o = servSub.classList.toggle('open'); servBtn.classList.toggle('open',o); servBtn.setAttribute('aria-expanded',String(o)); }); }
     document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeDrawer(); });
+  })();
+
+  // ─── Newsletter → HubSpot submission ───
+  (function () {
+    var forms = document.querySelectorAll('#newsletterForm');
+    forms.forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button');
+        var msg = form.querySelector('.newsletter-msg');
+        var nameInput = form.querySelector('input[name="firstname"]');
+        var emailInput = form.querySelector('input[name="email"]');
+        if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        var payload = {
+          fields: [
+            { name: 'firstname', value: nameInput.value },
+            { name: 'email', value: emailInput.value }
+          ],
+          context: { pageUri: window.location.href, pageName: document.title }
+        };
+        fetch('https://api.hsforms.com/submissions/v3/integration/submit/44191993/2Rc3wuxRjS9mszhF3XwrYYw', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) {
+          if (r.ok) {
+            form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
+          } else {
+            btn.disabled = false; btn.textContent = 'Subscribe →';
+            msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+          }
+        }).catch(function () {
+          btn.disabled = false; btn.textContent = 'Subscribe →';
+          msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+        });
+      });
+    });
   })();
 </script>
 </body>

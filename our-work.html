@@ -714,11 +714,12 @@
       <div class="footer-col footer-newsletter">
         <h5>Get Updates</h5>
         <p>Innovation insights and perspectives, straight to your inbox.</p>
-        <div class="newsletter-form">
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
+        <form class="newsletter-form" id="newsletterForm" onsubmit="return false;">
+          <input type="text" name="firstname" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
           <button type="submit">Subscribe →</button>
-        </div>
+          <p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p>
+        </form>
       </div>
     </div>
 
@@ -799,6 +800,45 @@
     }
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeDrawer();
+    });
+  })();
+
+  // ─── Newsletter → HubSpot submission ───
+  (function () {
+    var forms = document.querySelectorAll('#newsletterForm');
+    forms.forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button');
+        var msg = form.querySelector('.newsletter-msg');
+        var nameInput = form.querySelector('input[name="firstname"]');
+        var emailInput = form.querySelector('input[name="email"]');
+        if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        var payload = {
+          fields: [
+            { name: 'firstname', value: nameInput.value },
+            { name: 'email', value: emailInput.value }
+          ],
+          context: { pageUri: window.location.href, pageName: document.title }
+        };
+        fetch('https://api.hsforms.com/submissions/v3/integration/submit/44191993/2Rc3wuxRjS9mszhF3XwrYYw', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) {
+          if (r.ok) {
+            form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
+          } else {
+            btn.disabled = false; btn.textContent = 'Subscribe →';
+            msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+          }
+        }).catch(function () {
+          btn.disabled = false; btn.textContent = 'Subscribe →';
+          msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+        });
+      });
     });
   })();
 </script>
