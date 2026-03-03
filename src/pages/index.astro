@@ -1,6 +1,6 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
 import '../styles/global.css';
 
 // Page metadata
@@ -20,7 +20,7 @@ const description = 'Human-centered innovation partner for leaders building what
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <Header />
+  <Header client:load />
 
   <!-- Hero -->
   <section class="hero">
@@ -233,7 +233,7 @@ const description = 'Human-centered innovation partner for leaders building what
     </div>
   </section>
 
-  <Footer />
+  <Footer client:load />
 
   <script>
     // Fade-up scroll animations
