@@ -1,28 +1,24 @@
-# Claude Code local settings
-.claude/
+# build output
+dist/
+# generated types
+.astro/
 
-# macOS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# dependencies
+node_modules/
 
-# Editor directories
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Logs
-*.log
 
-# Local environment / secrets
+# environment variables
 .env
-.env.local
-.env.*.local
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
