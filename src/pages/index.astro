@@ -1,409 +1,610 @@
 ---
-import Header from '../components/Header.jsx';
-import Footer from '../components/Footer.jsx';
-import '../global.css';
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import "../global.css";
 
 // Page metadata
-const title = 'ENTEVATE | Experiential Branding, Digital Transformation & Innovation Roadmapping';
-const description = 'Human-centered innovation partner for leaders building what comes next. We partner with organizations ready to evolve—designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.';
+const title =
+  "ENTEVATE | Experiential Branding, Digital Transformation & Innovation Roadmapping";
+const description =
+  "Human-centered innovation partner for leaders building what comes next. We partner with organizations ready to evolve—designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <Header client:load />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header client:load />
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-svg-bg">
-      <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="curve-1"
-          d="M 180 -80 C 180 -80 60 140 60 300 C 60 460 180 540 180 720 C 180 800 130 860 130 860"
-          stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.30"/>
-        <path class="curve-2"
-          d="M 420 -100 C 420 -100 230 160 230 330 C 230 500 420 600 420 760 C 420 840 360 900 360 900"
-          stroke="white" stroke-width="5.5" stroke-linecap="round" opacity="0.40"/>
-        <path class="curve-3"
-          d="M 790 -120 C 790 -120 490 200 490 400 C 490 600 790 730 790 920"
-          stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.50"/>
-        <path class="curve-4"
-          d="M 1080 -80 C 1080 -80 780 220 780 420 C 780 620 1080 760 1080 940"
-          stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.35"/>
-        <path class="curve-5"
-          d="M 1320 -60 C 1320 -60 1060 240 1060 440 C 1060 640 1320 780 1320 960"
-          stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
-      </svg>
-    </div>
-    <div class="hero-left fade-up">
-      <div class="hero-eyebrow">
-        <svg width="8" height="8" viewBox="0 0 8 8">
-          <circle cx="4" cy="4" r="4" fill="url(#eg)"/>
-          <defs>
-            <linearGradient id="eg" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#2060D8"/>
-              <stop offset="100%" stop-color="#38C6F4"/>
-            </linearGradient>
-          </defs>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-svg-bg">
+        <svg
+          viewBox="0 0 1440 800"
+          preserveAspectRatio="xMidYMid slice"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="curve-1"
+            d="M 180 -80 C 180 -80 60 140 60 300 C 60 460 180 540 180 720 C 180 800 130 860 130 860"
+            stroke="white"
+            stroke-width="5"
+            stroke-linecap="round"
+            opacity="0.30"></path>
+          <path
+            class="curve-2"
+            d="M 420 -100 C 420 -100 230 160 230 330 C 230 500 420 600 420 760 C 420 840 360 900 360 900"
+            stroke="white"
+            stroke-width="5.5"
+            stroke-linecap="round"
+            opacity="0.40"></path>
+          <path
+            class="curve-3"
+            d="M 790 -120 C 790 -120 490 200 490 400 C 490 600 790 730 790 920"
+            stroke="white"
+            stroke-width="6"
+            stroke-linecap="round"
+            opacity="0.50"></path>
+          <path
+            class="curve-4"
+            d="M 1080 -80 C 1080 -80 780 220 780 420 C 780 620 1080 760 1080 940"
+            stroke="white"
+            stroke-width="5"
+            stroke-linecap="round"
+            opacity="0.35"></path>
+          <path
+            class="curve-5"
+            d="M 1320 -60 C 1320 -60 1060 240 1060 440 C 1060 640 1320 780 1320 960"
+            stroke="white"
+            stroke-width="4"
+            stroke-linecap="round"
+            opacity="0.25"></path>
         </svg>
-        <span>Human-Centered Innovation Partner</span>
       </div>
-      <h1>Innovating today for <span class="accent">a better tomorrow.</span></h1>
-      <p>At ENTEVATE, we believe innovation should be human, purposeful, and accessible. We partner with organizations ready to evolve—designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.</p>
-      <div class="hero-actions">
-        <a href="#services" class="btn-gradient">Our Services →</a>
-        <a href="/contact" class="btn-ghost">Get In Touch</a>
+      <div class="hero-left fade-up">
+        <div class="hero-eyebrow">
+          <svg width="8" height="8" viewBox="0 0 8 8">
+            <circle cx="4" cy="4" r="4" fill="url(#eg)"></circle>
+            <defs>
+              <linearGradient id="eg" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2060D8"></stop>
+                <stop offset="100%" stop-color="#38C6F4"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>Human-Centered Innovation Partner</span>
+        </div>
+        <h1>
+          Innovating today for <span class="accent">a better tomorrow.</span>
+        </h1>
+        <p>
+          At ENTEVATE, we believe innovation should be human, purposeful, and
+          accessible. We partner with organizations ready to evolve—designing
+          immersive brand experiences, aligning digital content, and building
+          actionable roadmaps for lasting impact.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-gradient">Our Services →</a>
+          <a href="/contact" class="btn-ghost">Get In Touch</a>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+          <path
+            d="M7 1v12M1 9l6 7 6-7"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        Scroll to explore
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <div class="clients">
+      <div class="clients-label">Trusted by leading organizations</div>
+      <div class="clients-track-wrap">
+        <div class="clients-track">
+          <span class="client-name">Caterpillar</span>
+          <span class="client-name">Motorola</span>
+          <span class="client-name">Beckman</span>
+          <span class="client-name">Rheem</span>
+          <span class="client-name">Oracle</span>
+          <span class="client-name">Boeing</span>
+          <span class="client-name">Caterpillar</span>
+          <span class="client-name">Motorola</span>
+          <span class="client-name">Beckman</span>
+          <span class="client-name">Rheem</span>
+          <span class="client-name">Oracle</span>
+          <span class="client-name">Boeing</span>
+        </div>
       </div>
     </div>
 
-    <div class="scroll-hint">
-      <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
-        <path d="M7 1v12M1 9l6 7 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Scroll to explore
-    </div>
-  </section>
-
-  <!-- Clients -->
-  <div class="clients">
-    <div class="clients-label">Trusted by leading organizations</div>
-    <div class="clients-track-wrap">
-      <div class="clients-track">
-        <span class="client-name">Caterpillar</span>
-        <span class="client-name">Motorola</span>
-        <span class="client-name">Beckman</span>
-        <span class="client-name">Rheem</span>
-        <span class="client-name">Oracle</span>
-        <span class="client-name">Boeing</span>
-        <span class="client-name">Caterpillar</span>
-        <span class="client-name">Motorola</span>
-        <span class="client-name">Beckman</span>
-        <span class="client-name">Rheem</span>
-        <span class="client-name">Oracle</span>
-        <span class="client-name">Boeing</span>
+    <!-- Services -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="fade-up">
+          <div class="section-label">What We Do</div>
+          <h2 class="section-title">Three pillars, one bold vision.</h2>
+          <p class="section-subtitle">
+            Every engagement is rooted in our three core practice areas — each
+            designed to create human-first, measurable impact.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card s1 fade-up">
+            <div class="service-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                ></polygon>
+              </svg>
+            </div>
+            <h3>Experiential Branding &amp; Marketing</h3>
+            <em>Crafting immersive brand experiences that resonate.</em>
+            <p>
+              We help you spark connection and drive action through intentional,
+              emotionally engaging brand moments. With tools like Momentify,
+              every interaction becomes measurable, memorable, and built to
+              scale.
+            </p>
+            <a href="/experiential" class="learn-more">Learn More →</a>
+          </div>
+          <div class="service-card s2 fade-up">
+            <div class="service-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                ></path>
+              </svg>
+            </div>
+            <h3>Digital &amp; Content Transformation</h3>
+            <em>Content Readiness™ for a more connected, adaptable business.</em
+            >
+            <p>
+              We align people, platforms, and processes to help you thrive in a
+              rapidly changing world. Our Content Readiness™ approach ensures
+              your content is always clear, strategic, and ready to perform.
+            </p>
+            <a href="/transformation" class="learn-more">Learn More →</a>
+          </div>
+          <div class="service-card s3 fade-up">
+            <div class="service-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17H8v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3>Innovation Roadmapping</h3>
+            <em
+              >Clarity for bold ideas and the systems to bring them to life.</em
+            >
+            <p>
+              We turn big ideas into tangible strategies with frameworks built
+              to scale. From concept to execution, we help you align vision with
+              action — and move forward with confidence and clarity.
+            </p>
+            <a href="/innovation" class="learn-more">Learn More →</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Services -->
-  <section class="section" id="services">
-    <div class="container">
+    <!-- About -->
+    <section
+      class="section"
+      id="about"
+      style="background: var(--light-blue); background-image: radial-gradient(circle at 80% 20%, rgba(36,123,150,0.10) 0%, transparent 50%), radial-gradient(circle at 15% 85%, rgba(56,198,244,0.07) 0%, transparent 45%);"
+    >
+      <div class="container">
+        <div class="about-split">
+          <div class="about-left fade-up">
+            <div class="section-label">About ENTEVATE</div>
+            <h2 class="section-title">
+              A purpose-driven innovation collective.
+            </h2>
+            <p>
+              ENTEVATE is a human-centered innovation partner working at the
+              intersection of experiential branding, digital transformation, and
+              strategic roadmapping.
+            </p>
+            <p>
+              We partner with bold leaders who believe technology should amplify
+              humanity — not replace it. From immersive brand experiences
+              powered by Momentify to co-created innovation roadmaps, everything
+              we build starts with people.
+            </p>
+            <a href="/about" class="btn-gradient">Learn About Us →</a>
+            <div class="stat-row">
+              <div class="stat">
+                <h3>6+</h3><p>Fortune 500 clients served</p>
+              </div>
+              <div class="stat"><h3>3</h3><p>Core innovation pillars</p></div>
+              <div class="stat">
+                <h3>100%</h3><p>Human-centered by design</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-visual fade-up">
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--blue)"></div>
+              <div>
+                <h5>Empathy — We lead with heart</h5><span
+                  >Before we recommend, we listen. Before we solve, we
+                  understand. We approach every challenge through the lens of
+                  people first.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--green)"></div>
+              <div>
+                <h5>Authenticity — We keep it real</h5><span
+                  >We bring our full selves to the table and encourage our
+                  clients to do the same. Transparency, vulnerability, and
+                  mutual respect.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--purple)"></div>
+              <div>
+                <h5>Adaptability — We embrace the pivot</h5><span
+                  >In a world that changes fast, we stay grounded by staying
+                  flexible — with open minds, curious questions, and a
+                  willingness to evolve.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--orange-light)">
+              </div>
+              <div>
+                <h5>Quality — We don't cut corners</h5><span
+                  >From strategy to execution, we hold ourselves to a higher
+                  standard. Excellence is in the details — how we do something
+                  matters as much as what we do.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--orange-dark)"></div>
+              <div>
+                <h5>
+                  Responsibility — We do what's right, not just what's easy
+                </h5><span
+                  >We're committed to impact that's ethical, sustainable, and
+                  meaningful — accountable to our partners, our communities, and
+                  the planet.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner" id="contact">
       <div class="fade-up">
-        <div class="section-label">What We Do</div>
-        <h2 class="section-title">Three pillars, one bold vision.</h2>
-        <p class="section-subtitle">Every engagement is rooted in our three core practice areas — each designed to create human-first, measurable impact.</p>
+        <h2>Ready to turn ideas into outcomes?</h2>
+        <p>Let's build something unforgettable together.</p>
+        <a href="/contact" class="btn-orange">Get In Touch →</a>
       </div>
-      <div class="services-grid">
-        <div class="service-card s1 fade-up">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <h3>Experiential Branding &amp; Marketing</h3>
-          <em>Crafting immersive brand experiences that resonate.</em>
-          <p>We help you spark connection and drive action through intentional, emotionally engaging brand moments. With tools like Momentify, every interaction becomes measurable, memorable, and built to scale.</p>
-          <a href="/experiential" class="learn-more">Learn More →</a>
-        </div>
-        <div class="service-card s2 fade-up">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <h3>Digital &amp; Content Transformation</h3>
-          <em>Content Readiness™ for a more connected, adaptable business.</em>
-          <p>We align people, platforms, and processes to help you thrive in a rapidly changing world. Our Content Readiness™ approach ensures your content is always clear, strategic, and ready to perform.</p>
-          <a href="/transformation" class="learn-more">Learn More →</a>
-        </div>
-        <div class="service-card s3 fade-up">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17H8v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/>
-            </svg>
-          </div>
-          <h3>Innovation Roadmapping</h3>
-          <em>Clarity for bold ideas and the systems to bring them to life.</em>
-          <p>We turn big ideas into tangible strategies with frameworks built to scale. From concept to execution, we help you align vision with action — and move forward with confidence and clarity.</p>
-          <a href="/innovation" class="learn-more">Learn More →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section class="section" id="about" style="background: var(--light-blue); background-image: radial-gradient(circle at 80% 20%, rgba(36,123,150,0.10) 0%, transparent 50%), radial-gradient(circle at 15% 85%, rgba(56,198,244,0.07) 0%, transparent 45%);">
-    <div class="container">
-      <div class="about-split">
-        <div class="about-left fade-up">
-          <div class="section-label">About ENTEVATE</div>
-          <h2 class="section-title">A purpose-driven innovation collective.</h2>
-          <p>ENTEVATE is a human-centered innovation partner working at the intersection of experiential branding, digital transformation, and strategic roadmapping.</p>
-          <p>We partner with bold leaders who believe technology should amplify humanity — not replace it. From immersive brand experiences powered by Momentify to co-created innovation roadmaps, everything we build starts with people.</p>
-          <a href="/about" class="btn-gradient">Learn About Us →</a>
-          <div class="stat-row">
-            <div class="stat"><h3>6+</h3><p>Fortune 500 clients served</p></div>
-            <div class="stat"><h3>3</h3><p>Core innovation pillars</p></div>
-            <div class="stat"><h3>100%</h3><p>Human-centered by design</p></div>
+    <!-- Our Work -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="blog-header fade-up">
+          <div>
+            <div class="section-label">Our Work</div>
+            <h2 class="section-title">Insights &amp; perspectives.</h2>
           </div>
+          <a href="/our-work" class="btn-ghost">See All →</a>
         </div>
-
-        <div class="about-visual fade-up">
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--blue)"></div>
-            <div><h5>Empathy — We lead with heart</h5><span>Before we recommend, we listen. Before we solve, we understand. We approach every challenge through the lens of people first.</span></div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--green)"></div>
-            <div><h5>Authenticity — We keep it real</h5><span>We bring our full selves to the table and encourage our clients to do the same. Transparency, vulnerability, and mutual respect.</span></div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--purple)"></div>
-            <div><h5>Adaptability — We embrace the pivot</h5><span>In a world that changes fast, we stay grounded by staying flexible — with open minds, curious questions, and a willingness to evolve.</span></div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--orange-light)"></div>
-            <div><h5>Quality — We don't cut corners</h5><span>From strategy to execution, we hold ourselves to a higher standard. Excellence is in the details — how we do something matters as much as what we do.</span></div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--orange-dark)"></div>
-            <div><h5>Responsibility — We do what's right, not just what's easy</h5><span>We're committed to impact that's ethical, sustainable, and meaningful — accountable to our partners, our communities, and the planet.</span></div>
-          </div>
+        <div class="blog-grid">
+          <a
+            href="/transformation/remote-assistance"
+            class="blog-card card-dct fade-up"
+          >
+            <div class="blog-thumb bt2">Digital Transformation</div>
+            <div class="blog-body">
+              <div class="blog-tag">Digital &amp; Content Transformation</div>
+              <h4>
+                Transforming Remote Assistance with Spatial Computing: A
+                Real-World Use Case
+              </h4>
+              <p>
+                How spatial computing is reshaping the way teams collaborate and
+                deliver remote assistance across industries.
+              </p>
+              <div class="blog-read-more">Read More →</div>
+            </div>
+          </a>
+          <a
+            href="/insights/innovation-roadmapping"
+            class="blog-card card-irm fade-up"
+          >
+            <div class="blog-thumb bt3">Innovation</div>
+            <div class="blog-body">
+              <div class="blog-tag">Innovation | Ventures | Ecosystem</div>
+              <h4>
+                Innovation Roadmapping: Navigating from Ideation to
+                Amplification
+              </h4>
+              <p>
+                Comprehensive plans to lead your business through rapid digital
+                evolution — from ideation through execution and beyond.
+              </p>
+              <div class="blog-read-more">Read More →</div>
+            </div>
+          </a>
+          <a
+            href="/insights/beyond-the-hype-ar-vr-revenue"
+            class="blog-card card-ebm fade-up"
+          >
+            <div class="blog-thumb bt1">Experiential</div>
+            <div class="blog-body">
+              <div class="blog-tag">Experiential Branding &amp; Marketing</div>
+              <h4>
+                Beyond the Hype: How AR/VR/Spatial Computing is Fueling Real
+                Revenue Growth
+              </h4>
+              <p>
+                The concrete business outcomes that immersive technology is
+                delivering for forward-thinking brands.
+              </p>
+              <div class="blog-read-more">Read More →</div>
+            </div>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Banner -->
-  <section class="cta-banner" id="contact">
-    <div class="fade-up">
-      <h2>Ready to turn ideas into outcomes?</h2>
-      <p>Let's build something unforgettable together.</p>
-      <a href="/contact" class="btn-orange">Get In Touch →</a>
-    </div>
-  </section>
+    <Footer client:load />
 
-  <!-- Our Work -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="blog-header fade-up">
-        <div>
-          <div class="section-label">Our Work</div>
-          <h2 class="section-title">Insights &amp; perspectives.</h2>
-        </div>
-        <a href="/our-work" class="btn-ghost">See All →</a>
-      </div>
-      <div class="blog-grid">
-        <a href="/transformation/remote-assistance" class="blog-card card-dct fade-up">
-          <div class="blog-thumb bt2">Digital Transformation</div>
-          <div class="blog-body">
-            <div class="blog-tag">Digital &amp; Content Transformation</div>
-            <h4>Transforming Remote Assistance with Spatial Computing: A Real-World Use Case</h4>
-            <p>How spatial computing is reshaping the way teams collaborate and deliver remote assistance across industries.</p>
-            <div class="blog-read-more">Read More →</div>
-          </div>
-        </a>
-        <a href="/insights/innovation-roadmapping" class="blog-card card-irm fade-up">
-          <div class="blog-thumb bt3">Innovation</div>
-          <div class="blog-body">
-            <div class="blog-tag">Innovation | Ventures | Ecosystem</div>
-            <h4>Innovation Roadmapping: Navigating from Ideation to Amplification</h4>
-            <p>Comprehensive plans to lead your business through rapid digital evolution — from ideation through execution and beyond.</p>
-            <div class="blog-read-more">Read More →</div>
-          </div>
-        </a>
-        <a href="/insights/beyond-the-hype-ar-vr-revenue" class="blog-card card-ebm fade-up">
-          <div class="blog-thumb bt1">Experiential</div>
-          <div class="blog-body">
-            <div class="blog-tag">Experiential Branding &amp; Marketing</div>
-            <h4>Beyond the Hype: How AR/VR/Spatial Computing is Fueling Real Revenue Growth</h4>
-            <p>The concrete business outcomes that immersive technology is delivering for forward-thinking brands.</p>
-            <div class="blog-read-more">Read More →</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+    <script src="../global.js"></script>
+    <script>
+      document
+        .querySelectorAll(".services-grid, .blog-grid")
+        .forEach((grid) => {
+          grid.querySelectorAll(".fade-up").forEach((el, i) => {
+            el.style.transitionDelay = `${i * 0.1}s`;
+          });
+        });
+    </script>
 
-  <Footer client:load />
-
-  <script>
-    // Fade-up scroll animations
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { 
-        if (e.isIntersecting) { 
-          e.target.classList.add('visible'); 
-          io.unobserve(e.target); 
-        } 
-      });
-    }, { threshold: 0.10 });
-    
-    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-    
-    document.querySelectorAll('.services-grid, .blog-grid').forEach(grid => {
-      grid.querySelectorAll('.fade-up').forEach((el, i) => { 
-        el.style.transitionDelay = `${i * 0.10}s`; 
-      });
-    });
-  </script>
-
-  <style>
-    /* ── Hero (Home) ── */
-    .hero { 
-      background: var(--light-blue); 
-      position: relative; 
-      overflow: hidden; 
-      padding: 96px 48px 140px; 
-      display: flex; 
-      align-items: center; 
-      min-height: 88vh; 
-    }
-
-    .hero::before { 
-      content: ''; 
-      position: absolute; 
-      inset: 0; 
-      background: radial-gradient(circle at 70% 30%, rgba(36,123,150,0.10) 0%, transparent 55%), radial-gradient(circle at 25% 80%, rgba(61,151,138,0.07) 0%, transparent 50%); 
-      pointer-events: none; 
-    }
-
-    /* ── Animated SVG curves ── */
-    .hero-svg-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .hero-svg-bg svg {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-    }
-
-    .curve-1 { animation: drift1 8s ease-in-out infinite alternate; transform-origin: 50% 50%; }
-    .curve-2 { animation: drift2 10s ease-in-out infinite alternate; transform-origin: 50% 50%; }
-    .curve-3 { animation: drift3 12s ease-in-out infinite alternate; transform-origin: 50% 50%; }
-    .curve-4 { animation: drift1 9s ease-in-out infinite alternate-reverse; transform-origin: 50% 50%; }
-    .curve-5 { animation: drift2 11s ease-in-out infinite alternate-reverse; transform-origin: 50% 50%; }
-
-    @keyframes drift1 {
-      from { transform: translateY(-28px) translateX(0px) scaleY(1); }
-      to   { transform: translateY(28px)  translateX(8px)  scaleY(1.04); }
-    }
-
-    @keyframes drift2 {
-      from { transform: translateY(20px)  translateX(-6px) scaleY(0.97); }
-      to   { transform: translateY(-32px) translateX(10px) scaleY(1.04); }
-    }
-
-    @keyframes drift3 {
-      from { transform: translateY(-16px) translateX(4px)  scaleY(1.02); }
-      to   { transform: translateY(36px)  translateX(-8px) scaleY(0.96); }
-    }
-
-    .hero-left { 
-      position: relative; 
-      z-index: 2; 
-      max-width: 1000px; 
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: rgba(36,123,150,0.08);
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-
-    .hero-eyebrow span {
-      background: linear-gradient(90deg, #2060D8 0%, #38C6F4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero h1 { 
-      font-size: clamp(52px, 7vw, 96px); 
-      font-weight: 100; 
-      line-height: 1.04; 
-      color: var(--black); 
-      margin-bottom: 24px; 
-      letter-spacing: -0.03em; 
-      text-wrap: balance; 
-    }
-
-    .hero h1 .accent {
-      background: linear-gradient(90deg, #2060D8 0%, #38C6F4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero p { 
-      font-size: 16px; 
-      color: var(--gray-mid); 
-      line-height: 1.75; 
-      max-width: 720px; 
-      margin-bottom: 40px; 
-    }
-
-    .hero-actions { 
-      display: flex; 
-      align-items: center; 
-      gap: 20px; 
-      flex-wrap: wrap; 
-    }
-
-    .scroll-hint { 
-      position: absolute; 
-      bottom: 36px; 
-      left: 48px; 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      font-size: 12px; 
-      font-weight: 500; 
-      letter-spacing: 0.04em; 
-      color: var(--gray-light); 
-      z-index: 2; 
-    }
-
-    @media (max-width: 960px) {
-      .hero { 
-        grid-template-columns: 1fr; 
-        padding: 72px 24px 96px; 
-        min-height: auto; 
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero { 
-        padding: 56px 20px 80px; 
+    <style>
+      /* ── Hero (Home) ── */
+      .hero {
+        background: var(--light-blue);
+        position: relative;
+        overflow: hidden;
+        padding: 96px 48px 140px;
+        display: flex;
+        align-items: center;
+        min-height: 88vh;
       }
 
-      .scroll-hint { 
-        left: 20px; 
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 70% 30%,
+            rgba(36, 123, 150, 0.1) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 25% 80%,
+            rgba(61, 151, 138, 0.07) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
       }
-    }
-  </style>
-</body>
+
+      /* ── Animated SVG curves ── */
+      .hero-svg-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .hero-svg-bg svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+      }
+
+      .curve-1 {
+        animation: drift1 8s ease-in-out infinite alternate;
+        transform-origin: 50% 50%;
+      }
+      .curve-2 {
+        animation: drift2 10s ease-in-out infinite alternate;
+        transform-origin: 50% 50%;
+      }
+      .curve-3 {
+        animation: drift3 12s ease-in-out infinite alternate;
+        transform-origin: 50% 50%;
+      }
+      .curve-4 {
+        animation: drift1 9s ease-in-out infinite alternate-reverse;
+        transform-origin: 50% 50%;
+      }
+      .curve-5 {
+        animation: drift2 11s ease-in-out infinite alternate-reverse;
+        transform-origin: 50% 50%;
+      }
+
+      @keyframes drift1 {
+        from {
+          transform: translateY(-28px) translateX(0px) scaleY(1);
+        }
+        to {
+          transform: translateY(28px) translateX(8px) scaleY(1.04);
+        }
+      }
+
+      @keyframes drift2 {
+        from {
+          transform: translateY(20px) translateX(-6px) scaleY(0.97);
+        }
+        to {
+          transform: translateY(-32px) translateX(10px) scaleY(1.04);
+        }
+      }
+
+      @keyframes drift3 {
+        from {
+          transform: translateY(-16px) translateX(4px) scaleY(1.02);
+        }
+        to {
+          transform: translateY(36px) translateX(-8px) scaleY(0.96);
+        }
+      }
+
+      .hero-left {
+        position: relative;
+        z-index: 2;
+        max-width: 1000px;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: rgba(36, 123, 150, 0.08);
+        padding: 6px 14px;
+        border-radius: 100px;
+        margin-bottom: 28px;
+      }
+
+      .hero-eyebrow span {
+        background: linear-gradient(90deg, #2060d8 0%, #38c6f4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero h1 {
+        font-size: clamp(52px, 7vw, 96px);
+        font-weight: 100;
+        line-height: 1.04;
+        color: var(--black);
+        margin-bottom: 24px;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
+      }
+
+      .hero h1 .accent {
+        background: linear-gradient(90deg, #2060d8 0%, #38c6f4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 16px;
+        color: var(--gray-mid);
+        line-height: 1.75;
+        max-width: 720px;
+        margin-bottom: 40px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .scroll-hint {
+        position: absolute;
+        bottom: 36px;
+        left: 48px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--gray-light);
+        z-index: 2;
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 72px 24px 96px;
+          min-height: auto;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero {
+          padding: 56px 20px 80px;
+        }
+
+        .scroll-hint {
+          left: 20px;
+        }
+      }
+    </style>
+  </body>
 </html>

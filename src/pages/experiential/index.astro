@@ -1,1004 +1,1240 @@
 ---
-import Header from '../../components/Header.jsx';
-import Footer from '../../components/Footer.jsx';
-import '../../global.css';
+import Header from "../../components/Header.jsx";
+import Footer from "../../components/Footer.jsx";
+import "../../global.css";
 
 // Page metadata
-const title = 'Experiential Branding & Marketing — ENTEVATE';
-const description = 'We help you spark connection and drive action through intentional, emotionally engaging brand moments. With tools like Momentify, every interaction becomes measurable, memorable, and built to scale.';
+const title = "Experiential Branding & Marketing — ENTEVATE";
+const description =
+  "We help you spark connection and drive action through intentional, emotionally engaging brand moments. With tools like Momentify, every interaction becomes measurable, memorable, and built to scale.";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <Header client:load />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header client:load />
 
-  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <div class="fade-up">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          Experiential Branding & Marketing
-        </div>
-        <h1>Crafting Immersive Brand Experiences <span class="accent">That Resonate.</span></h1>
-        <p class="hero-sub">We help you spark connection and drive action through intentional, emotionally engaging brand moments. With tools like Momentify, every interaction becomes measurable, memorable, and built to scale.</p>
-        <div class="hero-actions">
-          <a href="/contact?service=experiential" class="btn-teal">Start a Conversation →</a>
-          <a href="#offerings" class="btn-ghost-dark">Explore Our Services ↓</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ OFFERINGS ═══════════════════════════ -->
-  <section class="offerings-section" id="offerings">
-    <div class="container">
-      <div class="fade-up">
-        <div class="section-label">What We Create</div>
-        <h2 class="section-title">Experiences that move people.</h2>
-        <p class="section-subtitle">From live events to immersive AR/VR activations, we design brand moments that are human-first, strategically sound, and built to perform.</p>
-      </div>
-
-      <div class="offerings-grid">
-
-        <div class="offering-card oc-teal fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="fade-up">
+          <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot"></span>
+            Experiential Branding & Marketing
           </div>
-          <h3>Live Events & Brand Activations</h3>
-          <em>Where your brand becomes an experience.</em>
-          <p>From trade show booths to full-scale corporate events, we design and produce immersive, on-brand experiences that create lasting impressions. Every activation is rooted in strategy, executed with precision, and measured for impact.</p>
-          <a href="/contact?service=experiential" class="offering-cta">Activate Your Brand →</a>
-        </div>
-
-        <div class="offering-card oc-teal-mid fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
-            </svg>
+          <h1>
+            Crafting Immersive Brand Experiences <span class="accent"
+              >That Resonate.</span>
+          </h1>
+          <p class="hero-sub">
+            We help you spark connection and drive action through intentional,
+            emotionally engaging brand moments. With tools like Momentify, every
+            interaction becomes measurable, memorable, and built to scale.
+          </p>
+          <div class="hero-actions">
+            <a href="/contact?service=experiential" class="btn-teal"
+              >Start a Conversation →</a
+            >
+            <a href="#offerings" class="btn-ghost-dark"
+              >Explore Our Services ↓</a
+            >
           </div>
-          <h3>AR, VR & Spatial Computing</h3>
-          <em>Redefining what brand engagement can be.</em>
-          <p>We design and build augmented reality, virtual reality, and spatial computing experiences that place your audience inside your story. Powered by cutting-edge technology and grounded in measurable outcomes that go beyond the hype.</p>
-          <a href="/contact?service=experiential" class="offering-cta">Explore Immersive Tech →</a>
-        </div>
-
-        <div class="offering-card oc-blue fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
-              <path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Content Production & Storytelling</h3>
-          <em>Stories that earn attention and drive action.</em>
-          <p>From concept to final cut, we produce video, photography, and multimedia content that brings your brand narrative to life. Our storytelling framework ensures every piece of content serves a strategic purpose — across every channel.</p>
-          <a href="/contact?service=experiential" class="offering-cta">Tell Your Story →</a>
-        </div>
-
-        <div class="offering-card oc-green fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Trade Show & Exhibition Design</h3>
-          <em>Stand out on the floor that matters most.</em>
-          <p>We design trade show exhibits and exhibition environments that attract, engage, and convert. From concept and floorplan to fabrication management and on-site execution, we deliver complete booth experiences for Fortune 500 brands and emerging challengers alike.</p>
-          <a href="/contact?service=experiential" class="offering-cta">Design Your Exhibit →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ MOMENTIFY SPOTLIGHT ═══════════════════════════ -->
-  <section class="momentify-section" id="momentify">
-    <div class="momentify-inner">
-
-      <div class="momentify-left fade-up">
-        <span class="momentify-eyebrow">Featured Tool</span>
-        <h2>Momentify: Making Every Brand Moment Measurable</h2>
-        <p>Momentify is ENTEVATE's proprietary platform for capturing, measuring, and amplifying brand experiences. Whether you're running a live activation, an AR experience, or a multi-day event — Momentify gives you real-time data on engagement, sentiment, and impact so you can prove ROI and continuously improve.</p>
-        <a href="https://www.momentifyapp.com/" target="_blank" class="btn-teal-solid">Explore Momentify ↗</a>
-      </div>
-
-      <div class="momentify-stats fade-up">
-        <div class="m-stat">
-          <div class="m-stat-val">Real-Time</div>
-          <div class="m-stat-label">Engagement tracking at live events</div>
-        </div>
-        <div class="m-stat">
-          <div class="m-stat-val">Scalable</div>
-          <div class="m-stat-label">From 50-person activations to global campaigns</div>
-        </div>
-        <div class="m-stat">
-          <div class="m-stat-val">Measurable</div>
-          <div class="m-stat-label">ROI reporting built into every experience</div>
-        </div>
-        <div class="m-stat">
-          <div class="m-stat-val">Human-First</div>
-          <div class="m-stat-label">Data that reflects real emotional connections</div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ═══════════════════════════ OFFERINGS ═══════════════════════════ -->
+    <section class="offerings-section" id="offerings">
+      <div class="container">
+        <div class="fade-up">
+          <div class="section-label">What We Create</div>
+          <h2 class="section-title">Experiences that move people.</h2>
+          <p class="section-subtitle">
+            From live events to immersive AR/VR activations, we design brand
+            moments that are human-first, strategically sound, and built to
+            perform.
+          </p>
+        </div>
 
-  <!-- ═══════════════════════════ WHY ENTEVATE ═══════════════════════════ -->
-  <section class="why-section" id="why">
-    <div class="container">
-      <div class="why-header fade-up">
-        <div class="section-label">Why ENTEVATE</div>
-        <h2 class="section-title">Built for the Brave.</h2>
-      </div>
-
-      <div class="proof-grid">
-
-        <div class="proof-point fade-up">
-          <div class="proof-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L3 7v8l9 5 9-5V7L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-            </svg>
+        <div class="offerings-grid">
+          <div class="offering-card oc-teal fade-up">
+            <div class="offering-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <circle
+                  cx="9"
+                  cy="7"
+                  r="4"
+                  stroke="currentColor"
+                  stroke-width="1.6"></circle>
+                <path
+                  d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3>Live Events & Brand Activations</h3>
+            <em>Where your brand becomes an experience.</em>
+            <p>
+              From trade show booths to full-scale corporate events, we design
+              and produce immersive, on-brand experiences that create lasting
+              impressions. Every activation is rooted in strategy, executed with
+              precision, and measured for impact.
+            </p>
+            <a href="/contact?service=experiential" class="offering-cta"
+              >Activate Your Brand →</a
+            >
           </div>
-          <div class="proof-stat">Fortune 500 Proven</div>
-          <div class="proof-desc">Deep experience delivering enterprise-grade brand activations for Caterpillar, Boeing, Oracle, and more.</div>
-        </div>
 
-        <div class="proof-point fade-up">
-          <div class="proof-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z" stroke="currentColor" stroke-width="1.6"/>
-              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
-            </svg>
+          <div class="offering-card oc-teal-mid fade-up">
+            <div class="offering-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.6"></circle>
+              </svg>
+            </div>
+            <h3>AR, VR & Spatial Computing</h3>
+            <em>Redefining what brand engagement can be.</em>
+            <p>
+              We design and build augmented reality, virtual reality, and
+              spatial computing experiences that place your audience inside your
+              story. Powered by cutting-edge technology and grounded in
+              measurable outcomes that go beyond the hype.
+            </p>
+            <a href="/contact?service=experiential" class="offering-cta"
+              >Explore Immersive Tech →</a
+            >
           </div>
-          <div class="proof-stat">Immersive by Design</div>
-          <div class="proof-desc">We don't just execute events — we engineer experiences that shift perception, deepen loyalty, and drive action.</div>
-        </div>
 
-        <div class="proof-point fade-up">
-          <div class="proof-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-              <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+          <div class="offering-card oc-blue fade-up">
+            <div class="offering-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"></rect>
+                <path
+                  d="M3 9h18M9 21V9"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <h3>Content Production & Storytelling</h3>
+            <em>Stories that earn attention and drive action.</em>
+            <p>
+              From concept to final cut, we produce video, photography, and
+              multimedia content that brings your brand narrative to life. Our
+              storytelling framework ensures every piece of content serves a
+              strategic purpose — across every channel.
+            </p>
+            <a href="/contact?service=experiential" class="offering-cta"
+              >Tell Your Story →</a
+            >
           </div>
-          <div class="proof-stat">Measurable Impact</div>
-          <div class="proof-desc">Momentify gives you real data on every touchpoint — so your brand investment becomes a strategic decision, not a gut feel.</div>
-        </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ CASE STUDIES ═══════════════════════════ -->
-  <section class="cases-section" id="case-studies">
-    <div class="container">
-      <div class="fade-up">
-        <div class="section-label">In the Field</div>
-        <h2 class="section-title">Experience at work.</h2>
-        <p class="section-subtitle">Real engagements where immersive brand strategy moved audiences and delivered measurable outcomes.</p>
-      </div>
-
-      <div class="cases-grid">
-
-        <div class="case-card cc-teal fade-up">
-          <div class="case-img"><img src="/images/bt1.png" alt="Brand Activation Case Study" /></div>
-          <div class="case-tag">Enterprise · Brand Activation</div>
-          <h3>Fortune 500<br>Trade Show Transformation</h3>
-          <p>A leading industrial enterprise partnered with ENTEVATE to reimagine their annual trade show presence. We designed an immersive, multi-zone exhibit integrating AR product demos, live storytelling stations, and real-time audience engagement tracking via Momentify — transforming a static booth into a destination experience.</p>
-          <div class="case-outcomes">
-            <div class="case-outcome">AR Product Demos Deployed</div>
-            <div class="case-outcome">Momentify Engagement Tracking</div>
-            <div class="case-outcome">3× Dwell Time Increase</div>
-            <div class="case-outcome">Multi-Zone Exhibit Design</div>
+          <div class="offering-card oc-green fade-up">
+            <div class="offering-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L2 7l10 5 10-5-10-5z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M2 17l10 5 10-5M2 12l10 5 10-5"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <h3>Trade Show & Exhibition Design</h3>
+            <em>Stand out on the floor that matters most.</em>
+            <p>
+              We design trade show exhibits and exhibition environments that
+              attract, engage, and convert. From concept and floorplan to
+              fabrication management and on-site execution, we deliver complete
+              booth experiences for Fortune 500 brands and emerging challengers
+              alike.
+            </p>
+            <a href="/contact?service=experiential" class="offering-cta"
+              >Design Your Exhibit →</a
+            >
           </div>
-          <a href="/experiential/fortune-500-trade-show" class="case-cta">Learn More →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ MOMENTIFY SPOTLIGHT ═══════════════════════════ -->
+    <section class="momentify-section" id="momentify">
+      <div class="momentify-inner">
+        <div class="momentify-left fade-up">
+          <span class="momentify-eyebrow">Featured Tool</span>
+          <h2>Momentify: Making Every Brand Moment Measurable</h2>
+          <p>
+            Momentify is ENTEVATE's proprietary platform for capturing,
+            measuring, and amplifying brand experiences. Whether you're running
+            a live activation, an AR experience, or a multi-day event —
+            Momentify gives you real-time data on engagement, sentiment, and
+            impact so you can prove ROI and continuously improve.
+          </p>
+          <a
+            href="https://www.momentifyapp.com/"
+            target="_blank"
+            class="btn-teal-solid">Explore Momentify ↗</a
+          >
         </div>
 
-        <div class="case-card cc-blue fade-up">
-          <div class="case-img"><img src="/images/bt2.png" alt="Spatial Computing Case Study" /></div>
-          <div class="case-tag">Technology · Spatial Computing</div>
-          <h3>Spatial Computing<br>Remote Assistance Platform</h3>
-          <p>An enterprise technology client engaged ENTEVATE to develop an AR-powered remote assistance experience for field technicians. We designed the end-to-end spatial computing workflow — from UX architecture to deployment — enabling real-time expert guidance that reduced resolution times and elevated field team confidence.</p>
-          <div class="case-outcomes">
-            <div class="case-outcome">AR Remote Assistance Built</div>
-            <div class="case-outcome">Field UX Architecture</div>
-            <div class="case-outcome">Reduced Resolution Time</div>
-            <div class="case-outcome">Cross-Platform Deployment</div>
+        <div class="momentify-stats fade-up">
+          <div class="m-stat">
+            <div class="m-stat-val">Real-Time</div>
+            <div class="m-stat-label">Engagement tracking at live events</div>
           </div>
-          <a href="/transformation/remote-assistance" class="case-cta">Learn More →</a>
+          <div class="m-stat">
+            <div class="m-stat-val">Scalable</div>
+            <div class="m-stat-label">
+              From 50-person activations to global campaigns
+            </div>
+          </div>
+          <div class="m-stat">
+            <div class="m-stat-val">Measurable</div>
+            <div class="m-stat-label">
+              ROI reporting built into every experience
+            </div>
+          </div>
+          <div class="m-stat">
+            <div class="m-stat-val">Human-First</div>
+            <div class="m-stat-label">
+              Data that reflects real emotional connections
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ WHY ENTEVATE ═══════════════════════════ -->
+    <section class="why-section" id="why">
+      <div class="container">
+        <div class="why-header fade-up">
+          <div class="section-label">Why ENTEVATE</div>
+          <h2 class="section-title">Built for the Brave.</h2>
         </div>
 
-      </div>
-    </div>
-  </section>
+        <div class="proof-grid">
+          <div class="proof-point fade-up">
+            <div class="proof-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L3 7v8l9 5 9-5V7L12 2z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="proof-stat">Fortune 500 Proven</div>
+            <div class="proof-desc">
+              Deep experience delivering enterprise-grade brand activations for
+              Caterpillar, Boeing, Oracle, and more.
+            </div>
+          </div>
 
-  <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
-  <section class="cta-band" id="contact">
-    <div class="container">
-      <div class="fade-up">
-        <h2>Ready to Create Something Unforgettable?</h2>
-        <p>Let's design a brand experience that connects, converts, and lasts. Tell us about your next activation.</p>
-        <div class="cta-band-actions">
-          <a href="/contact?service=experiential" class="btn-white-solid">Schedule a Discovery Call</a>
-          <a href="https://www.momentifyapp.com/" target="_blank" class="btn-white-ghost">Explore Momentify ↗</a>
+          <div class="proof-point fade-up">
+            <div class="proof-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"
+                  stroke="currentColor"
+                  stroke-width="1.6"></path>
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.6"></circle>
+              </svg>
+            </div>
+            <div class="proof-stat">Immersive by Design</div>
+            <div class="proof-desc">
+              We don't just execute events — we engineer experiences that shift
+              perception, deepen loyalty, and drive action.
+            </div>
+          </div>
+
+          <div class="proof-point fade-up">
+            <div class="proof-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M18 20V10M12 20V4M6 20v-6"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="proof-stat">Measurable Impact</div>
+            <div class="proof-desc">
+              Momentify gives you real data on every touchpoint — so your brand
+              investment becomes a strategic decision, not a gut feel.
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <Footer client:load />
+    <!-- ═══════════════════════════ CASE STUDIES ═══════════════════════════ -->
+    <section class="cases-section" id="case-studies">
+      <div class="container">
+        <div class="fade-up">
+          <div class="section-label">In the Field</div>
+          <h2 class="section-title">Experience at work.</h2>
+          <p class="section-subtitle">
+            Real engagements where immersive brand strategy moved audiences and
+            delivered measurable outcomes.
+          </p>
+        </div>
 
-  <script>
-    // Fade-up scroll animations
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.10 });
-    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-    document.querySelectorAll('.offerings-grid .fade-up, .proof-grid .fade-up, .momentify-stats .m-stat').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.09}s`;
-    });
+        <div class="cases-grid">
+          <div class="case-card cc-teal fade-up">
+            <div class="case-img">
+              <img src="/images/bt1.png" alt="Brand Activation Case Study" />
+            </div>
+            <div class="case-tag">Enterprise · Brand Activation</div>
+            <h3>Fortune 500<br />Trade Show Transformation</h3>
+            <p>
+              A leading industrial enterprise partnered with ENTEVATE to
+              reimagine their annual trade show presence. We designed an
+              immersive, multi-zone exhibit integrating AR product demos, live
+              storytelling stations, and real-time audience engagement tracking
+              via Momentify — transforming a static booth into a destination
+              experience.
+            </p>
+            <div class="case-outcomes">
+              <div class="case-outcome">AR Product Demos Deployed</div>
+              <div class="case-outcome">Momentify Engagement Tracking</div>
+              <div class="case-outcome">3× Dwell Time Increase</div>
+              <div class="case-outcome">Multi-Zone Exhibit Design</div>
+            </div>
+            <a href="/experiential/fortune-500-trade-show" class="case-cta"
+              >Learn More →</a
+            >
+          </div>
 
-    // Newsletter form submission to HubSpot
-    (function () {
-      var forms = document.querySelectorAll('#newsletterForm');
-      forms.forEach(function (form) {
-        form.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var btn = form.querySelector('button');
-          var msg = form.querySelector('.newsletter-msg');
-          var nameInput = form.querySelector('input[name="firstname"]');
-          var emailInput = form.querySelector('input[name="email"]');
-          var honeypot = form.querySelector('input[name="website_url"]');
-          if (honeypot && honeypot.value) { form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>'; return; }
-          if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
-          btn.disabled = true;
-          btn.textContent = 'Sending…';
-          var payload = {
-            fields: [
-              { name: 'firstname', value: nameInput.value },
-              { name: 'email', value: emailInput.value }
-            ],
-            context: { pageUri: window.location.href, pageName: document.title }
-          };
-          fetch('https://api.hsforms.com/submissions/v3/integration/submit/44191993/45cdf0bb-1463-4bd9-acce-11775f0ad863', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          }).then(function (r) {
-            if (r.ok) {
-              form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
-            } else {
-              btn.disabled = false; btn.textContent = 'Subscribe →';
-              msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+          <div class="case-card cc-blue fade-up">
+            <div class="case-img">
+              <img src="/images/bt2.png" alt="Spatial Computing Case Study" />
+            </div>
+            <div class="case-tag">Technology · Spatial Computing</div>
+            <h3>Spatial Computing<br />Remote Assistance Platform</h3>
+            <p>
+              An enterprise technology client engaged ENTEVATE to develop an
+              AR-powered remote assistance experience for field technicians. We
+              designed the end-to-end spatial computing workflow — from UX
+              architecture to deployment — enabling real-time expert guidance
+              that reduced resolution times and elevated field team confidence.
+            </p>
+            <div class="case-outcomes">
+              <div class="case-outcome">AR Remote Assistance Built</div>
+              <div class="case-outcome">Field UX Architecture</div>
+              <div class="case-outcome">Reduced Resolution Time</div>
+              <div class="case-outcome">Cross-Platform Deployment</div>
+            </div>
+            <a href="/transformation/remote-assistance" class="case-cta"
+              >Learn More →</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+    <section class="cta-band" id="contact">
+      <div class="container">
+        <div class="fade-up">
+          <h2>Ready to Create Something Unforgettable?</h2>
+          <p>
+            Let's design a brand experience that connects, converts, and lasts.
+            Tell us about your next activation.
+          </p>
+          <div class="cta-band-actions">
+            <a href="/contact?service=experiential" class="btn-white-solid"
+              >Schedule a Discovery Call</a
+            >
+            <a
+              href="https://www.momentifyapp.com/"
+              target="_blank"
+              class="btn-white-ghost">Explore Momentify ↗</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer client:load />
+
+    <script src="../../global.js"></script>
+    <script>
+      document
+        .querySelectorAll(
+          ".offerings-grid .fade-up, .proof-grid .fade-up, .momentify-stats .m-stat",
+        )
+        .forEach((el, i) => {
+          el.style.transitionDelay = `${i * 0.09}s`;
+        });
+
+      // Newsletter form submission to HubSpot
+      (function () {
+        var forms = document.querySelectorAll("#newsletterForm");
+        forms.forEach(function (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var btn = form.querySelector("button");
+            var msg = form.querySelector(".newsletter-msg");
+            var nameInput = form.querySelector('input[name="firstname"]');
+            var emailInput = form.querySelector('input[name="email"]');
+            var honeypot = form.querySelector('input[name="website_url"]');
+            if (honeypot && honeypot.value) {
+              form.innerHTML =
+                '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
+              return;
             }
-          }).catch(function () {
-            btn.disabled = false; btn.textContent = 'Subscribe →';
-            msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+            if (!emailInput.value.trim()) {
+              emailInput.style.borderColor = "#CB632F";
+              return;
+            }
+            btn.disabled = true;
+            btn.textContent = "Sending…";
+            var payload = {
+              fields: [
+                { name: "firstname", value: nameInput.value },
+                { name: "email", value: emailInput.value },
+              ],
+              context: {
+                pageUri: window.location.href,
+                pageName: document.title,
+              },
+            };
+            fetch(
+              "https://api.hsforms.com/submissions/v3/integration/submit/44191993/45cdf0bb-1463-4bd9-acce-11775f0ad863",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+              },
+            )
+              .then(function (r) {
+                if (r.ok) {
+                  form.innerHTML =
+                    '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
+                } else {
+                  btn.disabled = false;
+                  btn.textContent = "Subscribe →";
+                  msg.style.display = "block";
+                  msg.textContent = "Something went wrong. Try again.";
+                }
+              })
+              .catch(function () {
+                btn.disabled = false;
+                btn.textContent = "Subscribe →";
+                msg.style.display = "block";
+                msg.textContent = "Something went wrong. Try again.";
+              });
           });
         });
-      });
-    })();
-  </script>
-
-  <style>
-    /* ── Nav color tweaks for Experiential page ── */
-    nav .nav-center a:hover {
-      color: var(--teal);
-    }
-
-    nav .dropdown a:hover {
-      background: var(--light-blue);
-      color: var(--teal);
-    }
-
-    nav .dropdown a.active {
-      background: var(--light-blue);
-      color: var(--teal);
-      font-weight: 600;
-    }
-
-    /* ── Hero (Experiential) ── */
-    .hero {
-      background:
-        linear-gradient(135deg, rgba(5,35,28,0.55) 0%, rgba(12,62,48,0.45) 50%, rgba(22,82,65,0.38) 100%),
-        url('/images/bt1.png') center/cover no-repeat;
-      position: relative;
-      overflow: hidden;
-      padding: 96px 48px 120px;
-      min-height: 82vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 1160px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: rgba(43,191,168,0.14);
-      border: 1px solid rgba(43,191,168,0.38);
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-      color: rgba(255,255,255,0.90);
-    }
-
-    .hero-eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ADFFF2, #DDFFF8);
-      flex-shrink: 0;
-    }
-
-    .hero h1 {
-      font-size: clamp(50px, 7vw, 92px);
-      font-weight: 100;
-      line-height: 1.04;
-      color: var(--white);
-      margin-bottom: 24px;
-      letter-spacing: -0.03em;
-      text-wrap: balance;
-      max-width: 880px;
-    }
-
-    .hero h1 .accent {
-      background: linear-gradient(90deg, #ADFFF2 0%, #DDFFF8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: 17px;
-      color: rgba(255,255,255,0.68);
-      line-height: 1.75;
-      max-width: 680px;
-      margin-bottom: 42px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn-teal {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 13px 30px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #2BBFA8 0%, #6DD4A0 100%);
-      color: var(--white);
-      transition: all var(--tr);
-      display: inline-block;
-    }
-
-    .btn-teal:hover {
-      opacity: 0.88;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(43,191,168,0.45);
-    }
-
-    .btn-ghost-dark {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 500;
-      background: none;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      padding: 12px 26px;
-      border-radius: var(--radius);
-      cursor: pointer;
-      color: rgba(255,255,255,0.85);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all var(--tr);
-    }
-
-    .btn-ghost-dark:hover {
-      border-color: rgba(255,255,255,0.80);
-      color: var(--white);
-      background: rgba(255,255,255,0.08);
-    }
-
-    /* ── Offerings ── */
-    .offerings-section {
-      background: var(--light-blue);
-      padding: 80px 48px;
-    }
-
-    .offerings-section .section-label,
-    .why-section .section-label,
-    .cases-section .section-label {
-      color: var(--teal);
-      background: none;
-      -webkit-background-clip: initial;
-      -webkit-text-fill-color: inherit;
-      background-clip: initial;
-    }
-
-    .offerings-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-      margin-top: 52px;
-    }
-
-    .offering-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow var(--tr), transform var(--tr);
-    }
-
-    .offering-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
-
-    .oc-teal::before     { background: linear-gradient(90deg, #2BBFA8, #6DD4A0); }
-    .oc-teal-mid::before { background: linear-gradient(90deg, #3D978A, #2BBFA8); }
-    .oc-blue::before     { background: linear-gradient(90deg, #247B96, #3FAFC8); }
-    .oc-green::before    { background: linear-gradient(90deg, #3D978A, #6DD4A0); }
-
-    .offering-card:hover {
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-      transform: translateY(-3px);
-    }
-
-    .offering-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .oc-teal .offering-icon     { background: rgba(43,191,168,0.10); color: var(--teal); }
-    .oc-teal-mid .offering-icon { background: rgba(61,151,138,0.10); color: var(--green); }
-    .oc-blue .offering-icon     { background: rgba(36,123,150,0.10); color: var(--blue); }
-    .oc-green .offering-icon    { background: rgba(43,191,168,0.10); color: var(--teal); }
-
-    .offering-card h3 {
-      font-size: 17px;
-      font-weight: 300;
-      color: var(--black);
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    .offering-card em {
-      display: block;
-      font-style: italic;
-      font-size: 13px;
-      color: var(--gray-light);
-      margin-bottom: 14px;
-    }
-
-    .offering-card p {
-      font-size: 13.5px;
-      color: var(--gray-mid);
-      line-height: 1.7;
-      flex: 1;
-      margin-bottom: 22px;
-    }
-
-    .offering-cta {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: auto;
-      transition: gap var(--tr);
-      color: var(--teal);
-    }
-
-    .offering-cta:hover {
-      gap: 10px;
-    }
-
-    /* ── Momentify Spotlight ── */
-    .momentify-section {
-      background:
-        linear-gradient(135deg, rgba(5,35,28,0.55) 0%, rgba(12,62,48,0.45) 50%, rgba(22,82,65,0.38) 100%),
-        url('/images/bt1.png') center/cover no-repeat;
-      color: var(--white);
-      padding: 80px 48px;
-    }
-
-    .momentify-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .momentify-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--teal-light);
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    .momentify-left h2 {
-      font-size: clamp(26px, 3.5vw, 40px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 18px;
-    }
-
-    .momentify-left p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.60);
-      line-height: 1.80;
-      margin-bottom: 32px;
-      max-width: 460px;
-    }
-
-    .btn-teal-solid {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 13px 30px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      background: var(--teal);
-      color: var(--white);
-      transition: all var(--tr);
-      display: inline-block;
-    }
-
-    .btn-teal-solid:hover {
-      background: var(--green);
-      transform: translateY(-1px);
-    }
-
-    .momentify-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .m-stat {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius);
-      padding: 24px 20px;
-      text-align:	center;
-    }
-
-    .m-stat-val {
-      font-size: 32px;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
-      background: linear-gradient(90deg, #ADFFF2 0%, #DDFFF8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .m-stat-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.50);
-      line-height: 1.5;
-    }
-
-    /* ── Why Section ── */
-    .why-section {
-      background: var(--light-blue);
-      padding: 80px 48px;
-    }
-
-    .why-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .why-header .section-label {
-      display: block;
-      text-align: center;
-      color: var(--teal);
-    }
-
-    .why-header h2 {
-      font-size: clamp(28px, 4vw, 46px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-    }
-
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1160px;
-      margin: 0 auto;
-    }
-
-    .proof-point {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px 28px 36px;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      transition: box-shadow var(--tr), transform var(--tr);
-    }
-
-    .proof-point:hover {
-      box-shadow: 0 8px 28px rgba(0,0,0,0.07);
-      transform: translateY(-3px);
-    }
-
-    .proof-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: rgba(43,191,168,0.09);
-      color: var(--teal);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .proof-stat {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-    }
-
-    .proof-desc {
-      font-size: 14px;
-      color: var(--gray-mid);
-      line-height: 1.65;
-    }
-
-    /* ── Case Studies ── */
-    .cases-section {
-      background: var(--white);
-      padding: 80px 48px;
-    }
-
-    .cases-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      margin-top: 52px;
-    }
-
-    .case-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px 32px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow var(--tr), transform var(--tr);
-    }
-
-    .case-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
-
-    .cc-teal::before { background: linear-gradient(90deg, #2BBFA8, #6DD4A0); }
-    .cc-blue::before { background: linear-gradient(90deg, var(--blue), var(--green)); }
-
-    .case-card:hover {
-      box-shadow: 0 16px 56px rgba(0,0,0,0.12);
-      transform: translateY(-3px);
-    }
-
-    .case-img {
-      margin: -36px -32px 28px -32px;
-      height: 210px;
-      overflow: hidden;
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
-
-    .case-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .case-card:hover .case-img img {
-      transform: scale(1.04);
-    }
-
-    .case-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-light);
-      margin-bottom: 18px;
-    }
-
-    .case-tag::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--border);
-      flex-shrink: 0;
-    }
-
-    .cc-teal .case-tag::before { background: var(--teal); }
-    .cc-blue .case-tag::before { background: var(--blue); }
-
-    .case-card h3 {
-      font-size: 22px;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      color: var(--black);
-      margin-bottom: 14px;
-      line-height: 1.25;
-    }
-
-    .case-card p {
-      font-size: 14px;
-      color: var(--gray-mid);
-      line-height: 1.75;
-      margin-bottom: 26px;
-      flex: 1;
-    }
-
-    .case-outcomes {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .case-outcome {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      padding: 5px 12px;
-      border-radius: 100px;
-      border: 1px solid var(--border);
-      color: var(--gray-mid);
-      background: var(--light-blue);
-    }
-
-    .case-cta {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: auto;
-      transition: gap var(--tr);
-    }
-
-    .cc-teal .case-cta { color: var(--teal); }
-    .cc-blue .case-cta { color: var(--blue); }
-
-    .case-cta:hover {
-      gap: 10px;
-    }
-
-    /* ── CTA Band (Experiential) ── */
-    .cta-band {
-      background: linear-gradient(135deg, #1A3D33 0%, #2BBFA8 100%);
-      color: var(--white);
-      padding: 80px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-band::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 25% 40%, rgba(255,255,255,0.07) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 45%);
-      pointer-events: none;
-    }
-
-    .cta-band .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-band h2 {
-      font-size: clamp(28px, 4.5vw, 52px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .cta-band p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.68);
-      max-width: 520px;
-      margin: 0 auto 38px;
-      line-height: 1.72;
-    }
-
-    .cta-band-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-white-solid {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 13px 30px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      background: var(--white);
-      color: var(--teal);
-      transition: all var(--tr);
-      display: inline-block;
-    }
-
-    .btn-white-solid:hover {
-      background: var(--light-blue);
-      transform: translateY(-1px);
-    }
-
-    .btn-white-ghost {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 12px 30px;
-      border-radius: var(--radius);
-      border: 1.5px solid rgba(255,255,255,0.45);
-      cursor: pointer;
-      color: var(--white);
-      background: transparent;
-      transition: all var(--tr);
-      display: inline-block;
-    }
-
-    .btn-white-ghost:hover {
-      border-color: rgba(255,255,255,0.90);
-      background: rgba(255,255,255,0.10);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 960px) {
+      })();
+    </script>
+
+    <style>
+      /* ── Nav color tweaks for Experiential page ── */
+      nav .nav-center a:hover {
+        color: var(--teal);
+      }
+
+      nav .dropdown a:hover {
+        background: var(--light-blue);
+        color: var(--teal);
+      }
+
+      nav .dropdown a.active {
+        background: var(--light-blue);
+        color: var(--teal);
+        font-weight: 600;
+      }
+
+      /* ── Hero (Experiential) ── */
       .hero {
-        padding: 72px 24px 88px;
-        min-height: auto;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(5, 35, 28, 0.55) 0%,
+            rgba(12, 62, 48, 0.45) 50%,
+            rgba(22, 82, 65, 0.38) 100%
+          ),
+          url("/images/bt1.png") center/cover no-repeat;
+        position: relative;
+        overflow: hidden;
+        padding: 96px 48px 120px;
+        min-height: 82vh;
+        display: flex;
+        align-items: center;
       }
 
-      .offerings-section,
-      .momentify-section,
-      .why-section,
-      .cases-section,
-      .cta-band {
-        padding: 64px 24px;
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 1160px;
+        margin: 0 auto;
+        width: 100%;
       }
 
-      .momentify-inner {
-        grid-template-columns: 1fr;
-        gap: 48px;
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: rgba(43, 191, 168, 0.14);
+        border: 1px solid rgba(43, 191, 168, 0.38);
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 28px;
+        color: rgba(255, 255, 255, 0.9);
       }
 
-      .cases-grid {
-        grid-template-columns: 1fr;
+      .hero-eyebrow-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #adfff2, #ddfff8);
+        flex-shrink: 0;
       }
-    }
 
-    @media (max-width: 768px) {
-      .hero {
-        padding: 60px 20px 72px;
+      .hero h1 {
+        font-size: clamp(50px, 7vw, 92px);
+        font-weight: 100;
+        line-height: 1.04;
+        color: var(--white);
+        margin-bottom: 24px;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
+        max-width: 880px;
+      }
+
+      .hero h1 .accent {
+        background: linear-gradient(90deg, #adfff2 0%, #ddfff8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-sub {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.68);
+        line-height: 1.75;
+        max-width: 680px;
+        margin-bottom: 42px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .btn-teal {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 13px 30px;
+        border-radius: var(--radius);
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(135deg, #2bbfa8 0%, #6dd4a0 100%);
+        color: var(--white);
+        transition: all var(--tr);
+        display: inline-block;
+      }
+
+      .btn-teal:hover {
+        opacity: 0.88;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(43, 191, 168, 0.45);
+      }
+
+      .btn-ghost-dark {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 500;
+        background: none;
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        padding: 12px 26px;
+        border-radius: var(--radius);
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.85);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all var(--tr);
+      }
+
+      .btn-ghost-dark:hover {
+        border-color: rgba(255, 255, 255, 0.8);
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* ── Offerings ── */
+      .offerings-section {
+        background: var(--light-blue);
+        padding: 80px 48px;
+      }
+
+      .offerings-section .section-label,
+      .why-section .section-label,
+      .cases-section .section-label {
+        color: var(--teal);
+        background: none;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: inherit;
+        background-clip: initial;
       }
 
       .offerings-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+        margin-top: 52px;
       }
 
-      .proof-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+      .offering-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px 28px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        transition:
+          box-shadow var(--tr),
+          transform var(--tr);
+      }
+
+      .offering-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+
+      .oc-teal::before {
+        background: linear-gradient(90deg, #2bbfa8, #6dd4a0);
+      }
+      .oc-teal-mid::before {
+        background: linear-gradient(90deg, #3d978a, #2bbfa8);
+      }
+      .oc-blue::before {
+        background: linear-gradient(90deg, #247b96, #3fafc8);
+      }
+      .oc-green::before {
+        background: linear-gradient(90deg, #3d978a, #6dd4a0);
+      }
+
+      .offering-card:hover {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+      }
+
+      .offering-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .oc-teal .offering-icon {
+        background: rgba(43, 191, 168, 0.1);
+        color: var(--teal);
+      }
+      .oc-teal-mid .offering-icon {
+        background: rgba(61, 151, 138, 0.1);
+        color: var(--green);
+      }
+      .oc-blue .offering-icon {
+        background: rgba(36, 123, 150, 0.1);
+        color: var(--blue);
+      }
+      .oc-green .offering-icon {
+        background: rgba(43, 191, 168, 0.1);
+        color: var(--teal);
+      }
+
+      .offering-card h3 {
+        font-size: 17px;
+        font-weight: 300;
+        color: var(--black);
+        margin-bottom: 6px;
+        letter-spacing: -0.01em;
+        line-height: 1.3;
+      }
+
+      .offering-card em {
+        display: block;
+        font-style: italic;
+        font-size: 13px;
+        color: var(--gray-light);
+        margin-bottom: 14px;
+      }
+
+      .offering-card p {
+        font-size: 13.5px;
+        color: var(--gray-mid);
+        line-height: 1.7;
+        flex: 1;
+        margin-bottom: 22px;
+      }
+
+      .offering-cta {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: auto;
+        transition: gap var(--tr);
+        color: var(--teal);
+      }
+
+      .offering-cta:hover {
+        gap: 10px;
+      }
+
+      /* ── Momentify Spotlight ── */
+      .momentify-section {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(5, 35, 28, 0.55) 0%,
+            rgba(12, 62, 48, 0.45) 50%,
+            rgba(22, 82, 65, 0.38) 100%
+          ),
+          url("/images/bt1.png") center/cover no-repeat;
+        color: var(--white);
+        padding: 80px 48px;
+      }
+
+      .momentify-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .momentify-eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--teal-light);
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .momentify-left h2 {
+        font-size: clamp(26px, 3.5vw, 40px);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 18px;
+      }
+
+      .momentify-left p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.8;
+        margin-bottom: 32px;
+        max-width: 460px;
+      }
+
+      .btn-teal-solid {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 13px 30px;
+        border-radius: var(--radius);
+        border: none;
+        cursor: pointer;
+        background: var(--teal);
+        color: var(--white);
+        transition: all var(--tr);
+        display: inline-block;
+      }
+
+      .btn-teal-solid:hover {
+        background: var(--green);
+        transform: translateY(-1px);
       }
 
       .momentify-stats {
+        display: grid;
         grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .cta-band-actions {
-        flex-direction: column;
+        gap: 20px;
       }
 
-      .btn-white-solid,
-      .btn-white-ghost {
-        width: 100%;
+      .m-stat {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius);
+        padding: 24px 20px;
         text-align: center;
       }
 
-      .momentify-stats {
-        grid-template-columns: 1fr;
+      .m-stat-val {
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        margin-bottom: 6px;
+        background: linear-gradient(90deg, #adfff2 0%, #ddfff8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
-    }
-  </style>
-</body>
+
+      .m-stat-label {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.5;
+      }
+
+      /* ── Why Section ── */
+      .why-section {
+        background: var(--light-blue);
+        padding: 80px 48px;
+      }
+
+      .why-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+
+      .why-header .section-label {
+        display: block;
+        text-align: center;
+        color: var(--teal);
+      }
+
+      .why-header h2 {
+        font-size: clamp(28px, 4vw, 46px);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        max-width: 1160px;
+        margin: 0 auto;
+      }
+
+      .proof-point {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 28px 36px;
+        background: var(--white);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        transition:
+          box-shadow var(--tr),
+          transform var(--tr);
+      }
+
+      .proof-point:hover {
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+        transform: translateY(-3px);
+      }
+
+      .proof-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(43, 191, 168, 0.09);
+        color: var(--teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .proof-stat {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--black);
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+
+      .proof-desc {
+        font-size: 14px;
+        color: var(--gray-mid);
+        line-height: 1.65;
+      }
+
+      /* ── Case Studies ── */
+      .cases-section {
+        background: var(--white);
+        padding: 80px 48px;
+      }
+
+      .cases-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+        margin-top: 52px;
+      }
+
+      .case-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        transition:
+          box-shadow var(--tr),
+          transform var(--tr);
+      }
+
+      .case-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+
+      .cc-teal::before {
+        background: linear-gradient(90deg, #2bbfa8, #6dd4a0);
+      }
+      .cc-blue::before {
+        background: linear-gradient(90deg, var(--blue), var(--green));
+      }
+
+      .case-card:hover {
+        box-shadow: 0 16px 56px rgba(0, 0, 0, 0.12);
+        transform: translateY(-3px);
+      }
+
+      .case-img {
+        margin: -36px -32px 28px -32px;
+        height: 210px;
+        overflow: hidden;
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+
+      .case-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .case-card:hover .case-img img {
+        transform: scale(1.04);
+      }
+
+      .case-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gray-light);
+        margin-bottom: 18px;
+      }
+
+      .case-tag::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--border);
+        flex-shrink: 0;
+      }
+
+      .cc-teal .case-tag::before {
+        background: var(--teal);
+      }
+      .cc-blue .case-tag::before {
+        background: var(--blue);
+      }
+
+      .case-card h3 {
+        font-size: 22px;
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        margin-bottom: 14px;
+        line-height: 1.25;
+      }
+
+      .case-card p {
+        font-size: 14px;
+        color: var(--gray-mid);
+        line-height: 1.75;
+        margin-bottom: 26px;
+        flex: 1;
+      }
+
+      .case-outcomes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 28px;
+      }
+
+      .case-outcome {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 5px 12px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        color: var(--gray-mid);
+        background: var(--light-blue);
+      }
+
+      .case-cta {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: auto;
+        transition: gap var(--tr);
+      }
+
+      .cc-teal .case-cta {
+        color: var(--teal);
+      }
+      .cc-blue .case-cta {
+        color: var(--blue);
+      }
+
+      .case-cta:hover {
+        gap: 10px;
+      }
+
+      /* ── CTA Band (Experiential) ── */
+      .cta-band {
+        background: linear-gradient(135deg, #1a3d33 0%, #2bbfa8 100%);
+        color: var(--white);
+        padding: 80px 48px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 25% 40%,
+            rgba(255, 255, 255, 0.07) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 255, 255, 0.05) 0%,
+            transparent 45%
+          );
+        pointer-events: none;
+      }
+
+      .cta-band .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-band h2 {
+        font-size: clamp(28px, 4.5vw, 52px);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .cta-band p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.68);
+        max-width: 520px;
+        margin: 0 auto 38px;
+        line-height: 1.72;
+      }
+
+      .cta-band-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn-white-solid {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 13px 30px;
+        border-radius: var(--radius);
+        border: none;
+        cursor: pointer;
+        background: var(--white);
+        color: var(--teal);
+        transition: all var(--tr);
+        display: inline-block;
+      }
+
+      .btn-white-solid:hover {
+        background: var(--light-blue);
+        transform: translateY(-1px);
+      }
+
+      .btn-white-ghost {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px 30px;
+        border-radius: var(--radius);
+        border: 1.5px solid rgba(255, 255, 255, 0.45);
+        cursor: pointer;
+        color: var(--white);
+        background: transparent;
+        transition: all var(--tr);
+        display: inline-block;
+      }
+
+      .btn-white-ghost:hover {
+        border-color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 960px) {
+        .hero {
+          padding: 72px 24px 88px;
+          min-height: auto;
+        }
+
+        .offerings-section,
+        .momentify-section,
+        .why-section,
+        .cases-section,
+        .cta-band {
+          padding: 64px 24px;
+        }
+
+        .momentify-inner {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .cases-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          padding: 60px 20px 72px;
+        }
+
+        .offerings-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .proof-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .momentify-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .cta-band-actions {
+          flex-direction: column;
+        }
+
+        .btn-white-solid,
+        .btn-white-ghost {
+          width: 100%;
+          text-align: center;
+        }
+
+        .momentify-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </body>
 </html>

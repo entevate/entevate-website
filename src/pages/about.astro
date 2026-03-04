@@ -1,596 +1,832 @@
 ---
-import Header from '../components/Header.jsx';
-import Footer from '../components/Footer.jsx';
-import '../global.css';
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import "../global.css";
 
-const title = 'About Us — ENTEVATE';
-const description = 'We are a human-centered innovation partner for leaders ready to build what comes next — at the intersection of experiential branding, digital transformation, and strategic roadmapping.';
+const title = "About Us — ENTEVATE";
+const description =
+  "We are a human-centered innovation partner for leaders ready to build what comes next — at the intersection of experiential branding, digital transformation, and strategic roadmapping.";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-</head>
-<body>
-  <Header client:load />
-  
-  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-      <div class="fade-up">
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          About ENTEVATE
-        </div>
-        <h1>Innovation, <span class="accent">with Intention.</span></h1>
-        <p class="hero-sub">We are a human-centered innovation partner for leaders ready to build what comes next — at the intersection of experiential branding, digital transformation, and strategic roadmapping.</p>
-      </div>
-    </div>
-  </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header client:load />
 
-  <!-- ═══════════════════════════ MISSION / STORY ═══════════════════════════ -->
-  <section class="mission-section" id="mission">
-    <div class="container">
-      <div class="mission-split">
-
-        <div class="mission-left fade-up">
-          <div class="section-label">Our Story</div>
-          <h2 class="section-title">A purpose-driven innovation collective.</h2>
-          <p>ENTEVATE was founded on the belief that innovation should be human, purposeful, and accessible. We work at the intersection of three core disciplines — experiential branding, digital transformation, and innovation roadmapping — because we believe the most powerful outcomes happen when strategy, storytelling, and systems thinking come together.</p>
-          <p>We partner with bold leaders who believe technology should amplify humanity — not replace it. From immersive brand experiences powered by Momentify to co-created innovation roadmaps and applied AI frameworks like AIQUI, everything we build starts with people.</p>
-          <p>Based in Frisco, Texas, ENTEVATE operates with a distributed team of practitioners who bring deep expertise across enterprise technology, creative production, innovation consulting, and emerging tech platforms.</p>
-
-          <div class="stat-row">
-            <div class="stat"><h3>6+</h3><p>Fortune 500 clients served</p></div>
-            <div class="stat"><h3>3</h3><p>Core innovation pillars</p></div>
-            <div class="stat"><h3>100%</h3><p>Human-centered by design</p></div>
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="fade-up">
+          <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot"></span>
+            About ENTEVATE
           </div>
-        </div>
-
-        <div class="mission-right fade-up">
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--blue)"></div>
-            <div>
-              <h5>Empathy — We lead with heart</h5>
-              <span>Before we recommend, we listen. Before we solve, we understand. We approach every challenge through the lens of people first.</span>
-            </div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--green)"></div>
-            <div>
-              <h5>Authenticity — We keep it real</h5>
-              <span>We bring our full selves to the table and encourage our clients to do the same. Transparency, vulnerability, and mutual respect define how we work.</span>
-            </div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--purple)"></div>
-            <div>
-              <h5>Adaptability — We embrace the pivot</h5>
-              <span>In a world that changes fast, we stay grounded by staying flexible — with open minds, curious questions, and a willingness to evolve.</span>
-            </div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--orange-light)"></div>
-            <div>
-              <h5>Quality — We don't cut corners</h5>
-              <span>From strategy to execution, we hold ourselves to a higher standard. Excellence is in the details — how we do something matters as much as what we do.</span>
-            </div>
-          </div>
-          <div class="value-pill">
-            <div class="pill-dot" style="background:var(--orange-dark)"></div>
-            <div>
-              <h5>Responsibility — We do what's right, not just what's easy</h5>
-              <span>We're committed to impact that's ethical, sustainable, and meaningful — accountable to our partners, our communities, and the planet.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ TEAM ═══════════════════════════ -->
-  <section class="team-section" id="team">
-    <div class="container">
-      <div class="team-header fade-up">
-        <div class="section-label">The Team</div>
-        <h2 class="section-title">The people behind the work.</h2>
-        <p class="section-subtitle">A diverse collective of strategists, builders, and storytellers united by a shared belief: that great work starts with great people.</p>
-      </div>
-
-      <div class="team-grid">
-
-        <div class="team-card fade-up">
-          <div class="team-avatar"><img src="images/jake.png" alt="Jake Hamann"></div>
-          <div class="team-name">Jake Hamann</div>
-          <div class="team-title">Founder &amp; CEO</div>
-          <div class="team-linkedin">
-            <a href="#" target="_blank" rel="noopener" aria-label="Jake Hamann on LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar"><img src="images/harsh.jpg" alt="Harsh Shah"></div>
-          <div class="team-name">Harsh Shah</div>
-          <div class="team-title">Co-Founder &amp; COO</div>
-          <div class="team-linkedin">
-            <a href="#" target="_blank" rel="noopener" aria-label="Harsh Shah on LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar"><img src="images/binko.jpg" alt="Michael Binko"></div>
-          <div class="team-name">Michael Binko</div>
-          <div class="team-title">Managing Director, Innovation</div>
-          <div class="team-linkedin">
-            <a href="#" target="_blank" rel="noopener" aria-label="Michael Binko on LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar"><img src="images/grant.jpg" alt="Grant Lonie"></div>
-          <div class="team-name">Grant Lonie</div>
-          <div class="team-title">Director of Engineering</div>
-          <div class="team-linkedin">
-            <a href="#" target="_blank" rel="noopener" aria-label="Grant Lonie on LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar"><img src="images/hanah.jpg" alt="Hanah Zachariah"></div>
-          <div class="team-name">Hanah Zachariah</div>
-          <div class="team-title">XR Developer</div>
-          <div class="team-linkedin">
-            <a href="#" target="_blank" rel="noopener" aria-label="Hanah Zachariah on LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar"><img src="images/sam.jpeg" alt="Sam Thibault"></div>
-          <div class="team-name">Sam Thibault</div>
-          <div class="team-title">Designer</div>
-          <div class="team-linkedin">
-            <a href="#" target="_blank" rel="noopener" aria-label="Sam Thibault on LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar"><img src="images/steven.jpeg" alt="Steven Shaffer"></div>
-          <div class="team-name">Steven Shaffer</div>
-          <div class="team-title">Manufacturing SME</div>
-          <div class="team-linkedin">
-            <a href="#" target="_blank" rel="noopener" aria-label="Steven Shaffer on LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
-  <section class="cta-band" id="contact">
-    <div class="container">
-      <div class="fade-up">
-        <h2>Ready to Build Something Together?</h2>
-        <p>Let's talk about your next challenge. We're a lean, senior-led team that moves fast and works deeply.</p>
-        <div class="cta-band-actions">
-          <a href="/contact" class="btn-white-solid">Get In Touch</a>
-          <a href="/our-work" class="btn-white-ghost">See Our Work →</a>
+          <h1>Innovation, <span class="accent">with Intention.</span></h1>
+          <p class="hero-sub">
+            We are a human-centered innovation partner for leaders ready to
+            build what comes next — at the intersection of experiential
+            branding, digital transformation, and strategic roadmapping.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <Footer client:load />
-  
-  <script>
-    // Intersection Observer for fade-up animations
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.10 });
-    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
-    
-    // Staggered animation delays for team grid
-    document.querySelectorAll('.team-grid .fade-up').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.07}s`;
-    });
-    
-    // Staggered animation delays for value pills
-    document.querySelectorAll('.mission-right .value-pill').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-    });
-  </script>
+    </section>
 
-  <style>
-    /* ── Hero (About) ── */
-    .hero {
-      background:
-        linear-gradient(135deg, rgba(0,8,45,0.52) 0%, rgba(0,28,80,0.42) 50%, rgba(0,50,110,0.34) 100%),
-        url('/images/bg-blue.png') center/cover no-repeat;
-      position: relative;
-      overflow: hidden;
-      padding: 96px 48px 120px;
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-    }
+    <!-- ═══════════════════════════ MISSION / STORY ═══════════════════════════ -->
+    <section class="mission-section" id="mission">
+      <div class="container">
+        <div class="mission-split">
+          <div class="mission-left fade-up">
+            <div class="section-label">Our Story</div>
+            <h2 class="section-title">
+              A purpose-driven innovation collective.
+            </h2>
+            <p>
+              ENTEVATE was founded on the belief that innovation should be
+              human, purposeful, and accessible. We work at the intersection of
+              three core disciplines — experiential branding, digital
+              transformation, and innovation roadmapping — because we believe
+              the most powerful outcomes happen when strategy, storytelling, and
+              systems thinking come together.
+            </p>
+            <p>
+              We partner with bold leaders who believe technology should amplify
+              humanity — not replace it. From immersive brand experiences
+              powered by Momentify to co-created innovation roadmaps and applied
+              AI frameworks like AIQUI, everything we build starts with people.
+            </p>
+            <p>
+              Based in Frisco, Texas, ENTEVATE operates with a distributed team
+              of practitioners who bring deep expertise across enterprise
+              technology, creative production, innovation consulting, and
+              emerging tech platforms.
+            </p>
 
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 1160px;
-      margin: 0 auto;
-      width: 100%;
-    }
+            <div class="stat-row">
+              <div class="stat">
+                <h3>6+</h3><p>Fortune 500 clients served</p>
+              </div>
+              <div class="stat"><h3>3</h3><p>Core innovation pillars</p></div>
+              <div class="stat">
+                <h3>100%</h3><p>Human-centered by design</p>
+              </div>
+            </div>
+          </div>
 
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: rgba(142,144,192,0.14);
-      border: 1px solid rgba(142,144,192,0.38);
-      padding: 6px 16px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-      color: rgba(255,255,255,0.90);
-    }
+          <div class="mission-right fade-up">
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--blue)"></div>
+              <div>
+                <h5>Empathy — We lead with heart</h5>
+                <span
+                  >Before we recommend, we listen. Before we solve, we
+                  understand. We approach every challenge through the lens of
+                  people first.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--green)"></div>
+              <div>
+                <h5>Authenticity — We keep it real</h5>
+                <span
+                  >We bring our full selves to the table and encourage our
+                  clients to do the same. Transparency, vulnerability, and
+                  mutual respect define how we work.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--purple)"></div>
+              <div>
+                <h5>Adaptability — We embrace the pivot</h5>
+                <span
+                  >In a world that changes fast, we stay grounded by staying
+                  flexible — with open minds, curious questions, and a
+                  willingness to evolve.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--orange-light)">
+              </div>
+              <div>
+                <h5>Quality — We don't cut corners</h5>
+                <span
+                  >From strategy to execution, we hold ourselves to a higher
+                  standard. Excellence is in the details — how we do something
+                  matters as much as what we do.</span
+                >
+              </div>
+            </div>
+            <div class="value-pill">
+              <div class="pill-dot" style="background:var(--orange-dark)"></div>
+              <div>
+                <h5>
+                  Responsibility — We do what's right, not just what's easy
+                </h5>
+                <span
+                  >We're committed to impact that's ethical, sustainable, and
+                  meaningful — accountable to our partners, our communities, and
+                  the planet.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    .hero-eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #5BA8D8, #A0D8F5);
-      flex-shrink: 0;
-    }
+    <!-- ═══════════════════════════ TEAM ═══════════════════════════ -->
+    <section class="team-section" id="team">
+      <div class="container">
+        <div class="team-header fade-up">
+          <div class="section-label">The Team</div>
+          <h2 class="section-title">The people behind the work.</h2>
+          <p class="section-subtitle">
+            A diverse collective of strategists, builders, and storytellers
+            united by a shared belief: that great work starts with great people.
+          </p>
+        </div>
 
-    .hero h1 {
-      font-size: clamp(50px, 7vw, 92px);
-      font-weight: 100;
-      line-height: 1.04;
-      color: var(--white);
-      margin-bottom: 24px;
-      letter-spacing: -0.03em;
-      text-wrap: balance;
-      max-width: 800px;
-    }
+        <div class="team-grid">
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              <img src="images/jake.png" alt="Jake Hamann" />
+            </div>
+            <div class="team-name">Jake Hamann</div>
+            <div class="team-title">Founder &amp; CEO</div>
+            <div class="team-linkedin">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Jake Hamann on LinkedIn"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  ><path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path><circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"></circle></svg
+                >
+              </a>
+            </div>
+          </div>
 
-    .hero h1 .accent {
-      background: linear-gradient(90deg, #C8ECFF 0%, #EEF8FF 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              <img src="images/harsh.jpg" alt="Harsh Shah" />
+            </div>
+            <div class="team-name">Harsh Shah</div>
+            <div class="team-title">Co-Founder &amp; COO</div>
+            <div class="team-linkedin">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Harsh Shah on LinkedIn"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  ><path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path><circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"></circle></svg
+                >
+              </a>
+            </div>
+          </div>
 
-    .hero-sub {
-      font-size: 17px;
-      color: rgba(255,255,255,0.68);
-      line-height: 1.75;
-      max-width: 640px;
-      margin-bottom: 0;
-    }
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              <img src="images/binko.jpg" alt="Michael Binko" />
+            </div>
+            <div class="team-name">Michael Binko</div>
+            <div class="team-title">Managing Director, Innovation</div>
+            <div class="team-linkedin">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Michael Binko on LinkedIn"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  ><path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path><circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"></circle></svg
+                >
+              </a>
+            </div>
+          </div>
 
-    /* ── Mission / Story ── */
-    .mission-section {
-      background: var(--white);
-      padding: 80px 48px;
-    }
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              <img src="images/grant.jpg" alt="Grant Lonie" />
+            </div>
+            <div class="team-name">Grant Lonie</div>
+            <div class="team-title">Director of Engineering</div>
+            <div class="team-linkedin">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Grant Lonie on LinkedIn"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  ><path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path><circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"></circle></svg
+                >
+              </a>
+            </div>
+          </div>
 
-    .mission-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              <img src="images/hanah.jpg" alt="Hanah Zachariah" />
+            </div>
+            <div class="team-name">Hanah Zachariah</div>
+            <div class="team-title">XR Developer</div>
+            <div class="team-linkedin">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Hanah Zachariah on LinkedIn"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  ><path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path><circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"></circle></svg
+                >
+              </a>
+            </div>
+          </div>
 
-    .mission-left .section-label {
-      display: block;
-    }
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              <img src="images/sam.jpeg" alt="Sam Thibault" />
+            </div>
+            <div class="team-name">Sam Thibault</div>
+            <div class="team-title">Designer</div>
+            <div class="team-linkedin">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Sam Thibault on LinkedIn"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  ><path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path><circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"></circle></svg
+                >
+              </a>
+            </div>
+          </div>
 
-    .mission-left p {
-      font-size: 15px;
-      color: var(--gray-mid);
-      line-height: 1.85;
-      margin-bottom: 18px;
-    }
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              <img src="images/steven.jpeg" alt="Steven Shaffer" />
+            </div>
+            <div class="team-name">Steven Shaffer</div>
+            <div class="team-title">Manufacturing SME</div>
+            <div class="team-linkedin">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener"
+                aria-label="Steven Shaffer on LinkedIn"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                  ><path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path><circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"></circle></svg
+                >
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    .mission-left p:last-of-type {
-      margin-bottom: 0;
-    }
+    <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+    <section class="cta-band" id="contact">
+      <div class="container">
+        <div class="fade-up">
+          <h2>Ready to Build Something Together?</h2>
+          <p>
+            Let's talk about your next challenge. We're a lean, senior-led team
+            that moves fast and works deeply.
+          </p>
+          <div class="cta-band-actions">
+            <a href="/contact" class="btn-white-solid">Get In Touch</a>
+            <a href="/our-work" class="btn-white-ghost">See Our Work →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    .mission-section .stat h3 {
-      background: linear-gradient(90deg, #247B96 0%, #2BBFA8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-size: 48px;
-    }
+    <Footer client:load />
 
-    .mission-right {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    <script src="../global.js"></script>
+    <script>
+      // Staggered animation delays for team grid
+      document.querySelectorAll(".team-grid .fade-up").forEach((el, i) => {
+        el.style.transitionDelay = `${i * 0.07}s`;
+      });
 
-    .mission-right .value-pill {
-      padding: 18px 20px;
-    }
+      // Staggered animation delays for value pills
+      document
+        .querySelectorAll(".mission-right .value-pill")
+        .forEach((el, i) => {
+          el.style.transitionDelay = `${i * 0.08}s`;
+        });
+    </script>
 
-    .mission-right .value-pill h5 {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .mission-right .value-pill span {
-      font-size: 12.5px;
-      line-height: 1.6;
-    }
-
-    /* ── Team section ── */
-    .team-section {
-      background: var(--light-blue);
-      padding: 80px 48px;
-    }
-
-    .team-header {
-      margin-bottom: 56px;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .team-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 22px;
-      text-align: center;
-      transition: box-shadow var(--tr), transform var(--tr);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .team-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      border-radius: var(--radius) var(--radius) 0 0;
-    }
-
-    .team-card:nth-child(1)::before { background: linear-gradient(90deg, #247B96, #2BBFA8); }
-    .team-card:nth-child(2)::before { background: linear-gradient(90deg, #444561, #8E8FC8); }
-    .team-card:nth-child(3)::before { background: linear-gradient(90deg, #3D978A, #6DD4A0); }
-    .team-card:nth-child(4)::before { background: linear-gradient(90deg, #247B96, #3FAFC8); }
-    .team-card:nth-child(5)::before { background: linear-gradient(90deg, #3D978A, #2BBFA8); }
-    .team-card:nth-child(6)::before { background: linear-gradient(90deg, #E8782A, #F5B731); }
-    .team-card:nth-child(7)::before { background: linear-gradient(90deg, #CB632F, #E8782A); }
-
-    .team-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-      transform: translateY(-3px);
-    }
-
-    .team-avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 18px;
-      font-size: 22px;
-      font-weight: 300;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .team-card:nth-child(1) .team-avatar { background: linear-gradient(135deg, #247B96, #2BBFA8); }
-    .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, #444561, #8E8FC8); }
-    .team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, #3D978A, #6DD4A0); }
-    .team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, #247B96, #3FAFC8); }
-    .team-card:nth-child(5) .team-avatar { background: linear-gradient(135deg, #3D978A, #2BBFA8); }
-    .team-card:nth-child(6) .team-avatar { background: linear-gradient(135deg, #E8782A, #F5B731); }
-    .team-card:nth-child(7) .team-avatar { background: linear-gradient(135deg, #CB632F, #E8782A); }
-
-    .team-name {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-
-    .team-title {
-      font-size: 12px;
-      color: var(--gray-mid);
-      line-height: 1.45;
-      margin-bottom: 14px;
-    }
-
-    .team-linkedin {
-      display: flex;
-      justify-content: center;
-    }
-
-    .team-linkedin a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: var(--radius);
-      background: var(--light-blue);
-      color: var(--blue);
-      transition: background var(--tr), color var(--tr);
-    }
-
-    .team-linkedin a:hover {
-      background: var(--blue);
-      color: var(--white);
-    }
-
-    /* ── CTA Band (About) ── */
-    .cta-band {
-      background:
-        linear-gradient(135deg, rgba(0,8,45,0.56) 0%, rgba(0,28,80,0.46) 50%, rgba(0,50,110,0.38) 100%),
-        url('/images/bg-blue.png') center/cover no-repeat;
-      color: var(--white);
-      padding: 80px 48px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-band::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 25% 40%, rgba(80,180,255,0.18) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(0,100,200,0.22) 0%, transparent 45%);
-      pointer-events: none;
-    }
-
-    .cta-band .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-band h2 {
-      font-size: clamp(28px, 4.5vw, 52px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-    }
-
-    .cta-band p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.68);
-      max-width: 520px;
-      margin: 0 auto 38px;
-      line-height: 1.72;
-    }
-
-    .cta-band-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn-white-solid {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 13px 30px;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      background: var(--white);
-      color: var(--purple);
-      transition: all var(--tr);
-      display: inline-block;
-    }
-
-    .btn-white-solid:hover {
-      background: var(--light-blue);
-      transform: translateY(-1px);
-    }
-
-    .btn-white-ghost {
-      font-family: var(--font);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 12px 30px;
-      border-radius: var(--radius);
-      border: 1.5px solid rgba(255,255,255,0.45);
-      cursor: pointer;
-      color: var(--white);
-      background: transparent;
-      transition: all var(--tr);
-      display: inline-block;
-    }
-
-    .btn-white-ghost:hover {
-      border-color: rgba(255,255,255,0.90);
-      background: rgba(255,255,255,0.10);
-    }
-
-    /* ── About layout responsiveness ── */
-    @media (max-width: 1100px) {
-      .team-grid {
-        grid-template-columns: repeat(3, 1fr);
+    <style>
+      /* ── Hero (About) ── */
+      .hero {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(0, 8, 45, 0.52) 0%,
+            rgba(0, 28, 80, 0.42) 50%,
+            rgba(0, 50, 110, 0.34) 100%
+          ),
+          url("/images/bg-blue.png") center/cover no-repeat;
+        position: relative;
+        overflow: hidden;
+        padding: 96px 48px 120px;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
       }
-    }
 
-    @media (max-width: 960px) {
-      .mission-section,
-      .team-section,
-      .cta-band {
-        padding: 64px 24px;
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 1160px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: rgba(142, 144, 192, 0.14);
+        border: 1px solid rgba(142, 144, 192, 0.38);
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 28px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .hero-eyebrow-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #5ba8d8, #a0d8f5);
+        flex-shrink: 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(50px, 7vw, 92px);
+        font-weight: 100;
+        line-height: 1.04;
+        color: var(--white);
+        margin-bottom: 24px;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
+        max-width: 800px;
+      }
+
+      .hero h1 .accent {
+        background: linear-gradient(90deg, #c8ecff 0%, #eef8ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-sub {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.68);
+        line-height: 1.75;
+        max-width: 640px;
+        margin-bottom: 0;
+      }
+
+      /* ── Mission / Story ── */
+      .mission-section {
+        background: var(--white);
+        padding: 80px 48px;
       }
 
       .mission-split {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .stat-row {
+        display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: start;
       }
-    }
 
-    @media (max-width: 600px) {
-      .team-grid {
-        grid-template-columns: 1fr;
+      .mission-left .section-label {
+        display: block;
       }
-    }
-  </style>
-</body>
+
+      .mission-left p {
+        font-size: 15px;
+        color: var(--gray-mid);
+        line-height: 1.85;
+        margin-bottom: 18px;
+      }
+
+      .mission-left p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .mission-section .stat h3 {
+        background: linear-gradient(90deg, #247b96 0%, #2bbfa8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 48px;
+      }
+
+      .mission-right {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .mission-right .value-pill {
+        padding: 18px 20px;
+      }
+
+      .mission-right .value-pill h5 {
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .mission-right .value-pill span {
+        font-size: 12.5px;
+        line-height: 1.6;
+      }
+
+      /* ── Team section ── */
+      .team-section {
+        background: var(--light-blue);
+        padding: 80px 48px;
+      }
+
+      .team-header {
+        margin-bottom: 56px;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .team-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px 22px;
+        text-align: center;
+        transition:
+          box-shadow var(--tr),
+          transform var(--tr);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+
+      .team-card:nth-child(1)::before {
+        background: linear-gradient(90deg, #247b96, #2bbfa8);
+      }
+      .team-card:nth-child(2)::before {
+        background: linear-gradient(90deg, #444561, #8e8fc8);
+      }
+      .team-card:nth-child(3)::before {
+        background: linear-gradient(90deg, #3d978a, #6dd4a0);
+      }
+      .team-card:nth-child(4)::before {
+        background: linear-gradient(90deg, #247b96, #3fafc8);
+      }
+      .team-card:nth-child(5)::before {
+        background: linear-gradient(90deg, #3d978a, #2bbfa8);
+      }
+      .team-card:nth-child(6)::before {
+        background: linear-gradient(90deg, #e8782a, #f5b731);
+      }
+      .team-card:nth-child(7)::before {
+        background: linear-gradient(90deg, #cb632f, #e8782a);
+      }
+
+      .team-card:hover {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+      }
+
+      .team-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        font-size: 22px;
+        font-weight: 300;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      .team-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .team-card:nth-child(1) .team-avatar {
+        background: linear-gradient(135deg, #247b96, #2bbfa8);
+      }
+      .team-card:nth-child(2) .team-avatar {
+        background: linear-gradient(135deg, #444561, #8e8fc8);
+      }
+      .team-card:nth-child(3) .team-avatar {
+        background: linear-gradient(135deg, #3d978a, #6dd4a0);
+      }
+      .team-card:nth-child(4) .team-avatar {
+        background: linear-gradient(135deg, #247b96, #3fafc8);
+      }
+      .team-card:nth-child(5) .team-avatar {
+        background: linear-gradient(135deg, #3d978a, #2bbfa8);
+      }
+      .team-card:nth-child(6) .team-avatar {
+        background: linear-gradient(135deg, #e8782a, #f5b731);
+      }
+      .team-card:nth-child(7) .team-avatar {
+        background: linear-gradient(135deg, #cb632f, #e8782a);
+      }
+
+      .team-name {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--black);
+        margin-bottom: 4px;
+        letter-spacing: -0.01em;
+      }
+
+      .team-title {
+        font-size: 12px;
+        color: var(--gray-mid);
+        line-height: 1.45;
+        margin-bottom: 14px;
+      }
+
+      .team-linkedin {
+        display: flex;
+        justify-content: center;
+      }
+
+      .team-linkedin a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: var(--radius);
+        background: var(--light-blue);
+        color: var(--blue);
+        transition:
+          background var(--tr),
+          color var(--tr);
+      }
+
+      .team-linkedin a:hover {
+        background: var(--blue);
+        color: var(--white);
+      }
+
+      /* ── CTA Band (About) ── */
+      .cta-band {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(0, 8, 45, 0.56) 0%,
+            rgba(0, 28, 80, 0.46) 50%,
+            rgba(0, 50, 110, 0.38) 100%
+          ),
+          url("/images/bg-blue.png") center/cover no-repeat;
+        color: var(--white);
+        padding: 80px 48px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 25% 40%,
+            rgba(80, 180, 255, 0.18) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(0, 100, 200, 0.22) 0%,
+            transparent 45%
+          );
+        pointer-events: none;
+      }
+
+      .cta-band .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-band h2 {
+        font-size: clamp(28px, 4.5vw, 52px);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+      }
+
+      .cta-band p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.68);
+        max-width: 520px;
+        margin: 0 auto 38px;
+        line-height: 1.72;
+      }
+
+      .cta-band-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn-white-solid {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 13px 30px;
+        border-radius: var(--radius);
+        border: none;
+        cursor: pointer;
+        background: var(--white);
+        color: var(--purple);
+        transition: all var(--tr);
+        display: inline-block;
+      }
+
+      .btn-white-solid:hover {
+        background: var(--light-blue);
+        transform: translateY(-1px);
+      }
+
+      .btn-white-ghost {
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 12px 30px;
+        border-radius: var(--radius);
+        border: 1.5px solid rgba(255, 255, 255, 0.45);
+        cursor: pointer;
+        color: var(--white);
+        background: transparent;
+        transition: all var(--tr);
+        display: inline-block;
+      }
+
+      .btn-white-ghost:hover {
+        border-color: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ── About layout responsiveness ── */
+      @media (max-width: 1100px) {
+        .team-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 960px) {
+        .mission-section,
+        .team-section,
+        .cta-band {
+          padding: 64px 24px;
+        }
+
+        .mission-split {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .stat-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </body>
 </html>
