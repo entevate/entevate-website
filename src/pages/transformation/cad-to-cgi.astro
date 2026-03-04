@@ -1,0 +1,309 @@
+---
+import Header from '../../components/Header.jsx';
+import Footer from '../../components/Footer.jsx';
+import '../../global.css';
+
+const title = 'CAD to CGI Conversion — ENTEVATE';
+const description = 'Transform your existing CAD data into photorealistic CGI assets for marketing, training, sales, and XR experiences.';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root { --accent: #E8782A; --accent-light: #F5B731; --orange-amber: #F5B731; }
+
+    /* Shared */
+    .section{padding:80px 48px;}
+    .container{max-width:1160px;margin:0 auto;}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;display:inline-block;color:var(--orange);}
+    h2.section-title{font-size:clamp(30px,4vw,48px);font-weight:300;letter-spacing:-0.02em;line-height:1.1;margin-bottom:16px;}
+    .section-subtitle{font-size:15px;color:var(--gray-mid);max-width:580px;line-height:1.75;}
+
+    /* Hero */
+    .hero{background:linear-gradient(135deg,rgba(10,8,5,0.72) 0%,rgba(30,20,8,0.58) 50%,rgba(50,35,10,0.48) 100%),url('/images/family_shot_big.jpg') center/cover no-repeat;position:relative;overflow:hidden;padding:96px 48px 120px;min-height:82vh;display:flex;align-items:center;}
+    .hero-inner{position:relative;z-index:2;max-width:1160px;margin:0 auto;width:100%;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:rgba(232,120,42,0.14);border:1px solid rgba(232,120,42,0.38);padding:6px 16px;border-radius:100px;margin-bottom:28px;color:rgba(255,255,255,0.90);}
+    .hero-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#FFE5C0,#FFF5E0);flex-shrink:0;}
+    .hero h1{font-size:clamp(48px,6.5vw,88px);font-weight:100;line-height:1.04;color:var(--white);margin-bottom:24px;letter-spacing:-0.03em;text-wrap:balance;max-width:860px;}
+    .hero h1 .accent{background:linear-gradient(90deg,#FFE5C0 0%,#FFF5E0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:17px;color:rgba(255,255,255,0.70);line-height:1.75;max-width:640px;margin-bottom:42px;}
+    .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .btn-orange{font-family:var(--font);font-size:14px;font-weight:600;padding:13px 30px;border-radius:var(--radius);border:none;cursor:pointer;background:linear-gradient(135deg,#E8782A 0%,#F5B731 100%);color:var(--white);transition:all var(--tr);display:inline-block;}
+    .btn-orange:hover{opacity:0.88;transform:translateY(-2px);box-shadow:0 6px 24px rgba(232,120,42,0.45);}
+    .btn-ghost-dark{font-family:var(--font);font-size:14px;font-weight:500;background:none;border:1.5px solid rgba(255,255,255,0.35);padding:12px 26px;border-radius:var(--radius);cursor:pointer;color:rgba(255,255,255,0.85);display:inline-flex;align-items:center;gap:6px;transition:all var(--tr);}
+    .btn-ghost-dark:hover{border-color:rgba(255,255,255,0.80);color:var(--white);background:rgba(255,255,255,0.08);}
+    .hero-stats{display:flex;gap:48px;flex-wrap:wrap;margin-top:16px;}
+    .hero-stat-item{border-left:2px solid rgba(245,183,49,0.60);padding-left:16px;}
+    .hero-stat-num{font-size:28px;font-weight:100;color:var(--white);line-height:1;}
+    .hero-stat-label{font-size:11px;color:rgba(255,255,255,0.55);margin-top:3px;letter-spacing:0.04em;}
+
+    /* HEX Split */
+    .hex-section{background:var(--white);padding:80px 48px;}
+    .hex-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;max-width:1160px;margin:0 auto;}
+    .hex-image{border-radius:var(--radius);overflow:hidden;background:var(--light-blue);display:flex;align-items:center;justify-content:center;padding:32px;}
+    .hex-image img{width:100%;max-width:420px;margin:0 auto;}
+    .hex-caption{font-size:11px;color:var(--gray-light);text-align:center;margin-top:12px;letter-spacing:0.04em;}
+    .hex-right .section-label{margin-bottom:12px;}
+    .hex-right h2{font-size:clamp(26px,3.5vw,40px);font-weight:300;letter-spacing:-0.02em;line-height:1.2;margin-bottom:16px;}
+    .hex-right p{font-size:15px;color:var(--gray-mid);line-height:1.80;margin-bottom:20px;}
+    .hex-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+    .hex-bullets li{font-size:14px;color:var(--black);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+    .hex-bullets li::before{content:'→';color:var(--orange);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+    /* Benefits */
+    .benefits-section{background:var(--light-blue);padding:80px 48px;}
+    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;}
+    .benefit-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:36px 28px;position:relative;overflow:hidden;transition:box-shadow var(--tr),transform var(--tr);}
+    .benefit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0;}
+    .bc-1::before{background:linear-gradient(90deg,#E8782A,#F5B731);}
+    .bc-2::before{background:linear-gradient(90deg,#EA9709,#F5C842);}
+    .bc-3::before{background:linear-gradient(90deg,#CB632F,#E8782A);}
+    .benefit-card:hover{box-shadow:0 10px 40px rgba(0,0,0,0.08);transform:translateY(-3px);}
+    .benefit-num{font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;}
+    .benefit-card h3{font-size:18px;font-weight:300;letter-spacing:-0.01em;margin-bottom:10px;}
+    .benefit-card p{font-size:13.5px;color:var(--gray-mid);line-height:1.72;}
+
+    /* Process */
+    .process-section{background:var(--white);padding:80px 48px;}
+    .process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative;}
+    .process-steps::before{content:'';position:absolute;top:28px;left:calc(100% / 6);right:calc(100% / 6);height:1.5px;background:linear-gradient(90deg,#E8782A,#F5B731);z-index:0;}
+    .process-step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 24px;position:relative;z-index:1;}
+    .ps-dot{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E8782A,#F5B731);display:flex;align-items:center;justify-content:center;margin-bottom:22px;flex-shrink:0;}
+    .ps-dot svg{color:var(--white);}
+    .ps-num{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+    .process-step h3{font-size:17px;font-weight:400;letter-spacing:-0.01em;margin-bottom:10px;}
+    .process-step p{font-size:13.5px;color:var(--gray-mid);line-height:1.70;}
+
+    /* Case Study */
+    .case-section{background:linear-gradient(135deg,rgba(50,22,5,0.55) 0%,rgba(85,42,12,0.45) 50%,rgba(115,65,25,0.38) 100%),url('/images/bt2.png') center/cover no-repeat;color:var(--white);padding:80px 48px;}
+    .case-inner{max-width:1160px;margin:0 auto;}
+    .case-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-amber);margin-bottom:16px;display:block;}
+    .case-inner h2{font-size:clamp(26px,3.5vw,42px);font-weight:300;letter-spacing:-0.02em;line-height:1.2;margin-bottom:20px;max-width:700px;}
+    .case-inner p{font-size:15px;color:rgba(255,255,255,0.65);line-height:1.80;max-width:680px;margin-bottom:48px;}
+    .case-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .case-metric{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius);padding:28px 24px;}
+    .cm-num{font-size:42px;font-weight:100;letter-spacing:-0.03em;line-height:1;color:var(--white);margin-bottom:8px;}
+    .cm-label{font-size:13px;color:rgba(255,255,255,0.60);line-height:1.55;}
+
+    /* Use Cases */
+    .usecases-section{background:var(--light-blue);padding:80px 48px;}
+    .usecases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px;}
+    .uc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 26px;display:flex;gap:20px;align-items:flex-start;transition:box-shadow var(--tr),transform var(--tr);}
+    .uc-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.07);transform:translateY(-2px);}
+    .uc-icon{width:44px;height:44px;border-radius:10px;background:rgba(232,120,42,0.10);color:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .uc-body h4{font-size:15px;font-weight:500;margin-bottom:6px;}
+    .uc-body p{font-size:13.5px;color:var(--gray-mid);line-height:1.65;}
+
+    /* CTA Band */
+    .cta-band{background:linear-gradient(135deg,#3D1E08 0%,#E8782A 100%);color:var(--white);padding:80px 48px;text-align:center;position:relative;overflow:hidden;}
+    .cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 25% 40%,rgba(255,255,255,0.07) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(255,255,255,0.05) 0%,transparent 45%);pointer-events:none;}
+    .cta-band .container{position:relative;z-index:1;}
+    .cta-band h2{font-size:clamp(28px,4.5vw,52px);font-weight:300;letter-spacing:-0.02em;margin-bottom:16px;}
+    .cta-band p{font-size:16px;color:rgba(255,255,255,0.68);max-width:520px;margin:0 auto 38px;line-height:1.72;}
+    .cta-band-actions{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+    .btn-white-solid{font-family:var(--font);font-size:14px;font-weight:600;padding:13px 30px;border-radius:var(--radius);border:none;cursor:pointer;background:var(--white);color:var(--orange);transition:all var(--tr);display:inline-block;}
+    .btn-white-solid:hover{background:var(--light-blue);transform:translateY(-1px);}
+    .btn-white-ghost{font-family:var(--font);font-size:14px;font-weight:500;padding:12px 30px;border-radius:var(--radius);border:1.5px solid rgba(255,255,255,0.45);cursor:pointer;color:var(--white);background:transparent;transition:all var(--tr);display:inline-block;}
+    .btn-white-ghost:hover{border-color:rgba(255,255,255,0.90);background:rgba(255,255,255,0.10);}
+
+    .fade-up{opacity:0;transform:translateY(22px);transition:opacity 0.55s ease,transform 0.55s ease;}
+    .fade-up.visible{opacity:1;transform:none;}
+  </style>
+</head>
+<body>
+  <Header client:load />
+
+  <!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Digital &amp; Content Transformation</div>
+      <h1>Build Once.<br><span class="accent">Use Everywhere.</span></h1>
+      <p class="hero-sub">Transform your existing CAD data into photorealistic CGI assets built for reuse, repurpose, and results — across marketing, training, sales, and XR experiences. Your engineering investment deserves to perform at every stage of the customer journey.</p>
+      <div class="hero-actions">
+        <a href="/contact?service=transformation" class="btn-orange">Start Your Conversion →</a>
+        <a href="/transformation" class="btn-ghost-dark">← Back to Transformation</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-item"><div class="hero-stat-num">700+</div><div class="hero-stat-label">Machines Converted</div></div>
+        <div class="hero-stat-item"><div class="hero-stat-num">800+</div><div class="hero-stat-label">Engines Processed</div></div>
+        <div class="hero-stat-item"><div class="hero-stat-num">8-Figure</div><div class="hero-stat-label">Client Cost Savings</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEX + Overview Split -->
+<section class="hex-section" id="overview">
+  <div class="hex-split fade-up">
+    <div>
+      <div class="hex-image">
+        <img src="/images/HEX.png" alt="CAD wireframe to CGI rendered excavator" />
+      </div>
+      <p class="hex-caption">From engineering data to photorealistic visual asset</p>
+    </div>
+    <div class="hex-right">
+      <div class="section-label">From Engineering to Impact</div>
+      <h2>Your CAD models are more than engineering files.</h2>
+      <p>You've already invested in highly detailed CAD models — why stop at engineering? Those assets contain everything needed to create stunning, accurate visual content. We help you unlock their full potential by building a scalable content pipeline that generates high-impact visuals for every stage of the product journey.</p>
+      <p>Whether you're launching a product, showcasing equipment to dealers, enabling AR/VR experiences, or creating interactive configurators — our CAD-to-CGI pipeline delivers content that evolves alongside your product lifecycle, without costly reshoots.</p>
+      <ul class="hex-bullets">
+        <li>Eliminate dependency on physical prototypes for marketing content</li>
+        <li>Deploy across web, mobile, XR, and digital signage with minimal rework</li>
+        <li>Maintain visual consistency across every market and channel</li>
+        <li>Reduce production costs while increasing content output</li>
+      </ul>
+      <a href="#process" class="btn-orange" style="display:inline-block;">See the Process →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Key Benefits -->
+<section class="benefits-section" id="benefits">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Key Benefits</div>
+      <h2 class="section-title">When scale meets strategy, impact multiplies.</h2>
+      <p class="section-subtitle">Three reasons engineering-driven organizations choose ENTEVATE to power their visual content pipeline.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card bc-1 fade-up">
+        <div class="benefit-num">01</div>
+        <h3>Scalable Visual Pipeline</h3>
+        <p>Create a repeatable system for generating high-impact content across marketing, training, and sales. Once your CAD assets are optimized and converted, content production becomes fast, consistent, and significantly more cost-effective — at any volume.</p>
+      </div>
+      <div class="benefit-card bc-2 fade-up">
+        <div class="benefit-num">02</div>
+        <h3>Multi-Channel Ready</h3>
+        <p>Deploy across web, mobile, XR, digital signage, product configurators, and AR experiences — with minimal re-work per channel. Your assets are built with output flexibility in mind, so one source file powers dozens of use cases.</p>
+      </div>
+      <div class="benefit-card bc-3 fade-up">
+        <div class="benefit-num">03</div>
+        <h3>Time &amp; Cost Efficiency</h3>
+        <p>Reduce reliance on costly physical photoshoots, model builds, and agency rework. Assets evolve alongside your product lifecycle — configuration changes, new colorways, and variant renders become fast, targeted updates rather than full productions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title">From raw CAD to deployment-ready assets.</h2>
+      <p class="section-subtitle">A proven three-phase process that takes your engineering data all the way to polished, multi-channel-ready visual content.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-up">
+        <div class="ps-dot">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8L14 2z" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ps-num">Phase 01</div>
+        <h3>Model Prep</h3>
+        <p>We align with your engineering and product teams to acquire, assess, simplify, and finalize CAD inputs. Geometry is cleaned, structured, and optimized for visual conversion — preserving accuracy while enabling photorealistic rendering.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="ps-dot">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.6"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="ps-num">Phase 02</div>
+        <h3>Convert, Model &amp; Render</h3>
+        <p>CAD files are transformed into polished CGI with applied materials, lighting, optimized geometry, and photorealistic rendering. We produce still images, animations, turntables, cutaways, and XR-optimized assets tailored to your use cases.</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="ps-dot">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ps-num">Phase 03</div>
+        <h3>Deliver &amp; Deploy</h3>
+        <p>Assets are packaged and distributed across your platforms — ensuring consistent, high-quality experiences wherever they're used. We support integration with your DAM, CMS, dealer portals, training platforms, and XR delivery systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study -->
+<section class="case-section" id="case-study">
+  <div class="case-inner fade-up">
+    <span class="case-eyebrow">Proven at Scale</span>
+    <h2>Built for complexity. Proven at scale.</h2>
+    <p>Faced with an opportunity spanning hundreds of assets, ENTEVATE designed and deployed a repeatable process that ran over 700 machines and 800 engines through a streamlined transformation framework — enabling faster execution, greater consistency, and long-term scalability across global markets and countless deployment outputs.</p>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="cm-num">700+</div>
+        <div class="cm-label">Machine variants converted through the scalable CGI pipeline, each with unique configurations, colorways, and outputs</div>
+      </div>
+      <div class="case-metric">
+        <div class="cm-num">800+</div>
+        <div class="cm-label">Engine variants processed and rendered for service, training, sales, and marketing applications worldwide</div>
+      </div>
+      <div class="case-metric">
+        <div class="cm-num">8-Figure</div>
+        <div class="cm-label">Cost savings delivered to the client through the elimination of physical shoots, rework cycles, and redundant production</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Use Cases -->
+<section class="usecases-section" id="use-cases">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Applications</div>
+      <h2 class="section-title">Where your CGI assets go to work.</h2>
+      <p class="section-subtitle">Once converted, your CGI library powers content across every touchpoint — from marketing to the shop floor.</p>
+    </div>
+    <div class="usecases-grid">
+      <div class="uc-card fade-up">
+        <div class="uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="uc-body"><h4>Marketing &amp; Sales Content</h4><p>Hero images, product launches, brochures, dealer portals, and digital ads — all generated from a single source of truth without waiting for physical builds.</p></div>
+      </div>
+      <div class="uc-card fade-up">
+        <div class="uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="uc-body"><h4>Training &amp; Technical Documentation</h4><p>Assembly/disassembly animations, service procedures, and interactive technical illustrations that make complex systems instantly understandable.</p></div>
+      </div>
+      <div class="uc-card fade-up">
+        <div class="uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="uc-body"><h4>AR &amp; VR Experiences</h4><p>Optimized 3D models ready for deployment in augmented reality, virtual reality, and mixed reality applications — from remote assistance to virtual showrooms.</p></div>
+      </div>
+      <div class="uc-card fade-up">
+        <div class="uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <div class="uc-body"><h4>Interactive Configurators</h4><p>Real-time product configurators for dealer portals, e-commerce, and trade shows — letting customers explore options, colors, and attachments visually.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band" id="contact">
+  <div class="container">
+    <div class="fade-up">
+      <h2>Ready to Unlock Your CAD Library?</h2>
+      <p>Let's assess your existing assets and design a scalable CGI pipeline that works across every channel and platform you need.</p>
+      <div class="cta-band-actions">
+        <a href="/contact?service=transformation" class="btn-white-solid">Start the Conversation →</a>
+        <a href="/transformation" class="btn-white-ghost">← All Transformation Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<Footer client:load />
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

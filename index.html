@@ -1,0 +1,796 @@
+<!-- deployment test -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENTEVATE | Experiential Branding, Digital Transformation & Innovation Roadmapping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --light-blue:   #EEF5FD;
+      --black:        #181818;
+      --white:        #FFFFFF;
+      --purple:       #444561;
+      --blue:         #247B96;
+      --green:        #3D978A;
+      --orange:       #E8782A;
+      --orange-light: #EA9709;
+      --orange-dark:  #CB632F;
+      --gray-mid:     #6B6B6B;
+      --gray-light:   #A8A8A8;
+      --border:       #DDE6F0;
+      --mob-hover:    #247B96;
+      --font:         'Archivo', system-ui, sans-serif;
+      --radius:       6px;
+      --tr:           0.22s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--white); color: var(--black); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+
+
+    /* ── Nav ── */
+    nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-center { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-center > li { position: relative; }
+    .nav-center a { font-size: 13.5px; font-weight: 500; color: var(--black); transition: color var(--tr); display: flex; align-items: center; gap: 4px; padding: 24px 0; }
+    .nav-center a:hover { color: var(--blue); }
+    .has-drop:hover .dropdown { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .dropdown { position: absolute; top: 100%; left: 0; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 0; min-width: 230px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); opacity: 0; pointer-events: none; transform: translateY(6px); transition: all var(--tr); }
+    .dropdown a { display: block; padding: 9px 18px; font-size: 13px; font-weight: 400; color: var(--black); white-space: nowrap; }
+    .dropdown a:hover { background: var(--light-blue); color: var(--blue); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .btn-outline { font-family: var(--font); font-size: 13px; font-weight: 600; padding: 9px 20px; border: 1.5px solid var(--black); border-radius: var(--radius); color: var(--black); background: transparent; cursor: pointer; transition: all var(--tr); display: inline-block; }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+    .btn-primary { font-family: var(--font); font-size: 14px; font-weight: 600; padding: 11px 24px; border-radius: var(--radius); border: none; cursor: pointer; background: var(--blue); color: var(--white); transition: all var(--tr); display: inline-block; }
+    .btn-primary:hover { background: var(--purple); transform: translateY(-1px); }
+    .btn-ghost { font-family: var(--font); font-size: 14px; font-weight: 500; background: none; border: none; cursor: pointer; color: var(--black); display: inline-flex; align-items: center; gap: 6px; transition: color var(--tr); }
+    .btn-ghost:hover { color: var(--blue); }
+    .btn-orange { font-family: var(--font); font-size: 14px; font-weight: 700; padding: 14px 32px; border-radius: var(--radius); border: none; cursor: pointer; background: var(--orange-light); color: var(--white); transition: all var(--tr); display: inline-block; }
+    .btn-orange:hover { background: var(--orange-dark); transform: translateY(-2px); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+
+    /* ── Hero ── */
+    .hero { background: var(--light-blue); position: relative; overflow: hidden; padding: 96px 48px 140px; display: flex; align-items: center; min-height: 88vh; }
+    .hero::before { display: none; }
+
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 30%, rgba(36,123,150,0.10) 0%, transparent 55%), radial-gradient(circle at 25% 80%, rgba(61,151,138,0.07) 0%, transparent 50%); pointer-events: none; }
+
+    /* ── Animated SVG curves ── */
+    .hero-svg-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-svg-bg svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+    .curve-1 { animation: drift1 8s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+    .curve-2 { animation: drift2 10s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+    .curve-3 { animation: drift3 12s ease-in-out infinite alternate; transform-origin: 50% 50%; }
+    .curve-4 { animation: drift1 9s ease-in-out infinite alternate-reverse; transform-origin: 50% 50%; }
+    .curve-5 { animation: drift2 11s ease-in-out infinite alternate-reverse; transform-origin: 50% 50%; }
+    @keyframes drift1 {
+      from { transform: translateY(-28px) translateX(0px) scaleY(1); }
+      to   { transform: translateY(28px)  translateX(8px)  scaleY(1.04); }
+    }
+    @keyframes drift2 {
+      from { transform: translateY(20px)  translateX(-6px) scaleY(0.97); }
+      to   { transform: translateY(-32px) translateX(10px) scaleY(1.04); }
+    }
+    @keyframes drift3 {
+      from { transform: translateY(-16px) translateX(4px)  scaleY(1.02); }
+      to   { transform: translateY(36px)  translateX(-8px) scaleY(0.96); }
+    }
+    .hero-left { position: relative; z-index: 2; max-width: 1000px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(36,123,150,0.08);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow span {
+      background: linear-gradient(90deg, #2060D8 0%, #38C6F4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 { font-size: clamp(52px, 7vw, 96px); font-weight: 100; line-height: 1.04; color: var(--black); margin-bottom: 24px; letter-spacing: -0.03em; text-wrap: balance; }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #2060D8 0%, #38C6F4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .btn-gradient {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 24px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(90deg, #2060D8 0%, #38C6F4 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-gradient:hover { opacity: 0.88; transform: translateY(-1px); }
+    .hero h1 .accent { color: var(--blue); }
+    .hero p { font-size: 16px; color: var(--gray-mid); line-height: 1.75; max-width: 720px; margin-bottom: 40px; }
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 14px; }
+    .hero-card { background: var(--white); border-radius: var(--radius); padding: 22px 26px; border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; transition: box-shadow var(--tr), transform var(--tr); }
+    .hero-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.07); transform: translateX(4px); }
+    .hero-card-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .hero-card h4 { font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+    .hero-card p { font-size: 13px; color: var(--gray-mid); line-height: 1.55; }
+    .scroll-hint { position: absolute; bottom: 36px; left: 48px; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; color: var(--gray-light); z-index: 2; }
+
+    /* ── Clients ── */
+    .clients { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--white); padding: 36px 48px; overflow: hidden; }
+    .clients-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-light); text-align: center; margin-bottom: 24px; }
+    .clients-track-wrap { overflow: hidden; }
+    .clients-track { display: flex; align-items: center; gap: 64px; animation: clients-scroll 22s linear infinite; width: max-content; }
+    .clients-track:hover { animation-play-state: paused; }
+    .client-name { font-size: 14px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray-light); white-space: nowrap; transition: color var(--tr); flex-shrink: 0; }
+    .client-name:hover { color: var(--blue); }
+    @keyframes clients-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── Sections ── */
+    .section { padding: 96px 48px; }
+    .section-alt { background: var(--light-blue); }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; display: inline-block; background: linear-gradient(90deg, #2060D8 0%, #38C6F4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    h2.section-title { font-size: clamp(30px, 4vw, 48px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+    .section-subtitle { font-size: 15px; color: var(--gray-mid); max-width: 540px; line-height: 1.75; }
+
+    /* ── Services ── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+    .service-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: box-shadow var(--tr), transform var(--tr); }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: var(--radius) var(--radius) 0 0; }
+    .service-card.s1::before { background: linear-gradient(90deg, #2BBFA8 0%, #6DD4A0 100%); }
+    .service-card.s2::before { background: linear-gradient(90deg, #E8782A 0%, #F5B731 100%); }
+    .service-card.s3::before { background: linear-gradient(90deg, #5B5C8C 0%, #8E90C0 100%); }
+    .service-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .service-icon { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+    .s1 .service-icon { background: linear-gradient(135deg, rgba(43,191,168,0.12), rgba(109,212,160,0.12)); color: #2BBFA8; }
+    .s2 .service-icon { background: linear-gradient(135deg, rgba(232,120,42,0.12), rgba(245,183,49,0.12)); color: #E8782A; }
+    .s3 .service-icon { background: linear-gradient(135deg, rgba(91,92,140,0.12), rgba(142,144,192,0.12)); color: #5B5C8C; }
+    .service-card h3 { font-size: 19px; font-weight: 300; color: var(--black); margin-bottom: 6px; letter-spacing: -0.01em; }
+    .service-card em { display: block; font-style: italic; font-size: 13px; color: var(--gray-light); margin-bottom: 16px; }
+    .service-card p { font-size: 14px; color: var(--gray-mid); line-height: 1.7; flex: 1; margin-bottom: 26px; }
+    .learn-more { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: gap var(--tr); margin-top: auto; }
+    .s1 .learn-more { background: linear-gradient(90deg, #2BBFA8 0%, #6DD4A0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .s2 .learn-more { background: linear-gradient(90deg, #E8782A 0%, #F5B731 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .s3 .learn-more { background: linear-gradient(90deg, #5B5C8C 0%, #8E90C0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .learn-more:hover { gap: 10px; }
+
+    /* ── About ── */
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-left p { font-size: 15px; color: var(--gray-mid); line-height: 1.8; margin-bottom: 16px; }
+    .about-left p:last-of-type { margin-bottom: 32px; }
+    .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; padding-top: 36px; border-top: 1px solid var(--border); }
+    .stat h3 { font-size: 52px; font-weight: 300; letter-spacing: -0.03em; margin-bottom: 4px; display: inline-block; background: linear-gradient(90deg, #2060D8 0%, #38C6F4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat p { font-size: 13px; color: var(--gray-mid); }
+    .about-visual { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; display: flex; flex-direction: column; gap: 16px; }
+    .value-pill { display: flex; align-items: flex-start; gap: 14px; background: var(--light-blue); border-radius: var(--radius); padding: 16px 18px; }
+    .pill-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+    .value-pill h5 { font-size: 14px; font-weight: 300; color: var(--black); margin-bottom: 3px; }
+    .value-pill span { font-size: 12px; color: var(--gray-mid); line-height: 1.5; }
+
+    /* ── CTA Banner ── */
+    .cta-banner { background: linear-gradient(135deg, rgba(45,43,78,0.88) 0%, rgba(68,69,97,0.84) 45%, rgba(92,71,128,0.84) 100%), url('images/bt3.png') center/cover no-repeat; color: var(--white); padding: 80px 48px; text-align: center; position: relative; overflow: hidden; }
+    .cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 75% 30%, rgba(92,71,128,0.5) 0%, transparent 60%), radial-gradient(circle at 20% 70%, rgba(45,43,78,0.6) 0%, transparent 50%); pointer-events: none; }
+    .cta-banner h2 { font-size: clamp(26px, 4vw, 44px); font-weight: 300; letter-spacing: -0.02em; margin-bottom: 14px; position: relative; }
+    .cta-banner p { font-size: 16px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 34px; line-height: 1.7; position: relative; }
+
+    /* ── Blog / Our Work ── */
+    .blog-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 44px; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: box-shadow var(--tr), transform var(--tr); display: block; }
+    .blog-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-3px); }
+    .blog-thumb { height: 175px; display: flex; align-items: center; justify-content: center; font-size: 0; color: transparent; position: relative; }
+    .card-ebm .blog-thumb::after,
+    .card-dct .blog-thumb::after,
+    .card-irm .blog-thumb::after { content: ''; position: absolute; bottom: 12px; left: 14px; width: 22px; height: 22px; background-repeat: no-repeat; background-size: contain; opacity: 0.85; }
+    .card-ebm .blog-thumb::after { background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E"); }
+    .card-dct .blog-thumb::after { background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E"); }
+    .card-irm .blog-thumb::after { background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17H8v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z'/%3E%3C/svg%3E"); }
+    /* EBM — teal→green */
+    .bt1 { background: url('images/bt1.png') center/cover no-repeat; }
+    /* DCT — orange→yellow */
+    .bt2 { background: url('images/bt2.png') center/cover no-repeat; }
+    /* IRM — slate purple */
+    .bt3 { background: url('images/bt3.png') center/cover no-repeat; }
+    .blog-body { padding: 22px; }
+    .blog-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+    .card-ebm .blog-tag { background: linear-gradient(90deg,#2BBFA8,#6DD4A0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .card-dct .blog-tag { background: linear-gradient(90deg,#E8782A,#F5B731); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .card-irm .blog-tag { background: linear-gradient(90deg,#5B5C8C,#8E90C0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .card-gen .blog-tag { background: linear-gradient(90deg,#3B8FE8,#5BC8F5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .blog-card h4 { font-size: 14px; font-weight: 300; color: var(--black); line-height: 1.4; margin-bottom: 6px; }
+    .blog-card p { font-size: 12px; color: var(--gray-mid); line-height: 1.6; margin-bottom: 16px; }
+    /* Read More pill */
+    .blog-read-more {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-top: 4px;
+      border: 1.5px solid transparent; transition: opacity var(--tr), gap var(--tr);
+      background-clip: padding-box;
+    }
+    .blog-read-more:hover { opacity: 0.75; gap: 8px; }
+    /* Per-card pill colors using background on the wrapper trick */
+    .card-ebm .blog-read-more { color: #2BBFA8; border-color: #2BBFA8; }
+    .card-dct .blog-read-more { color: #E8782A; border-color: #E8782A; }
+    .card-irm .blog-read-more { color: #5B5C8C; border-color: #5B5C8C; }
+    .card-gen .blog-read-more { color: #3B8FE8; border-color: #3B8FE8; }
+
+    /* ── Footer ── */
+    footer { background: var(--black); color: var(--white); padding: 72px 48px 40px; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; margin-bottom: 56px; }
+    .footer-brand .nav-logo { color: var(--white); margin-bottom: 18px; }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.42); line-height: 1.75; max-width: 270px; margin-bottom: 22px; }
+    .footer-address { font-size: 13px; color: rgba(255,255,255,0.35); line-height: 1.85; }
+    .footer-col h5 { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col ul a { font-size: 14px; color: rgba(255,255,255,0.62); transition: color var(--tr); }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-newsletter h5 { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 12px; }
+    .footer-newsletter p { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 18px; line-height: 1.6; }
+    .newsletter-form { display: flex; flex-direction: column; gap: 10px; }
+    .newsletter-form input { font-family: var(--font); font-size: 13px; padding: 11px 14px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.06); color: var(--white); outline: none; transition: border-color var(--tr); }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.28); }
+    .newsletter-form input:focus { border-color: var(--blue); }
+    .newsletter-form button { font-family: var(--font); font-size: 13px; font-weight: 600; padding: 11px; border-radius: var(--radius); border: none; background: var(--blue); color: var(--white); cursor: pointer; transition: background var(--tr); }
+    .newsletter-form button:hover { background: var(--green); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.28); flex-wrap: wrap; gap: 12px; }
+    .footer-socials { display: flex; align-items: center; gap: 16px; }
+    .footer-socials a { color: rgba(255,255,255,0.38); transition: color var(--tr); display: flex; align-items: center; }
+    .footer-socials a:hover { color: var(--white); }
+
+    /* ── Animations ── */
+    .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-center, .nav-right .btn-outline { display: none; }
+      .hamburger { display: block; }
+      .hero { grid-template-columns: 1fr; padding: 72px 24px 96px; min-height: auto; }
+      .hero-right { display: none; }
+      .services-grid, .blog-grid { grid-template-columns: 1fr; }
+      .about-split { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .section { padding: 72px 24px; }
+      .clients { padding: 28px 24px; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 56px 20px 80px; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      footer { padding: 56px 20px 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .scroll-hint { left: 20px; }
+    }
+  
+
+
+
+
+
+
+
+    /* ─── MOBILE DRAWER ─── */
+    .mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.48);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.28s ease;}
+    .mob-overlay.open{opacity:1;pointer-events:all;}
+    .mob-drawer{position:fixed;top:0;right:0;bottom:0;width:min(300px,90vw);background:var(--white);z-index:201;transform:translateX(100%);transition:transform 0.32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow-y:auto;box-shadow:-6px 0 32px rgba(0,0,0,0.16);}
+    .mob-drawer.open{transform:translateX(0);}
+    .mob-head{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--border);flex-shrink:0;}
+    .mob-close{background:none;border:none;cursor:pointer;padding:5px;color:var(--black);line-height:1;border-radius:var(--radius);transition:background var(--tr);}
+    .mob-close:hover{background:var(--light-blue);}
+    .mob-nav{flex:1;display:block;height:auto;padding:0;position:static;border-bottom:none;background:transparent;z-index:auto;}
+    .mob-icon{width:15px;height:15px;flex-shrink:0;opacity:0.50;transition:opacity var(--tr);}
+    .mob-sub-icon{width:13px;height:13px;flex-shrink:0;opacity:0.45;transition:opacity var(--tr);}
+    .mob-item-inner{display:flex;align-items:center;gap:10px;}
+    .mob-services-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-size:13px;line-height:1.2;font-weight:500;font-family:var(--font);color:var(--black);background:none;border:none;border-bottom:1px solid var(--border);cursor:pointer;text-align:left;transition:color var(--tr);}
+    .mob-services-btn:hover{color:var(--mob-hover);}
+    .mob-services-btn:hover .mob-icon{opacity:1;}
+    .mob-chevron{transition:transform 0.22s ease;font-size:9px;opacity:0.4;}
+    .mob-services-btn.open .mob-chevron{transform:rotate(180deg);}
+    .mob-services-sub{display:none;background:var(--light-blue);border-left:2px solid var(--border);}
+    .mob-services-sub.open{display:block;}
+    .mob-services-sub a{display:flex;align-items:center;gap:9px;padding:11px 16px 11px 36px;font-size:12px;line-height:1.2;font-family:var(--font);color:var(--gray-mid);border-bottom:1px solid rgba(221,230,240,0.70);transition:color var(--tr);}
+    .mob-services-sub a:last-child{border-bottom:none;}
+    .mob-services-sub a:hover .mob-sub-icon{opacity:1;}
+    .mob-services-sub a[href="/experiential.html"]:hover{color:#3D978A;}
+    .mob-services-sub a[href="/transformation.html"]:hover{color:#E8782A;}
+    .mob-services-sub a[href="/innovation.html"]:hover{color:#6A6B9E;}
+    .mob-link{display:flex;align-items:center;gap:10px;padding:14px 16px;font-size:13px;line-height:1.2;font-weight:500;font-family:var(--font);color:var(--black);border-bottom:1px solid var(--border);transition:color var(--tr);}
+    .mob-link:hover{color:var(--mob-hover);}
+    .mob-link:hover .mob-icon{opacity:1;}
+    .mob-footer{padding:16px;border-top:1px solid var(--border);flex-shrink:0;}
+    .mob-cta-btn{display:block;width:100%;text-align:center;padding:12px 16px;font-size:13px;line-height:1.2;font-weight:600;font-family:var(--font);background:var(--black);color:var(--white);border-radius:var(--radius);transition:background var(--tr);}
+    .mob-cta-btn:hover{background:#333;}
+  </style>
+</head>
+<body>
+<!-- ═══ MOBILE DRAWER ═══ -->
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-drawer" id="mobDrawer" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+  <div class="mob-head">
+    <a href="/" aria-label="ENTEVATE Home">
+      <svg width="296" height="58" viewBox="0 0 296 58" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:20px;width:auto;" aria-hidden="true">
+        <path d="M0.332092 0.332031V27.5874L5.10768 23.7746V5.10737H31.9303V12.9027L0.332092 36.2887V42.4419L5.10768 46.2546V38.7047L36.687 15.3187H36.7059V15.2998V5.10737V0.332031H0.332092Z" fill="#181818"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H37.0377V15.6506H36.7964L5.43956 38.8719V46.9444L0 42.6016V36.1213L31.5982 12.7353V5.43932H5.43956V23.9343L0 28.2772V0ZM31.9302 12.9027L0.331986 36.2886V42.4418L5.10758 46.2546V38.7046L36.6869 15.3186H36.7058V0.331986H0.331986V27.5873L5.10758 23.7746V5.10733H31.9302V12.9027Z" fill="#181818"/>
+        <path d="M10.7404 43.7659V48.1072V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V43.7659Z" fill="#181818"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4084 50.8734V41.9942L37.0267 22.3074V29.0597L16.1122 44.556V48.1482L18.4821 50.2843L37.0267 36.6742V43.4425L18.4547 57.1881L10.4084 50.8734ZM18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119Z" fill="#181818"/>
+        <path d="M66.552 16.1413V22.1465H81.6637V27.9559H66.552V34.5811H83.2303V40.3905H60.0896V10.332H83.2303V16.1413H66.552Z" fill="#181818"/>
+        <path d="M89.4703 10.2916H95.9001L110.392 29.7432V10.3243H116.854V40.3828H110.392L95.9001 20.9312V40.3502H89.4703V10.2916Z" fill="#181818"/>
+        <path d="M131.968 16.1411H122.601V10.3317H147.798V16.1411H138.463V40.3903H132.001V16.1411H131.968Z" fill="#181818"/>
+        <path d="M159.707 16.1411V22.1463H174.819V27.9556H159.707V34.5809H176.386V40.3903H153.245V10.3317H176.386V16.1411H159.707Z" fill="#181818"/>
+        <path d="M211.698 10.2916L199.458 40.3502H192.245L180.006 10.2916H187.284L195.901 31.4729L204.517 10.2916H211.698Z" fill="#181818"/>
+        <path d="M232.641 35.6579H219.259L217.334 40.3903H210.12L222.36 10.3317H229.573L241.813 40.3903H234.534L232.641 35.6579ZM230.422 30.1749L225.95 19.1763L221.479 30.1749H230.422Z" fill="#181818"/>
+        <path d="M251.388 16.1411H242.021V10.3317H267.218V16.1411H257.85V40.3903H251.388V16.1411Z" fill="#181818"/>
+        <path d="M279.122 16.1411V22.1463H294.233V27.9556H279.122V34.5809H295.8V40.3903H272.659V10.3317H295.8V16.1411H279.122Z" fill="#181818"/>
+      </svg>
+    </a>
+    <button class="mob-close" id="mobClose" aria-label="Close menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <line x1="1.5" y1="1.5" x2="16.5" y2="16.5" stroke="#181818" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="16.5" y1="1.5" x2="1.5" y2="16.5" stroke="#181818" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mob-nav" aria-label="Mobile navigation">
+    <button class="mob-services-btn" id="mobServicesBtn" aria-expanded="false">
+      <span class="mob-item-inner">Services</span><span class="mob-chevron">▾</span>
+    </button>
+    <div class="mob-services-sub" id="mobServicesSub">
+      <a href="/experiential.html">Experiential Branding &amp; Marketing</a>
+      <a href="/transformation.html">Digital &amp; Content Transformation</a>
+      <a href="/innovation.html">Innovation | Ventures | Ecosystem</a>
+    </div>
+    <a href="/about.html" class="mob-link">About Us</a>
+    <a href="/our-work.html" class="mob-link">Our Work</a>
+    <a href="https://www.momentifyapp.com/" class="mob-link" target="_blank" rel="noopener">Momentify ↗</a>
+  </nav>
+  <div class="mob-footer">
+    <a href="/contact.html" class="mob-cta-btn">Get In Touch</a>
+  </div>
+</div>
+
+
+
+
+<!-- Nav -->
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="296" height="58" viewBox="0 0 296 58" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;filter:invert(1);" aria-label="ENTEVATE">
+      <path d="M0.332092 0.332031V27.5874L5.10768 23.7746V5.10737H31.9303V12.9027L0.332092 36.2887V42.4419L5.10768 46.2546V38.7047L36.687 15.3187H36.7059V15.2998V5.10737V0.332031H0.332092Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H37.0377V15.6506H36.7964L5.43956 38.8719V46.9444L0 42.6016V36.1213L31.5982 12.7353V5.43932H5.43956V23.9343L0 28.2772V0ZM31.9302 12.9027L0.331986 36.2886V42.4418L5.10758 46.2546V38.7046L36.6869 15.3186H36.7058V0.331986H0.331986V27.5873L5.10758 23.7746V5.10733H31.9302V12.9027Z" fill="white"/>
+      <path d="M10.7404 43.7659V48.1072V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V43.7659Z" fill="white"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4084 50.8734V41.9942L37.0267 22.3074V29.0597L16.1122 44.556V48.1482L18.4821 50.2843L37.0267 36.6742V43.4425L18.4547 57.1881L10.4084 50.8734ZM18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119Z" fill="white"/>
+      <path d="M66.552 16.1413V22.1465H81.6637V27.9559H66.552V34.5811H83.2303V40.3905H60.0896V10.332H83.2303V16.1413H66.552Z" fill="white"/>
+      <path d="M89.4703 10.2916H95.9001L110.392 29.7432V10.3243H116.854V40.3828H110.392L95.9001 20.9312V40.3502H89.4703V10.2916Z" fill="white"/>
+      <path d="M131.968 16.1411H122.601V10.3317H147.798V16.1411H138.463V40.3903H132.001V16.1411H131.968Z" fill="white"/>
+      <path d="M159.707 16.1411V22.1463H174.819V27.9556H159.707V34.5809H176.386V40.3903H153.245V10.3317H176.386V16.1411H159.707Z" fill="white"/>
+      <path d="M211.698 10.2916L199.458 40.3502H192.245L180.006 10.2916H187.284L195.901 31.4729L204.517 10.2916H211.698Z" fill="white"/>
+      <path d="M232.641 35.6579H219.259L217.334 40.3903H210.12L222.36 10.3317H229.573L241.813 40.3903H234.534L232.641 35.6579ZM230.422 30.1749L225.95 19.1763L221.479 30.1749H230.422Z" fill="white"/>
+      <path d="M251.388 16.1411H242.021V10.3317H267.218V16.1411H257.85V40.3903H251.388V16.1411Z" fill="white"/>
+      <path d="M279.122 16.1411V22.1463H294.233V27.9556H279.122V34.5809H295.8V40.3903H272.659V10.3317H295.8V16.1411H279.122Z" fill="white"/>
+    </svg>
+  </a>
+
+  <ul class="nav-center">
+    <li class="has-drop">
+      <a href="#">Services ▾</a>
+      <div class="dropdown">
+        <a href="/experiential.html">Experiential Branding &amp; Marketing</a>
+        <a href="/transformation.html">Digital &amp; Content Transformation</a>
+        <a href="/innovation.html">Innovation | Ventures | Ecosystem</a>
+      </div>
+    </li>
+    <li><a href="/about.html">About Us</a></li>
+    <li><a href="/our-work.html">Our Work</a></li>
+    <li><a href="https://www.momentifyapp.com/" target="_blank">Momentify ↗</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="/contact.html" class="btn-outline">Get In Touch</a>
+    <button class="hamburger" aria-label="Open menu">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+        <line x1="0" y1="1"  x2="22" y2="1"  stroke="#181818" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="0" y1="8"  x2="22" y2="8"  stroke="#181818" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="0" y1="15" x2="22" y2="15" stroke="#181818" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-svg-bg">
+    <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="curve-1"
+        d="M 180 -80 C 180 -80 60 140 60 300 C 60 460 180 540 180 720 C 180 800 130 860 130 860"
+        stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.30"/>
+      <path class="curve-2"
+        d="M 420 -100 C 420 -100 230 160 230 330 C 230 500 420 600 420 760 C 420 840 360 900 360 900"
+        stroke="white" stroke-width="5.5" stroke-linecap="round" opacity="0.40"/>
+      <path class="curve-3"
+        d="M 790 -120 C 790 -120 490 200 490 400 C 490 600 790 730 790 920"
+        stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.50"/>
+      <path class="curve-4"
+        d="M 1080 -80 C 1080 -80 780 220 780 420 C 780 620 1080 760 1080 940"
+        stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.35"/>
+      <path class="curve-5"
+        d="M 1320 -60 C 1320 -60 1060 240 1060 440 C 1060 640 1320 780 1320 960"
+        stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
+    </svg>
+  </div>
+  <div class="hero-left fade-up">
+    <div class="hero-eyebrow">
+      <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="url(#eg)"/><defs><linearGradient id="eg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2060D8"/><stop offset="100%" stop-color="#38C6F4"/></linearGradient></defs></svg>
+      <span>Human-Centered Innovation Partner</span>
+    </div>
+    <h1>Innovating today for <span class="accent">a better tomorrow.</span></h1>
+    <p>At ENTEVATE, we believe innovation should be human, purposeful, and accessible. We partner with organizations ready to evolve—designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-gradient">Our Services →</a>
+      <a href="/contact.html" class="btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+
+
+
+  <div class="scroll-hint">
+    <svg width="14" height="18" viewBox="0 0 14 18" fill="none"><path d="M7 1v12M1 9l6 7 6-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- Clients -->
+<div class="clients">
+  <div class="clients-label">Trusted by leading organizations</div>
+  <div class="clients-track-wrap">
+    <div class="clients-track">
+      <span class="client-name">Caterpillar</span>
+      <span class="client-name">Motorola</span>
+      <span class="client-name">Beckman</span>
+      <span class="client-name">Rheem</span>
+      <span class="client-name">Oracle</span>
+      <span class="client-name">Boeing</span>
+      <span class="client-name">Caterpillar</span>
+      <span class="client-name">Motorola</span>
+      <span class="client-name">Beckman</span>
+      <span class="client-name">Rheem</span>
+      <span class="client-name">Oracle</span>
+      <span class="client-name">Boeing</span>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Three pillars, one bold vision.</h2>
+      <p class="section-subtitle">Every engagement is rooted in our three core practice areas — each designed to create human-first, measurable impact.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card s1 fade-up">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Experiential Branding &amp; Marketing</h3>
+        <em>Crafting immersive brand experiences that resonate.</em>
+        <p>We help you spark connection and drive action through intentional, emotionally engaging brand moments. With tools like Momentify, every interaction becomes measurable, memorable, and built to scale.</p>
+        <a href="/experiential.html" class="learn-more">Learn More →</a>
+      </div>
+      <div class="service-card s2 fade-up">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Digital &amp; Content Transformation</h3>
+        <em>Content Readiness™ for a more connected, adaptable business.</em>
+        <p>We align people, platforms, and processes to help you thrive in a rapidly changing world. Our Content Readiness™ approach ensures your content is always clear, strategic, and ready to perform.</p>
+        <a href="/transformation.html" class="learn-more">Learn More →</a>
+      </div>
+      <div class="service-card s3 fade-up">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17H8v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/></svg>
+        </div>
+        <h3>Innovation Roadmapping</h3>
+        <em>Clarity for bold ideas and the systems to bring them to life.</em>
+        <p>We turn big ideas into tangible strategies with frameworks built to scale. From concept to execution, we help you align vision with action — and move forward with confidence and clarity.</p>
+        <a href="/innovation.html" class="learn-more">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about" style="background: var(--light-blue); background-image: radial-gradient(circle at 80% 20%, rgba(36,123,150,0.10) 0%, transparent 50%), radial-gradient(circle at 15% 85%, rgba(56,198,244,0.07) 0%, transparent 45%);">
+  <div class="container">
+    <div class="about-split">
+      <div class="about-left fade-up">
+        <div class="section-label">About ENTEVATE</div>
+        <h2 class="section-title">A purpose-driven innovation collective.</h2>
+        <p>ENTEVATE is a human-centered innovation partner working at the intersection of experiential branding, digital transformation, and strategic roadmapping.</p>
+        <p>We partner with bold leaders who believe technology should amplify humanity — not replace it. From immersive brand experiences powered by Momentify to co-created innovation roadmaps, everything we build starts with people.</p>
+        <a href="/about.html" class="btn-gradient">Learn About Us →</a>
+        <div class="stat-row">
+          <div class="stat"><h3>6+</h3><p>Fortune 500 clients served</p></div>
+          <div class="stat"><h3>3</h3><p>Core innovation pillars</p></div>
+          <div class="stat"><h3>100%</h3><p>Human-centered by design</p></div>
+        </div>
+      </div>
+
+      <div class="about-visual fade-up">
+        <div class="value-pill">
+          <div class="pill-dot" style="background:var(--blue)"></div>
+          <div><h5>Empathy — We lead with heart</h5><span>Before we recommend, we listen. Before we solve, we understand. We approach every challenge through the lens of people first.</span></div>
+        </div>
+        <div class="value-pill">
+          <div class="pill-dot" style="background:var(--green)"></div>
+          <div><h5>Authenticity — We keep it real</h5><span>We bring our full selves to the table and encourage our clients to do the same. Transparency, vulnerability, and mutual respect.</span></div>
+        </div>
+        <div class="value-pill">
+          <div class="pill-dot" style="background:var(--purple)"></div>
+          <div><h5>Adaptability — We embrace the pivot</h5><span>In a world that changes fast, we stay grounded by staying flexible — with open minds, curious questions, and a willingness to evolve.</span></div>
+        </div>
+        <div class="value-pill">
+          <div class="pill-dot" style="background:var(--orange-light)"></div>
+          <div><h5>Quality — We don't cut corners</h5><span>From strategy to execution, we hold ourselves to a higher standard. Excellence is in the details — how we do something matters as much as what we do.</span></div>
+        </div>
+        <div class="value-pill">
+          <div class="pill-dot" style="background:var(--orange-dark)"></div>
+          <div><h5>Responsibility — We do what's right, not just what's easy</h5><span>We're committed to impact that's ethical, sustainable, and meaningful — accountable to our partners, our communities, and the planet.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner" id="contact">
+  <div class="fade-up">
+    <h2>Ready to turn ideas into outcomes?</h2>
+    <p>Let's build something unforgettable together.</p>
+    <a href="/contact.html" class="btn-orange">Get In Touch →</a>
+  </div>
+</section>
+
+<!-- Our Work -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="blog-header fade-up">
+      <div>
+        <div class="section-label">Our Work</div>
+        <h2 class="section-title">Insights &amp; perspectives.</h2>
+      </div>
+      <a href="/our-work.html" class="btn-ghost">See All →</a>
+    </div>
+    <div class="blog-grid">
+      <a href="/transformation/remote-assistance.html" class="blog-card card-dct fade-up">
+        <div class="blog-thumb bt2">Digital Transformation</div>
+        <div class="blog-body">
+          <div class="blog-tag">Digital &amp; Content Transformation</div>
+          <h4>Transforming Remote Assistance with Spatial Computing: A Real-World Use Case</h4>
+          <p>How spatial computing is reshaping the way teams collaborate and deliver remote assistance across industries.</p>
+          <div class="blog-read-more">Read More →</div>
+        </div>
+      </a>
+      <a href="/insights/innovation-roadmapping.html" class="blog-card card-irm fade-up">
+        <div class="blog-thumb bt3">Innovation</div>
+        <div class="blog-body">
+          <div class="blog-tag">Innovation | Ventures | Ecosystem</div>
+          <h4>Innovation Roadmapping: Navigating from Ideation to Amplification</h4>
+          <p>Comprehensive plans to lead your business through rapid digital evolution — from ideation through execution and beyond.</p>
+          <div class="blog-read-more">Read More →</div>
+        </div>
+      </a>
+      <a href="/insights/beyond-the-hype-ar-vr-revenue.html" class="blog-card card-ebm fade-up">
+        <div class="blog-thumb bt1">Experiential</div>
+        <div class="blog-body">
+          <div class="blog-tag">Experiential Branding &amp; Marketing</div>
+          <h4>Beyond the Hype: How AR/VR/Spatial Computing is Fueling Real Revenue Growth</h4>
+          <p>The concrete business outcomes that immersive technology is delivering for forward-thinking brands.</p>
+          <div class="blog-read-more">Read More →</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+        <div class="footer-brand">
+        <a href="/">
+          <svg width="296" height="58" viewBox="0 0 296 58" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;margin-bottom:18px;display:block;" aria-label="ENTEVATE">
+            <path d="M0.332092 0.332031V27.5874L5.10768 23.7746V5.10737H31.9303V12.9027L0.332092 36.2887V42.4419L5.10768 46.2546V38.7047L36.687 15.3187H36.7059V15.2998V5.10737V0.332031H0.332092Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H37.0377V15.6506H36.7964L5.43956 38.8719V46.9444L0 42.6016V36.1213L31.5982 12.7353V5.43932H5.43956V23.9343L0 28.2772V0ZM31.9302 12.9027L0.331986 36.2886V42.4418L5.10758 46.2546V38.7046L36.6869 15.3186H36.7058V0.331986H0.331986V27.5873L5.10758 23.7746V5.10733H31.9302V12.9027Z" fill="white"/>
+            <path d="M10.7404 43.7659V48.1072V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V43.7659Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.4084 50.8734V41.9942L37.0267 22.3074V29.0597L16.1122 44.556V48.1482L18.4821 50.2843L37.0267 36.6742V43.4425L18.4547 57.1881L10.4084 50.8734ZM18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119Z" fill="white"/>
+            <path d="M66.552 16.1413V22.1465H81.6637V27.9559H66.552V34.5811H83.2303V40.3905H60.0896V10.332H83.2303V16.1413H66.552Z" fill="white"/>
+            <path d="M89.4703 10.2916H95.9001L110.392 29.7432V10.3243H116.854V40.3828H110.392L95.9001 20.9312V40.3502H89.4703V10.2916Z" fill="white"/>
+            <path d="M131.968 16.1411H122.601V10.3317H147.798V16.1411H138.463V40.3903H132.001V16.1411H131.968Z" fill="white"/>
+            <path d="M159.707 16.1411V22.1463H174.819V27.9556H159.707V34.5809H176.386V40.3903H153.245V10.3317H176.386V16.1411H159.707Z" fill="white"/>
+            <path d="M211.698 10.2916L199.458 40.3502H192.245L180.006 10.2916H187.284L195.901 31.4729L204.517 10.2916H211.698Z" fill="white"/>
+            <path d="M232.641 35.6579H219.259L217.334 40.3903H210.12L222.36 10.3317H229.573L241.813 40.3903H234.534L232.641 35.6579ZM230.422 30.1749L225.95 19.1763L221.479 30.1749H230.422Z" fill="white"/>
+            <path d="M251.388 16.1411H242.021V10.3317H267.218V16.1411H257.85V40.3903H251.388V16.1411Z" fill="white"/>
+            <path d="M279.122 16.1411V22.1463H294.233V27.9556H279.122V34.5809H295.8V40.3903H272.659V10.3317H295.8V16.1411H279.122Z" fill="white"/>
+          </svg>
+        </a>
+        <p>A human-centered innovation partner for leaders building what comes next.</p>
+        <div class="footer-address">
+          5 Cowboys Way, Ste 300<br>
+          Frisco, Texas 75034<br>
+          (972) 200-3445
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/experiential.html">Experiential Branding &amp; Marketing</a></li>
+          <li><a href="/transformation.html">Digital &amp; Content Transformation</a></li>
+          <li><a href="/innovation.html">Innovation | Ventures | Ecosystem</a></li>
+          <li><a href="https://www.momentifyapp.com/" target="_blank">Momentify App ↗</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/our-work.html">Our Work</a></li>
+          <li><a href="/contact.html">Get In Touch</a></li>
+          <li><a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=b5c58f21-00f2-4ee2-9391-79a13199d76c" target="_blank">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-newsletter">
+        <h5>Get Updates</h5>
+        <p>Innovation insights and perspectives, straight to your inbox.</p>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="return false;">
+          <input type="text" name="firstname" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website_url" tabindex="-1" autocomplete="off" /></div>
+          <button type="submit">Subscribe →</button>
+          <p class="newsletter-msg" style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>©2026 | ENTEVATE | All Rights Reserved</span>
+      <div class="footer-socials">
+        <a href="https://facebook.com/entevate" target="_blank" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://twitter.com/entevate" target="_blank" aria-label="Twitter/X">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/entevate" target="_blank" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Fade-up scroll animations ──
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  document.querySelectorAll('.services-grid, .blog-grid').forEach(grid => {
+    grid.querySelectorAll('.fade-up').forEach((el, i) => { el.style.transitionDelay = `${i * 0.10}s`; });
+  });
+
+  // ─── MOBILE DRAWER ───
+  (function () {
+    var overlay   = document.getElementById('mobOverlay');
+    var drawer    = document.getElementById('mobDrawer');
+    var hamburger = document.querySelector('.hamburger');
+    var closeBtn  = document.getElementById('mobClose');
+    var servBtn   = document.getElementById('mobServicesBtn');
+    var servSub   = document.getElementById('mobServicesSub');
+    function openDrawer()  {
+      overlay.classList.add('open');
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      overlay.classList.remove('open');
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    if (hamburger) hamburger.addEventListener('click', openDrawer);
+    if (closeBtn)  closeBtn.addEventListener('click', closeDrawer);
+    if (overlay)   overlay.addEventListener('click', closeDrawer);
+    if (servBtn) {
+      servBtn.addEventListener('click', function () {
+        var isOpen = servSub.classList.toggle('open');
+        servBtn.classList.toggle('open', isOpen);
+        servBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeDrawer();
+    });
+  })();
+
+  // ─── Newsletter → HubSpot submission ───
+  (function () {
+    var forms = document.querySelectorAll('#newsletterForm');
+    forms.forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button');
+        var msg = form.querySelector('.newsletter-msg');
+        var nameInput = form.querySelector('input[name="firstname"]');
+        var emailInput = form.querySelector('input[name="email"]');
+        var honeypot = form.querySelector('input[name="website_url"]');
+        if (honeypot && honeypot.value) { form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>'; return; }
+        if (!emailInput.value.trim()) { emailInput.style.borderColor = '#CB632F'; return; }
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        var payload = {
+          fields: [
+            { name: 'firstname', value: nameInput.value },
+            { name: 'email', value: emailInput.value }
+          ],
+          context: { pageUri: window.location.href, pageName: document.title }
+        };
+        fetch('https://api.hsforms.com/submissions/v3/integration/submit/44191993/45cdf0bb-1463-4bd9-acce-11775f0ad863', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) {
+          if (r.ok) {
+            form.innerHTML = '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
+          } else {
+            btn.disabled = false; btn.textContent = 'Subscribe →';
+            msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+          }
+        }).catch(function () {
+          btn.disabled = false; btn.textContent = 'Subscribe →';
+          msg.style.display = 'block'; msg.textContent = 'Something went wrong. Try again.';
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

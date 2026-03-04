@@ -1,0 +1,930 @@
+---
+import Header from '../../components/Header.jsx';
+import Footer from '../../components/Footer.jsx';
+import '../../global.css';
+
+// Page metadata
+const title = 'Digital & Content Transformation — ENTEVATE';
+const description = 'We align people, platforms, and processes to help you thrive in a rapidly changing world. Our Content Readiness™ approach ensures your content is always clear, strategic, and ready to perform — across every channel, at every stage of growth.';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <Header client:load />
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Digital &amp; Content Transformation
+        </div>
+        <h1>Content Readiness™ for a <span class="accent">More Connected, Adaptable Business.</span></h1>
+        <p class="hero-sub">We align people, platforms, and processes to help you thrive in a rapidly changing world. Our Content Readiness™ approach ensures your content is always clear, strategic, and ready to perform — across every channel, at every stage of growth.</p>
+        <div class="hero-actions">
+          <a href="/transformation/content-readiness" class="btn-orange">Assess Your Readiness →</a>
+          <a href="#offerings" class="btn-ghost-dark">Explore Our Services ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ OFFERINGS ═══════════════════════════ -->
+  <section class="offerings-section" id="offerings">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Four pathways to transformation.</h2>
+        <p class="section-subtitle">Whether you're navigating a digital shift, restructuring your content strategy, or deploying next-gen visualization — we align your people, platforms, and processes around what matters most.</p>
+      </div>
+
+      <div class="offerings-grid">
+
+        <div class="offering-card oc-orange fade-up">
+          <div class="offering-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+          </div>
+          <h3>Content Readiness™</h3>
+          <em>Clarity before strategy.</em>
+          <p>Our proprietary Content Readiness™ framework evaluates how well your content — across all channels and formats — aligns with your organization's goals, audiences, and operational capabilities. We assess People, Platform, and Process to surface gaps and deliver a prioritized action plan with a readiness score.</p>
+          <a href="/transformation/content-readiness" class="offering-cta">Take the Assessment →</a>
+        </div>
+
+        <div class="offering-card oc-amber fade-up">
+          <div class="offering-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Digital Transformation Strategy</h3>
+          <em>Align people, platforms, and processes.</em>
+          <p>We design and co-execute digital transformation strategies that are human-centered, change-managed, and tied to real business outcomes — including Learning &amp; Development Strategy, Curriculum Design, Process &amp; Standards, Change Management, Tools &amp; Storage, and Metadata Governance.</p>
+          <a href="/transformation/digital-strategy" class="offering-cta">Build Your Strategy →</a>
+        </div>
+
+        <div class="offering-card oc-rust fade-up">
+          <div class="offering-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8L14 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>CAD-to-CGI Conversion</h3>
+          <em>Engineering visualization, elevated.</em>
+          <p>We transform technical CAD data into photorealistic CGI assets for marketing, sales, training, and product storytelling. Our pipeline gives engineering-driven organizations the visual language to sell, explain, and inspire — without waiting for physical prototypes.</p>
+          <a href="/transformation/cad-to-cgi" class="offering-cta">See the Difference →</a>
+        </div>
+
+        <div class="offering-card oc-gold fade-up">
+          <div class="offering-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Remote Assistance &amp; Spatial Workflows</h3>
+          <em>Connect your experts to the field — in real time.</em>
+          <p>We design and deploy AR-powered remote assistance workflows that put expert knowledge in the hands of field teams, service technicians, and distributed workforces. Reduce downtime, improve resolution rates, and build institutional knowledge — at scale.</p>
+          <a href="/transformation/remote-assistance" class="offering-cta">Explore Remote Assistance →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CONTENT READINESS SPOTLIGHT ═══════════════════════════ -->
+  <section class="readiness-section" id="readiness">
+    <div class="readiness-inner">
+
+      <div class="readiness-left fade-up">
+        <span class="readiness-eyebrow">Proprietary Framework</span>
+        <h2>Content Readiness™: Align Before You Scale</h2>
+        <p>Content Readiness™ is ENTEVATE's diagnostic and strategic framework for evaluating organizational content health. Before any transformation effort, we assess your people, platforms, and processes across three core dimensions — giving you the clarity to move forward with confidence.</p>
+        <a href="/transformation/content-readiness" class="btn-orange-solid">Start Your Assessment →</a>
+      </div>
+
+      <div class="readiness-pillars fade-up">
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, #FFE5C0, #FFF5E0);"></div>
+          <div>
+            <div class="r-pillar-title">People Readiness</div>
+            <div class="r-pillar-desc">Are your teams aligned on content goals, roles, and workflows? We assess skills, ownership, and collaboration patterns to surface gaps before they become bottlenecks.</div>
+          </div>
+        </div>
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, #EA9709, #F5C842);"></div>
+          <div>
+            <div class="r-pillar-title">Platform Readiness</div>
+            <div class="r-pillar-desc">Are your tools and systems set up to support the content strategy you're trying to execute? We evaluate technology fit, integration quality, and scalability.</div>
+          </div>
+        </div>
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, #CB632F, #E8782A);"></div>
+          <div>
+            <div class="r-pillar-title">Process Readiness</div>
+            <div class="r-pillar-desc">Do your workflows enable consistent, high-quality content creation and distribution? We map your processes end-to-end and identify where clarity, accountability, or automation can unlock capacity.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ WHY ENTEVATE ═══════════════════════════ -->
+  <section class="why-section" id="why">
+    <div class="container">
+      <div class="why-header fade-up">
+        <div class="section-label">Why ENTEVATE</div>
+        <h2 class="section-title">Change, done right.</h2>
+      </div>
+
+      <div class="proof-grid">
+
+        <div class="proof-point fade-up">
+          <div class="proof-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="proof-stat">Content Readiness™</div>
+          <div class="proof-desc">A proprietary diagnostic framework that gives you clarity before you commit budget to transformation.</div>
+        </div>
+
+        <div class="proof-point fade-up">
+          <div class="proof-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="proof-stat">Human-Led Change</div>
+          <div class="proof-desc">We design transformation strategies around your people — not just your technology — ensuring lasting adoption and real behavior change.</div>
+        </div>
+
+        <div class="proof-point fade-up">
+          <div class="proof-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h9l-1 8 9-12h-9l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="proof-stat">Cross-Industry Expertise</div>
+          <div class="proof-desc">We've partnered with Fortune 500 companies across manufacturing, hospitality, technology, and energy to deliver digital transformation at scale.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CASE STUDIES ═══════════════════════════ -->
+  <section class="cases-section" id="case-studies">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">In the Field</div>
+        <h2 class="section-title">Transformation at work.</h2>
+        <p class="section-subtitle">Real engagements where content strategy and digital transformation delivered measurable, lasting change.</p>
+      </div>
+
+      <div class="cases-grid">
+
+        <div class="case-card cc-orange fade-up">
+          <div class="case-img"><img src="/images/bt2.png" alt="Remote Assistance Case Study" /></div>
+          <div class="case-tag">Enterprise Technology · Spatial Computing</div>
+          <h3>Remote Assistance with<br>Spatial Computing</h3>
+          <p>An industrial enterprise engaged ENTEVATE to design an AR-powered remote assistance solution for distributed field teams. We architected the full spatial workflow — from use-case definition and UX design to deployment and training — enabling real-time expert guidance that reduced service resolution times and elevated technician confidence across regions.</p>
+          <div class="case-outcomes">
+            <div class="case-outcome">AR Remote Assistance Deployed</div>
+            <div class="case-outcome">Spatial Workflow Designed</div>
+            <div class="case-outcome">Reduced Resolution Time</div>
+            <div class="case-outcome">Field Team Training Delivered</div>
+          </div>
+          <a href="/transformation/remote-assistance" class="case-cta">Learn More →</a>
+        </div>
+
+        <div class="case-card cc-amber fade-up">
+          <div class="case-img"><img src="/images/bt3.png" alt="CAD to CGI Case Study" /></div>
+          <div class="case-tag">Engineering · Visualization</div>
+          <h3>CAD-to-CGI Conversion<br>for Engineering Teams</h3>
+          <p>A precision engineering firm partnered with ENTEVATE to transform their technical CAD library into a suite of photorealistic CGI assets for use across marketing, sales, and product storytelling. The result: a visual language that let their team sell and explain complex products without waiting for physical prototypes — accelerating the go-to-market cycle by weeks.</p>
+          <div class="case-outcomes">
+            <div class="case-outcome">Full CAD Library Converted</div>
+            <div class="case-outcome">Marketing-Ready CGI Assets</div>
+            <div class="case-outcome">Faster Go-to-Market</div>
+            <div class="case-outcome">Sales Enablement Content Built</div>
+          </div>
+          <a href="/transformation/cad-to-cgi" class="case-cta">Learn More →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to Transform How Your Content Performs?</h2>
+        <p>Let's assess your readiness and build a transformation strategy that actually sticks.</p>
+        <div class="cta-band-actions">
+          <a href="/transformation/content-readiness" class="btn-white-solid">Start Your Assessment</a>
+          <a href="/contact?service=transformation" class="btn-white-ghost">Schedule a Discovery Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load />
+
+  <script>
+    // Fade-up scroll animations
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.10 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+    document.querySelectorAll('.offerings-grid .fade-up, .proof-grid .fade-up').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.09}s`;
+    });
+  </script>
+
+  <style>
+    /* ── Hero (Transformation) ── */
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(50,22,5,0.55) 0%, rgba(85,42,12,0.45) 50%, rgba(115,65,25,0.38) 100%),
+        url('/images/bt2.png') center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(232,120,42,0.14);
+      border: 1px solid rgba(232,120,42,0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,0.90);
+    }
+
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFE5C0, #FFF5E0);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 7vw, 92px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 900px;
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #FFE5C0 0%, #FFF5E0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.75;
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-orange {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #E8782A 0%, #F5B731 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-orange:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232,120,42,0.45);
+    }
+
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255,255,255,0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+
+    .btn-ghost-dark:hover {
+      border-color: rgba(255,255,255,0.80);
+      color: var(--white);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ── Offerings ── */
+    .offerings-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+
+    .offering-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow var(--tr), transform var(--tr);
+    }
+
+    .offering-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .oc-orange::before { background: linear-gradient(90deg, #E8782A, #F5B731); }
+    .oc-amber::before  { background: linear-gradient(90deg, #EA9709, #F5C842); }
+    .oc-rust::before   { background: linear-gradient(90deg, #CB632F, #E8782A); }
+    .oc-gold::before   { background: linear-gradient(90deg, #F5B731, #FDD068); }
+
+    .offering-card:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .offering-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .oc-orange .offering-icon { background: rgba(232,120,42,0.10); color: var(--orange); }
+    .oc-amber  .offering-icon { background: rgba(234,151,9,0.10);  color: var(--orange-light); }
+    .oc-rust   .offering-icon { background: rgba(203,99,47,0.10);  color: var(--orange-dark); }
+    .oc-gold   .offering-icon { background: rgba(245,183,49,0.10); color: var(--orange-amber); }
+
+    .offering-card h3 {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--black);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .offering-card em {
+      display: block;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gray-light);
+      margin-bottom: 14px;
+    }
+
+    .offering-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 22px;
+    }
+
+    .offering-cta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      transition: gap var(--tr);
+      color: var(--orange);
+    }
+
+    .offering-cta:hover {
+      gap: 10px;
+    }
+
+    /* ── Content Readiness Spotlight ── */
+    .readiness-section {
+      background:
+        linear-gradient(135deg, rgba(50,22,5,0.55) 0%, rgba(85,42,12,0.45) 50%, rgba(115,65,25,0.38) 100%),
+        url('/images/bt2.png') center/cover no-repeat;
+      color: var(--white);
+      padding: 80px 48px;
+    }
+
+    .readiness-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .readiness-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange-amber);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .readiness-left h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .readiness-left p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.80;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    .btn-orange-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--orange);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-orange-solid:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+
+    .readiness-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .r-pillar {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .r-pillar-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .r-pillar-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .r-pillar-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.50);
+      line-height: 1.55;
+    }
+
+    /* ── Why Section ── */
+    .why-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+
+    .why-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .why-header .section-label {
+      display: block;
+      text-align: center;
+    }
+
+    .why-header h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .proof-point {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 28px 36px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: box-shadow var(--tr), transform var(--tr);
+    }
+
+    .proof-point:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+      transform: translateY(-3px);
+    }
+
+    .proof-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(232,120,42,0.09);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .proof-stat {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .proof-desc {
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* ── Case Studies ── */
+    .cases-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 52px;
+    }
+
+    .case-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow var(--tr), transform var(--tr);
+    }
+
+    .case-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .cc-orange::before { background: linear-gradient(90deg, #E8782A, #F5B731); }
+    .cc-amber::before  { background: linear-gradient(90deg, #CB632F, #E8782A); }
+
+    .case-card:hover {
+      box-shadow: 0 16px 56px rgba(0,0,0,0.12);
+      transform: translateY(-3px);
+    }
+
+    .case-img {
+      margin: -36px -32px 28px -32px;
+      height: 210px;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .case-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .case-card:hover .case-img img {
+      transform: scale(1.04);
+    }
+
+    .case-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 18px;
+    }
+
+    .case-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .cc-orange .case-tag::before { background: var(--orange); }
+    .cc-amber  .case-tag::before { background: var(--orange-dark); }
+
+    .case-card h3 {
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+
+    .case-card p {
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.75;
+      margin-bottom: 26px;
+      flex: 1;
+    }
+
+    .case-outcomes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .case-outcome {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--gray-mid);
+      background: var(--light-blue);
+    }
+
+    .case-cta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      transition: gap var(--tr);
+    }
+
+    .cc-orange .case-cta { color: var(--orange); }
+    .cc-amber  .case-cta { color: var(--orange-dark); }
+
+    .case-cta:hover {
+      gap: 10px;
+    }
+
+    /* ── CTA Band ── */
+    .cta-band {
+      background: linear-gradient(135deg, #3D1E08 0%, #E8782A 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 40%, rgba(255,255,255,0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 45%);
+      pointer-events: none;
+    }
+
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--orange);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255,255,255,0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-white-ghost:hover {
+      border-color: rgba(255,255,255,0.90);
+      background: rgba(255,255,255,0.10);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .hero {
+        padding: 72px 24px 88px;
+        min-height: auto;
+      }
+
+      .offerings-section,
+      .readiness-section,
+      .why-section,
+      .cases-section,
+      .cta-band {
+        padding: 72px 24px;
+      }
+
+      .readiness-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px 72px;
+      }
+
+      .offerings-grid,
+      .proof-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+</html>
