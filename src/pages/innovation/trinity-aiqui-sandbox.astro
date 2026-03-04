@@ -1,15 +1,14 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trinity College AIQUI Sandbox — Case Study — ENTEVATE</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.jsx";
+import Footer from "../../components/Footer.jsx";
+import "../../global.css";
+
+const title = "Trinity College AIQUI Sandbox — Case Study — ENTEVATE";
+const description =
+  "Case study: ENTEVATE's AIQUI Sandbox engagement with Trinity College — mapping AI and quantum innovation across the ecosystem.";
+---
+<BaseLayout title={title} description={description}>
     <style>
       :root {
         --light-blue: #eef5fd;
@@ -1109,8 +1108,6 @@
         background: #333;
       }
     </style>
-  </head>
-  <body>
     <!-- ═══ MOBILE DRAWER ═══ -->
     <div class="mob-overlay" id="mobOverlay"></div>
     <div
@@ -2155,5 +2152,4 @@
         });
       })();
     </script>
-  </body>
-</html>
+</BaseLayout>
