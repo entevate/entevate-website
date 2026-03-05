@@ -1,0 +1,1140 @@
+---
+import Footer from "../../components/Footer.jsx";
+import Header from "../../components/Header.jsx";
+import "../../global.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "Remote Assistance & Spatial Workflows — ENTEVATE";
+const description =
+  "AR-powered remote assistance and spatial workflow design for field teams, service technicians, and distributed workforces.";
+---
+
+<BaseLayout title={title} description={description}>
+  <style>
+    .section {
+      padding: 80px 48px;
+    }
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--orange);
+    }
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(50, 22, 5, 0.55) 0%,
+          rgba(85, 42, 12, 0.45) 50%,
+          rgba(115, 65, 25, 0.38) 100%
+        ),
+        url("/images/bt2.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(232, 120, 42, 0.14);
+      border: 1px solid rgba(232, 120, 42, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe5c0, #fff5e0);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(44px, 5.8vw, 82px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 860px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #ffe5c0 0%, #fff5e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 42px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-orange {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #e8782a 0%, #f5b731 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-orange:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232, 120, 42, 0.45);
+    }
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* What It Is */
+    .overview-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .overview-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .overview-left h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .overview-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .overview-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .outcome-stat {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+    .os-num {
+      font-size: 36px;
+      font-weight: 100;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .os-label {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.5;
+    }
+
+    /* Use Cases */
+    .usecases-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+    .usecases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .uc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .uc-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .uc-1::before {
+      background: linear-gradient(90deg, #e8782a, #f5b731);
+    }
+    .uc-2::before {
+      background: linear-gradient(90deg, #ea9709, #f5c842);
+    }
+    .uc-3::before {
+      background: linear-gradient(90deg, #cb632f, #e8782a);
+    }
+    .uc-4::before {
+      background: linear-gradient(90deg, #f5b731, #fdd068);
+    }
+    .uc-card:hover {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+    .uc-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .uc-1 .uc-icon {
+      background: rgba(232, 120, 42, 0.1);
+      color: var(--orange);
+    }
+    .uc-2 .uc-icon {
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+    }
+    .uc-3 .uc-icon {
+      background: rgba(203, 99, 47, 0.1);
+      color: var(--orange-dark);
+    }
+    .uc-4 .uc-icon {
+      background: rgba(245, 183, 49, 0.1);
+      color: var(--orange-amber);
+    }
+    .uc-card h3 {
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .uc-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .uc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .uc-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--gray-mid);
+      background: var(--light-blue);
+    }
+
+    /* Technology */
+    .tech-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .tech-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .tech-card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+      transform: translateY(-2px);
+    }
+    .tech-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: rgba(232, 120, 42, 0.09);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .tech-card h4 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .tech-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* Process */
+    .process-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: "";
+      position: absolute;
+      top: 28px;
+      left: calc(100% / 8);
+      right: calc(100% / 8);
+      height: 1.5px;
+      background: linear-gradient(90deg, #e8782a, #f5b731);
+      z-index: 0;
+    }
+    .ps {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .ps-dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e8782a, #f5b731);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .ps-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+    .ps h3 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .ps p {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* Outcomes */
+    .outcomes-section {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(50, 22, 5, 0.55) 0%,
+          rgba(85, 42, 12, 0.45) 50%,
+          rgba(115, 65, 25, 0.38) 100%
+        ),
+        url("/images/bt2.png") center/cover no-repeat;
+      color: var(--white);
+      padding: 80px 48px;
+    }
+    .outcomes-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .outcomes-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange-amber);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .outcomes-inner h2 {
+      font-size: clamp(26px, 3.5vw, 42px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .outcome-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .oc-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(245, 183, 49, 0.15);
+      color: var(--orange-amber);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .outcome-card h4 {
+      font-size: 15px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .outcome-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.65;
+    }
+
+    /* CTA Band */
+    .cta-band {
+      background: linear-gradient(135deg, #3d1e08 0%, #e8782a 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 40%,
+          rgba(255, 255, 255, 0.07) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--orange);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+  <Header client:load />
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>Digital &amp; Content
+          Transformation
+        </div>
+        <h1>
+          Expert Knowledge,<br /><span class="accent"
+            >Delivered Anywhere in Real Time.</span
+          >
+        </h1>
+        <p class="hero-sub">
+          AR-powered remote assistance and spatial workflow design that puts the
+          right knowledge in the hands of field teams, service technicians, and
+          distributed workforces — reducing downtime, improving resolution
+          rates, and building institutional knowledge at scale.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact?service=transformation" class="btn-orange"
+            >Design Your Workflow →</a
+          >
+          <a href="/transformation" class="btn-ghost-dark"
+            >← Back to Transformation</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What It Is -->
+  <section class="overview-section" id="overview">
+    <div class="overview-split fade-up">
+      <div class="overview-left">
+        <div class="section-label">
+          Remote Assistance &amp; Spatial Workflows
+        </div>
+        <h2>Close the gap between your experts and your field.</h2>
+        <p>
+          When a machine goes down, every minute of downtime costs money. When a
+          technician faces an unfamiliar failure, unresolved issues cascade.
+          Remote assistance changes the equation — connecting your best experts
+          to any field worker, anywhere, in real time.
+        </p>
+        <p>
+          ENTEVATE designs and deploys AR-powered remote assistance workflows
+          from end to end: from use-case definition and UX design to platform
+          selection, deployment, and training. We build spatial workflows that
+          feel natural, scale to your workforce, and capture institutional
+          knowledge along the way.
+        </p>
+        <p>
+          Whether you're solving for field service, manufacturing quality
+          control, or distributed workforce training — we architect the complete
+          solution.
+        </p>
+      </div>
+      <div class="overview-right">
+        <div class="outcome-stat">
+          <div class="os-num" style="color:var(--orange);">↓</div><div
+            class="os-label"
+          >
+            Reduced service resolution times — experts resolve remotely what
+            used to require an in-person visit
+          </div>
+        </div>
+        <div class="outcome-stat">
+          <div class="os-num" style="color:var(--orange-light);">↑</div><div
+            class="os-label"
+          >
+            Elevated technician confidence — field workers get real-time
+            guidance overlaid directly in their field of view
+          </div>
+        </div>
+        <div class="outcome-stat">
+          <div class="os-num" style="color:var(--orange-dark);">↓</div><div
+            class="os-label"
+          >
+            Lower travel costs — expert knowledge travels digitally, not
+            physically
+          </div>
+        </div>
+        <div class="outcome-stat">
+          <div class="os-num" style="color:var(--orange-amber);">↑</div><div
+            class="os-label"
+          >
+            Institutional knowledge captured — every resolved session builds a
+            searchable, reusable knowledge base
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="usecases-section" id="use-cases">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">Industry Applications</div>
+        <h2 class="section-title">
+          Where spatial workflows transform operations.
+        </h2>
+        <p class="section-subtitle">
+          Remote assistance and spatial computing deliver value across any
+          industry where expertise, precision, and field operations intersect.
+        </p>
+      </div>
+      <div class="usecases-grid">
+        <div class="uc-card uc-1 fade-up">
+          <div class="uc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Field Service &amp; Repair</h3>
+          <p>
+            Connect technicians in the field with remote experts who can see
+            exactly what the technician sees — annotating the live view with
+            step-by-step guidance, diagrams, and instructions overlaid in AR.
+          </p>
+          <div class="uc-tags">
+            <span class="uc-tag">Heavy Equipment</span><span class="uc-tag"
+              >HVAC / Utilities</span
+            ><span class="uc-tag">Industrial Machinery</span>
+          </div>
+        </div>
+        <div class="uc-card uc-2 fade-up">
+          <div class="uc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="2"
+                y="7"
+                width="20"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><path
+                d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path><line
+                x1="12"
+                y1="12"
+                x2="12"
+                y2="16"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line></svg
+            >
+          </div>
+          <h3>Manufacturing Quality &amp; Assembly</h3>
+          <p>
+            Guide assembly line workers through complex procedures with spatial
+            overlays, reduce defect rates with real-time visual checks, and
+            enable remote quality inspectors to review production from anywhere.
+          </p>
+          <div class="uc-tags">
+            <span class="uc-tag">Automotive</span><span class="uc-tag"
+              >Aerospace</span
+            ><span class="uc-tag">Electronics</span>
+          </div>
+        </div>
+        <div class="uc-card uc-3 fade-up">
+          <div class="uc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Remote Training &amp; Onboarding</h3>
+          <p>
+            Deliver immersive, context-aware training directly at the point of
+            work. New technicians learn on real equipment with spatial
+            annotations guiding every step — compressing time-to-competency
+            dramatically.
+          </p>
+          <div class="uc-tags">
+            <span class="uc-tag">Energy &amp; Utilities</span><span
+              class="uc-tag">Healthcare</span
+            ><span class="uc-tag">Defense</span>
+          </div>
+        </div>
+        <div class="uc-card uc-4 fade-up">
+          <div class="uc-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M8 2v16M16 6v16"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h3>Remote Inspection &amp; Audit</h3>
+          <p>
+            Enable expert inspectors to conduct thorough remote inspections
+            using AR-equipped field agents, with live annotation, screen
+            capture, and automated report generation — without ever leaving the
+            office.
+          </p>
+          <div class="uc-tags">
+            <span class="uc-tag">Construction</span><span class="uc-tag"
+              >Government</span
+            ><span class="uc-tag">Insurance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology -->
+  <section class="tech-section" id="technology">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">Platform &amp; Technology</div>
+        <h2 class="section-title">
+          Built on the right tools for your environment.
+        </h2>
+        <p class="section-subtitle">
+          We're platform-agnostic and hardware-flexible — selecting and
+          configuring the right spatial computing stack for your workforce,
+          budget, and operational environment.
+        </p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card fade-up">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><circle
+                cx="12"
+                cy="12"
+                r="2"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                stroke="currentColor"
+                stroke-width="1.6"></path><path
+                d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"
+                stroke="currentColor"
+                stroke-width="1.6"></path></svg
+            >
+          </div>
+          <h4>AR Smart Glasses &amp; Headsets</h4>
+          <p>
+            From lightweight industrial safety glasses to full-featured mixed
+            reality headsets — we evaluate and configure the right wearable
+            hardware for your use case, environment, and comfort requirements.
+          </p>
+        </div>
+        <div class="tech-card fade-up">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h4>Live Remote Guidance Platforms</h4>
+          <p>
+            Real-time video collaboration platforms with AR annotation, screen
+            sharing, session recording, and expert queuing — built to handle
+            industrial environments, low-bandwidth field conditions, and
+            compliance requirements.
+          </p>
+        </div>
+        <div class="tech-card fade-up">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h4>Spatial Content &amp; Work Instructions</h4>
+          <p>
+            Step-by-step spatial work instructions, 3D model overlays, and
+            dynamic procedure guides that anchor to physical equipment and
+            update in real time — reducing error and increasing first-time fix
+            rates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">How We Engage</div>
+        <h2 class="section-title">From concept to field deployment.</h2>
+        <p class="section-subtitle">
+          A structured four-phase engagement that takes your remote assistance
+          program from use-case definition to fully operational spatial
+          workflow.
+        </p>
+      </div>
+      <div class="process-steps">
+        <div class="ps fade-up">
+          <div class="ps-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              ><circle cx="11" cy="11" r="8" stroke="white" stroke-width="1.6"
+              ></circle><path
+                d="M21 21l-4.35-4.35"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <div class="ps-num">Phase 01</div>
+          <h3>Assess &amp; Define</h3>
+          <p>
+            Identify highest-value use cases, assess current workflows, and
+            define success metrics for the remote assistance program.
+          </p>
+        </div>
+        <div class="ps fade-up">
+          <div class="ps-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <div class="ps-num">Phase 02</div>
+          <h3>Design &amp; Architect</h3>
+          <p>
+            Design the full spatial workflow — UX, hardware selection, platform
+            configuration, content structure, and integration with existing
+            systems.
+          </p>
+        </div>
+        <div class="ps fade-up">
+          <div class="ps-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 2L2 7l10 5 10-5-10-5z"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path><path
+                d="M2 17l10 5 10-5M2 12l10 5 10-5"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <div class="ps-num">Phase 03</div>
+          <h3>Deploy &amp; Train</h3>
+          <p>
+            Execute deployment with field team training, expert onboarding, and
+            a structured rollout plan that ensures early adoption and real
+            usage.
+          </p>
+        </div>
+        <div class="ps fade-up">
+          <div class="ps-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M9 11l3 3L22 4"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linecap="round"></path><path
+                d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
+                stroke="white"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <div class="ps-num">Phase 04</div>
+          <h3>Measure &amp; Evolve</h3>
+          <p>
+            Track resolution rates, time-to-fix, user satisfaction, and
+            knowledge base growth — using data to continuously improve the
+            program.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="outcomes-section" id="outcomes">
+    <div class="outcomes-inner">
+      <span class="outcomes-eyebrow fade-up">Measurable Impact</span>
+      <h2 class="fade-up">What remote assistance delivers in the field.</h2>
+      <div class="outcomes-grid">
+        <div class="outcome-card fade-up">
+          <div class="oc-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              ><circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M12 6v6l4 2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h4>Faster Resolution Times</h4>
+          <p>
+            Expert guidance in real time eliminates waiting for on-site visits —
+            cutting mean-time-to-resolution across your field service
+            operations.
+          </p>
+        </div>
+        <div class="outcome-card fade-up">
+          <div class="oc-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.6"></circle></svg
+            >
+          </div>
+          <h4>Higher First-Time Fix Rates</h4>
+          <p>
+            Remote experts guide technicians to the right fix on the first visit
+            — reducing repeat calls, return trips, and costly misdiagnosis.
+          </p>
+        </div>
+        <div class="outcome-card fade-up">
+          <div class="oc-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 2L2 7l10 5 10-5-10-5z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path><path
+                d="M2 17l10 5 10-5M2 12l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h4>Institutional Knowledge Capture</h4>
+          <p>
+            Every resolved session becomes a reusable knowledge asset —
+            searchable, indexable, and deployable as training content for future
+            technicians.
+          </p>
+        </div>
+        <div class="outcome-card fade-up">
+          <div class="oc-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="2"
+                y="3"
+                width="20"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><path
+                d="M8 21h8M12 17v4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h4>Reduced Travel &amp; On-Site Costs</h4>
+          <p>
+            Expert knowledge travels digitally, not physically — dramatically
+            reducing the cost per service incident and freeing expert capacity
+            for higher-value work.
+          </p>
+        </div>
+        <div class="outcome-card fade-up">
+          <div class="oc-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M22 4L12 14.01l-3-3"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h4>Faster Technician Ramp-Up</h4>
+          <p>
+            New field team members reach competency faster with spatial work
+            instructions and on-demand access to expert guidance during real
+            work scenarios.
+          </p>
+        </div>
+        <div class="outcome-card fade-up">
+          <div class="oc-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h4>Scalable Across Distributed Teams</h4>
+          <p>
+            Once deployed, the workflow scales to every region, every field
+            team, and every new hire — without proportional increases in expert
+            headcount.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to Put Expert Knowledge in the Field?</h2>
+        <p>
+          Let's assess your current workflows and design an AR-powered remote
+          assistance program that delivers real results from day one.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact?service=transformation" class="btn-white-solid"
+            >Start the Conversation →</a
+          >
+          <a href="/transformation" class="btn-white-ghost"
+            >← All Transformation Services</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load buttonStyle={{ background: "var(--orange)" }} />
+
+  <script src="../../global.js"></script>
+</BaseLayout>

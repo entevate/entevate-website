@@ -1,0 +1,766 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import "../global.css";
+
+// Page metadata
+const title = "Contact Us — ENTEVATE";
+const description =
+  "Ready to build something exceptional? Tell us about your challenge. We'll respond within one business day with a path forward.";
+---
+
+<BaseLayout title={title} description={description}>
+  <Header client:load />
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Let's Work Together
+        </div>
+        <h1>
+          Ready to Build <span class="accent">Something Exceptional?</span>
+        </h1>
+        <p class="hero-sub">
+          Tell us about your challenge. We'll respond within one business day
+          with a path forward.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section">
+    <div class="contact-inner">
+      <!-- Left: info -->
+      <div class="contact-info fade-up">
+        <span class="section-label">Contact Us</span>
+        <h2>Get In<br />Touch</h2>
+        <p>
+          Whether you're exploring a specific service, ready to kick off a
+          project, or simply want to learn more about ENTEVATE — we'd love to
+          hear from you.
+        </p>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.7"></circle>
+              </svg>
+            </div>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Office</div>
+              <div class="contact-item-value">
+                5 Cowboys Way, Ste 300<br />Frisco, Texas 75034
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">
+                <a href="tel:+19722003445">(972) 200-3445</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <polyline
+                  points="22,6 12,13 2,6"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></polyline>
+              </svg>
+            </div>
+            <div class="contact-item-text">
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">
+                <a href="mailto:hello@entevate.com">hello@entevate.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <circle
+                  cx="4"
+                  cy="4"
+                  r="2"
+                  stroke="currentColor"
+                  stroke-width="1.7"></circle>
+              </svg>
+            </div>
+            <div class="contact-item-text">
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-value">
+                <a
+                  href="https://linkedin.com/company/entevate"
+                  target="_blank"
+                  rel="noopener">linkedin.com/company/entevate</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-wrap fade-up" style="transition-delay:0.10s;">
+        <!-- The form -->
+        <form id="contactForm" action="#" method="POST" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName"
+                >First Name <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Jane"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span class="req">*</span></label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Smith"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address <span class="req">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="jane@company.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(555) 000-0000"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company / Organization</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              placeholder="Your company name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="service"
+              >How Can We Help? <span class="req">*</span></label
+            >
+            <select id="service" name="service" required>
+              <option value="" disabled selected
+                >Select a service or area of interest…</option
+              >
+              <optgroup label="Experiential Branding & Marketing">
+                <option value="experiential"
+                  >Experiential Branding &amp; Marketing</option
+                >
+              </optgroup>
+              <optgroup label="Digital & Content Transformation">
+                <option value="transformation"
+                  >Digital &amp; Content Transformation</option
+                >
+              </optgroup>
+              <optgroup label="Innovation | Ventures | Ecosystem">
+                <option value="innovation"
+                  >Innovation | Ventures | Ecosystem (General)</option
+                >
+                <option value="aiqui">AIQUI™ Intelligence Framework</option>
+                <option value="ecosystem-model"
+                  >Innovation Ecosystem Model</option
+                >
+                <option value="innovation-sandbox">Innovation Sandbox</option>
+                <option value="roadmapping">Innovation Roadmapping</option>
+                <option value="sideline-capital"
+                  >Sideline Capital &amp; Funding</option
+                >
+              </optgroup>
+              <option value="other">Other / Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message"
+              >Tell Us About Your Project <span class="req">*</span></label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Share what you're working on, the challenge you're facing, or the outcome you're hoping for…"
+              required></textarea>
+          </div>
+
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <input
+              type="text"
+              name="website_url"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <button type="submit" class="form-submit-btn">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <line
+                x1="22"
+                y1="2"
+                x2="11"
+                y2="13"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></line>
+              <polygon
+                points="22 2 15 22 11 13 2 9 22 2"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"></polygon>
+            </svg>
+          </button>
+          <p class="form-note">
+            We respond to every message within one business day.
+          </p>
+        </form>
+
+        <!-- Success state -->
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <polyline
+                points="20 6 9 17 4 12"
+                stroke="white"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></polyline>
+            </svg>
+          </div>
+          <h3>Message Sent!</h3>
+          <p>
+            Thanks for reaching out. A member of our team will be in touch
+            within one business day.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load />
+
+  <script src="../global.js"></script>
+  <script>
+    // Contact form functionality
+    (function () {
+      const form = document.getElementById("contactForm");
+      const successDiv = document.getElementById("formSuccess");
+      const formLoadTime = Date.now();
+      const MIN_SUBMIT_SECONDS = 3;
+
+      // URL parameter handling for service dropdown pre-fill
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceParam = urlParams.get("service");
+      if (serviceParam) {
+        const serviceSelect = document.getElementById("service");
+        if (serviceSelect) {
+          serviceSelect.value = serviceParam;
+        }
+      }
+
+      form?.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const botCheck = formData.get("website_url");
+
+        if (botCheck) {
+          form.style.display = "none";
+          successDiv.style.display = "block";
+          return;
+        }
+        if (Date.now() - formLoadTime < MIN_SUBMIT_SECONDS * 1000) {
+          form.style.display = "none";
+          successDiv.style.display = "block";
+          return;
+        }
+
+        // Basic validation
+        const requiredFields = [
+          "firstName",
+          "lastName",
+          "email",
+          "service",
+          "message",
+        ];
+        let isValid = true;
+
+        requiredFields.forEach((field) => {
+          const input = document.getElementById(field);
+          if (!input.value.trim()) {
+            input.style.borderColor = "#CB632F";
+            isValid = false;
+          } else {
+            input.style.borderColor = "";
+          }
+        });
+
+        if (!isValid) return;
+
+        // Submit to HubSpot
+        const payload = {
+          fields: [
+            { name: "firstname", value: formData.get("firstName") },
+            { name: "lastname", value: formData.get("lastName") },
+            { name: "email", value: formData.get("email") },
+            { name: "phone", value: formData.get("phone") || "" },
+            { name: "company", value: formData.get("company") || "" },
+            { name: "how_can_we_help_", value: formData.get("service") },
+            { name: "message", value: formData.get("message") },
+          ],
+          context: {
+            pageUri: window.location.href,
+            pageName: document.title,
+          },
+        };
+
+        fetch(
+          "https://api.hsforms.com/submissions/v3/integration/submit/44191993/4ea31070-ad03-4c2e-90bc-f5e9b69b5f1b",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          },
+        )
+          .then(function (r) {
+            if (r.ok) {
+              form.style.display = "none";
+              successDiv.style.display = "block";
+            } else {
+              alert(
+                "Something went wrong. Please try again or contact us directly.",
+              );
+            }
+          })
+          .catch(function () {
+            alert(
+              "Something went wrong. Please try again or contact us directly.",
+            );
+          });
+      });
+    })();
+  </script>
+
+  <style>
+    /* ── Hero (Contact) ── */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 8, 45, 0.52) 0%,
+          rgba(0, 28, 80, 0.42) 50%,
+          rgba(0, 50, 110, 0.34) 100%
+        ),
+        url("/images/bg-blue.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 80px 48px 100px;
+      min-height: 52vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(68, 69, 97, 0.3);
+      border: 1px solid rgba(180, 180, 220, 0.35);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b8ec8, #c4c5e8);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 6vw, 80px);
+      font-weight: 100;
+      line-height: 1.06;
+      color: var(--white);
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 760px;
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #c8ecff 0%, #eef8ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.62);
+      line-height: 1.75;
+      max-width: 580px;
+    }
+
+    /* ── Contact Section ── */
+    .contact-section {
+      padding: 88px 48px;
+      background: var(--white);
+    }
+
+    .contact-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.55fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info {
+      position: sticky;
+      top: 100px;
+    }
+
+    .contact-info .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--black);
+    }
+
+    .contact-info h2 {
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.78;
+      margin-bottom: 40px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--light-blue);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--purple);
+    }
+
+    .contact-item-text {
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 2px;
+    }
+
+    .contact-item-value {
+      color: var(--black);
+      font-weight: 500;
+    }
+
+    .contact-item-value a {
+      color: var(--purple);
+      transition: color var(--tr);
+    }
+
+    .contact-item-value a:hover {
+      color: var(--blue);
+    }
+
+    /* ── Form column ── */
+    .contact-form-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: 0.03em;
+    }
+
+    .form-group label .req {
+      color: var(--orange-dark);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--font);
+      font-size: 14.5px;
+      color: var(--black);
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      outline: none;
+      transition:
+        border-color var(--tr),
+        box-shadow var(--tr);
+      width: 100%;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gray-light);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(68, 69, 97, 0.1);
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%236B6B6B' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    .form-submit-btn {
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--black);
+      color: var(--white);
+      transition: all var(--tr);
+      width: 100%;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .form-submit-btn:hover {
+      background: var(--purple);
+      transform: translateY(-1px);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--gray-light);
+      text-align: center;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 56px 24px;
+    }
+
+    .form-success-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--teal), #6dd4a0);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+
+    .form-success h3 {
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .form-success p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.75;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        padding: 72px 24px 88px;
+        min-height: auto;
+      }
+
+      .contact-section {
+        padding: 64px 24px;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .contact-info {
+        position: static;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-form-wrap {
+        padding: 32px 24px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>
