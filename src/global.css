@@ -1161,16 +1161,6 @@ footer {
     display: block;
   }
 
-  .services-grid,
-  .blog-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-split {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 32px;

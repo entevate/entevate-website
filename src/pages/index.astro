@@ -4,11 +4,10 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import "../global.css";
 
-// Page metadata
 const title =
   "ENTEVATE | Experiential Branding, Digital Transformation & Innovation Roadmapping";
 const description =
-  "Human-centered innovation partner for leaders building what comes next. We partner with organizations ready to evolve—designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.";
+  "Human-centered innovation partner. We partner with organizations ready to evolve—designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -62,15 +61,15 @@ const description =
     </div>
     <div class="hero-left fade-up">
       <div class="hero-eyebrow">
-        <svg width="8" height="8" viewBox="0 0 8 8">
-          <circle cx="4" cy="4" r="4" fill="url(#eg)"></circle>
-          <defs>
-            <linearGradient id="eg" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#2060D8"></stop>
-              <stop offset="100%" stop-color="#38C6F4"></stop>
-            </linearGradient>
-          </defs>
-        </svg>
+        <svg width="8" height="8" viewBox="0 0 8 8"
+          ><circle cx="4" cy="4" r="4" fill="url(#eg)"></circle><defs
+            ><linearGradient id="eg" x1="0" y1="0" x2="1" y2="0"
+              ><stop offset="0%" stop-color="#2060D8"></stop><stop
+                offset="100%"
+                stop-color="#38C6F4"></stop></linearGradient
+            ></defs
+          ></svg
+        >
         <span>Human-Centered Innovation Partner</span>
       </div>
       <h1>
@@ -89,14 +88,14 @@ const description =
     </div>
 
     <div class="scroll-hint">
-      <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
-        <path
+      <svg width="14" height="18" viewBox="0 0 14 18" fill="none"
+        ><path
           d="M7 1v12M1 9l6 7 6-7"
           stroke="currentColor"
           stroke-width="1.5"
           stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </svg>
+          stroke-linejoin="round"></path></svg
+      >
       Scroll to explore
     </div>
   </section>
@@ -145,11 +144,10 @@ const description =
               stroke-width="1.6"
               stroke-linecap="round"
               stroke-linejoin="round"
-            >
-              <polygon
+              ><polygon
                 points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-              ></polygon>
-            </svg>
+              ></polygon></svg
+            >
           </div>
           <h3>Experiential Branding &amp; Marketing</h3>
           <em>Crafting immersive brand experiences that resonate.</em>
@@ -171,10 +169,9 @@ const description =
               stroke-width="1.6"
               stroke-linecap="round"
               stroke-linejoin="round"
+              ><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              ></path></svg
             >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-              ></path>
-            </svg>
           </div>
           <h3>Digital &amp; Content Transformation</h3>
           <em>Content Readiness™ for a more connected, adaptable business.</em>
@@ -196,11 +193,10 @@ const description =
               stroke-width="1.6"
               stroke-linecap="round"
               stroke-linejoin="round"
-            >
-              <path
+              ><path
                 d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17H8v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"
-              ></path>
-            </svg>
+              ></path></svg
+            >
           </div>
           <h3>Innovation Roadmapping</h3>
           <em>Clarity for bold ideas and the systems to bring them to life.</em>
@@ -386,15 +382,16 @@ const description =
 
   <script src="../global.js"></script>
   <script>
+    // Staggered fade-up delay for grid items on home page
     document.querySelectorAll(".services-grid, .blog-grid").forEach((grid) => {
       grid.querySelectorAll(".fade-up").forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.1}s`;
+        (el as HTMLElement).style.transitionDelay = `${i * 0.1}s`;
       });
     });
   </script>
 
   <style>
-    /* ── Hero (Home) ── */
+    /* ── Hero (index-specific) ── */
     .hero {
       background: var(--light-blue);
       position: relative;
@@ -404,7 +401,6 @@ const description =
       align-items: center;
       min-height: 88vh;
     }
-
     .hero::before {
       content: "";
       position: absolute;
@@ -422,8 +418,6 @@ const description =
         );
       pointer-events: none;
     }
-
-    /* ── Animated SVG curves ── */
     .hero-svg-bg {
       position: absolute;
       inset: 0;
@@ -433,14 +427,12 @@ const description =
       pointer-events: none;
       overflow: hidden;
     }
-
     .hero-svg-bg svg {
       width: 100%;
       height: 100%;
       position: absolute;
       inset: 0;
     }
-
     .curve-1 {
       animation: drift1 8s ease-in-out infinite alternate;
       transform-origin: 50% 50%;
@@ -461,7 +453,6 @@ const description =
       animation: drift2 11s ease-in-out infinite alternate-reverse;
       transform-origin: 50% 50%;
     }
-
     @keyframes drift1 {
       from {
         transform: translateY(-28px) translateX(0px) scaleY(1);
@@ -470,7 +461,6 @@ const description =
         transform: translateY(28px) translateX(8px) scaleY(1.04);
       }
     }
-
     @keyframes drift2 {
       from {
         transform: translateY(20px) translateX(-6px) scaleY(0.97);
@@ -479,7 +469,6 @@ const description =
         transform: translateY(-32px) translateX(10px) scaleY(1.04);
       }
     }
-
     @keyframes drift3 {
       from {
         transform: translateY(-16px) translateX(4px) scaleY(1.02);
@@ -488,13 +477,11 @@ const description =
         transform: translateY(36px) translateX(-8px) scaleY(0.96);
       }
     }
-
     .hero-left {
       position: relative;
       z-index: 2;
       max-width: 1000px;
     }
-
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -508,14 +495,12 @@ const description =
       border-radius: 100px;
       margin-bottom: 28px;
     }
-
     .hero-eyebrow span {
       background: linear-gradient(90deg, #2060d8 0%, #38c6f4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .hero h1 {
       font-size: clamp(52px, 7vw, 96px);
       font-weight: 100;
@@ -525,14 +510,12 @@ const description =
       letter-spacing: -0.03em;
       text-wrap: balance;
     }
-
     .hero h1 .accent {
       background: linear-gradient(90deg, #2060d8 0%, #38c6f4 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
     .hero p {
       font-size: 16px;
       color: var(--gray-mid);
@@ -540,14 +523,53 @@ const description =
       max-width: 720px;
       margin-bottom: 40px;
     }
-
     .hero-actions {
       display: flex;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
     }
-
+    .hero-right {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .hero-card:hover {
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+      transform: translateX(4px);
+    }
+    .hero-card-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .hero-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .hero-card p {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.55;
+    }
     .scroll-hint {
       position: absolute;
       bottom: 36px;
@@ -562,42 +584,27 @@ const description =
       z-index: 2;
     }
 
-    @media (max-width: 960px) {
-      .hero {
-        padding: 72px 24px 96px;
-        min-height: auto;
-      }
+    .services-grid,
+    .blog-grid {
+      grid-template-columns: 1fr;
     }
 
-    @media (max-width: 600px) {
-      .hero {
-        padding: 56px 20px 80px;
-      }
-
-      .scroll-hint {
-        left: 20px;
-      }
-    }
-
-    /* ── A purpose-driven innovation collective (match before) ── */
+    /* ── About (index-specific) ── */
     .about-split {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: start;
+      align-items: center;
     }
-
-    #about .stat h3 {
-      background: linear-gradient(90deg, #2060d8 0%, #38c6f4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .about-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
     }
-
-    #about .stat p {
-      color: var(--gray-light);
+    .about-left p:last-of-type {
+      margin-bottom: 32px;
     }
-
     .about-visual {
       background: var(--white);
       border: 1px solid var(--border);
@@ -606,7 +613,30 @@ const description =
       display: flex;
       flex-direction: column;
       gap: 16px;
-      box-shadow: 0 6px 24px rgba(36, 123, 150, 0.08);
+    }
+
+    /* ── Responsive (index-specific) ── */
+    @media (max-width: 960px) {
+      .hero {
+        padding: 72px 24px 96px;
+        min-height: auto;
+      }
+      .hero-right {
+        display: none;
+      }
+
+      .about-split {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero {
+        padding: 56px 20px 80px;
+      }
+      .scroll-hint {
+        left: 20px;
+      }
     }
   </style>
 </BaseLayout>
