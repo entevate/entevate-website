@@ -10,2163 +10,1636 @@ const description =
 ---
 
 <BaseLayout title={title} description={description}>
-    <style>
-      /* ── Nav ── */
+  <style>
+    /* ── Shared ── */
+    .section {
+      padding: 80px 48px;
+    }
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--blue);
+    }
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(15, 14, 32, 0.58) 0%,
+          rgba(32, 32, 58, 0.5) 50%,
+          rgba(50, 50, 82, 0.42) 100%
+        ),
+        url("/images/bt3.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(142, 144, 192, 0.14);
+      border: 1px solid rgba(142, 144, 192, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #9899cc, #c8c9e8);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 6.5vw, 88px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 900px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #cdd2ff 0%, #edeeff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 660px;
+      margin-bottom: 42px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #444561 0%, #6b6c9a 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #35344f 0%, #5b5c8c 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(68, 69, 97, 0.5);
+    }
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ── Section 2: Overview ── */
+    .overview-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+    .overview-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .overview-left h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+    .overview-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .overview-left p:last-of-type {
+      margin-bottom: 0;
+    }
+    .overview-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 8px;
+    }
+    .overview-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px 24px;
+      background: var(--light-blue);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .overview-stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .osi-purple {
+      background: rgba(68, 69, 97, 0.1);
+      color: var(--purple);
+    }
+    .osi-green {
+      background: rgba(61, 151, 138, 0.1);
+      color: var(--green);
+    }
+    .osi-blue {
+      background: rgba(36, 123, 150, 0.1);
+      color: var(--blue);
+    }
+    .overview-stat-body {
+    }
+    .overview-stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .overview-stat-label {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.5;
+    }
+
+    /* ── Section 3: 7 Core Elements ── */
+    .basecamps-section {
+      background: var(--light-blue);
+      padding: 88px 48px;
+    }
+    .basecamps-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .basecamps-header {
+      margin-bottom: 60px;
+    }
+    .basecamps-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .basecamps-hex {
+      position: sticky;
+      top: 100px;
+    }
+    .basecamps-hex svg {
+      width: 100%;
+      height: auto;
+    }
+    .basecamps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .basecamp-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .basecamp-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+    .basecamp-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .basecamp-body {
+    }
+    .basecamp-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+    .basecamp-desc {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
+
+    /* ── Section 4: AIQUI in Practice ── */
+    .process-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+    .process-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: calc(12.5% + 14px);
+      right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--blue) 0%,
+        var(--green) 33%,
+        var(--purple) 66%,
+        var(--orange-light) 100%
+      );
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .process-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+      transition:
+        transform var(--tr),
+        box-shadow var(--tr);
+    }
+    .process-step:hover .process-num {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+    .pn-blue {
+      background: var(--blue);
+    }
+    .pn-green {
+      background: var(--green);
+    }
+    .pn-purple {
+      background: var(--purple);
+    }
+    .pn-orange {
+      background: var(--orange-light);
+    }
+    .process-step-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+    .process-step-desc {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* ── Section 5: Who It's For ── */
+    .for-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 88px 48px;
+    }
+    .for-header {
+      max-width: 1160px;
+      margin: 0 auto 52px;
+    }
+    .for-header .section-label {
+      color: var(--green);
+    }
+    .for-header .section-title {
+      color: var(--white);
+    }
+    .for-header .section-subtitle {
+      color: rgba(255, 255, 255, 0.55);
+    }
+    .for-grid {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .for-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      transition:
+        background var(--tr),
+        border-color var(--tr),
+        transform var(--tr);
+    }
+    .for-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-3px);
+    }
+    .for-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .fci-blue {
+      background: rgba(36, 123, 150, 0.2);
+      color: #4dc8e0;
+    }
+    .fci-green {
+      background: rgba(61, 151, 138, 0.2);
+      color: #72d4c5;
+    }
+    .fci-purple {
+      background: rgba(142, 144, 200, 0.2);
+      color: #b4baff;
+    }
+    .fci-orange {
+      background: rgba(234, 151, 9, 0.2);
+      color: #f5c842;
+    }
+    .for-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .for-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+    }
+
+    /* ── Section 6: Case Study Feature ── */
+    .feature-section {
+      background: var(--light-blue);
+      padding: 88px 48px;
+    }
+    .feature-card {
+      max-width: 1160px;
+      margin: 52px auto 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .feature-card:hover {
+      box-shadow: 0 16px 56px rgba(0, 0, 0, 0.11);
+      transform: translateY(-2px);
+    }
+    .feature-img {
+      overflow: hidden;
+    }
+    .feature-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .feature-card:hover .feature-img img {
+      transform: scale(1.04);
+    }
+    .feature-body {
+      padding: 48px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .feature-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 18px;
+    }
+    .feature-tag::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .feature-body h3 {
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .feature-body p {
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .feature-outcomes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .feature-outcome {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--gray-mid);
+      background: var(--light-blue);
+    }
+    .feature-cta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--blue);
+      transition: gap var(--tr);
+    }
+    .feature-cta:hover {
+      gap: 10px;
+    }
+
+    /* ── CTA Band ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 40%,
+          rgba(255, 255, 255, 0.07) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--blue);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
       nav {
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        padding: 0 48px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 70px;
+        padding: 0 24px;
       }
-      .nav-logo {
-        display: flex;
-        align-items: center;
-      }
-      .nav-center {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-        list-style: none;
-      }
-      .nav-center > li {
-        position: relative;
-      }
-      .nav-center a {
-        font-size: 13.5px;
-        font-weight: 500;
-        color: var(--black);
-        transition: color var(--tr);
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        padding: 24px 0;
-      }
-      .nav-center a:hover {
-        color: var(--blue);
-      }
-      .has-drop:hover .dropdown {
-        opacity: 1;
-        pointer-events: all;
-        transform: translateY(0);
-      }
-      .dropdown {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 8px 0;
-        min-width: 230px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(6px);
-        transition: all var(--tr);
-      }
-      .dropdown a {
-        display: block;
-        padding: 9px 18px;
-        font-size: 13px;
-        font-weight: 400;
-        color: var(--black);
-        white-space: nowrap;
-      }
-      .dropdown a:hover {
-        background: var(--light-blue);
-        color: var(--blue);
-      }
-      .dropdown a.active {
-        background: var(--light-blue);
-        color: var(--blue);
-        font-weight: 600;
-      }
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .btn-outline {
-        font-family: var(--font);
-        font-size: 13px;
-        font-weight: 600;
-        padding: 9px 20px;
-        border: 1.5px solid var(--black);
-        border-radius: var(--radius);
-        color: var(--black);
-        background: transparent;
-        cursor: pointer;
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-outline:hover {
-        background: var(--black);
-        color: var(--white);
+      .nav-center,
+      .nav-right .btn-outline {
+        display: none;
       }
       .hamburger {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px;
+        display: block;
       }
-
-      /* ── Shared ── */
-      .section {
-        padding: 80px 48px;
-      }
-      .container {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-      .section-label {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-        display: inline-block;
-        color: var(--blue);
-      }
-      h2.section-title {
-        font-size: clamp(30px, 4vw, 48px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-        margin-bottom: 16px;
-      }
-      .section-subtitle {
-        font-size: 15px;
-        color: var(--gray-mid);
-        max-width: 580px;
-        line-height: 1.75;
-      }
-
-      /* ── Hero ── */
       .hero {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(15, 14, 32, 0.58) 0%,
-            rgba(32, 32, 58, 0.5) 50%,
-            rgba(50, 50, 82, 0.42) 100%
-          ),
-          url("/images/bt3.png") center/cover no-repeat;
-        position: relative;
-        overflow: hidden;
-        padding: 96px 48px 120px;
-        min-height: 82vh;
-        display: flex;
-        align-items: center;
-      }
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        max-width: 1160px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        background: rgba(142, 144, 192, 0.14);
-        border: 1px solid rgba(142, 144, 192, 0.38);
-        padding: 6px 16px;
-        border-radius: 100px;
-        margin-bottom: 28px;
-        color: rgba(255, 255, 255, 0.9);
-      }
-      .hero-eyebrow-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #9899cc, #c8c9e8);
-        flex-shrink: 0;
-      }
-      .hero h1 {
-        font-size: clamp(48px, 6.5vw, 88px);
-        font-weight: 100;
-        line-height: 1.04;
-        color: var(--white);
-        margin-bottom: 24px;
-        letter-spacing: -0.03em;
-        text-wrap: balance;
-        max-width: 900px;
-      }
-      .hero h1 .accent {
-        background: linear-gradient(90deg, #cdd2ff 0%, #edeeff 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .hero-sub {
-        font-size: 17px;
-        color: rgba(255, 255, 255, 0.68);
-        line-height: 1.75;
-        max-width: 660px;
-        margin-bottom: 42px;
-      }
-      .hero-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .btn-primary {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: linear-gradient(135deg, #444561 0%, #6b6c9a 100%);
-        color: var(--white);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-primary:hover {
-        background: linear-gradient(135deg, #35344f 0%, #5b5c8c 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba(68, 69, 97, 0.5);
-      }
-      .btn-ghost-dark {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        background: none;
-        border: 1.5px solid rgba(255, 255, 255, 0.35);
-        padding: 12px 26px;
-        border-radius: var(--radius);
-        cursor: pointer;
-        color: rgba(255, 255, 255, 0.85);
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: all var(--tr);
-      }
-      .btn-ghost-dark:hover {
-        border-color: rgba(255, 255, 255, 0.8);
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      /* ── Section 2: Overview ── */
-      .overview-section {
-        background: var(--white);
-        padding: 88px 48px;
-        border-top: 1px solid var(--border);
+        padding: 72px 24px 88px;
+        min-height: auto;
       }
       .overview-inner {
-        max-width: 1160px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: start;
-      }
-      .overview-left h2 {
-        font-size: clamp(28px, 3.8vw, 46px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.15;
-        margin-bottom: 22px;
-      }
-      .overview-left p {
-        font-size: 15px;
-        color: var(--gray-mid);
-        line-height: 1.8;
-        margin-bottom: 18px;
-      }
-      .overview-left p:last-of-type {
-        margin-bottom: 0;
-      }
-      .overview-right {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding-top: 8px;
-      }
-      .overview-stat {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 24px 24px;
-        background: var(--light-blue);
-        border-radius: var(--radius);
-        border: 1px solid var(--border);
-      }
-      .overview-stat-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .osi-purple {
-        background: rgba(68, 69, 97, 0.1);
-        color: var(--purple);
-      }
-      .osi-green {
-        background: rgba(61, 151, 138, 0.1);
-        color: var(--green);
-      }
-      .osi-blue {
-        background: rgba(36, 123, 150, 0.1);
-        color: var(--blue);
-      }
-      .overview-stat-body {
-      }
-      .overview-stat-num {
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--black);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-      .overview-stat-label {
-        font-size: 13px;
-        color: var(--gray-mid);
-        line-height: 1.5;
-      }
-
-      /* ── Section 3: 7 Core Elements ── */
-      .basecamps-section {
-        background: var(--light-blue);
-        padding: 88px 48px;
-      }
-      .basecamps-inner {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-      .basecamps-header {
-        margin-bottom: 60px;
+        grid-template-columns: 1fr;
+        gap: 48px;
       }
       .basecamps-grid {
-        display: grid;
-        grid-template-columns: 420px 1fr;
-        gap: 72px;
-        align-items: start;
+        grid-template-columns: 1fr;
       }
       .basecamps-hex {
-        position: sticky;
-        top: 100px;
-      }
-      .basecamps-hex svg {
-        width: 100%;
-        height: auto;
-      }
-      .basecamps-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-      }
-      .basecamp-item {
-        display: flex;
-        gap: 20px;
-        align-items: flex-start;
-        padding: 24px 0;
-        border-bottom: 1px solid var(--border);
-      }
-      .basecamp-item:first-child {
-        border-top: 1px solid var(--border);
-      }
-      .basecamp-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        flex-shrink: 0;
-        margin-top: 5px;
-      }
-      .basecamp-body {
-      }
-      .basecamp-name {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--black);
-        margin-bottom: 5px;
-        letter-spacing: -0.01em;
-      }
-      .basecamp-desc {
-        font-size: 13.5px;
-        color: var(--gray-mid);
-        line-height: 1.7;
-      }
-
-      /* ── Section 4: AIQUI in Practice ── */
-      .process-section {
-        background: var(--white);
-        padding: 88px 48px;
-        border-top: 1px solid var(--border);
-      }
-      .process-inner {
-        max-width: 1160px;
-        margin: 0 auto;
+        position: static;
       }
       .process-steps {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0;
-        margin-top: 56px;
-        position: relative;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
       }
       .process-steps::before {
-        content: "";
-        position: absolute;
-        top: 27px;
-        left: calc(12.5% + 14px);
-        right: calc(12.5% + 14px);
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--blue) 0%,
-          var(--green) 33%,
-          var(--purple) 66%,
-          var(--orange-light) 100%
-        );
-        opacity: 0.3;
-        z-index: 0;
-      }
-      .process-step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-        position: relative;
-        z-index: 1;
-      }
-      .process-num {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 20px;
-        flex-shrink: 0;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
-        transition:
-          transform var(--tr),
-          box-shadow var(--tr);
-      }
-      .process-step:hover .process-num {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-      }
-      .pn-blue {
-        background: var(--blue);
-      }
-      .pn-green {
-        background: var(--green);
-      }
-      .pn-purple {
-        background: var(--purple);
-      }
-      .pn-orange {
-        background: var(--orange-light);
-      }
-      .process-step-name {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--black);
-        margin-bottom: 10px;
-      }
-      .process-step-desc {
-        font-size: 13px;
-        color: var(--gray-mid);
-        line-height: 1.65;
-      }
-
-      /* ── Section 5: Who It's For ── */
-      .for-section {
-        background: var(--black);
-        color: var(--white);
-        padding: 88px 48px;
-      }
-      .for-header {
-        max-width: 1160px;
-        margin: 0 auto 52px;
-      }
-      .for-header .section-label {
-        color: var(--green);
-      }
-      .for-header .section-title {
-        color: var(--white);
-      }
-      .for-header .section-subtitle {
-        color: rgba(255, 255, 255, 0.55);
+        display: none;
       }
       .for-grid {
-        max-width: 1160px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-      }
-      .for-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: var(--radius);
-        padding: 32px 26px;
-        transition:
-          background var(--tr),
-          border-color var(--tr),
-          transform var(--tr);
-      }
-      .for-card:hover {
-        background: rgba(255, 255, 255, 0.09);
-        border-color: rgba(255, 255, 255, 0.18);
-        transform: translateY(-3px);
-      }
-      .for-card-icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
-      .fci-blue {
-        background: rgba(36, 123, 150, 0.2);
-        color: #4dc8e0;
-      }
-      .fci-green {
-        background: rgba(61, 151, 138, 0.2);
-        color: #72d4c5;
-      }
-      .fci-purple {
-        background: rgba(142, 144, 200, 0.2);
-        color: #b4baff;
-      }
-      .fci-orange {
-        background: rgba(234, 151, 9, 0.2);
-        color: #f5c842;
-      }
-      .for-card h3 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--white);
-        margin-bottom: 10px;
-        line-height: 1.3;
-      }
-      .for-card p {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 1.7;
-      }
-
-      /* ── Section 6: Case Study Feature ── */
-      .feature-section {
-        background: var(--light-blue);
-        padding: 88px 48px;
+        grid-template-columns: repeat(2, 1fr);
       }
       .feature-card {
-        max-width: 1160px;
-        margin: 52px auto 0;
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 420px 1fr;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
-        transition:
-          box-shadow var(--tr),
-          transform var(--tr);
-      }
-      .feature-card:hover {
-        box-shadow: 0 16px 56px rgba(0, 0, 0, 0.11);
-        transform: translateY(-2px);
+        grid-template-columns: 1fr;
       }
       .feature-img {
-        overflow: hidden;
-      }
-      .feature-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.5s ease;
-      }
-      .feature-card:hover .feature-img img {
-        transform: scale(1.04);
-      }
-      .feature-body {
-        padding: 48px 52px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .feature-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--gray-light);
-        margin-bottom: 18px;
-      }
-      .feature-tag::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--blue);
-        flex-shrink: 0;
-      }
-      .feature-body h3 {
-        font-size: clamp(22px, 2.8vw, 34px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        color: var(--black);
-        margin-bottom: 16px;
-        line-height: 1.2;
-      }
-      .feature-body p {
-        font-size: 14px;
-        color: var(--gray-mid);
-        line-height: 1.8;
-        margin-bottom: 28px;
-      }
-      .feature-outcomes {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 32px;
-      }
-      .feature-outcome {
-        font-size: 11px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        padding: 5px 12px;
-        border-radius: 100px;
-        border: 1px solid var(--border);
-        color: var(--gray-mid);
-        background: var(--light-blue);
-      }
-      .feature-cta {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--blue);
-        transition: gap var(--tr);
-      }
-      .feature-cta:hover {
-        gap: 10px;
-      }
-
-      /* ── CTA Band ── */
-      .cta-band {
-        background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
-        color: var(--white);
-        padding: 80px 48px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .cta-band::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            circle at 25% 40%,
-            rgba(255, 255, 255, 0.07) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 255, 255, 0.05) 0%,
-            transparent 45%
-          );
-        pointer-events: none;
-      }
-      .cta-band .container {
-        position: relative;
-        z-index: 1;
-      }
-      .cta-band h2 {
-        font-size: clamp(28px, 4.5vw, 52px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        margin-bottom: 16px;
-      }
-      .cta-band p {
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.68);
-        max-width: 520px;
-        margin: 0 auto 38px;
-        line-height: 1.72;
-      }
-      .cta-band-actions {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .btn-white-solid {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: var(--white);
-        color: var(--blue);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-white-solid:hover {
-        background: var(--light-blue);
-        transform: translateY(-1px);
-      }
-      .btn-white-ghost {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 12px 30px;
-        border-radius: var(--radius);
-        border: 1.5px solid rgba(255, 255, 255, 0.45);
-        cursor: pointer;
-        color: var(--white);
-        background: transparent;
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-white-ghost:hover {
-        border-color: rgba(255, 255, 255, 0.9);
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      /* ── Footer ── */
-      footer {
-        background: var(--black);
-        color: var(--white);
-        padding: 72px 48px 40px;
+        height: 260px;
       }
       .footer-top {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1.4fr;
-        gap: 48px;
-        margin-bottom: 56px;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
       }
-      .footer-brand p {
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.42);
-        line-height: 1.75;
-        max-width: 270px;
-        margin-bottom: 22px;
+      .overview-section,
+      .basecamps-section,
+      .process-section,
+      .for-section,
+      .feature-section,
+      .cta-band {
+        padding: 64px 24px;
       }
-      .footer-address {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.35);
-        line-height: 1.85;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px 72px;
       }
-      .footer-col h5 {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.3);
-        margin-bottom: 18px;
+      .process-steps {
+        grid-template-columns: 1fr;
       }
-      .footer-col ul {
-        list-style: none;
-        display: flex;
+      .for-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-actions {
         flex-direction: column;
-        gap: 11px;
+        align-items: flex-start;
       }
-      .footer-col ul a {
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.62);
-        transition: color var(--tr);
-      }
-      .footer-col ul a:hover {
-        color: var(--white);
-      }
-      .footer-newsletter h5 {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.3);
-        margin-bottom: 12px;
-      }
-      .footer-newsletter p {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.4);
-        margin-bottom: 18px;
-        line-height: 1.6;
-      }
-      .newsletter-form {
-        display: flex;
+    }
+    @media (max-width: 600px) {
+      .cta-band-actions {
         flex-direction: column;
-        gap: 10px;
       }
-      .newsletter-form input {
-        font-family: var(--font);
-        font-size: 13px;
-        padding: 11px 14px;
-        border-radius: var(--radius);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.06);
-        color: var(--white);
-        outline: none;
-        transition: border-color var(--tr);
-      }
-      .newsletter-form input::placeholder {
-        color: rgba(255, 255, 255, 0.28);
-      }
-      .newsletter-form input:focus {
-        border-color: var(--blue);
-      }
-      .newsletter-form button {
-        font-family: var(--font);
-        font-size: 13px;
-        font-weight: 600;
-        padding: 11px;
-        border-radius: var(--radius);
-        border: none;
-        background: var(--blue);
-        color: var(--white);
-        cursor: pointer;
-        transition: background var(--tr);
-      }
-      .newsletter-form button:hover {
-        background: var(--green);
-      }
-      .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        padding-top: 26px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.28);
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      .footer-socials {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
-      .footer-socials a {
-        color: rgba(255, 255, 255, 0.38);
-        transition: color var(--tr);
-        display: flex;
-        align-items: center;
-      }
-      .footer-socials a:hover {
-        color: var(--white);
-      }
-
-      /* ── Animations ── */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.55s ease,
-          transform 0.55s ease;
-      }
-      .fade-up.visible {
-        opacity: 1;
-        transform: none;
-      }
-
-      /* ── Responsive ── */
-      @media (max-width: 960px) {
-        nav {
-          padding: 0 24px;
-        }
-        .nav-center,
-        .nav-right .btn-outline {
-          display: none;
-        }
-        .hamburger {
-          display: block;
-        }
-        .hero {
-          padding: 72px 24px 88px;
-          min-height: auto;
-        }
-        .overview-inner {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .basecamps-grid {
-          grid-template-columns: 1fr;
-        }
-        .basecamps-hex {
-          position: static;
-        }
-        .process-steps {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 40px;
-        }
-        .process-steps::before {
-          display: none;
-        }
-        .for-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .feature-card {
-          grid-template-columns: 1fr;
-        }
-        .feature-img {
-          height: 260px;
-        }
-        .footer-top {
-          grid-template-columns: 1fr 1fr;
-          gap: 32px;
-        }
-        .overview-section,
-        .basecamps-section,
-        .process-section,
-        .for-section,
-        .feature-section,
-        .cta-band {
-          padding: 64px 24px;
-        }
-      }
-      @media (max-width: 768px) {
-        .hero {
-          padding: 60px 20px 72px;
-        }
-        .process-steps {
-          grid-template-columns: 1fr;
-        }
-        .for-grid {
-          grid-template-columns: 1fr;
-        }
-        .hero-actions {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-      @media (max-width: 600px) {
-        .cta-band-actions {
-          flex-direction: column;
-        }
-        .btn-white-solid,
-        .btn-white-ghost {
-          width: 100%;
-          text-align: center;
-        }
-        .footer-top {
-          grid-template-columns: 1fr;
-        }
-        footer {
-          padding: 56px 20px 32px;
-        }
-        .footer-bottom {
-          flex-direction: column;
-          text-align: center;
-        }
-      }
-
-      /* ─── MOBILE DRAWER ─── */
-      .mob-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.48);
-        z-index: 200;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.28s ease;
-      }
-      .mob-overlay.open {
-        opacity: 1;
-        pointer-events: all;
-      }
-      .mob-drawer {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: min(300px, 90vw);
-        background: var(--white);
-        z-index: 201;
-        transform: translateX(100%);
-        transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-        box-shadow: -6px 0 32px rgba(0, 0, 0, 0.16);
-      }
-      .mob-drawer.open {
-        transform: translateX(0);
-      }
-      .mob-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px;
-        border-bottom: 1px solid var(--border);
-        flex-shrink: 0;
-      }
-      .mob-close {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 5px;
-        color: var(--black);
-        line-height: 1;
-        border-radius: var(--radius);
-        transition: background var(--tr);
-      }
-      .mob-close:hover {
-        background: var(--light-blue);
-      }
-      .mob-nav {
-        flex: 1;
-        display: block;
-        height: auto;
-        padding: 0;
-        position: static;
-        border-bottom: none;
-        background: transparent;
-        z-index: auto;
-      }
-      .mob-icon {
-        width: 15px;
-        height: 15px;
-        flex-shrink: 0;
-        opacity: 0.5;
-        transition: opacity var(--tr);
-      }
-      .mob-sub-icon {
-        width: 13px;
-        height: 13px;
-        flex-shrink: 0;
-        opacity: 0.45;
-        transition: opacity var(--tr);
-      }
-      .mob-item-inner {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .mob-services-btn {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px 16px;
-        font-size: 13px;
-        line-height: 1.2;
-        font-weight: 500;
-        font-family: var(--font);
-        color: var(--black);
-        background: none;
-        border: none;
-        border-bottom: 1px solid var(--border);
-        cursor: pointer;
-        text-align: left;
-        transition: color var(--tr);
-      }
-      .mob-services-btn:hover {
-        color: var(--mob-hover);
-      }
-      .mob-services-btn:hover .mob-icon {
-        opacity: 1;
-      }
-      .mob-chevron {
-        transition: transform 0.22s ease;
-        font-size: 9px;
-        opacity: 0.4;
-      }
-      .mob-services-btn.open .mob-chevron {
-        transform: rotate(180deg);
-      }
-      .mob-services-sub {
-        display: none;
-        background: var(--light-blue);
-        border-left: 2px solid var(--border);
-      }
-      .mob-services-sub.open {
-        display: block;
-      }
-      .mob-services-sub a {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        padding: 11px 16px 11px 36px;
-        font-size: 12px;
-        line-height: 1.2;
-        font-family: var(--font);
-        color: var(--gray-mid);
-        border-bottom: 1px solid rgba(221, 230, 240, 0.7);
-        transition: color var(--tr);
-      }
-      .mob-services-sub a:last-child {
-        border-bottom: none;
-      }
-      .mob-services-sub a:hover .mob-sub-icon {
-        opacity: 1;
-      }
-      .mob-services-sub a[href="/experiential.html"]:hover {
-        color: #3d978a;
-      }
-      .mob-services-sub a[href="/transformation.html"]:hover {
-        color: #e8782a;
-      }
-      .mob-services-sub a[href="/innovation.html"]:hover {
-        color: #6a6b9e;
-      }
-      .mob-link {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 16px;
-        font-size: 13px;
-        line-height: 1.2;
-        font-weight: 500;
-        font-family: var(--font);
-        color: var(--black);
-        border-bottom: 1px solid var(--border);
-        transition: color var(--tr);
-      }
-      .mob-link:hover {
-        color: var(--mob-hover);
-      }
-      .mob-link:hover .mob-icon {
-        opacity: 1;
-      }
-      .mob-footer {
-        padding: 16px;
-        border-top: 1px solid var(--border);
-        flex-shrink: 0;
-      }
-      .mob-cta-btn {
-        display: block;
+      .btn-white-solid,
+      .btn-white-ghost {
         width: 100%;
         text-align: center;
-        padding: 12px 16px;
-        font-size: 13px;
-        line-height: 1.2;
-        font-weight: 600;
-        font-family: var(--font);
-        background: var(--black);
-        color: var(--white);
-        border-radius: var(--radius);
-        transition: background var(--tr);
       }
-      .mob-cta-btn:hover {
-        background: #333;
+      .footer-top {
+        grid-template-columns: 1fr;
       }
-    </style>
+      footer {
+        padding: 56px 20px 32px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* ─── MOBILE DRAWER ─── */
+    .mob-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.48);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+    }
+    .mob-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mob-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(300px, 90vw);
+      background: var(--white);
+      z-index: 201;
+      transform: translateX(100%);
+      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      box-shadow: -6px 0 32px rgba(0, 0, 0, 0.16);
+    }
+    .mob-drawer.open {
+      transform: translateX(0);
+    }
+    .mob-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .mob-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      color: var(--black);
+      line-height: 1;
+      border-radius: var(--radius);
+      transition: background var(--tr);
+    }
+    .mob-close:hover {
+      background: var(--light-blue);
+    }
+    .mob-nav {
+      flex: 1;
+      display: block;
+      height: auto;
+      padding: 0;
+      position: static;
+      border-bottom: none;
+      background: transparent;
+      z-index: auto;
+    }
+    .mob-icon {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      opacity: 0.5;
+      transition: opacity var(--tr);
+    }
+    .mob-sub-icon {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      opacity: 0.45;
+      transition: opacity var(--tr);
+    }
+    .mob-item-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mob-services-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 500;
+      font-family: var(--font);
+      color: var(--black);
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      text-align: left;
+      transition: color var(--tr);
+    }
+    .mob-services-btn:hover {
+      color: var(--mob-hover);
+    }
+    .mob-services-btn:hover .mob-icon {
+      opacity: 1;
+    }
+    .mob-chevron {
+      transition: transform 0.22s ease;
+      font-size: 9px;
+      opacity: 0.4;
+    }
+    .mob-services-btn.open .mob-chevron {
+      transform: rotate(180deg);
+    }
+    .mob-services-sub {
+      display: none;
+      background: var(--light-blue);
+      border-left: 2px solid var(--border);
+    }
+    .mob-services-sub.open {
+      display: block;
+    }
+    .mob-services-sub a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 16px 11px 36px;
+      font-size: 12px;
+      line-height: 1.2;
+      font-family: var(--font);
+      color: var(--gray-mid);
+      border-bottom: 1px solid rgba(221, 230, 240, 0.7);
+      transition: color var(--tr);
+    }
+    .mob-services-sub a:last-child {
+      border-bottom: none;
+    }
+    .mob-services-sub a:hover .mob-sub-icon {
+      opacity: 1;
+    }
+    .mob-services-sub a[href="/experiential.html"]:hover {
+      color: #3d978a;
+    }
+    .mob-services-sub a[href="/transformation.html"]:hover {
+      color: #e8782a;
+    }
+    .mob-services-sub a[href="/innovation.html"]:hover {
+      color: #6a6b9e;
+    }
+    .mob-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 500;
+      font-family: var(--font);
+      color: var(--black);
+      border-bottom: 1px solid var(--border);
+      transition: color var(--tr);
+    }
+    .mob-link:hover {
+      color: var(--mob-hover);
+    }
+    .mob-link:hover .mob-icon {
+      opacity: 1;
+    }
+    .mob-footer {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .mob-cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px 16px;
+      font-size: 13px;
+      line-height: 1.2;
+      font-weight: 600;
+      font-family: var(--font);
+      background: var(--black);
+      color: var(--white);
+      border-radius: var(--radius);
+      transition: background var(--tr);
+    }
+    .mob-cta-btn:hover {
+      background: #333;
+    }
+  </style>
+
   <Header client:load />
 
-    <!-- ═══════════════════════════ SECTION 1: HERO ═══════════════════════════ -->
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="fade-up">
-          <div class="hero-eyebrow">
-            <span class="hero-eyebrow-dot"></span>
-            Featured Framework
-          </div>
-          <h1>
-            Map Every Dimension of Your <span class="accent"
-              >Innovation Ecosystem.</span>
-          </h1>
-          <p class="hero-sub">
-            AIQUI is ENTEVATE's applied framework for organizations building at
-            the frontier of AI and quantum technologies — structuring the full
-            innovation landscape across seven interconnected basecamps.
-          </p>
-          <div class="hero-actions">
-            <a href="/contact?service=aiqui" class="btn-primary"
-              >Apply the Framework →</a
-            >
-            <a href="#basecamps" class="btn-ghost-dark"
-              >Explore the 7 Basecamps ↓</a
-            >
-          </div>
+  <!-- ═══════════════════════════ SECTION 1: HERO ═══════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Featured Framework
         </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ SECTION 2: OVERVIEW ═══════════════════════════ -->
-    <section class="overview-section" id="overview">
-      <div class="overview-inner">
-        <div class="overview-left fade-up">
-          <div class="section-label">The Framework</div>
-          <h2>A complete map of the AI + quantum innovation landscape.</h2>
-          <p>
-            AIQUI — Applied Innovation for Quantum and Unlimited Intelligence —
-            is a structured ecosystem model purpose-built for organizations
-            advancing artificial intelligence and quantum technologies. Rather
-            than treating innovation as a single-track challenge, AIQUI maps the
-            full environment: policy, research, infrastructure, economic growth,
-            workforce, venture formation, and community access.
-          </p>
-          <p>
-            Developed by ENTEVATE through engagements across higher education,
-            enterprise, and public sector contexts, AIQUI gives leaders a shared
-            language and a structured starting point — turning complex,
-            multi-stakeholder innovation ecosystems into actionable roadmaps.
-          </p>
-        </div>
-
-        <div class="overview-right fade-up">
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-purple">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linejoin="round"></path><path
-                  d="M12 2v10M3.34 7l8.66 5M20.66 7l-8.66 5"
-                  stroke="currentColor"
-                  stroke-width="1.3"
-                  stroke-linecap="round"
-                  opacity="0.5"></path></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">7</div>
-              <div class="overview-stat-label">
-                Core Elements Basecamps™ mapped across every AIQUI engagement
-              </div>
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-green">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M12 2L2 7l10 5 10-5-10-5z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linejoin="round"></path><path
-                  d="M2 12l10 5 10-5"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linejoin="round"></path><path
-                  d="M2 17l10 5 10-5"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">8</div>
-              <div class="overview-stat-label">
-                Innovation Journey stages directly mapped within the AIQUI model
-              </div>
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><circle
-                  cx="12"
-                  cy="12"
-                  r="9"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle><path
-                  d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">3</div>
-              <div class="overview-stat-label">
-                Applied technology domains — AI, Quantum, and Advanced Computing
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ SECTION 3: 7 CORE ELEMENTS ═══════════════════════════ -->
-    <section class="basecamps-section" id="basecamps">
-      <div class="basecamps-inner">
-        <div class="basecamps-header fade-up">
-          <div class="section-label">The 7 Core Elements Basecamps™</div>
-          <h2 class="section-title">Every dimension. One framework.</h2>
-          <p class="section-subtitle">
-            AIQUI maps the full innovation ecosystem across seven interconnected
-            basecamps — no dimension is treated in isolation.
-          </p>
-        </div>
-
-        <div class="basecamps-grid">
-          <!-- Hex cluster visual -->
-          <div class="basecamps-hex fade-up">
-            <svg
-              viewBox="50 80 415 360"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="AIQUI 7 Core Elements hexagon cluster"
-            >
-              <defs>
-                <linearGradient
-                  id="g-center"
-                  x1="198"
-                  y1="195"
-                  x2="302"
-                  y2="315"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stop-color="#3D978A"></stop><stop
-                    offset="100%"
-                    stop-color="#72D4C5"></stop>
-                </linearGradient>
-                <linearGradient
-                  id="g-e"
-                  x1="312"
-                  y1="195"
-                  x2="416"
-                  y2="315"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stop-color="#7A7A7A"></stop><stop
-                    offset="100%"
-                    stop-color="#C0C0C0"></stop>
-                </linearGradient>
-                <linearGradient
-                  id="g-ne"
-                  x1="255"
-                  y1="96"
-                  x2="359"
-                  y2="216"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stop-color="#444561"></stop><stop
-                    offset="100%"
-                    stop-color="#8E8FC8"></stop>
-                </linearGradient>
-                <linearGradient
-                  id="g-nw"
-                  x1="141"
-                  y1="96"
-                  x2="245"
-                  y2="216"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stop-color="#247B96"></stop><stop
-                    offset="100%"
-                    stop-color="#4DC8E0"></stop>
-                </linearGradient>
-                <linearGradient
-                  id="g-w"
-                  x1="84"
-                  y1="195"
-                  x2="188"
-                  y2="315"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stop-color="#EA9709"></stop><stop
-                    offset="100%"
-                    stop-color="#F5C842"></stop>
-                </linearGradient>
-                <linearGradient
-                  id="g-sw"
-                  x1="141"
-                  y1="294"
-                  x2="245"
-                  y2="414"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stop-color="#CB632F"></stop><stop
-                    offset="100%"
-                    stop-color="#F09550"></stop>
-                </linearGradient>
-                <linearGradient
-                  id="g-se"
-                  x1="255"
-                  y1="294"
-                  x2="359"
-                  y2="414"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0%" stop-color="#C0392B"></stop><stop
-                    offset="100%"
-                    stop-color="#E87060"></stop>
-                </linearGradient>
-              </defs>
-              <!-- Center: Venture Development -->
-              <polygon
-                points="250,195 301.96,225 301.96,285 250,315 198.04,285 198.04,225"
-                fill="rgba(61,151,138,0.07)"
-                stroke="url(#g-center)"
-                stroke-width="2"></polygon>
-              <text
-                text-anchor="middle"
-                font-family="Archivo,system-ui,sans-serif"
-                fill="#72D4C5"
-              >
-                <tspan x="250" y="249" font-size="9">Venture</tspan>
-                <tspan x="250" y="262" font-size="9">Development</tspan>
-              </text>
-              <!-- E: Economic Development -->
-              <polygon
-                points="364,195 415.96,225 415.96,285 364,315 312.04,285 312.04,225"
-                fill="rgba(120,120,120,0.06)"
-                stroke="url(#g-e)"
-                stroke-width="2"></polygon>
-              <text
-                text-anchor="middle"
-                font-family="Archivo,system-ui,sans-serif"
-                fill="#C0C0C0"
-              >
-                <tspan x="364" y="249" font-size="9">Economic</tspan>
-                <tspan x="364" y="261" font-size="9">Development</tspan>
-              </text>
-              <!-- NE: Policy / Advocacy -->
-              <polygon
-                points="307,96 358.96,126 358.96,186 307,216 255.04,186 255.04,126"
-                fill="rgba(68,69,97,0.08)"
-                stroke="url(#g-ne)"
-                stroke-width="2"></polygon>
-              <text
-                text-anchor="middle"
-                font-family="Archivo,system-ui,sans-serif"
-                fill="#AAABCC"
-              >
-                <tspan x="307" y="150" font-size="9">Policy /</tspan>
-                <tspan x="307" y="163" font-size="9">Advocacy</tspan>
-              </text>
-              <!-- NW: Research / Innovation Development -->
-              <polygon
-                points="193,96 244.96,126 244.96,186 193,216 141.04,186 141.04,126"
-                fill="rgba(36,123,150,0.08)"
-                stroke="url(#g-nw)"
-                stroke-width="2"></polygon>
-              <text
-                text-anchor="middle"
-                font-family="Archivo,system-ui,sans-serif"
-                fill="#7CCCE0"
-              >
-                <tspan x="193" y="144" font-size="8.5">Research &amp;</tspan>
-                <tspan x="193" y="157" font-size="8.5">Innovation</tspan>
-                <tspan x="193" y="170" font-size="8.5">Development</tspan>
-              </text>
-              <!-- W: Social / Community / Accessibility -->
-              <polygon
-                points="136,195 187.96,225 187.96,285 136,315 84.04,285 84.04,225"
-                fill="rgba(234,151,9,0.07)"
-                stroke="url(#g-w)"
-                stroke-width="2"></polygon>
-              <text
-                text-anchor="middle"
-                font-family="Archivo,system-ui,sans-serif"
-                fill="#F5C842"
-              >
-                <tspan x="136" y="245" font-size="8.5">Social /</tspan>
-                <tspan x="136" y="258" font-size="8.5">Community /</tspan>
-                <tspan x="136" y="271" font-size="8.5">Accessibility</tspan>
-              </text>
-              <!-- SW: Real Estate / Infrastructure / Placemaking -->
-              <polygon
-                points="193,294 244.96,324 244.96,384 193,414 141.04,384 141.04,324"
-                fill="rgba(203,99,47,0.07)"
-                stroke="url(#g-sw)"
-                stroke-width="2"></polygon>
-              <text
-                text-anchor="middle"
-                font-family="Archivo,system-ui,sans-serif"
-                fill="#F09550"
-              >
-                <tspan x="193" y="342" font-size="8.5">Real Estate /</tspan>
-                <tspan x="193" y="355" font-size="8.5">Infrastructure /</tspan>
-                <tspan x="193" y="368" font-size="8.5">Placemaking</tspan>
-              </text>
-              <!-- SE: Workforce Development -->
-              <polygon
-                points="307,294 358.96,324 358.96,384 307,414 255.04,384 255.04,324"
-                fill="rgba(192,57,43,0.07)"
-                stroke="url(#g-se)"
-                stroke-width="2"></polygon>
-              <text
-                text-anchor="middle"
-                font-family="Archivo,system-ui,sans-serif"
-                fill="#E87060"
-              >
-                <tspan x="307" y="349" font-size="9">Workforce</tspan>
-                <tspan x="307" y="362" font-size="9">Development</tspan>
-              </text>
-            </svg>
-          </div>
-
-          <!-- Basecamps list -->
-          <div class="basecamps-list fade-up">
-            <div class="basecamp-item">
-              <div class="basecamp-dot" style="background:#72D4C5;"></div>
-              <div class="basecamp-body">
-                <div class="basecamp-name">Venture Development</div>
-                <div class="basecamp-desc">
-                  The beating heart of AIQUI — supporting the formation, growth,
-                  and scaling of ventures born from AI and quantum research.
-                  This is where ideas become organizations.
-                </div>
-              </div>
-            </div>
-
-            <div class="basecamp-item">
-              <div class="basecamp-dot" style="background:#8E8FC8;"></div>
-              <div class="basecamp-body">
-                <div class="basecamp-name">Policy / Advocacy</div>
-                <div class="basecamp-desc">
-                  Shaping the regulatory frameworks, government partnerships,
-                  and institutional policies that enable AI and quantum
-                  innovation to take root, scale, and benefit the broader
-                  community.
-                </div>
-              </div>
-            </div>
-
-            <div class="basecamp-item">
-              <div class="basecamp-dot" style="background:#4DC8E0;"></div>
-              <div class="basecamp-body">
-                <div class="basecamp-name">
-                  Research &amp; Innovation Development
-                </div>
-                <div class="basecamp-desc">
-                  Building the research infrastructure, academic partnerships,
-                  and applied R&amp;D pipelines that generate breakthroughs and
-                  move them toward real-world commercialization.
-                </div>
-              </div>
-            </div>
-
-            <div class="basecamp-item">
-              <div class="basecamp-dot" style="background:#F09550;"></div>
-              <div class="basecamp-body">
-                <div class="basecamp-name">
-                  Real Estate / Infrastructure / Placemaking
-                </div>
-                <div class="basecamp-desc">
-                  Creating the physical and digital environments — labs,
-                  campuses, innovation districts — where frontier technology
-                  work can happen at the scale the work demands.
-                </div>
-              </div>
-            </div>
-
-            <div class="basecamp-item">
-              <div class="basecamp-dot" style="background:#C0C0C0;"></div>
-              <div class="basecamp-body">
-                <div class="basecamp-name">Economic Development</div>
-                <div class="basecamp-desc">
-                  Connecting innovation activity to regional economic growth
-                  through job creation, industry attraction, startup formation,
-                  and structured commercialization pathways.
-                </div>
-              </div>
-            </div>
-
-            <div class="basecamp-item">
-              <div class="basecamp-dot" style="background:#E87060;"></div>
-              <div class="basecamp-body">
-                <div class="basecamp-name">Workforce Development</div>
-                <div class="basecamp-desc">
-                  Building the talent pipeline through education, training,
-                  reskilling, and credentialing programs that prepare
-                  communities for an AI and quantum-enabled economy.
-                </div>
-              </div>
-            </div>
-
-            <div class="basecamp-item">
-              <div class="basecamp-dot" style="background:#F5C842;"></div>
-              <div class="basecamp-body">
-                <div class="basecamp-name">
-                  Social / Community / Accessibility
-                </div>
-                <div class="basecamp-desc">
-                  Ensuring innovation benefits are broadly shared through
-                  intentional community engagement, equity frameworks, and
-                  accessible pathways into the innovation economy.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ SECTION 4: AIQUI IN PRACTICE ═══════════════════════════ -->
-    <section class="process-section" id="process">
-      <div class="process-inner">
-        <div class="fade-up" style="text-align:center;">
-          <div class="section-label" style="display:block;text-align:center;">
-            AIQUI in Practice
-          </div>
-          <h2
-            class="section-title"
-            style="text-align:center;margin:0 auto 14px;"
+        <h1>
+          Map Every Dimension of Your <span class="accent"
+            >Innovation Ecosystem.</span
           >
-            From assessment to activation.
-          </h2>
-          <p class="section-subtitle" style="margin:0 auto;text-align:center;">
-            A structured four-phase engagement that translates the AIQUI
-            framework into a living, working roadmap for your ecosystem.
-          </p>
-        </div>
-
-        <div class="process-steps">
-          <div class="process-step fade-up">
-            <div class="process-num pn-blue">1</div>
-            <div class="process-step-name">Ecosystem Assessment</div>
-            <div class="process-step-desc">
-              Map your current state across all 7 Core Elements Basecamps™,
-              benchmarking strengths, gaps, and opportunities.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-green">2</div>
-            <div class="process-step-name">Gap Analysis</div>
-            <div class="process-step-desc">
-              Surface critical whitespace and priority areas with the highest
-              potential for near- and long-term impact.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-purple">3</div>
-            <div class="process-step-name">Innovation Roadmap</div>
-            <div class="process-step-desc">
-              Co-create a milestone-driven AIQUI roadmap — sequenced, resourced,
-              and aligned to your goals and ecosystem context.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-orange">4</div>
-            <div class="process-step-name">Activation &amp; Embedding</div>
-            <div class="process-step-desc">
-              ENTEVATE stays embedded as a strategic partner through execution,
-              iteration, and the full 8-Stage Innovation Journey.
-            </div>
-          </div>
+        </h1>
+        <p class="hero-sub">
+          AIQUI is ENTEVATE's applied framework for organizations building at
+          the frontier of AI and quantum technologies — structuring the full
+          innovation landscape across seven interconnected basecamps.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact?service=aiqui" class="btn-primary"
+            >Apply the Framework →</a
+          >
+          <a href="#basecamps" class="btn-ghost-dark"
+            >Explore the 7 Basecamps ↓</a
+          >
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════ SECTION 5: WHO IT'S FOR ═══════════════════════════ -->
-    <section class="for-section" id="for">
-      <div class="for-header fade-up">
-        <div class="section-label">Who It's For</div>
-        <h2 class="section-title">Built for builders across every sector.</h2>
-        <p class="section-subtitle">
-          AIQUI is deployed wherever AI and quantum innovation meets real-world
-          ecosystem complexity.
+  <!-- ═══════════════════════════ SECTION 2: OVERVIEW ═══════════════════════════ -->
+  <section class="overview-section" id="overview">
+    <div class="overview-inner">
+      <div class="overview-left fade-up">
+        <div class="section-label">The Framework</div>
+        <h2>A complete map of the AI + quantum innovation landscape.</h2>
+        <p>
+          AIQUI — Applied Innovation for Quantum and Unlimited Intelligence — is
+          a structured ecosystem model purpose-built for organizations advancing
+          artificial intelligence and quantum technologies. Rather than treating
+          innovation as a single-track challenge, AIQUI maps the full
+          environment: policy, research, infrastructure, economic growth,
+          workforce, venture formation, and community access.
+        </p>
+        <p>
+          Developed by ENTEVATE through engagements across higher education,
+          enterprise, and public sector contexts, AIQUI gives leaders a shared
+          language and a structured starting point — turning complex,
+          multi-stakeholder innovation ecosystems into actionable roadmaps.
         </p>
       </div>
 
-      <div class="for-grid">
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-blue">
+      <div class="overview-right fade-up">
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-purple">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><path
-                d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                d="M12 2l8.66 5v10L12 22l-8.66-5V7L12 2z"
                 stroke="currentColor"
                 stroke-width="1.6"
                 stroke-linejoin="round"></path><path
-                d="M9 22V12h6v10"
+                d="M12 2v10M3.34 7l8.66 5M20.66 7l-8.66 5"
+                stroke="currentColor"
+                stroke-width="1.3"
+                stroke-linecap="round"
+                opacity="0.5"></path></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">7</div>
+            <div class="overview-stat-label">
+              Core Elements Basecamps™ mapped across every AIQUI engagement
+            </div>
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 2L2 7l10 5 10-5-10-5z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path><path
+                d="M2 12l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path><path
+                d="M2 17l10 5 10-5"
                 stroke="currentColor"
                 stroke-width="1.6"
                 stroke-linejoin="round"></path></svg
             >
           </div>
-          <h3>Universities &amp; Research Institutions</h3>
-          <p>
-            Map and build your AI + quantum innovation ecosystem from
-            foundational research through commercialization and community
-            impact.
-          </p>
-        </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-green">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              ><rect
-                x="2"
-                y="7"
-                width="20"
-                height="14"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="1.6"></rect><path
-                d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"></path><line
-                x1="12"
-                y1="12"
-                x2="12"
-                y2="16"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"></line><line
-                x1="10"
-                y1="14"
-                x2="14"
-                y2="14"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"></line></svg
-            >
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">8</div>
+            <div class="overview-stat-label">
+              Innovation Journey stages directly mapped within the AIQUI model
+            </div>
           </div>
-          <h3>Enterprise Organizations</h3>
-          <p>
-            Build internal AI and quantum innovation capability aligned to your
-            strategic priorities, with structured pathways from idea to venture.
-          </p>
         </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-purple">
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-blue">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><circle
                 cx="12"
                 cy="12"
-                r="10"
+                r="9"
                 stroke="currentColor"
                 stroke-width="1.6"></circle><path
-                d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"
+                d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36z"
                 stroke="currentColor"
                 stroke-width="1.4"
-                stroke-linecap="round"></path></svg
-            >
-          </div>
-          <h3>Innovation Districts &amp; Cities</h3>
-          <p>
-            Design place-based innovation ecosystems that attract talent,
-            capital, and anchor institutions to your community or district.
-          </p>
-        </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-orange">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              ><path
-                d="M22 12h-4l-3 9L9 3l-3 9H2"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
                 stroke-linejoin="round"></path></svg
             >
           </div>
-          <h3>Economic Development Agencies</h3>
-          <p>
-            Activate AI and quantum as regional growth drivers with a
-            measurable, stakeholder-aligned framework tied to real economic
-            outcomes.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ SECTION 6: CASE STUDY FEATURE ═══════════════════════════ -->
-    <section class="feature-section" id="case-study">
-      <div class="container">
-        <div class="fade-up">
-          <div class="section-label">In the Field</div>
-          <h2 class="section-title">AIQUI at Trinity College.</h2>
-          <p class="section-subtitle">
-            A real-world application of the AIQUI framework across one of the
-            most forward-looking higher education innovation ecosystems in the
-            country.
-          </p>
-        </div>
-
-        <div class="feature-card fade-up">
-          <div class="feature-img">
-            <img
-              src="/images/trinity.jpg"
-              alt="Trinity College AIQUI Sandbox"
-            />
-          </div>
-          <div class="feature-body">
-            <div class="feature-tag">
-              Higher Education · AI &amp; Quantum Innovation
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">3</div>
+            <div class="overview-stat-label">
+              Applied technology domains — AI, Quantum, and Advanced Computing
             </div>
-            <h3>Trinity College<br />AIQUI Sandbox</h3>
-            <p>
-              Trinity College engaged ENTEVATE to design and facilitate an
-              applied AI and quantum innovation environment grounded in the
-              AIQUI framework. Working across academic, research, and industry
-              stakeholders, ENTEVATE mapped the full ecosystem using the 7 Core
-              Elements Basecamps™ — identifying critical gaps, aligning
-              cross-departmental priorities, and standing up a structured
-              sandbox to accelerate applied discovery and venture formation.
-            </p>
-            <div class="feature-outcomes">
-              <div class="feature-outcome">AIQUI Framework Applied</div>
-              <div class="feature-outcome">7 Basecamps™ Mapped</div>
-              <div class="feature-outcome">Multi-Stakeholder Alignment</div>
-              <div class="feature-outcome">Innovation Sandbox Deployed</div>
-            </div>
-            <a href="/contact?service=aiqui" class="feature-cta">Learn More →</a
-            >
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
-    <section class="cta-band" id="contact">
-      <div class="container">
-        <div class="fade-up">
-          <h2>Ready to Map Your Innovation Ecosystem?</h2>
-          <p>
-            Let's apply the AIQUI framework to your organization, institution,
-            or community. ENTEVATE will map, analyze, and roadmap — together.
-          </p>
-          <div class="cta-band-actions">
-            <a href="/contact?service=aiqui" class="btn-white-solid"
-              >Schedule a Discovery Call</a
-            >
-            <a href="/innovation.html" class="btn-white-ghost"
-              >Back to Innovation Overview</a
-            >
-          </div>
-        </div>
+  <!-- ═══════════════════════════ SECTION 3: 7 CORE ELEMENTS ═══════════════════════════ -->
+  <section class="basecamps-section" id="basecamps">
+    <div class="basecamps-inner">
+      <div class="basecamps-header fade-up">
+        <div class="section-label">The 7 Core Elements Basecamps™</div>
+        <h2 class="section-title">Every dimension. One framework.</h2>
+        <p class="section-subtitle">
+          AIQUI maps the full innovation ecosystem across seven interconnected
+          basecamps — no dimension is treated in isolation.
+        </p>
       </div>
-    </section>
 
-    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
-    <footer>
-      <div class="container">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <a href="/">
-              <svg
-                width="296"
-                height="58"
-                viewBox="0 0 296 58"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style="height:22px;width:auto;margin-bottom:18px;display:block;"
-                aria-label="ENTEVATE"
+      <div class="basecamps-grid">
+        <!-- Hex cluster visual -->
+        <div class="basecamps-hex fade-up">
+          <svg
+            viewBox="50 80 415 360"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="AIQUI 7 Core Elements hexagon cluster"
+          >
+            <defs>
+              <linearGradient
+                id="g-center"
+                x1="198"
+                y1="195"
+                x2="302"
+                y2="315"
+                gradientUnits="userSpaceOnUse"
               >
-                <path
-                  d="M0.332092 0.332031V27.5874L5.10768 23.7746V5.10737H31.9303V12.9027L0.332092 36.2887V42.4419L5.10768 46.2546V38.7047L36.687 15.3187H36.7059V15.2998V5.10737V0.332031H0.332092Z"
-                  fill="white"></path>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M0 0H37.0377V15.6506H36.7964L5.43956 38.8719V46.9444L0 42.6016V36.1213L31.5982 12.7353V5.43932H5.43956V23.9343L0 28.2772V0ZM31.9302 12.9027L0.331986 36.2886V42.4418L5.10758 46.2546V38.7046L36.6869 15.3186H36.7058V0.331986H0.331986V27.5873L5.10758 23.7746V5.10733H31.9302V12.9027Z"
-                  fill="white"></path>
-                <path
-                  d="M10.7404 43.7659V48.1072V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V43.7659Z"
-                  fill="white"></path>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M10.4084 50.8734V41.9942L37.0267 22.3074V29.0597L16.1122 44.556V48.1482L18.4821 50.2843L37.0267 36.6742V43.4425L18.4547 57.1881L10.4084 50.8734ZM18.4606 50.7119L15.7802 48.2959V44.3888L36.6947 28.8925V22.9658L10.7404 42.1616V50.7119L18.4606 56.7707L36.6947 43.2752V37.3296L18.4606 50.7119Z"
-                  fill="white"></path>
-                <path
-                  d="M66.552 16.1413V22.1465H81.6637V27.9559H66.552V34.5811H83.2303V40.3905H60.0896V10.332H83.2303V16.1413H66.552Z"
-                  fill="white"></path>
-                <path
-                  d="M89.4703 10.2916H95.9001L110.392 29.7432V10.3243H116.854V40.3828H110.392L95.9001 20.9312V40.3502H89.4703V10.2916Z"
-                  fill="white"></path>
-                <path
-                  d="M131.968 16.1411H122.601V10.3317H147.798V16.1411H138.463V40.3903H132.001V16.1411H131.968Z"
-                  fill="white"></path>
-                <path
-                  d="M159.707 16.1411V22.1463H174.819V27.9556H159.707V34.5809H176.386V40.3903H153.245V10.3317H176.386V16.1411H159.707Z"
-                  fill="white"></path>
-                <path
-                  d="M211.698 10.2916L199.458 40.3502H192.245L180.006 10.2916H187.284L195.901 31.4729L204.517 10.2916H211.698Z"
-                  fill="white"></path>
-                <path
-                  d="M232.641 35.6579H219.259L217.334 40.3903H210.12L222.36 10.3317H229.573L241.813 40.3903H234.534L232.641 35.6579ZM230.422 30.1749L225.95 19.1763L221.479 30.1749H230.422Z"
-                  fill="white"></path>
-                <path
-                  d="M251.388 16.1411H242.021V10.3317H267.218V16.1411H257.85V40.3903H251.388V16.1411Z"
-                  fill="white"></path>
-                <path
-                  d="M279.122 16.1411V22.1463H294.233V27.9556H279.122V34.5809H295.8V40.3903H272.659V10.3317H295.8V16.1411H279.122Z"
-                  fill="white"></path>
-              </svg>
-            </a>
-            <p>
-              A human-centered innovation partner for leaders building what
-              comes next.
-            </p>
-            <div class="footer-address">
-              5 Cowboys Way, Ste 300<br />
-              Frisco, Texas 75034<br />
-              (972) 200-3445
-            </div>
-          </div>
-
-          <div class="footer-col">
-            <h5>Services</h5>
-            <ul>
-              <li>
-                <a href="/experiential.html"
-                  >Experiential Branding &amp; Marketing</a>
-              </li>
-              <li>
-                <a href="/transformation.html"
-                  >Digital &amp; Content Transformation</a>
-              </li>
-              <li>
-                <a href="/innovation.html">Innovation | Ventures | Ecosystem</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h5>Company</h5>
-            <ul>
-              <li><a href="/about.html">About Us</a></li>
-              <li><a href="/our-work.html">Our Work</a></li>
-              <li><a href="/contact.html">Get In Touch</a></li>
-              <li>
-                <a
-                  href="https://app.termly.io/policy-viewer/policy.html?policyUUID=b5c58f21-00f2-4ee2-9391-79a13199d76c"
-                  target="_blank">Privacy Policy</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer-col footer-newsletter">
-            <h5>Get Updates</h5>
-            <p>Innovation insights and perspectives, straight to your inbox.</p>
-            <form
-              class="newsletter-form"
-              id="newsletterForm"
-              onsubmit="return false;"
+                <stop offset="0%" stop-color="#3D978A"></stop><stop
+                  offset="100%"
+                  stop-color="#72D4C5"></stop>
+              </linearGradient>
+              <linearGradient
+                id="g-e"
+                x1="312"
+                y1="195"
+                x2="416"
+                y2="315"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stop-color="#7A7A7A"></stop><stop
+                  offset="100%"
+                  stop-color="#C0C0C0"></stop>
+              </linearGradient>
+              <linearGradient
+                id="g-ne"
+                x1="255"
+                y1="96"
+                x2="359"
+                y2="216"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stop-color="#444561"></stop><stop
+                  offset="100%"
+                  stop-color="#8E8FC8"></stop>
+              </linearGradient>
+              <linearGradient
+                id="g-nw"
+                x1="141"
+                y1="96"
+                x2="245"
+                y2="216"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stop-color="#247B96"></stop><stop
+                  offset="100%"
+                  stop-color="#4DC8E0"></stop>
+              </linearGradient>
+              <linearGradient
+                id="g-w"
+                x1="84"
+                y1="195"
+                x2="188"
+                y2="315"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stop-color="#EA9709"></stop><stop
+                  offset="100%"
+                  stop-color="#F5C842"></stop>
+              </linearGradient>
+              <linearGradient
+                id="g-sw"
+                x1="141"
+                y1="294"
+                x2="245"
+                y2="414"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stop-color="#CB632F"></stop><stop
+                  offset="100%"
+                  stop-color="#F09550"></stop>
+              </linearGradient>
+              <linearGradient
+                id="g-se"
+                x1="255"
+                y1="294"
+                x2="359"
+                y2="414"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stop-color="#C0392B"></stop><stop
+                  offset="100%"
+                  stop-color="#E87060"></stop>
+              </linearGradient>
+            </defs>
+            <!-- Center: Venture Development -->
+            <polygon
+              points="250,195 301.96,225 301.96,285 250,315 198.04,285 198.04,225"
+              fill="rgba(61,151,138,0.07)"
+              stroke="url(#g-center)"
+              stroke-width="2"></polygon>
+            <text
+              text-anchor="middle"
+              font-family="Archivo,system-ui,sans-serif"
+              fill="#72D4C5"
             >
-              <input type="text" name="firstname" placeholder="Name" required />
-              <input type="email" name="email" placeholder="Email" required />
-              <div style="position:absolute;left:-9999px;" aria-hidden="true">
-                <input
-                  type="text"
-                  name="website_url"
-                  tabindex="-1"
-                  autocomplete="off"
-                />
+              <tspan x="250" y="249" font-size="9">Venture</tspan>
+              <tspan x="250" y="262" font-size="9">Development</tspan>
+            </text>
+            <!-- E: Economic Development -->
+            <polygon
+              points="364,195 415.96,225 415.96,285 364,315 312.04,285 312.04,225"
+              fill="rgba(120,120,120,0.06)"
+              stroke="url(#g-e)"
+              stroke-width="2"></polygon>
+            <text
+              text-anchor="middle"
+              font-family="Archivo,system-ui,sans-serif"
+              fill="#C0C0C0"
+            >
+              <tspan x="364" y="249" font-size="9">Economic</tspan>
+              <tspan x="364" y="261" font-size="9">Development</tspan>
+            </text>
+            <!-- NE: Policy / Advocacy -->
+            <polygon
+              points="307,96 358.96,126 358.96,186 307,216 255.04,186 255.04,126"
+              fill="rgba(68,69,97,0.08)"
+              stroke="url(#g-ne)"
+              stroke-width="2"></polygon>
+            <text
+              text-anchor="middle"
+              font-family="Archivo,system-ui,sans-serif"
+              fill="#AAABCC"
+            >
+              <tspan x="307" y="150" font-size="9">Policy /</tspan>
+              <tspan x="307" y="163" font-size="9">Advocacy</tspan>
+            </text>
+            <!-- NW: Research / Innovation Development -->
+            <polygon
+              points="193,96 244.96,126 244.96,186 193,216 141.04,186 141.04,126"
+              fill="rgba(36,123,150,0.08)"
+              stroke="url(#g-nw)"
+              stroke-width="2"></polygon>
+            <text
+              text-anchor="middle"
+              font-family="Archivo,system-ui,sans-serif"
+              fill="#7CCCE0"
+            >
+              <tspan x="193" y="144" font-size="8.5">Research &amp;</tspan>
+              <tspan x="193" y="157" font-size="8.5">Innovation</tspan>
+              <tspan x="193" y="170" font-size="8.5">Development</tspan>
+            </text>
+            <!-- W: Social / Community / Accessibility -->
+            <polygon
+              points="136,195 187.96,225 187.96,285 136,315 84.04,285 84.04,225"
+              fill="rgba(234,151,9,0.07)"
+              stroke="url(#g-w)"
+              stroke-width="2"></polygon>
+            <text
+              text-anchor="middle"
+              font-family="Archivo,system-ui,sans-serif"
+              fill="#F5C842"
+            >
+              <tspan x="136" y="245" font-size="8.5">Social /</tspan>
+              <tspan x="136" y="258" font-size="8.5">Community /</tspan>
+              <tspan x="136" y="271" font-size="8.5">Accessibility</tspan>
+            </text>
+            <!-- SW: Real Estate / Infrastructure / Placemaking -->
+            <polygon
+              points="193,294 244.96,324 244.96,384 193,414 141.04,384 141.04,324"
+              fill="rgba(203,99,47,0.07)"
+              stroke="url(#g-sw)"
+              stroke-width="2"></polygon>
+            <text
+              text-anchor="middle"
+              font-family="Archivo,system-ui,sans-serif"
+              fill="#F09550"
+            >
+              <tspan x="193" y="342" font-size="8.5">Real Estate /</tspan>
+              <tspan x="193" y="355" font-size="8.5">Infrastructure /</tspan>
+              <tspan x="193" y="368" font-size="8.5">Placemaking</tspan>
+            </text>
+            <!-- SE: Workforce Development -->
+            <polygon
+              points="307,294 358.96,324 358.96,384 307,414 255.04,384 255.04,324"
+              fill="rgba(192,57,43,0.07)"
+              stroke="url(#g-se)"
+              stroke-width="2"></polygon>
+            <text
+              text-anchor="middle"
+              font-family="Archivo,system-ui,sans-serif"
+              fill="#E87060"
+            >
+              <tspan x="307" y="349" font-size="9">Workforce</tspan>
+              <tspan x="307" y="362" font-size="9">Development</tspan>
+            </text>
+          </svg>
+        </div>
+
+        <!-- Basecamps list -->
+        <div class="basecamps-list fade-up">
+          <div class="basecamp-item">
+            <div class="basecamp-dot" style="background:#72D4C5;"></div>
+            <div class="basecamp-body">
+              <div class="basecamp-name">Venture Development</div>
+              <div class="basecamp-desc">
+                The beating heart of AIQUI — supporting the formation, growth,
+                and scaling of ventures born from AI and quantum research. This
+                is where ideas become organizations.
               </div>
-              <button type="submit">Subscribe →</button>
-              <p
-                class="newsletter-msg"
-                style="font-size:12px;margin-top:6px;color:rgba(255,255,255,0.5);display:none;"
-              >
-              </p>
-            </form>
+            </div>
           </div>
-        </div>
 
-        <div class="footer-bottom">
-          <span>©2026 | ENTEVATE | All Rights Reserved</span>
-          <div class="footer-socials">
-            <a
-              href="https://facebook.com/entevate"
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </a>
-            <a
-              href="https://twitter.com/entevate"
-              target="_blank"
-              aria-label="Twitter/X"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </a>
-            <a
-              href="https://linkedin.com/company/entevate"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle></svg
-              >
-            </a>
+          <div class="basecamp-item">
+            <div class="basecamp-dot" style="background:#8E8FC8;"></div>
+            <div class="basecamp-body">
+              <div class="basecamp-name">Policy / Advocacy</div>
+              <div class="basecamp-desc">
+                Shaping the regulatory frameworks, government partnerships, and
+                institutional policies that enable AI and quantum innovation to
+                take root, scale, and benefit the broader community.
+              </div>
+            </div>
+          </div>
+
+          <div class="basecamp-item">
+            <div class="basecamp-dot" style="background:#4DC8E0;"></div>
+            <div class="basecamp-body">
+              <div class="basecamp-name">
+                Research &amp; Innovation Development
+              </div>
+              <div class="basecamp-desc">
+                Building the research infrastructure, academic partnerships, and
+                applied R&amp;D pipelines that generate breakthroughs and move
+                them toward real-world commercialization.
+              </div>
+            </div>
+          </div>
+
+          <div class="basecamp-item">
+            <div class="basecamp-dot" style="background:#F09550;"></div>
+            <div class="basecamp-body">
+              <div class="basecamp-name">
+                Real Estate / Infrastructure / Placemaking
+              </div>
+              <div class="basecamp-desc">
+                Creating the physical and digital environments — labs, campuses,
+                innovation districts — where frontier technology work can happen
+                at the scale the work demands.
+              </div>
+            </div>
+          </div>
+
+          <div class="basecamp-item">
+            <div class="basecamp-dot" style="background:#C0C0C0;"></div>
+            <div class="basecamp-body">
+              <div class="basecamp-name">Economic Development</div>
+              <div class="basecamp-desc">
+                Connecting innovation activity to regional economic growth
+                through job creation, industry attraction, startup formation,
+                and structured commercialization pathways.
+              </div>
+            </div>
+          </div>
+
+          <div class="basecamp-item">
+            <div class="basecamp-dot" style="background:#E87060;"></div>
+            <div class="basecamp-body">
+              <div class="basecamp-name">Workforce Development</div>
+              <div class="basecamp-desc">
+                Building the talent pipeline through education, training,
+                reskilling, and credentialing programs that prepare communities
+                for an AI and quantum-enabled economy.
+              </div>
+            </div>
+          </div>
+
+          <div class="basecamp-item">
+            <div class="basecamp-dot" style="background:#F5C842;"></div>
+            <div class="basecamp-body">
+              <div class="basecamp-name">
+                Social / Community / Accessibility
+              </div>
+              <div class="basecamp-desc">
+                Ensuring innovation benefits are broadly shared through
+                intentional community engagement, equity frameworks, and
+                accessible pathways into the innovation economy.
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="../../global.js"></script>
-    <script>
-      // Stagger process steps
-      document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.09}s`;
-      });
+  <!-- ═══════════════════════════ SECTION 4: AIQUI IN PRACTICE ═══════════════════════════ -->
+  <section class="process-section" id="process">
+    <div class="process-inner">
+      <div class="fade-up" style="text-align:center;">
+        <div class="section-label" style="display:block;text-align:center;">
+          AIQUI in Practice
+        </div>
+        <h2 class="section-title" style="text-align:center;margin:0 auto 14px;">
+          From assessment to activation.
+        </h2>
+        <p class="section-subtitle" style="margin:0 auto;text-align:center;">
+          A structured four-phase engagement that translates the AIQUI framework
+          into a living, working roadmap for your ecosystem.
+        </p>
+      </div>
 
-      // Stagger for-cards
-      document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.08}s`;
-      });
+      <div class="process-steps">
+        <div class="process-step fade-up">
+          <div class="process-num pn-blue">1</div>
+          <div class="process-step-name">Ecosystem Assessment</div>
+          <div class="process-step-desc">
+            Map your current state across all 7 Core Elements Basecamps™,
+            benchmarking strengths, gaps, and opportunities.
+          </div>
+        </div>
 
-      // Stagger basecamp items
-      document.querySelectorAll(".basecamp-item").forEach((el, i) => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(16px)";
-        el.style.transition = `opacity 0.45s ease ${i * 0.06}s, transform 0.45s ease ${i * 0.06}s`;
-        const obs = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              el.style.opacity = "1";
-              el.style.transform = "none";
-              obs.unobserve(el);
-            }
-          },
-          { threshold: 0.15 },
-        );
-        obs.observe(el);
-      });
+        <div class="process-step fade-up">
+          <div class="process-num pn-green">2</div>
+          <div class="process-step-name">Gap Analysis</div>
+          <div class="process-step-desc">
+            Surface critical whitespace and priority areas with the highest
+            potential for near- and long-term impact.
+          </div>
+        </div>
 
-      // ─── MOBILE DRAWER ───
-      (function () {
-        var overlay = document.getElementById("mobOverlay");
-        var drawer = document.getElementById("mobDrawer");
-        var hamburger = document.querySelector(".hamburger");
-        var closeBtn = document.getElementById("mobClose");
-        var servBtn = document.getElementById("mobServicesBtn");
-        var servSub = document.getElementById("mobServicesSub");
-        function openDrawer() {
-          overlay.classList.add("open");
-          drawer.classList.add("open");
-          drawer.setAttribute("aria-hidden", "false");
-          document.body.style.overflow = "hidden";
-        }
-        function closeDrawer() {
-          overlay.classList.remove("open");
-          drawer.classList.remove("open");
-          drawer.setAttribute("aria-hidden", "true");
-          document.body.style.overflow = "";
-        }
-        if (hamburger) hamburger.addEventListener("click", openDrawer);
-        if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
-        if (overlay) overlay.addEventListener("click", closeDrawer);
-        if (servBtn) {
-          servBtn.addEventListener("click", function () {
-            var isOpen = servSub.classList.toggle("open");
-            servBtn.classList.toggle("open", isOpen);
-            servBtn.setAttribute("aria-expanded", String(isOpen));
-          });
-        }
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") closeDrawer();
-        });
-      })();
+        <div class="process-step fade-up">
+          <div class="process-num pn-purple">3</div>
+          <div class="process-step-name">Innovation Roadmap</div>
+          <div class="process-step-desc">
+            Co-create a milestone-driven AIQUI roadmap — sequenced, resourced,
+            and aligned to your goals and ecosystem context.
+          </div>
+        </div>
 
-      // ─── Newsletter → HubSpot submission ───
-      (function () {
-        var forms = document.querySelectorAll("#newsletterForm");
-        forms.forEach(function (form) {
-          form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            var btn = form.querySelector("button");
-            var msg = form.querySelector(".newsletter-msg");
-            var nameInput = form.querySelector('input[name="firstname"]');
-            var emailInput = form.querySelector('input[name="email"]');
-            var honeypot = form.querySelector('input[name="website_url"]');
-            if (honeypot && honeypot.value) {
-              form.innerHTML =
-                '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
-              return;
-            }
-            if (!emailInput.value.trim()) {
-              emailInput.style.borderColor = "#CB632F";
-              return;
-            }
-            btn.disabled = true;
-            btn.textContent = "Sending…";
-            var payload = {
-              fields: [
-                { name: "firstname", value: nameInput.value },
-                { name: "email", value: emailInput.value },
-              ],
-              context: {
-                pageUri: window.location.href,
-                pageName: document.title,
-              },
-            };
-            fetch(
-              "https://api.hsforms.com/submissions/v3/integration/submit/44191993/45cdf0bb-1463-4bd9-acce-11775f0ad863",
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload),
-              },
-            )
-              .then(function (r) {
-                if (r.ok) {
-                  form.innerHTML =
-                    '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
-                } else {
-                  btn.disabled = false;
-                  btn.textContent = "Subscribe →";
-                  msg.style.display = "block";
-                  msg.textContent = "Something went wrong. Try again.";
-                }
-              })
-              .catch(function () {
-                btn.disabled = false;
-                btn.textContent = "Subscribe →";
-                msg.style.display = "block";
-                msg.textContent = "Something went wrong. Try again.";
-              });
-          });
-        });
-      })();
-    </script>
+        <div class="process-step fade-up">
+          <div class="process-num pn-orange">4</div>
+          <div class="process-step-name">Activation &amp; Embedding</div>
+          <div class="process-step-desc">
+            ENTEVATE stays embedded as a strategic partner through execution,
+            iteration, and the full 8-Stage Innovation Journey.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SECTION 5: WHO IT'S FOR ═══════════════════════════ -->
+  <section class="for-section" id="for">
+    <div class="for-header fade-up">
+      <div class="section-label">Who It's For</div>
+      <h2 class="section-title">Built for builders across every sector.</h2>
+      <p class="section-subtitle">
+        AIQUI is deployed wherever AI and quantum innovation meets real-world
+        ecosystem complexity.
+      </p>
+    </div>
+
+    <div class="for-grid">
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path><path
+              d="M9 22V12h6v10"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Universities &amp; Research Institutions</h3>
+        <p>
+          Map and build your AI + quantum innovation ecosystem from foundational
+          research through commercialization and community impact.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><rect
+              x="2"
+              y="7"
+              width="20"
+              height="14"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.6"></rect><path
+              d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path><line
+              x1="12"
+              y1="12"
+              x2="12"
+              y2="16"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"></line><line
+              x1="10"
+              y1="14"
+              x2="14"
+              y2="14"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"></line></svg
+          >
+        </div>
+        <h3>Enterprise Organizations</h3>
+        <p>
+          Build internal AI and quantum innovation capability aligned to your
+          strategic priorities, with structured pathways from idea to venture.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><circle
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="1.6"></circle><path
+              d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"></path></svg
+          >
+        </div>
+        <h3>Innovation Districts &amp; Cities</h3>
+        <p>
+          Design place-based innovation ecosystems that attract talent, capital,
+          and anchor institutions to your community or district.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-orange">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M22 12h-4l-3 9L9 3l-3 9H2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Economic Development Agencies</h3>
+        <p>
+          Activate AI and quantum as regional growth drivers with a measurable,
+          stakeholder-aligned framework tied to real economic outcomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ SECTION 6: CASE STUDY FEATURE ═══════════════════════════ -->
+  <section class="feature-section" id="case-study">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">In the Field</div>
+        <h2 class="section-title">AIQUI at Trinity College.</h2>
+        <p class="section-subtitle">
+          A real-world application of the AIQUI framework across one of the most
+          forward-looking higher education innovation ecosystems in the country.
+        </p>
+      </div>
+
+      <div class="feature-card fade-up">
+        <div class="feature-img">
+          <img src="/images/trinity.jpg" alt="Trinity College AIQUI Sandbox" />
+        </div>
+        <div class="feature-body">
+          <div class="feature-tag">
+            Higher Education · AI &amp; Quantum Innovation
+          </div>
+          <h3>Trinity College<br />AIQUI Sandbox</h3>
+          <p>
+            Trinity College engaged ENTEVATE to design and facilitate an applied
+            AI and quantum innovation environment grounded in the AIQUI
+            framework. Working across academic, research, and industry
+            stakeholders, ENTEVATE mapped the full ecosystem using the 7 Core
+            Elements Basecamps™ — identifying critical gaps, aligning
+            cross-departmental priorities, and standing up a structured sandbox
+            to accelerate applied discovery and venture formation.
+          </p>
+          <div class="feature-outcomes">
+            <div class="feature-outcome">AIQUI Framework Applied</div>
+            <div class="feature-outcome">7 Basecamps™ Mapped</div>
+            <div class="feature-outcome">Multi-Stakeholder Alignment</div>
+            <div class="feature-outcome">Innovation Sandbox Deployed</div>
+          </div>
+          <a href="/contact?service=aiqui" class="feature-cta">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to Map Your Innovation Ecosystem?</h2>
+        <p>
+          Let's apply the AIQUI framework to your organization, institution, or
+          community. ENTEVATE will map, analyze, and roadmap — together.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact?service=aiqui" class="btn-white-solid"
+            >Schedule a Discovery Call</a
+          >
+          <a href="/innovation.html" class="btn-white-ghost"
+            >Back to Innovation Overview</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load />
+
+  <script src="../../global.js"></script>
+  <script>
+    // Stagger process steps
+    document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.09}s`;
+    });
+
+    // Stagger for-cards
+    document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.08}s`;
+    });
+
+    // Stagger basecamp items
+    document.querySelectorAll(".basecamp-item").forEach((el, i) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(16px)";
+      el.style.transition = `opacity 0.45s ease ${i * 0.06}s, transform 0.45s ease ${i * 0.06}s`;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            el.style.opacity = "1";
+            el.style.transform = "none";
+            obs.unobserve(el);
+          }
+        },
+        { threshold: 0.15 },
+      );
+      obs.observe(el);
+    });
+  </script>
 </BaseLayout>

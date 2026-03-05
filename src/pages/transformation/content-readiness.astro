@@ -791,18 +791,6 @@ const description =
       border-color: rgba(255, 255, 255, 0.9);
       background: rgba(255, 255, 255, 0.1);
     }
-
-    .fade-up {
-      opacity: 0;
-      transform: translateY(22px);
-      transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: none;
-    }
   </style>
   <Header client:load />
 
@@ -1783,7 +1771,7 @@ const description =
     </div>
   </section>
 
-  <Footer client:load />
+  <Footer client:load buttonStyle={{ background: "var(--orange)" }} />
 
   <script src="../../global.js"></script>
   <script>

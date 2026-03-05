@@ -8,1164 +8,1144 @@ const title = "Innovation Roadmapping™ + Venture Development — ENTEVATE";
 const description =
   "Actionable innovation roadmaps and venture development — from ideation through amplification, with clarity at every stage.";
 ---
+
 <BaseLayout title={title} description={description}>
   <Header client:load />
 
-    <style>
-      /* ── Shared ── */
-      .container {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-      .section-label {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-        display: inline-block;
-        color: var(--blue);
-      }
-      h2.section-title {
-        font-size: clamp(30px, 4vw, 48px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-        margin-bottom: 16px;
-      }
-      .section-subtitle {
-        font-size: 15px;
-        color: var(--gray-mid);
-        max-width: 580px;
-        line-height: 1.75;
-      }
+  <style>
+    /* ── Shared ── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--blue);
+    }
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
 
-      /* ── Hero ── */
+    /* ── Hero ── */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(15, 14, 32, 0.58) 0%,
+          rgba(32, 32, 58, 0.5) 50%,
+          rgba(50, 50, 82, 0.42) 100%
+        ),
+        url("../images/bt3.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(36, 123, 150, 0.14);
+      border: 1px solid rgba(36, 123, 150, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #247b96, #4dc8e0);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 6.5vw, 88px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 900px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #4dc8e0 0%, #a8e8f5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 660px;
+      margin-bottom: 42px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #1a5f74 0%, #247b96 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #124859 0%, #1a5f74 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(36, 123, 150, 0.5);
+    }
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ── Overview ── */
+    .overview-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+    .overview-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .overview-left h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+    .overview-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .overview-left p:last-of-type {
+      margin-bottom: 0;
+    }
+    .overview-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 8px;
+    }
+    .overview-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px;
+      background: var(--light-blue);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .overview-stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .osi-blue {
+      background: rgba(36, 123, 150, 0.1);
+      color: var(--blue);
+    }
+    .osi-green {
+      background: rgba(61, 151, 138, 0.1);
+      color: var(--green);
+    }
+    .osi-purple {
+      background: rgba(68, 69, 97, 0.1);
+      color: var(--purple);
+    }
+    .overview-stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .overview-stat-label {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.5;
+    }
+
+    /* ── Journey Strip ── */
+    .journey-section {
+      background: var(--light-blue);
+      padding: 88px 48px;
+    }
+    .journey-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .journey-header {
+      margin-bottom: 56px;
+    }
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .stage-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      position: relative;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .stage-card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .stage-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .stage-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .stage-card p {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+    .stage-bar {
+      height: 3px;
+      border-radius: 2px;
+      margin-bottom: 18px;
+    }
+
+    /* ── Process ── */
+    .process-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+    .process-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: calc(12.5% + 14px);
+      right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--blue) 0%,
+        var(--green) 33%,
+        var(--purple) 66%,
+        var(--blue) 100%
+      );
+      opacity: 0.3;
+      z-index: 0;
+    }
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .process-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+      transition:
+        transform var(--tr),
+        box-shadow var(--tr);
+    }
+    .process-step:hover .process-num {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+    .pn-blue {
+      background: var(--blue);
+    }
+    .pn-green {
+      background: var(--green);
+    }
+    .pn-purple {
+      background: var(--purple);
+    }
+    .pn-cyan {
+      background: #1a8ea8;
+    }
+    .process-step-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+    .process-step-desc {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* ── Who It's For ── */
+    .for-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 88px 48px;
+    }
+    .for-header {
+      max-width: 1160px;
+      margin: 0 auto 52px;
+    }
+    .for-header .section-label {
+      color: var(--blue) !important;
+    }
+    .for-header .section-title {
+      color: var(--white);
+    }
+    .for-header .section-subtitle {
+      color: rgba(255, 255, 255, 0.55);
+    }
+    .for-grid {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .for-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      transition:
+        background var(--tr),
+        border-color var(--tr),
+        transform var(--tr);
+    }
+    .for-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-3px);
+    }
+    .for-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .fci-blue {
+      background: rgba(36, 123, 150, 0.2);
+      color: #4dc8e0;
+    }
+    .fci-green {
+      background: rgba(61, 151, 138, 0.2);
+      color: #72d4c5;
+    }
+    .fci-purple {
+      background: rgba(142, 144, 200, 0.2);
+      color: #b4baff;
+    }
+    .fci-orange {
+      background: rgba(234, 151, 9, 0.2);
+      color: #f5c842;
+    }
+    .for-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .for-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+    }
+
+    /* ── CTA Band ── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 40%,
+          rgba(255, 255, 255, 0.07) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--blue);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
       .hero {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(15, 14, 32, 0.58) 0%,
-            rgba(32, 32, 58, 0.5) 50%,
-            rgba(50, 50, 82, 0.42) 100%
-          ),
-          url("../images/bt3.png") center/cover no-repeat;
-        position: relative;
-        overflow: hidden;
-        padding: 96px 48px 120px;
-        min-height: 82vh;
-        display: flex;
-        align-items: center;
-      }
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        max-width: 1160px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        background: rgba(36, 123, 150, 0.14);
-        border: 1px solid rgba(36, 123, 150, 0.38);
-        padding: 6px 16px;
-        border-radius: 100px;
-        margin-bottom: 28px;
-        color: rgba(255, 255, 255, 0.9);
-      }
-      .hero-eyebrow-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #247b96, #4dc8e0);
-        flex-shrink: 0;
-      }
-      .hero h1 {
-        font-size: clamp(48px, 6.5vw, 88px);
-        font-weight: 100;
-        line-height: 1.04;
-        color: var(--white);
-        margin-bottom: 24px;
-        letter-spacing: -0.03em;
-        text-wrap: balance;
-        max-width: 900px;
-      }
-      .hero h1 .accent {
-        background: linear-gradient(90deg, #4dc8e0 0%, #a8e8f5 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .hero-sub {
-        font-size: 17px;
-        color: rgba(255, 255, 255, 0.68);
-        line-height: 1.75;
-        max-width: 660px;
-        margin-bottom: 42px;
-      }
-      .hero-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .btn-primary {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: linear-gradient(135deg, #1a5f74 0%, #247b96 100%);
-        color: var(--white);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-primary:hover {
-        background: linear-gradient(135deg, #124859 0%, #1a5f74 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba(36, 123, 150, 0.5);
-      }
-      .btn-ghost-dark {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        background: none;
-        border: 1.5px solid rgba(255, 255, 255, 0.35);
-        padding: 12px 26px;
-        border-radius: var(--radius);
-        cursor: pointer;
-        color: rgba(255, 255, 255, 0.85);
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: all var(--tr);
-      }
-      .btn-ghost-dark:hover {
-        border-color: rgba(255, 255, 255, 0.8);
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      /* ── Overview ── */
-      .overview-section {
-        background: var(--white);
-        padding: 88px 48px;
-        border-top: 1px solid var(--border);
+        padding: 72px 24px 88px;
+        min-height: auto;
       }
       .overview-inner {
-        max-width: 1160px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: start;
-      }
-      .overview-left h2 {
-        font-size: clamp(28px, 3.8vw, 46px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.15;
-        margin-bottom: 22px;
-      }
-      .overview-left p {
-        font-size: 15px;
-        color: var(--gray-mid);
-        line-height: 1.8;
-        margin-bottom: 18px;
-      }
-      .overview-left p:last-of-type {
-        margin-bottom: 0;
-      }
-      .overview-right {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding-top: 8px;
-      }
-      .overview-stat {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 24px;
-        background: var(--light-blue);
-        border-radius: var(--radius);
-        border: 1px solid var(--border);
-      }
-      .overview-stat-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .osi-blue {
-        background: rgba(36, 123, 150, 0.1);
-        color: var(--blue);
-      }
-      .osi-green {
-        background: rgba(61, 151, 138, 0.1);
-        color: var(--green);
-      }
-      .osi-purple {
-        background: rgba(68, 69, 97, 0.1);
-        color: var(--purple);
-      }
-      .overview-stat-num {
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--black);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-      .overview-stat-label {
-        font-size: 13px;
-        color: var(--gray-mid);
-        line-height: 1.5;
-      }
-
-      /* ── Journey Strip ── */
-      .journey-section {
-        background: var(--light-blue);
-        padding: 88px 48px;
-      }
-      .journey-inner {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-      .journey-header {
-        margin-bottom: 56px;
+        grid-template-columns: 1fr;
+        gap: 48px;
       }
       .stages-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2px;
-      }
-      .stage-card {
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 28px 22px;
-        position: relative;
-        transition:
-          box-shadow var(--tr),
-          transform var(--tr);
-      }
-      .stage-card:hover {
-        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-        transform: translateY(-2px);
-      }
-      .stage-num {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
-      .stage-card h3 {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--black);
-        margin-bottom: 8px;
-      }
-      .stage-card p {
-        font-size: 13px;
-        color: var(--gray-mid);
-        line-height: 1.65;
-      }
-      .stage-bar {
-        height: 3px;
-        border-radius: 2px;
-        margin-bottom: 18px;
-      }
-
-      /* ── Process ── */
-      .process-section {
-        background: var(--white);
-        padding: 88px 48px;
-        border-top: 1px solid var(--border);
-      }
-      .process-inner {
-        max-width: 1160px;
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
       }
       .process-steps {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0;
-        margin-top: 56px;
-        position: relative;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
       }
       .process-steps::before {
-        content: "";
-        position: absolute;
-        top: 27px;
-        left: calc(12.5% + 14px);
-        right: calc(12.5% + 14px);
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--blue) 0%,
-          var(--green) 33%,
-          var(--purple) 66%,
-          var(--blue) 100%
-        );
-        opacity: 0.3;
-        z-index: 0;
-      }
-      .process-step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-        position: relative;
-        z-index: 1;
-      }
-      .process-num {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 20px;
-        flex-shrink: 0;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
-        transition:
-          transform var(--tr),
-          box-shadow var(--tr);
-      }
-      .process-step:hover .process-num {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-      }
-      .pn-blue {
-        background: var(--blue);
-      }
-      .pn-green {
-        background: var(--green);
-      }
-      .pn-purple {
-        background: var(--purple);
-      }
-      .pn-cyan {
-        background: #1a8ea8;
-      }
-      .process-step-name {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--black);
-        margin-bottom: 10px;
-      }
-      .process-step-desc {
-        font-size: 13px;
-        color: var(--gray-mid);
-        line-height: 1.65;
-      }
-
-      /* ── Who It's For ── */
-      .for-section {
-        background: var(--black);
-        color: var(--white);
-        padding: 88px 48px;
-      }
-      .for-header {
-        max-width: 1160px;
-        margin: 0 auto 52px;
-      }
-      .for-header .section-label {
-        color: var(--blue) !important;
-      }
-      .for-header .section-title {
-        color: var(--white);
-      }
-      .for-header .section-subtitle {
-        color: rgba(255, 255, 255, 0.55);
+        display: none;
       }
       .for-grid {
-        max-width: 1160px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
       }
-      .for-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: var(--radius);
-        padding: 32px 26px;
-        transition:
-          background var(--tr),
-          border-color var(--tr),
-          transform var(--tr);
-      }
-      .for-card:hover {
-        background: rgba(255, 255, 255, 0.09);
-        border-color: rgba(255, 255, 255, 0.18);
-        transform: translateY(-3px);
-      }
-      .for-card-icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
-      .fci-blue {
-        background: rgba(36, 123, 150, 0.2);
-        color: #4dc8e0;
-      }
-      .fci-green {
-        background: rgba(61, 151, 138, 0.2);
-        color: #72d4c5;
-      }
-      .fci-purple {
-        background: rgba(142, 144, 200, 0.2);
-        color: #b4baff;
-      }
-      .fci-orange {
-        background: rgba(234, 151, 9, 0.2);
-        color: #f5c842;
-      }
-      .for-card h3 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--white);
-        margin-bottom: 10px;
-        line-height: 1.3;
-      }
-      .for-card p {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 1.7;
-      }
-
-      /* ── CTA Band ── */
+      .overview-section,
+      .journey-section,
+      .process-section,
+      .for-section,
       .cta-band {
-        background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
-        color: var(--white);
-        padding: 80px 48px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
+        padding: 64px 24px;
       }
-      .cta-band::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            circle at 25% 40%,
-            rgba(255, 255, 255, 0.07) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 255, 255, 0.05) 0%,
-            transparent 45%
-          );
-        pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px 72px;
       }
-      .cta-band .container {
-        position: relative;
-        z-index: 1;
+      .stages-grid {
+        grid-template-columns: 1fr;
       }
-      .cta-band h2 {
-        font-size: clamp(28px, 4.5vw, 52px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        margin-bottom: 16px;
+      .process-steps {
+        grid-template-columns: 1fr;
       }
-      .cta-band p {
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.68);
-        max-width: 520px;
-        margin: 0 auto 38px;
-        line-height: 1.72;
+      .for-grid {
+        grid-template-columns: 1fr;
       }
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    @media (max-width: 600px) {
       .cta-band-actions {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
+        flex-direction: column;
       }
-      .btn-white-solid {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: var(--white);
-        color: var(--blue);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-white-solid:hover {
-        background: var(--light-blue);
-        transform: translateY(-1px);
-      }
+      .btn-white-solid,
       .btn-white-ghost {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 12px 30px;
-        border-radius: var(--radius);
-        border: 1.5px solid rgba(255, 255, 255, 0.45);
-        cursor: pointer;
-        color: var(--white);
-        background: transparent;
-        transition: all var(--tr);
-        display: inline-block;
+        width: 100%;
+        text-align: center;
       }
-      .btn-white-ghost:hover {
-        border-color: rgba(255, 255, 255, 0.9);
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      /* ── Animations ── */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.55s ease,
-          transform 0.55s ease;
-      }
-      .fade-up.visible {
-        opacity: 1;
-        transform: none;
-      }
-
-      /* ── Responsive ── */
-      @media (max-width: 960px) {
-        .hero {
-          padding: 72px 24px 88px;
-          min-height: auto;
-        }
-        .overview-inner {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .stages-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .process-steps {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 40px;
-        }
-        .process-steps::before {
-          display: none;
-        }
-        .for-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .overview-section,
-        .journey-section,
-        .process-section,
-        .for-section,
-        .cta-band {
-          padding: 64px 24px;
-        }
-      }
-      @media (max-width: 768px) {
-        .hero {
-          padding: 60px 20px 72px;
-        }
-        .stages-grid {
-          grid-template-columns: 1fr;
-        }
-        .process-steps {
-          grid-template-columns: 1fr;
-        }
-        .for-grid {
-          grid-template-columns: 1fr;
-        }
-        .hero-actions {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-      @media (max-width: 600px) {
-        .cta-band-actions {
-          flex-direction: column;
-        }
-        .btn-white-solid,
-        .btn-white-ghost {
-          width: 100%;
-          text-align: center;
-        }
-      }
-    </style>
-    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="fade-up">
-          <div class="hero-eyebrow">
-            <span class="hero-eyebrow-dot"></span>
-            Innovation Roadmapping™ + Venture Development
-          </div>
-          <h1>
-            Build the Roadmap. <span class="accent"
-              >Then Build the Venture.</span>
-          </h1>
-          <p class="hero-sub">
-            Innovation Roadmapping™ + Venture Development is ENTEVATE's
-            end-to-end engagement track — from a structured, milestone-driven
-            strategy through to venture formation, funding readiness, and scale.
-          </p>
-          <div class="hero-actions">
-            <a href="/contact.html?service=roadmapping" class="btn-primary"
-              >Start Your Roadmap →</a
-            >
-            <a href="#journey" class="btn-ghost-dark"
-              >View the 8-Stage Journey ↓</a
-            >
-          </div>
+    }
+  </style>
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Innovation Roadmapping™ + Venture Development
         </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ OVERVIEW ═══════════════════════════ -->
-    <section class="overview-section" id="overview">
-      <div class="overview-inner">
-        <div class="overview-left fade-up">
-          <div class="section-label">The Engagement</div>
-          <h2>
-            Strategy and execution in one connected, milestone-driven
-            engagement.
-          </h2>
-          <p>
-            Most innovation strategies stall because there's no clear bridge
-            between the plan and the people doing the work. Innovation
-            Roadmapping™ + Venture Development closes that gap — we build the
-            roadmap with your leadership team, then stay embedded as a strategic
-            partner through venture formation and scaling.
-          </p>
-          <p>
-            Every roadmap ENTEVATE builds is grounded in the 8-Stage Innovation
-            Journey: from ideation through harvest. Each stage is sequenced to
-            your organization's capabilities, resourced against real timelines,
-            and structured for genuine accountability — not just aspiration.
-          </p>
-        </div>
-
-        <div class="overview-right fade-up">
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M3 5v14l5-3 8 3 5-3V2l-5 3-8-3-5 3z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linejoin="round"></path><path
-                  d="M8 2v14M16 5v14"
-                  stroke="currentColor"
-                  stroke-width="1.3"
-                  stroke-linecap="round"
-                  opacity="0.55"></path></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">8 Stages</div>
-              <div class="overview-stat-label">
-                From ideation through harvest — mapped, sequenced, and resourced
-              </div>
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-green">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M9 11l3 3L22 4"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><path
-                  d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">Milestone-Driven</div>
-              <div class="overview-stat-label">
-                Every stage has a defined outcome, owner, and accountable
-                timeline
-              </div>
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-purple">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle><path
-                  d="M12 8v4l3 3"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></path></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">End-to-End</div>
-              <div class="overview-stat-label">
-                From strategy session to venture launch — ENTEVATE stays
-                embedded
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ THE 8-STAGE JOURNEY ═══════════════════════════ -->
-    <section class="journey-section" id="journey">
-      <div class="journey-inner">
-        <div class="journey-header fade-up">
-          <div class="section-label">The Innovation Journey</div>
-          <h2 class="section-title">
-            Eight proven stages from idea to scaled impact.
-          </h2>
-          <p class="section-subtitle">
-            Every roadmap ENTEVATE builds is grounded in these eight stages —
-            giving your venture a shared language, a clear sequence, and a real
-            path from spark to sustained impact.
-          </p>
-        </div>
-
-        <div class="stages-grid">
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--blue), #4DC8E0);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--blue);">Stage 01</div>
-            <h3>Ideation</h3>
-            <p>
-              Surface, frame, and prioritize the problem worth solving.
-              Establish shared context and a clear innovation challenge before
-              resources are committed.
-            </p>
-          </div>
-
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--green), #72D4C5);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--green);">Stage 02</div>
-            <h3>Exploration</h3>
-            <p>
-              Map the landscape — competitive, technological, and stakeholder.
-              Identify adjacent opportunities and define the whitespace your
-              venture is positioned to own.
-            </p>
-          </div>
-
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--purple), #8E8FC8);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--purple);">Stage 03</div>
-            <h3>Validation</h3>
-            <p>
-              Test core assumptions with real stakeholders. Build minimum viable
-              experiments that generate signal — not just activity — before
-              committing to a full build.
-            </p>
-          </div>
-
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--orange-light), #F5C842);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--orange-light);">
-              Stage 04
-            </div>
-            <h3>Launch</h3>
-            <p>
-              Move from validated concept to live venture. Stand up the core
-              product, team, and operations needed to generate your first
-              real-world proof of value.
-            </p>
-          </div>
-
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--blue), #4DC8E0);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--blue);">Stage 05</div>
-            <h3>Operation</h3>
-            <p>
-              Define team structure, roles, and repeatable processes for
-              reliable ongoing operations. Build the systems that make delivery
-              consistent and scalable.
-            </p>
-          </div>
-
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--green), #72D4C5);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--green);">Stage 06</div>
-            <h3>Amplification</h3>
-            <p>
-              Drive adoption through targeted communication, strategic
-              partnerships, and feedback loops that expand reach and deepen
-              engagement with your core audience.
-            </p>
-          </div>
-
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--purple), #8E8FC8);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--purple);">Stage 07</div>
-            <h3>Acceleration</h3>
-            <p>
-              Scale to full potential through performance optimization, capital
-              deployment, and the strategic partnerships that compound your
-              growth trajectory.
-            </p>
-          </div>
-
-          <div class="stage-card fade-up">
-            <div
-              class="stage-bar"
-              style="background: linear-gradient(90deg, var(--orange-light), #F5C842);"
-            >
-            </div>
-            <div class="stage-num" style="color: var(--orange-light);">
-              Stage 08
-            </div>
-            <h3>Harvest</h3>
-            <p>
-              Sustain and compound value from a scaled innovation performing at
-              its peak. Lock in the returns — financial, strategic, and
-              community-wide.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ ENGAGEMENT PROCESS ═══════════════════════════ -->
-    <section class="process-section" id="process">
-      <div class="process-inner">
-        <div class="fade-up" style="text-align:center;">
-          <div class="section-label" style="display:block;text-align:center;">
-            How We Engage
-          </div>
-          <h2
-            class="section-title"
-            style="text-align:center;margin:0 auto 14px;"
+        <h1>
+          Build the Roadmap. <span class="accent">Then Build the Venture.</span>
+        </h1>
+        <p class="hero-sub">
+          Innovation Roadmapping™ + Venture Development is ENTEVATE's end-to-end
+          engagement track — from a structured, milestone-driven strategy
+          through to venture formation, funding readiness, and scale.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact.html?service=roadmapping" class="btn-primary"
+            >Start Your Roadmap →</a
           >
-            From discovery to scaled venture.
-          </h2>
-          <p class="section-subtitle" style="margin:0 auto;text-align:center;">
-            A four-phase engagement structure that takes your organization from
-            scoping through launch — with ENTEVATE embedded every step of the
-            way.
-          </p>
-        </div>
-
-        <div class="process-steps">
-          <div class="process-step fade-up">
-            <div class="process-num pn-blue">1</div>
-            <div class="process-step-name">Discovery &amp; Scoping</div>
-            <div class="process-step-desc">
-              Map the innovation challenge, define the stakeholder landscape,
-              and align on success criteria before the roadmap is built.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-green">2</div>
-            <div class="process-step-name">Roadmap Construction</div>
-            <div class="process-step-desc">
-              Build a milestone-driven, 8-stage roadmap aligned to your goals,
-              capabilities, and organizational context — sequenced for real
-              execution.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-purple">3</div>
-            <div class="process-step-name">Venture Development</div>
-            <div class="process-step-desc">
-              Stand up, resource, and grow the venture(s) born from the roadmap
-              — with ENTEVATE as an embedded strategic partner through formation
-              and early operations.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-cyan">4</div>
-            <div class="process-step-name">Scale &amp; Amplification</div>
-            <div class="process-step-desc">
-              Drive adoption, optimize performance, and activate the strategic
-              partnerships that move the venture from operational to scaled.
-            </div>
-          </div>
+          <a href="#journey" class="btn-ghost-dark"
+            >View the 8-Stage Journey ↓</a
+          >
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════ WHO IT'S FOR ═══════════════════════════ -->
-    <section class="for-section" id="for">
-      <div class="for-header fade-up">
-        <div class="section-label">Who It's For</div>
-        <h2 class="section-title">
-          Built for leaders who need more than a plan.
+  <!-- ═══════════════════════════ OVERVIEW ═══════════════════════════ -->
+  <section class="overview-section" id="overview">
+    <div class="overview-inner">
+      <div class="overview-left fade-up">
+        <div class="section-label">The Engagement</div>
+        <h2>
+          Strategy and execution in one connected, milestone-driven engagement.
         </h2>
-        <p class="section-subtitle">
-          Innovation Roadmapping™ + Venture Development is designed for
-          organizations that are serious about turning strategy into outcomes —
-          not just decks.
+        <p>
+          Most innovation strategies stall because there's no clear bridge
+          between the plan and the people doing the work. Innovation
+          Roadmapping™ + Venture Development closes that gap — we build the
+          roadmap with your leadership team, then stay embedded as a strategic
+          partner through venture formation and scaling.
+        </p>
+        <p>
+          Every roadmap ENTEVATE builds is grounded in the 8-Stage Innovation
+          Journey: from ideation through harvest. Each stage is sequenced to
+          your organization's capabilities, resourced against real timelines,
+          and structured for genuine accountability — not just aspiration.
         </p>
       </div>
 
-      <div class="for-grid">
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-blue">
+      <div class="overview-right fade-up">
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-blue">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><path
-                d="M22 12h-4l-3 9L9 3l-3 9H2"
+                d="M3 5v14l5-3 8 3 5-3V2l-5 3-8-3-5 3z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path><path
+                d="M8 2v14M16 5v14"
+                stroke="currentColor"
+                stroke-width="1.3"
+                stroke-linecap="round"
+                opacity="0.55"></path></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">8 Stages</div>
+            <div class="overview-stat-label">
+              From ideation through harvest — mapped, sequenced, and resourced
+            </div>
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M9 11l3 3L22 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
                 stroke="currentColor"
                 stroke-width="1.6"
                 stroke-linecap="round"
                 stroke-linejoin="round"></path></svg
             >
           </div>
-          <h3>Organizations at an Inflection Point</h3>
-          <p>
-            Pivoting, expanding, or reinventing your approach to innovation?
-            This engagement provides the structured framework and execution
-            partnership you need to move with confidence.
-          </p>
-        </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-green">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              ><rect
-                x="3"
-                y="3"
-                width="7"
-                height="7"
-                rx="1"
-                stroke="currentColor"
-                stroke-width="1.6"></rect><rect
-                x="14"
-                y="3"
-                width="7"
-                height="7"
-                rx="1"
-                stroke="currentColor"
-                stroke-width="1.6"></rect><rect
-                x="3"
-                y="14"
-                width="7"
-                height="7"
-                rx="1"
-                stroke="currentColor"
-                stroke-width="1.6"></rect><rect
-                x="14"
-                y="14"
-                width="7"
-                height="7"
-                rx="1"
-                stroke="currentColor"
-                stroke-width="1.6"></rect></svg
-            >
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">Milestone-Driven</div>
+            <div class="overview-stat-label">
+              Every stage has a defined outcome, owner, and accountable timeline
+            </div>
           </div>
-          <h3>Innovation Labs &amp; Centers</h3>
-          <p>
-            Have experiments running but struggling to move them to outcomes? A
-            structured 8-stage roadmap brings the discipline needed to scale
-            what's working.
-          </p>
         </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-purple">
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-purple">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              ><path
-                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path><circle
-                cx="9"
-                cy="7"
-                r="4"
+              ><circle
+                cx="12"
+                cy="12"
+                r="10"
                 stroke="currentColor"
                 stroke-width="1.6"></circle><path
-                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                d="M12 8v4l3 3"
                 stroke="currentColor"
                 stroke-width="1.6"
                 stroke-linecap="round"></path></svg
             >
           </div>
-          <h3>Leadership Teams</h3>
-          <p>
-            Aligning a complex organization around a shared innovation agenda?
-            ENTEVATE facilitates the process and keeps leadership teams
-            accountable to the plan they build.
-          </p>
-        </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-orange">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              ><polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"></polygon></svg
-            >
-          </div>
-          <h3>Ventures in Formation</h3>
-          <p>
-            Need more than a pitch deck — need a real, executable plan for
-            getting to market and scaling? This engagement builds the roadmap
-            and stays to execute it.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
-    <section class="cta-band" id="contact">
-      <div class="container">
-        <div class="fade-up">
-          <h2>Ready to Build Your Roadmap?</h2>
-          <p>
-            Let's design the strategy, stand up the venture, and scale what
-            matters. ENTEVATE stays embedded from the first session through your
-            full 8-stage journey.
-          </p>
-          <div class="cta-band-actions">
-            <a href="/contact.html?service=roadmapping" class="btn-white-solid"
-              >Start Your Roadmap</a
-            >
-            <a href="/innovation.html" class="btn-white-ghost"
-              >Back to Innovation Overview</a
-            >
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">End-to-End</div>
+            <div class="overview-stat-label">
+              From strategy session to venture launch — ENTEVATE stays embedded
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <Footer client:load />
+  <!-- ═══════════════════════════ THE 8-STAGE JOURNEY ═══════════════════════════ -->
+  <section class="journey-section" id="journey">
+    <div class="journey-inner">
+      <div class="journey-header fade-up">
+        <div class="section-label">The Innovation Journey</div>
+        <h2 class="section-title">
+          Eight proven stages from idea to scaled impact.
+        </h2>
+        <p class="section-subtitle">
+          Every roadmap ENTEVATE builds is grounded in these eight stages —
+          giving your venture a shared language, a clear sequence, and a real
+          path from spark to sustained impact.
+        </p>
+      </div>
 
-    <script src="../../global.js"></script>
-    <script>
-      document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.09}s`;
-      });
-      document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.08}s`;
-      });
-      document.querySelectorAll(".stage-card.fade-up").forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.06}s`;
-      });
+      <div class="stages-grid">
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--blue), #4DC8E0);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--blue);">Stage 01</div>
+          <h3>Ideation</h3>
+          <p>
+            Surface, frame, and prioritize the problem worth solving. Establish
+            shared context and a clear innovation challenge before resources are
+            committed.
+          </p>
+        </div>
 
-      // ─── Newsletter → HubSpot submission ───
-      (function () {
-        var forms = document.querySelectorAll("#newsletterForm");
-        forms.forEach(function (form) {
-          form.addEventListener("submit", function (e) {
-            e.preventDefault();
-            var btn = form.querySelector("button");
-            var msg = form.querySelector(".newsletter-msg");
-            var nameInput = form.querySelector('input[name="firstname"]');
-            var emailInput = form.querySelector('input[name="email"]');
-            var honeypot = form.querySelector('input[name="website_url"]');
-            if (honeypot && honeypot.value) {
-              form.innerHTML =
-                '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
-              return;
-            }
-            if (!emailInput.value.trim()) {
-              emailInput.style.borderColor = "#CB632F";
-              return;
-            }
-            btn.disabled = true;
-            btn.textContent = "Sending…";
-            var payload = {
-              fields: [
-                { name: "firstname", value: nameInput.value },
-                { name: "email", value: emailInput.value },
-              ],
-              context: {
-                pageUri: window.location.href,
-                pageName: document.title,
-              },
-            };
-            fetch(
-              "https://api.hsforms.com/submissions/v3/integration/submit/44191993/45cdf0bb-1463-4bd9-acce-11775f0ad863",
-              {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload),
-              },
-            )
-              .then(function (r) {
-                if (r.ok) {
-                  form.innerHTML =
-                    '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
-                } else {
-                  btn.disabled = false;
-                  btn.textContent = "Subscribe →";
-                  msg.style.display = "block";
-                  msg.textContent = "Something went wrong. Try again.";
-                }
-              })
-              .catch(function () {
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--green), #72D4C5);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--green);">Stage 02</div>
+          <h3>Exploration</h3>
+          <p>
+            Map the landscape — competitive, technological, and stakeholder.
+            Identify adjacent opportunities and define the whitespace your
+            venture is positioned to own.
+          </p>
+        </div>
+
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--purple), #8E8FC8);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--purple);">Stage 03</div>
+          <h3>Validation</h3>
+          <p>
+            Test core assumptions with real stakeholders. Build minimum viable
+            experiments that generate signal — not just activity — before
+            committing to a full build.
+          </p>
+        </div>
+
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--orange-light), #F5C842);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--orange-light);">
+            Stage 04
+          </div>
+          <h3>Launch</h3>
+          <p>
+            Move from validated concept to live venture. Stand up the core
+            product, team, and operations needed to generate your first
+            real-world proof of value.
+          </p>
+        </div>
+
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--blue), #4DC8E0);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--blue);">Stage 05</div>
+          <h3>Operation</h3>
+          <p>
+            Define team structure, roles, and repeatable processes for reliable
+            ongoing operations. Build the systems that make delivery consistent
+            and scalable.
+          </p>
+        </div>
+
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--green), #72D4C5);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--green);">Stage 06</div>
+          <h3>Amplification</h3>
+          <p>
+            Drive adoption through targeted communication, strategic
+            partnerships, and feedback loops that expand reach and deepen
+            engagement with your core audience.
+          </p>
+        </div>
+
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--purple), #8E8FC8);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--purple);">Stage 07</div>
+          <h3>Acceleration</h3>
+          <p>
+            Scale to full potential through performance optimization, capital
+            deployment, and the strategic partnerships that compound your growth
+            trajectory.
+          </p>
+        </div>
+
+        <div class="stage-card fade-up">
+          <div
+            class="stage-bar"
+            style="background: linear-gradient(90deg, var(--orange-light), #F5C842);"
+          >
+          </div>
+          <div class="stage-num" style="color: var(--orange-light);">
+            Stage 08
+          </div>
+          <h3>Harvest</h3>
+          <p>
+            Sustain and compound value from a scaled innovation performing at
+            its peak. Lock in the returns — financial, strategic, and
+            community-wide.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ ENGAGEMENT PROCESS ═══════════════════════════ -->
+  <section class="process-section" id="process">
+    <div class="process-inner">
+      <div class="fade-up" style="text-align:center;">
+        <div class="section-label" style="display:block;text-align:center;">
+          How We Engage
+        </div>
+        <h2 class="section-title" style="text-align:center;margin:0 auto 14px;">
+          From discovery to scaled venture.
+        </h2>
+        <p class="section-subtitle" style="margin:0 auto;text-align:center;">
+          A four-phase engagement structure that takes your organization from
+          scoping through launch — with ENTEVATE embedded every step of the way.
+        </p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step fade-up">
+          <div class="process-num pn-blue">1</div>
+          <div class="process-step-name">Discovery &amp; Scoping</div>
+          <div class="process-step-desc">
+            Map the innovation challenge, define the stakeholder landscape, and
+            align on success criteria before the roadmap is built.
+          </div>
+        </div>
+
+        <div class="process-step fade-up">
+          <div class="process-num pn-green">2</div>
+          <div class="process-step-name">Roadmap Construction</div>
+          <div class="process-step-desc">
+            Build a milestone-driven, 8-stage roadmap aligned to your goals,
+            capabilities, and organizational context — sequenced for real
+            execution.
+          </div>
+        </div>
+
+        <div class="process-step fade-up">
+          <div class="process-num pn-purple">3</div>
+          <div class="process-step-name">Venture Development</div>
+          <div class="process-step-desc">
+            Stand up, resource, and grow the venture(s) born from the roadmap —
+            with ENTEVATE as an embedded strategic partner through formation and
+            early operations.
+          </div>
+        </div>
+
+        <div class="process-step fade-up">
+          <div class="process-num pn-cyan">4</div>
+          <div class="process-step-name">Scale &amp; Amplification</div>
+          <div class="process-step-desc">
+            Drive adoption, optimize performance, and activate the strategic
+            partnerships that move the venture from operational to scaled.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ WHO IT'S FOR ═══════════════════════════ -->
+  <section class="for-section" id="for">
+    <div class="for-header fade-up">
+      <div class="section-label">Who It's For</div>
+      <h2 class="section-title">
+        Built for leaders who need more than a plan.
+      </h2>
+      <p class="section-subtitle">
+        Innovation Roadmapping™ + Venture Development is designed for
+        organizations that are serious about turning strategy into outcomes —
+        not just decks.
+      </p>
+    </div>
+
+    <div class="for-grid">
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M22 12h-4l-3 9L9 3l-3 9H2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Organizations at an Inflection Point</h3>
+        <p>
+          Pivoting, expanding, or reinventing your approach to innovation? This
+          engagement provides the structured framework and execution partnership
+          you need to move with confidence.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><rect
+              x="3"
+              y="3"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="currentColor"
+              stroke-width="1.6"></rect><rect
+              x="14"
+              y="3"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="currentColor"
+              stroke-width="1.6"></rect><rect
+              x="3"
+              y="14"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="currentColor"
+              stroke-width="1.6"></rect><rect
+              x="14"
+              y="14"
+              width="7"
+              height="7"
+              rx="1"
+              stroke="currentColor"
+              stroke-width="1.6"></rect></svg
+          >
+        </div>
+        <h3>Innovation Labs &amp; Centers</h3>
+        <p>
+          Have experiments running but struggling to move them to outcomes? A
+          structured 8-stage roadmap brings the discipline needed to scale
+          what's working.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path><circle
+              cx="9"
+              cy="7"
+              r="4"
+              stroke="currentColor"
+              stroke-width="1.6"></circle><path
+              d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"></path></svg
+          >
+        </div>
+        <h3>Leadership Teams</h3>
+        <p>
+          Aligning a complex organization around a shared innovation agenda?
+          ENTEVATE facilitates the process and keeps leadership teams
+          accountable to the plan they build.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-orange">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></polygon></svg
+          >
+        </div>
+        <h3>Ventures in Formation</h3>
+        <p>
+          Need more than a pitch deck — need a real, executable plan for getting
+          to market and scaling? This engagement builds the roadmap and stays to
+          execute it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to Build Your Roadmap?</h2>
+        <p>
+          Let's design the strategy, stand up the venture, and scale what
+          matters. ENTEVATE stays embedded from the first session through your
+          full 8-stage journey.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact.html?service=roadmapping" class="btn-white-solid"
+            >Start Your Roadmap</a
+          >
+          <a href="/innovation.html" class="btn-white-ghost"
+            >Back to Innovation Overview</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load />
+
+  <script src="../../global.js"></script>
+  <script>
+    document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.09}s`;
+    });
+    document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.08}s`;
+    });
+    document.querySelectorAll(".stage-card.fade-up").forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.06}s`;
+    });
+
+    // ─── Newsletter → HubSpot submission ───
+    (function () {
+      var forms = document.querySelectorAll("#newsletterForm");
+      forms.forEach(function (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var btn = form.querySelector("button");
+          var msg = form.querySelector(".newsletter-msg");
+          var nameInput = form.querySelector('input[name="firstname"]');
+          var emailInput = form.querySelector('input[name="email"]');
+          var honeypot = form.querySelector('input[name="website_url"]');
+          if (honeypot && honeypot.value) {
+            form.innerHTML =
+              '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
+            return;
+          }
+          if (!emailInput.value.trim()) {
+            emailInput.style.borderColor = "#CB632F";
+            return;
+          }
+          btn.disabled = true;
+          btn.textContent = "Sending…";
+          var payload = {
+            fields: [
+              { name: "firstname", value: nameInput.value },
+              { name: "email", value: emailInput.value },
+            ],
+            context: {
+              pageUri: window.location.href,
+              pageName: document.title,
+            },
+          };
+          fetch(
+            "https://api.hsforms.com/submissions/v3/integration/submit/44191993/45cdf0bb-1463-4bd9-acce-11775f0ad863",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            },
+          )
+            .then(function (r) {
+              if (r.ok) {
+                form.innerHTML =
+                  '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
+              } else {
                 btn.disabled = false;
                 btn.textContent = "Subscribe →";
                 msg.style.display = "block";
                 msg.textContent = "Something went wrong. Try again.";
-              });
-          });
+              }
+            })
+            .catch(function () {
+              btn.disabled = false;
+              btn.textContent = "Subscribe →";
+              msg.style.display = "block";
+              msg.textContent = "Something went wrong. Try again.";
+            });
         });
-      })();
-    </script>
+      });
+    })();
+  </script>
 </BaseLayout>

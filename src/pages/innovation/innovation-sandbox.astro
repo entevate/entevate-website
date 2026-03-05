@@ -8,1195 +8,1177 @@ const title = "Innovation Sandbox™ — ENTEVATE";
 const description =
   "The Innovation Sandbox™ is a contained, facilitated environment for prototyping and validating your most promising ideas — with low risk, fast learning, and a clear signal for what to build next.";
 ---
+
 <BaseLayout title={title} description={description}>
-    <style>
-      /* Section helpers */
-      .container {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
+  <style>
+    /* Section helpers */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
 
-      .section-label {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-        display: inline-block;
-        color: var(--orange-light);
-      }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--orange-light);
+    }
 
-      h2.section-title {
-        font-size: clamp(30px, 4vw, 48px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-        margin-bottom: 16px;
-      }
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
 
-      .section-subtitle {
-        font-size: 15px;
-        color: var(--gray-mid);
-        max-width: 580px;
-        line-height: 1.75;
-      }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
 
-      /* Hero */
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(15, 14, 32, 0.58) 0%,
+          rgba(32, 32, 58, 0.5) 50%,
+          rgba(50, 50, 82, 0.42) 100%
+        ),
+        url("/images/bt3.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(234, 151, 9, 0.14);
+      border: 1px solid rgba(234, 151, 9, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ea9709, #f5c842);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 6.5vw, 88px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 900px;
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #f5c842 0%, #ffdf80 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 660px;
+      margin-bottom: 42px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #c47f00 0%, #ea9709 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #a36900 0%, #c47f00 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(234, 151, 9, 0.5);
+    }
+
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Overview */
+    .overview-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .overview-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .overview-left h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .overview-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .overview-left p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .overview-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 8px;
+    }
+
+    .overview-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px;
+      background: var(--light-blue);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .overview-stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .osi-orange {
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+    }
+
+    .osi-green {
+      background: rgba(61, 151, 138, 0.1);
+      color: var(--green);
+    }
+
+    .osi-purple {
+      background: rgba(68, 69, 97, 0.1);
+      color: var(--purple);
+    }
+
+    .overview-stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .overview-stat-label {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.5;
+    }
+
+    /* Inside the Sandbox */
+    .sandbox-section {
+      background: var(--light-blue);
+      padding: 88px 48px;
+    }
+
+    .sandbox-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .sandbox-header {
+      margin-bottom: 56px;
+    }
+
+    .sandbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .sandbox-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+
+    .sandbox-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .sandbox-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+    }
+
+    .sandbox-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .sandbox-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
+
+    /* Process */
+    .process-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .process-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: calc(12.5% + 14px);
+      right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--orange-light) 0%,
+        var(--green) 33%,
+        var(--purple) 66%,
+        var(--blue) 100%
+      );
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+      transition:
+        transform var(--tr),
+        box-shadow var(--tr);
+    }
+
+    .process-step:hover .process-num {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .pn-amber {
+      background: var(--orange-light);
+    }
+
+    .pn-green {
+      background: var(--green);
+    }
+
+    .pn-purple {
+      background: var(--purple);
+    }
+
+    .pn-blue {
+      background: var(--blue);
+    }
+
+    .process-step-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .process-step-desc {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* Who It's For */
+    .for-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 88px 48px;
+    }
+
+    .for-header {
+      max-width: 1160px;
+      margin: 0 auto 52px;
+    }
+
+    .for-header .section-label {
+      color: var(--orange-light) !important;
+    }
+
+    .for-header .section-title {
+      color: var(--white);
+    }
+
+    .for-header .section-subtitle {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .for-grid {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .for-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      transition:
+        background var(--tr),
+        border-color var(--tr),
+        transform var(--tr);
+    }
+
+    .for-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-3px);
+    }
+
+    .for-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .fci-amber {
+      background: rgba(234, 151, 9, 0.2);
+      color: #f5c842;
+    }
+
+    .fci-green {
+      background: rgba(61, 151, 138, 0.2);
+      color: #72d4c5;
+    }
+
+    .fci-blue {
+      background: rgba(36, 123, 150, 0.2);
+      color: #4dc8e0;
+    }
+
+    .fci-purple {
+      background: rgba(142, 144, 200, 0.2);
+      color: #b4baff;
+    }
+
+    .for-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .for-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+    }
+
+    /* CTA Band */
+    .cta-band {
+      background: linear-gradient(135deg, #b07200 0%, var(--purple) 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 40%,
+          rgba(255, 255, 255, 0.07) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--orange-light);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
       .hero {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(15, 14, 32, 0.58) 0%,
-            rgba(32, 32, 58, 0.5) 50%,
-            rgba(50, 50, 82, 0.42) 100%
-          ),
-          url("/images/bt3.png") center/cover no-repeat;
-        position: relative;
-        overflow: hidden;
-        padding: 96px 48px 120px;
-        min-height: 82vh;
-        display: flex;
-        align-items: center;
-      }
-
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        max-width: 1160px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        background: rgba(234, 151, 9, 0.14);
-        border: 1px solid rgba(234, 151, 9, 0.38);
-        padding: 6px 16px;
-        border-radius: 100px;
-        margin-bottom: 28px;
-        color: rgba(255, 255, 255, 0.9);
-      }
-
-      .hero-eyebrow-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #ea9709, #f5c842);
-        flex-shrink: 0;
-      }
-
-      .hero h1 {
-        font-size: clamp(48px, 6.5vw, 88px);
-        font-weight: 100;
-        line-height: 1.04;
-        color: var(--white);
-        margin-bottom: 24px;
-        letter-spacing: -0.03em;
-        text-wrap: balance;
-        max-width: 900px;
-      }
-
-      .hero h1 .accent {
-        background: linear-gradient(90deg, #f5c842 0%, #ffdf80 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .hero-sub {
-        font-size: 17px;
-        color: rgba(255, 255, 255, 0.68);
-        line-height: 1.75;
-        max-width: 660px;
-        margin-bottom: 42px;
-      }
-
-      .hero-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .btn-primary {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: linear-gradient(135deg, #c47f00 0%, #ea9709 100%);
-        color: var(--white);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-
-      .btn-primary:hover {
-        background: linear-gradient(135deg, #a36900 0%, #c47f00 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba(234, 151, 9, 0.5);
-      }
-
-      .btn-ghost-dark {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        background: none;
-        border: 1.5px solid rgba(255, 255, 255, 0.35);
-        padding: 12px 26px;
-        border-radius: var(--radius);
-        cursor: pointer;
-        color: rgba(255, 255, 255, 0.85);
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: all var(--tr);
-      }
-
-      .btn-ghost-dark:hover {
-        border-color: rgba(255, 255, 255, 0.8);
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      /* Overview */
-      .overview-section {
-        background: var(--white);
-        padding: 88px 48px;
-        border-top: 1px solid var(--border);
+        padding: 72px 24px 88px;
+        min-height: auto;
       }
 
       .overview-inner {
-        max-width: 1160px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: start;
-      }
-
-      .overview-left h2 {
-        font-size: clamp(28px, 3.8vw, 46px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.15;
-        margin-bottom: 22px;
-      }
-
-      .overview-left p {
-        font-size: 15px;
-        color: var(--gray-mid);
-        line-height: 1.8;
-        margin-bottom: 18px;
-      }
-
-      .overview-left p:last-of-type {
-        margin-bottom: 0;
-      }
-
-      .overview-right {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding-top: 8px;
-      }
-
-      .overview-stat {
-        display: flex;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 24px;
-        background: var(--light-blue);
-        border-radius: var(--radius);
-        border: 1px solid var(--border);
-      }
-
-      .overview-stat-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .osi-orange {
-        background: rgba(234, 151, 9, 0.1);
-        color: var(--orange-light);
-      }
-
-      .osi-green {
-        background: rgba(61, 151, 138, 0.1);
-        color: var(--green);
-      }
-
-      .osi-purple {
-        background: rgba(68, 69, 97, 0.1);
-        color: var(--purple);
-      }
-
-      .overview-stat-num {
-        font-size: 28px;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        color: var(--black);
-        line-height: 1;
-        margin-bottom: 4px;
-      }
-
-      .overview-stat-label {
-        font-size: 13px;
-        color: var(--gray-mid);
-        line-height: 1.5;
-      }
-
-      /* Inside the Sandbox */
-      .sandbox-section {
-        background: var(--light-blue);
-        padding: 88px 48px;
-      }
-
-      .sandbox-inner {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-
-      .sandbox-header {
-        margin-bottom: 56px;
+        grid-template-columns: 1fr;
+        gap: 48px;
       }
 
       .sandbox-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-
-      .sandbox-card {
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 32px 28px;
-        transition:
-          box-shadow var(--tr),
-          transform var(--tr);
-      }
-
-      .sandbox-card:hover {
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-        transform: translateY(-3px);
-      }
-
-      .sandbox-card-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-        background: rgba(234, 151, 9, 0.1);
-        color: var(--orange-light);
-      }
-
-      .sandbox-card h3 {
-        font-size: 16px;
-        font-weight: 600;
-        color: var(--black);
-        margin-bottom: 10px;
-        letter-spacing: -0.01em;
-      }
-
-      .sandbox-card p {
-        font-size: 13.5px;
-        color: var(--gray-mid);
-        line-height: 1.7;
-      }
-
-      /* Process */
-      .process-section {
-        background: var(--white);
-        padding: 88px 48px;
-        border-top: 1px solid var(--border);
-      }
-
-      .process-inner {
-        max-width: 1160px;
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .process-steps {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0;
-        margin-top: 56px;
-        position: relative;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
       }
 
       .process-steps::before {
-        content: "";
-        position: absolute;
-        top: 27px;
-        left: calc(12.5% + 14px);
-        right: calc(12.5% + 14px);
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--orange-light) 0%,
-          var(--green) 33%,
-          var(--purple) 66%,
-          var(--blue) 100%
-        );
-        opacity: 0.3;
-        z-index: 0;
-      }
-
-      .process-step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-        position: relative;
-        z-index: 1;
-      }
-
-      .process-num {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 20px;
-        flex-shrink: 0;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
-        transition:
-          transform var(--tr),
-          box-shadow var(--tr);
-      }
-
-      .process-step:hover .process-num {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-      }
-
-      .pn-amber {
-        background: var(--orange-light);
-      }
-
-      .pn-green {
-        background: var(--green);
-      }
-
-      .pn-purple {
-        background: var(--purple);
-      }
-
-      .pn-blue {
-        background: var(--blue);
-      }
-
-      .process-step-name {
-        font-size: 15px;
-        font-weight: 600;
-        color: var(--black);
-        margin-bottom: 10px;
-      }
-
-      .process-step-desc {
-        font-size: 13px;
-        color: var(--gray-mid);
-        line-height: 1.65;
-      }
-
-      /* Who It's For */
-      .for-section {
-        background: var(--black);
-        color: var(--white);
-        padding: 88px 48px;
-      }
-
-      .for-header {
-        max-width: 1160px;
-        margin: 0 auto 52px;
-      }
-
-      .for-header .section-label {
-        color: var(--orange-light) !important;
-      }
-
-      .for-header .section-title {
-        color: var(--white);
-      }
-
-      .for-header .section-subtitle {
-        color: rgba(255, 255, 255, 0.55);
+        display: none;
       }
 
       .for-grid {
-        max-width: 1160px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .for-card {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: var(--radius);
-        padding: 32px 26px;
-        transition:
-          background var(--tr),
-          border-color var(--tr),
-          transform var(--tr);
-      }
-
-      .for-card:hover {
-        background: rgba(255, 255, 255, 0.09);
-        border-color: rgba(255, 255, 255, 0.18);
-        transform: translateY(-3px);
-      }
-
-      .for-card-icon {
-        width: 46px;
-        height: 46px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
-
-      .fci-amber {
-        background: rgba(234, 151, 9, 0.2);
-        color: #f5c842;
-      }
-
-      .fci-green {
-        background: rgba(61, 151, 138, 0.2);
-        color: #72d4c5;
-      }
-
-      .fci-blue {
-        background: rgba(36, 123, 150, 0.2);
-        color: #4dc8e0;
-      }
-
-      .fci-purple {
-        background: rgba(142, 144, 200, 0.2);
-        color: #b4baff;
-      }
-
-      .for-card h3 {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--white);
-        margin-bottom: 10px;
-        line-height: 1.3;
-      }
-
-      .for-card p {
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 1.7;
-      }
-
-      /* CTA Band */
+      .overview-section,
+      .sandbox-section,
+      .process-section,
+      .for-section,
       .cta-band {
-        background: linear-gradient(135deg, #b07200 0%, var(--purple) 100%);
-        color: var(--white);
-        padding: 80px 48px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
+        padding: 64px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px 72px;
       }
 
-      .cta-band::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            circle at 25% 40%,
-            rgba(255, 255, 255, 0.07) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 255, 255, 0.05) 0%,
-            transparent 45%
-          );
-        pointer-events: none;
+      .sandbox-grid {
+        grid-template-columns: 1fr;
       }
 
-      .cta-band .container {
-        position: relative;
-        z-index: 1;
+      .process-steps {
+        grid-template-columns: 1fr;
       }
 
-      .cta-band h2 {
-        font-size: clamp(28px, 4.5vw, 52px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        margin-bottom: 16px;
+      .for-grid {
+        grid-template-columns: 1fr;
       }
 
-      .cta-band p {
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.68);
-        max-width: 520px;
-        margin: 0 auto 38px;
-        line-height: 1.72;
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
       }
+    }
 
+    @media (max-width: 600px) {
       .cta-band-actions {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
+        flex-direction: column;
       }
 
-      .btn-white-solid {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: var(--white);
-        color: var(--orange-light);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-
-      .btn-white-solid:hover {
-        background: var(--light-blue);
-        transform: translateY(-1px);
-      }
-
+      .btn-white-solid,
       .btn-white-ghost {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 12px 30px;
-        border-radius: var(--radius);
-        border: 1.5px solid rgba(255, 255, 255, 0.45);
-        cursor: pointer;
-        color: var(--white);
-        background: transparent;
-        transition: all var(--tr);
-        display: inline-block;
+        width: 100%;
+        text-align: center;
       }
-
-      .btn-white-ghost:hover {
-        border-color: rgba(255, 255, 255, 0.9);
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      /* Animations */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.55s ease,
-          transform 0.55s ease;
-      }
-
-      .fade-up.visible {
-        opacity: 1;
-        transform: none;
-      }
-
-      /* Responsive */
-      @media (max-width: 960px) {
-        .hero {
-          padding: 72px 24px 88px;
-          min-height: auto;
-        }
-
-        .overview-inner {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-
-        .sandbox-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .process-steps {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 40px;
-        }
-
-        .process-steps::before {
-          display: none;
-        }
-
-        .for-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .overview-section,
-        .sandbox-section,
-        .process-section,
-        .for-section,
-        .cta-band {
-          padding: 64px 24px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .hero {
-          padding: 60px 20px 72px;
-        }
-
-        .sandbox-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .process-steps {
-          grid-template-columns: 1fr;
-        }
-
-        .for-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero-actions {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .cta-band-actions {
-          flex-direction: column;
-        }
-
-        .btn-white-solid,
-        .btn-white-ghost {
-          width: 100%;
-          text-align: center;
-        }
-      }
-    </style>
+    }
+  </style>
   <Header client:load />
 
-    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="fade-up">
-          <div class="hero-eyebrow">
-            <span class="hero-eyebrow-dot"></span>
-            Innovation Sandbox™
-          </div>
-          <h1>
-            Test What Matters Before You <span class="accent"
-              >Commit at Scale.</span>
-          </h1>
-          <p class="hero-sub">
-            The Innovation Sandbox™ is a contained, facilitated environment for
-            prototyping and validating your most promising ideas — with low
-            risk, fast learning, and a clear signal for what to build next.
-          </p>
-          <div class="hero-actions">
-            <a href="/contact?service=innovation-sandbox" class="btn-primary"
-              >Design Your Sandbox →</a
-            >
-            <a href="#sandbox" class="btn-ghost-dark">See How It Works ↓</a>
-          </div>
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Innovation Sandbox™
         </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ OVERVIEW ═══════════════════════════ -->
-    <section class="overview-section" id="overview">
-      <div class="overview-inner">
-        <div class="overview-left fade-up">
-          <div class="section-label">The Engagement</div>
-          <h2>
-            Low risk. High signal. Built for the ideas you can't afford to get
-            wrong.
-          </h2>
-          <p>
-            Great innovation fails when resources are committed to the wrong
-            things too early. The Innovation Sandbox™ creates a structured space
-            to test your most promising hypotheses before going all-in — giving
-            your team the evidence to act with confidence.
-          </p>
-          <p>
-            We design the sandbox environment, facilitate structured experiments
-            with your stakeholders, and deliver a validated signal: what works,
-            what doesn't, and what to do next. The result isn't just a test —
-            it's a confidence-building exercise that aligns teams and sharpens
-            strategy before resources are fully committed.
-          </p>
-        </div>
-
-        <div class="overview-right fade-up">
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-orange">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle><polyline
-                  points="12 6 12 12 16 14"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></polyline></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">4–8 Wks</div>
-              <div class="overview-stat-label">
-                From sandbox design to validated debrief and signal report
-              </div>
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-green">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle><path
-                  d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></path></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">Facilitated</div>
-              <div class="overview-stat-label">
-                Expert-led sessions with your internal and external stakeholders
-              </div>
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-icon osi-purple">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M22 11.08V12a10 10 0 11-5.93-9.14"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></path><polyline
-                  points="22 4 12 14.01 9 11.01"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></polyline></svg
-              >
-            </div>
-            <div class="overview-stat-body">
-              <div class="overview-stat-num">Validated</div>
-              <div class="overview-stat-label">
-                Clear go/no-go recommendation with documented learnings at close
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ INSIDE THE SANDBOX ═══════════════════════════ -->
-    <section class="sandbox-section" id="sandbox">
-      <div class="sandbox-inner">
-        <div class="sandbox-header fade-up">
-          <div class="section-label">Inside the Sandbox</div>
-          <h2 class="section-title">Structure meets experimentation.</h2>
-          <p class="section-subtitle">
-            Every Innovation Sandbox™ is purpose-designed — not generic. Six
-            elements work together to ensure your experiments produce real
-            signals, not just activity.
-          </p>
-        </div>
-
-        <div class="sandbox-grid">
-          <div class="sandbox-card fade-up">
-            <div class="sandbox-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <h3>Hypothesis Framing</h3>
-            <p>
-              Before anything is built or tested, we work with your team to
-              surface and sharpen the core assumptions driving your initiative —
-              so the sandbox tests what actually matters.
-            </p>
-          </div>
-
-          <div class="sandbox-card fade-up">
-            <div class="sandbox-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5zM20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5zM3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14zM14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5zM15 9c0 .83-.67 1.5-1.5 1.5h-5C7.67 10.5 7 9.83 7 9s.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5z"
-                  stroke="currentColor"
-                  stroke-width="1.4"></path></svg
-              >
-            </div>
-            <h3>Rapid Prototyping</h3>
-            <p>
-              Build minimum viable expressions of your concept — just enough to
-              generate real feedback without committing to a full build. Speed
-              is the point.
-            </p>
-          </div>
-
-          <div class="sandbox-card fade-up">
-            <div class="sandbox-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <h3>Stakeholder Engagement</h3>
-            <p>
-              Get real feedback from real users, partners, and decision-makers —
-              facilitated in structured sessions designed to surface honest
-              reactions, not just positive ones.
-            </p>
-          </div>
-
-          <div class="sandbox-card fade-up">
-            <div class="sandbox-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><line
-                  x1="18"
-                  y1="20"
-                  x2="18"
-                  y2="10"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></line><line
-                  x1="12"
-                  y1="20"
-                  x2="12"
-                  y2="4"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></line><line
-                  x1="6"
-                  y1="20"
-                  x2="6"
-                  y2="14"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></line></svg
-              >
-            </div>
-            <h3>Signal Analysis</h3>
-            <p>
-              We synthesize everything gathered during the sandbox into a clear,
-              actionable recommendation — what to build, what to kill, and what
-              to iterate on before committing further.
-            </p>
-          </div>
-
-          <div class="sandbox-card fade-up">
-            <div class="sandbox-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><polyline
-                  points="14 2 14 8 20 8"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></polyline><line
-                  x1="16"
-                  y1="13"
-                  x2="8"
-                  y2="13"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></line><line
-                  x1="16"
-                  y1="17"
-                  x2="8"
-                  y2="17"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></line></svg
-              >
-            </div>
-            <h3>Full Documentation</h3>
-            <p>
-              Every session, test, and insight is captured and organized —
-              giving you a permanent record of what was learned, who said what,
-              and what it means for your next step.
-            </p>
-          </div>
-
-          <div class="sandbox-card fade-up">
-            <div class="sandbox-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle><path
-                  d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></path></svg
-              >
-            </div>
-            <h3>Team Alignment</h3>
-            <p>
-              The sandbox process builds shared context and buy-in across your
-              team. You leave not just with a signal — but with a group that's
-              aligned and ready to act on it.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════ PROCESS ═══════════════════════════ -->
-    <section class="process-section" id="process">
-      <div class="process-inner">
-        <div class="fade-up" style="text-align:center;">
-          <div class="section-label" style="display:block;text-align:center;">
-            How It Works
-          </div>
-          <h2
-            class="section-title"
-            style="text-align:center;margin:0 auto 14px;"
+        <h1>
+          Test What Matters Before You <span class="accent"
+            >Commit at Scale.</span
           >
-            Four phases. One clear signal.
-          </h2>
-          <p class="section-subtitle" style="margin:0 auto;text-align:center;">
-            A structured engagement from sandbox design to validated
-            recommendation — with facilitation and rigor built in at every step.
-          </p>
-        </div>
-
-        <div class="process-steps">
-          <div class="process-step fade-up">
-            <div class="process-num pn-amber">1</div>
-            <div class="process-step-name">Sandbox Design</div>
-            <div class="process-step-desc">
-              Define the scope, goals, environment, and constraints for your
-              sandbox engagement — what we're testing and why it matters.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-green">2</div>
-            <div class="process-step-name">Participant Onboarding</div>
-            <div class="process-step-desc">
-              Brief and align all participants on purpose, protocol, and
-              expectations — so every session runs with clarity and
-              psychological safety.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-purple">3</div>
-            <div class="process-step-name">Facilitated Sessions</div>
-            <div class="process-step-desc">
-              Run structured, time-boxed experiments and prototype reviews with
-              ENTEVATE facilitators ensuring quality, focus, and honest
-              feedback.
-            </div>
-          </div>
-
-          <div class="process-step fade-up">
-            <div class="process-num pn-blue">4</div>
-            <div class="process-step-name">Signal Debrief</div>
-            <div class="process-step-desc">
-              Synthesize all findings into a validated recommendation and
-              next-step roadmap — complete with documentation and a clear
-              decision framework.
-            </div>
-          </div>
+        </h1>
+        <p class="hero-sub">
+          The Innovation Sandbox™ is a contained, facilitated environment for
+          prototyping and validating your most promising ideas — with low risk,
+          fast learning, and a clear signal for what to build next.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact?service=innovation-sandbox" class="btn-primary"
+            >Design Your Sandbox →</a
+          >
+          <a href="#sandbox" class="btn-ghost-dark">See How It Works ↓</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════ WHO IT'S FOR ═══════════════════════════ -->
-    <section class="for-section" id="for">
-      <div class="for-header fade-up">
-        <div class="section-label">Who It's For</div>
-        <h2 class="section-title">
-          Built for teams that need to know before they build.
+  <!-- ═══════════════════════════ OVERVIEW ═══════════════════════════ -->
+  <section class="overview-section" id="overview">
+    <div class="overview-inner">
+      <div class="overview-left fade-up">
+        <div class="section-label">The Engagement</div>
+        <h2>
+          Low risk. High signal. Built for the ideas you can't afford to get
+          wrong.
         </h2>
-        <p class="section-subtitle">
-          The Innovation Sandbox™ is designed for any team that can't afford to
-          get it wrong at scale — but needs to move with urgency.
+        <p>
+          Great innovation fails when resources are committed to the wrong
+          things too early. The Innovation Sandbox™ creates a structured space
+          to test your most promising hypotheses before going all-in — giving
+          your team the evidence to act with confidence.
+        </p>
+        <p>
+          We design the sandbox environment, facilitate structured experiments
+          with your stakeholders, and deliver a validated signal: what works,
+          what doesn't, and what to do next. The result isn't just a test — it's
+          a confidence-building exercise that aligns teams and sharpens strategy
+          before resources are fully committed.
         </p>
       </div>
 
-      <div class="for-grid">
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-amber">
+      <div class="overview-right fade-up">
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-orange">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><circle
                 cx="12"
                 cy="12"
                 r="10"
                 stroke="currentColor"
+                stroke-width="1.6"></circle><polyline
+                points="12 6 12 12 16 14"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></polyline></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">4–8 Wks</div>
+            <div class="overview-stat-label">
+              From sandbox design to validated debrief and signal report
+            </div>
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
                 stroke-width="1.6"></circle><path
-                d="M12 8v4l3 3"
+                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
                 stroke="currentColor"
                 stroke-width="1.6"
                 stroke-linecap="round"></path></svg
             >
           </div>
-          <h3>Innovation Teams</h3>
-          <p>
-            Already know the problem. Need structured validation before
-            committing full design, build, and launch resources to a specific
-            solution.
-          </p>
-        </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-green">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              ><rect
-                x="2"
-                y="7"
-                width="20"
-                height="14"
-                rx="2"
-                stroke="currentColor"
-                stroke-width="1.6"></rect><path
-                d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"></path></svg
-            >
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">Facilitated</div>
+            <div class="overview-stat-label">
+              Expert-led sessions with your internal and external stakeholders
+            </div>
           </div>
-          <h3>Product &amp; Technology Leaders</h3>
-          <p>
-            Need a fast, credible validation loop before making major investment
-            decisions on new capabilities, platforms, or market entries.
-          </p>
         </div>
-
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-blue">
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-purple">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><path
-                d="M22 12h-4l-3 9L9 3l-3 9H2"
+                d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path><polyline
+                points="22 4 12 14.01 9 11.01"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></polyline></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">Validated</div>
+            <div class="overview-stat-label">
+              Clear go/no-go recommendation with documented learnings at close
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ INSIDE THE SANDBOX ═══════════════════════════ -->
+  <section class="sandbox-section" id="sandbox">
+    <div class="sandbox-inner">
+      <div class="sandbox-header fade-up">
+        <div class="section-label">Inside the Sandbox</div>
+        <h2 class="section-title">Structure meets experimentation.</h2>
+        <p class="section-subtitle">
+          Every Innovation Sandbox™ is purpose-designed — not generic. Six
+          elements work together to ensure your experiments produce real
+          signals, not just activity.
+        </p>
+      </div>
+
+      <div class="sandbox-grid">
+        <div class="sandbox-card fade-up">
+          <div class="sandbox-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"
                 stroke="currentColor"
                 stroke-width="1.6"
                 stroke-linecap="round"
                 stroke-linejoin="round"></path></svg
             >
           </div>
-          <h3>Startups &amp; Ventures</h3>
+          <h3>Hypothesis Framing</h3>
           <p>
-            Pressure-test your business model, product concept, or go-to-market
-            approach with curated stakeholder input and expert facilitation
-            before your next funding milestone.
+            Before anything is built or tested, we work with your team to
+            surface and sharpen the core assumptions driving your initiative —
+            so the sandbox tests what actually matters.
           </p>
         </div>
 
-        <div class="for-card fade-up">
-          <div class="for-card-icon fci-purple">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+        <div class="sandbox-card fade-up">
+          <div class="sandbox-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
               ><path
-                d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+                d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5zM20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5zM3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14zM14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5zM15 9c0 .83-.67 1.5-1.5 1.5h-5C7.67 10.5 7 9.83 7 9s.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5z"
+                stroke="currentColor"
+                stroke-width="1.4"></path></svg
+            >
+          </div>
+          <h3>Rapid Prototyping</h3>
+          <p>
+            Build minimum viable expressions of your concept — just enough to
+            generate real feedback without committing to a full build. Speed is
+            the point.
+          </p>
+        </div>
+
+        <div class="sandbox-card fade-up">
+          <div class="sandbox-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
                 stroke="currentColor"
                 stroke-width="1.6"
-                stroke-linejoin="round"></path><path
-                d="M9 22V12h6v10"
-                stroke="currentColor"
-                stroke-width="1.6"
+                stroke-linecap="round"
                 stroke-linejoin="round"></path></svg
             >
           </div>
-          <h3>Universities &amp; Institutions</h3>
+          <h3>Stakeholder Engagement</h3>
           <p>
-            Pilot new academic programs, research partnerships, or technology
-            applications in a controlled environment before broad institutional
-            rollout.
+            Get real feedback from real users, partners, and decision-makers —
+            facilitated in structured sessions designed to surface honest
+            reactions, not just positive ones.
+          </p>
+        </div>
+
+        <div class="sandbox-card fade-up">
+          <div class="sandbox-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><line
+                x1="18"
+                y1="20"
+                x2="18"
+                y2="10"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="12"
+                y1="20"
+                x2="12"
+                y2="4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="6"
+                y1="20"
+                x2="6"
+                y2="14"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line></svg
+            >
+          </div>
+          <h3>Signal Analysis</h3>
+          <p>
+            We synthesize everything gathered during the sandbox into a clear,
+            actionable recommendation — what to build, what to kill, and what to
+            iterate on before committing further.
+          </p>
+        </div>
+
+        <div class="sandbox-card fade-up">
+          <div class="sandbox-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><polyline
+                points="14 2 14 8 20 8"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></polyline><line
+                x1="16"
+                y1="13"
+                x2="8"
+                y2="13"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="16"
+                y1="17"
+                x2="8"
+                y2="17"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line></svg
+            >
+          </div>
+          <h3>Full Documentation</h3>
+          <p>
+            Every session, test, and insight is captured and organized — giving
+            you a permanent record of what was learned, who said what, and what
+            it means for your next step.
+          </p>
+        </div>
+
+        <div class="sandbox-card fade-up">
+          <div class="sandbox-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h3>Team Alignment</h3>
+          <p>
+            The sandbox process builds shared context and buy-in across your
+            team. You leave not just with a signal — but with a group that's
+            aligned and ready to act on it.
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
-    <section class="cta-band" id="contact">
-      <div class="container">
-        <div class="fade-up">
-          <h2>Ready to Run a Sandbox?</h2>
-          <p>
-            Let's design your sandbox, facilitate the sessions, and deliver the
-            signal you need to move forward with confidence. ENTEVATE runs the
-            process — you own the outcome.
-          </p>
-          <div class="cta-band-actions">
-            <a
-              href="/contact?service=innovation-sandbox"
-              class="btn-white-solid">Design Your Sandbox</a
-            >
-            <a href="/innovation" class="btn-white-ghost"
-              >Back to Innovation Overview</a
-            >
+  <!-- ═══════════════════════════ PROCESS ═══════════════════════════ -->
+  <section class="process-section" id="process">
+    <div class="process-inner">
+      <div class="fade-up" style="text-align:center;">
+        <div class="section-label" style="display:block;text-align:center;">
+          How It Works
+        </div>
+        <h2 class="section-title" style="text-align:center;margin:0 auto 14px;">
+          Four phases. One clear signal.
+        </h2>
+        <p class="section-subtitle" style="margin:0 auto;text-align:center;">
+          A structured engagement from sandbox design to validated
+          recommendation — with facilitation and rigor built in at every step.
+        </p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step fade-up">
+          <div class="process-num pn-amber">1</div>
+          <div class="process-step-name">Sandbox Design</div>
+          <div class="process-step-desc">
+            Define the scope, goals, environment, and constraints for your
+            sandbox engagement — what we're testing and why it matters.
+          </div>
+        </div>
+
+        <div class="process-step fade-up">
+          <div class="process-num pn-green">2</div>
+          <div class="process-step-name">Participant Onboarding</div>
+          <div class="process-step-desc">
+            Brief and align all participants on purpose, protocol, and
+            expectations — so every session runs with clarity and psychological
+            safety.
+          </div>
+        </div>
+
+        <div class="process-step fade-up">
+          <div class="process-num pn-purple">3</div>
+          <div class="process-step-name">Facilitated Sessions</div>
+          <div class="process-step-desc">
+            Run structured, time-boxed experiments and prototype reviews with
+            ENTEVATE facilitators ensuring quality, focus, and honest feedback.
+          </div>
+        </div>
+
+        <div class="process-step fade-up">
+          <div class="process-num pn-blue">4</div>
+          <div class="process-step-name">Signal Debrief</div>
+          <div class="process-step-desc">
+            Synthesize all findings into a validated recommendation and
+            next-step roadmap — complete with documentation and a clear decision
+            framework.
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <Footer client:load />
+  <!-- ═══════════════════════════ WHO IT'S FOR ═══════════════════════════ -->
+  <section class="for-section" id="for">
+    <div class="for-header fade-up">
+      <div class="section-label">Who It's For</div>
+      <h2 class="section-title">
+        Built for teams that need to know before they build.
+      </h2>
+      <p class="section-subtitle">
+        The Innovation Sandbox™ is designed for any team that can't afford to
+        get it wrong at scale — but needs to move with urgency.
+      </p>
+    </div>
 
-    <script src="../../global.js"></script>
-    <script>
-      document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
-        (el as HTMLElement).style.transitionDelay = `${i * 0.09}s`;
-      });
-      document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
-        (el as HTMLElement).style.transitionDelay = `${i * 0.08}s`;
-      });
-      document.querySelectorAll(".sandbox-card.fade-up").forEach((el, i) => {
-        (el as HTMLElement).style.transitionDelay = `${i * 0.07}s`;
-      });
-    </script>
+    <div class="for-grid">
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-amber">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><circle
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="1.6"></circle><path
+              d="M12 8v4l3 3"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"></path></svg
+          >
+        </div>
+        <h3>Innovation Teams</h3>
+        <p>
+          Already know the problem. Need structured validation before committing
+          full design, build, and launch resources to a specific solution.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><rect
+              x="2"
+              y="7"
+              width="20"
+              height="14"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.6"></rect><path
+              d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Product &amp; Technology Leaders</h3>
+        <p>
+          Need a fast, credible validation loop before making major investment
+          decisions on new capabilities, platforms, or market entries.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M22 12h-4l-3 9L9 3l-3 9H2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Startups &amp; Ventures</h3>
+        <p>
+          Pressure-test your business model, product concept, or go-to-market
+          approach with curated stakeholder input and expert facilitation before
+          your next funding milestone.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path><path
+              d="M9 22V12h6v10"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Universities &amp; Institutions</h3>
+        <p>
+          Pilot new academic programs, research partnerships, or technology
+          applications in a controlled environment before broad institutional
+          rollout.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to Run a Sandbox?</h2>
+        <p>
+          Let's design your sandbox, facilitate the sessions, and deliver the
+          signal you need to move forward with confidence. ENTEVATE runs the
+          process — you own the outcome.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact?service=innovation-sandbox" class="btn-white-solid"
+            >Design Your Sandbox</a
+          >
+          <a href="/innovation" class="btn-white-ghost"
+            >Back to Innovation Overview</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load />
+
+  <script src="../../global.js"></script>
+  <script>
+    document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
+      (el as HTMLElement).style.transitionDelay = `${i * 0.09}s`;
+    });
+    document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
+      (el as HTMLElement).style.transitionDelay = `${i * 0.08}s`;
+    });
+    document.querySelectorAll(".sandbox-card.fade-up").forEach((el, i) => {
+      (el as HTMLElement).style.transitionDelay = `${i * 0.07}s`;
+    });
+  </script>
 </BaseLayout>
