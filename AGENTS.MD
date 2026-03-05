@@ -14,7 +14,6 @@ entevate-website/
 │   ├── pages/             # Route-based pages (file-system routing)
 │   └── global.css         # Global styles shared across the site
 ├── public/                # Static assets (images, fonts, etc.)
-├── images/                # Legacy image directory (to be migrated)
 ├── astro.config.mjs       # Astro configuration
 ├── package.json           # Dependencies and scripts
 └── tsconfig.json          # TypeScript configuration
@@ -28,21 +27,12 @@ entevate-website/
 - ✅ Bun package manager integration
 - ✅ Basic project structure established
 
-### Legacy Files (To Be Converted)
-
-- `index.html` → `src/pages/index.astro`
-- `about.html` → `src/pages/about.astro`
-- `contact.html` → `src/pages/contact.astro`
-- `experiential.html` → `src/pages/experiential.astro`
-- `innovation.html` → `src/pages/innovation.astro`
-- `transformation.html` → `src/pages/transformation.astro`
-- `our-work.html` → `src/pages/our-work.astro`
-
 ## Development Guidelines for AI Agents
 
 ### Package Manager
 
 This project uses **Bun** as the package manager. Use `bun` commands instead of `npm`:
+
 - `bun install` (instead of `npm install`)
 - `bun run dev` (instead of `npm run dev`)
 - `bun run build` (instead of `npm run build`)
@@ -73,16 +63,6 @@ This project uses **Bun** as the package manager. Use `bun` commands instead of 
 - Group related functionality
 - Follow Astro's file-system routing conventions
 
-### Migration Approach
-
-1. Analyze existing HTML structure
-2. Create base layout components
-3. Extract reusable UI components
-4. Convert pages to Astro format
-5. Implement styling system
-6. Add TypeScript types
-7. Optimize assets and performance
-
 ### Testing & Quality
 
 - Ensure all existing functionality is preserved
@@ -93,15 +73,6 @@ This project uses **Bun** as the package manager. Use `bun` commands instead of 
 
 ### Asset Management
 
-- Migrate images from `/images/` to `/public/images/` or `/src/assets/`
 - Optimize image formats and sizes
 - Implement proper image loading strategies
 - Maintain existing URL structures where possible
-
-## Key Considerations
-
-- Preserve existing SEO structure and meta tags
-- Maintain current design and branding
-- Ensure fast loading times and performance
-- Keep existing functionality intact
-- Follow modern web development best practices
