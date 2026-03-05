@@ -8,1975 +8,1979 @@ const title = "Content Readiness™ — ENTEVATE";
 const description =
   "Content Readiness™ is the state of your written, visual, and animated content — and its preparedness for delivery through today's and tomorrow's digital and immersive platforms.";
 ---
+
 <BaseLayout title={title} description={description}>
-    <style>
-      :root {
-        --accent: #e8782a;
-        --accent-light: #f5b731;
-        --orange-amber: #f5b731;
-      }
+  <style>
+    /* Shared */
+    .section {
+      padding: 80px 48px;
+    }
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--orange);
+    }
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
 
-      /* Shared */
-      .section {
-        padding: 80px 48px;
-      }
-      .container {
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-      .section-label {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-        display: inline-block;
-        color: var(--orange);
-      }
-      h2.section-title {
-        font-size: clamp(30px, 4vw, 48px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.1;
-        margin-bottom: 16px;
-      }
-      .section-subtitle {
-        font-size: 15px;
-        color: var(--gray-mid);
-        max-width: 580px;
-        line-height: 1.75;
-      }
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(50, 22, 5, 0.55) 0%,
+          rgba(85, 42, 12, 0.45) 50%,
+          rgba(115, 65, 25, 0.38) 100%
+        ),
+        url("/images/bt2.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(232, 120, 42, 0.14);
+      border: 1px solid rgba(232, 120, 42, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffe5c0, #fff5e0);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 6.5vw, 88px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 860px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #ffe5c0 0%, #fff5e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 42px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-orange {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #e8782a 0%, #f5b731 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-orange:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(232, 120, 42, 0.45);
+    }
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-      /* Hero */
-      .hero {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(50, 22, 5, 0.55) 0%,
-            rgba(85, 42, 12, 0.45) 50%,
-            rgba(115, 65, 25, 0.38) 100%
-          ),
-          url("/images/bt2.png") center/cover no-repeat;
-        position: relative;
-        overflow: hidden;
-        padding: 96px 48px 120px;
-        min-height: 72vh;
-        display: flex;
-        align-items: center;
-      }
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        max-width: 1160px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        background: rgba(232, 120, 42, 0.14);
-        border: 1px solid rgba(232, 120, 42, 0.38);
-        padding: 6px 16px;
-        border-radius: 100px;
-        margin-bottom: 28px;
-        color: rgba(255, 255, 255, 0.9);
-      }
-      .hero-eyebrow-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #ffe5c0, #fff5e0);
-        flex-shrink: 0;
-      }
-      .hero h1 {
-        font-size: clamp(48px, 6.5vw, 88px);
-        font-weight: 100;
-        line-height: 1.04;
-        color: var(--white);
-        margin-bottom: 24px;
-        letter-spacing: -0.03em;
-        text-wrap: balance;
-        max-width: 860px;
-      }
-      .hero h1 .accent {
-        background: linear-gradient(90deg, #ffe5c0 0%, #fff5e0 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .hero-sub {
-        font-size: 17px;
-        color: rgba(255, 255, 255, 0.68);
-        line-height: 1.75;
-        max-width: 640px;
-        margin-bottom: 42px;
-      }
-      .hero-actions {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .btn-orange {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: linear-gradient(135deg, #e8782a 0%, #f5b731 100%);
-        color: var(--white);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-orange:hover {
-        opacity: 0.88;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 24px rgba(232, 120, 42, 0.45);
-      }
-      .btn-ghost-dark {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        background: none;
-        border: 1.5px solid rgba(255, 255, 255, 0.35);
-        padding: 12px 26px;
-        border-radius: var(--radius);
-        cursor: pointer;
-        color: rgba(255, 255, 255, 0.85);
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: all var(--tr);
-      }
-      .btn-ghost-dark:hover {
-        border-color: rgba(255, 255, 255, 0.8);
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.08);
-      }
+    /* Overview Split */
+    .overview-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .overview-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .overview-left h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .overview-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .overview-quote {
+      background: var(--light-blue);
+      border-left: 3px solid var(--orange);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 24px 28px;
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .platform-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .platform-chip {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: rgba(232, 120, 42, 0.08);
+      border: 1px solid rgba(232, 120, 42, 0.22);
+      color: var(--orange);
+    }
+    .overview-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .overview-stat {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+    }
+    .overview-stat-num {
+      font-size: 40px;
+      font-weight: 100;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      line-height: 1;
+    }
+    .overview-stat-label {
+      font-size: 13px;
+      color: var(--gray-mid);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .overview-stat-accent {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
 
-      /* Overview Split */
-      .overview-section {
-        background: var(--white);
-        padding: 80px 48px;
-      }
-      .overview-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: center;
-        max-width: 1160px;
-        margin: 0 auto;
-      }
-      .overview-left h2 {
-        font-size: clamp(28px, 3.5vw, 42px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-        margin-bottom: 18px;
-      }
-      .overview-left p {
-        font-size: 15px;
-        color: var(--gray-mid);
-        line-height: 1.8;
-        margin-bottom: 20px;
-      }
-      .overview-quote {
-        background: var(--light-blue);
-        border-left: 3px solid var(--orange);
-        border-radius: 0 var(--radius) var(--radius) 0;
-        padding: 24px 28px;
-        font-size: 15px;
-        font-style: italic;
-        line-height: 1.75;
-        color: var(--black);
-        margin-bottom: 28px;
-      }
-      .platform-chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .platform-chip {
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        padding: 6px 14px;
-        border-radius: 100px;
-        background: rgba(232, 120, 42, 0.08);
-        border: 1px solid rgba(232, 120, 42, 0.22);
-        color: var(--orange);
-      }
-      .overview-right {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .overview-stat {
-        background: var(--light-blue);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 28px 26px;
-      }
-      .overview-stat-num {
-        font-size: 40px;
-        font-weight: 100;
-        letter-spacing: -0.03em;
-        color: var(--black);
-        line-height: 1;
-      }
-      .overview-stat-label {
-        font-size: 13px;
-        color: var(--gray-mid);
-        margin-top: 6px;
-        line-height: 1.5;
-      }
-      .overview-stat-accent {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--orange);
-        margin-bottom: 8px;
-      }
+    /* Pillars */
+    .pillars-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 52px;
+    }
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 30px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .pillar-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .pc-people::before {
+      background: linear-gradient(90deg, #e8782a, #f5b731);
+    }
+    .pc-platform::before {
+      background: linear-gradient(90deg, #ea9709, #f5c842);
+    }
+    .pc-process::before {
+      background: linear-gradient(90deg, #cb632f, #e8782a);
+    }
+    .pillar-card:hover {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+    .pillar-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+    .pc-people .pillar-card-icon {
+      background: rgba(232, 120, 42, 0.1);
+      color: var(--orange);
+    }
+    .pc-platform .pillar-card-icon {
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+    }
+    .pc-process .pillar-card-icon {
+      background: rgba(203, 99, 47, 0.1);
+      color: var(--orange-dark);
+    }
+    .pillar-card h3 {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .pillar-card p {
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.72;
+    }
+    .pillar-card ul {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+      list-style: none;
+    }
+    .pillar-card ul li {
+      font-size: 13px;
+      color: var(--gray-mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+    .pillar-card ul li::before {
+      content: "—";
+      color: var(--orange);
+      flex-shrink: 0;
+      font-weight: 700;
+    }
 
-      /* Pillars */
-      .pillars-section {
-        background: var(--light-blue);
-        padding: 80px 48px;
-      }
-      .pillars-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-top: 52px;
-      }
-      .pillar-card {
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 36px 30px;
-        position: relative;
-        overflow: hidden;
-        transition:
-          box-shadow var(--tr),
-          transform var(--tr);
-      }
-      .pillar-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        border-radius: var(--radius) var(--radius) 0 0;
-      }
-      .pc-people::before {
-        background: linear-gradient(90deg, #e8782a, #f5b731);
-      }
-      .pc-platform::before {
-        background: linear-gradient(90deg, #ea9709, #f5c842);
-      }
-      .pc-process::before {
-        background: linear-gradient(90deg, #cb632f, #e8782a);
-      }
-      .pillar-card:hover {
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        transform: translateY(-3px);
-      }
-      .pillar-card-icon {
-        width: 52px;
-        height: 52px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 22px;
-      }
-      .pc-people .pillar-card-icon {
-        background: rgba(232, 120, 42, 0.1);
-        color: var(--orange);
-      }
-      .pc-platform .pillar-card-icon {
-        background: rgba(234, 151, 9, 0.1);
-        color: var(--orange-light);
-      }
-      .pc-process .pillar-card-icon {
-        background: rgba(203, 99, 47, 0.1);
-        color: var(--orange-dark);
-      }
-      .pillar-card h3 {
-        font-size: 20px;
-        font-weight: 300;
-        letter-spacing: -0.01em;
-        margin-bottom: 10px;
-      }
-      .pillar-card p {
-        font-size: 14px;
-        color: var(--gray-mid);
-        line-height: 1.72;
-      }
-      .pillar-card ul {
-        margin-top: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 0;
-        list-style: none;
-      }
-      .pillar-card ul li {
-        font-size: 13px;
-        color: var(--gray-mid);
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        line-height: 1.4;
-      }
-      .pillar-card ul li::before {
-        content: "—";
-        color: var(--orange);
-        flex-shrink: 0;
-        font-weight: 700;
-      }
+    /* Assessment */
+    .assessment-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .assessment-intro {
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+    .assessment-intro h2 {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .assessment-intro p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.75;
+    }
+    .pillar-group {
+      margin-bottom: 52px;
+    }
+    .pillar-group-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .pg-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pg-people {
+      background: rgba(232, 120, 42, 0.1);
+      color: var(--orange);
+    }
+    .pg-platform {
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+    }
+    .pg-process {
+      background: rgba(203, 99, 47, 0.1);
+      color: var(--orange-dark);
+    }
+    .pg-title {
+      font-size: 19px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .pg-subtitle {
+      font-size: 13px;
+      color: var(--gray-mid);
+    }
+    .question-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(221, 230, 240, 0.7);
+    }
+    .question-row:last-child {
+      border-bottom: none;
+    }
+    .q-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-light);
+      margin-bottom: 3px;
+    }
+    .q-text {
+      font-size: 14px;
+      color: var(--black);
+      line-height: 1.5;
+    }
+    .rating-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .rating-scale-labels {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 2px;
+    }
+    .rating-scale-label {
+      font-size: 9px;
+      color: var(--gray-light);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .rating-options {
+      display: flex;
+      gap: 6px;
+    }
+    .r-opt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+    .r-opt input {
+      display: none;
+    }
+    .r-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-light);
+      transition: all var(--tr);
+      cursor: pointer;
+      user-select: none;
+    }
+    .r-opt input:checked ~ .r-circle {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: var(--white);
+    }
+    .r-opt:hover .r-circle {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+    .assessment-actions {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .progress-count {
+      font-size: 13px;
+      color: var(--gray-light);
+    }
+    .btn-score {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 32px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #e8782a, #f5b731);
+      color: var(--white);
+      transition: all var(--tr);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .btn-score.ready {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .btn-score.ready:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
 
-      /* Assessment */
-      .assessment-section {
-        background: var(--white);
-        padding: 80px 48px;
-      }
-      .assessment-intro {
-        max-width: 680px;
-        margin-bottom: 56px;
-      }
-      .assessment-intro h2 {
-        font-size: clamp(28px, 3.5vw, 42px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        margin-bottom: 14px;
-      }
-      .assessment-intro p {
-        font-size: 15px;
-        color: var(--gray-mid);
-        line-height: 1.75;
-      }
-      .pillar-group {
-        margin-bottom: 52px;
-      }
-      .pillar-group-header {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 26px;
-        padding-bottom: 16px;
-        border-bottom: 2px solid var(--border);
-      }
-      .pg-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-      }
-      .pg-people {
-        background: rgba(232, 120, 42, 0.1);
-        color: var(--orange);
-      }
-      .pg-platform {
-        background: rgba(234, 151, 9, 0.1);
-        color: var(--orange-light);
-      }
-      .pg-process {
-        background: rgba(203, 99, 47, 0.1);
-        color: var(--orange-dark);
-      }
-      .pg-title {
-        font-size: 19px;
-        font-weight: 400;
-        letter-spacing: -0.01em;
-      }
-      .pg-subtitle {
-        font-size: 13px;
-        color: var(--gray-mid);
-      }
-      .question-row {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 20px;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(221, 230, 240, 0.7);
-      }
-      .question-row:last-child {
-        border-bottom: none;
-      }
-      .q-num {
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--gray-light);
-        margin-bottom: 3px;
-      }
-      .q-text {
-        font-size: 14px;
-        color: var(--black);
-        line-height: 1.5;
-      }
-      .rating-wrap {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-      }
-      .rating-scale-labels {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 2px;
-      }
-      .rating-scale-label {
-        font-size: 9px;
-        color: var(--gray-light);
-        letter-spacing: 0.03em;
-        white-space: nowrap;
-      }
-      .rating-options {
-        display: flex;
-        gap: 6px;
-      }
-      .r-opt {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-      }
-      .r-opt input {
-        display: none;
-      }
-      .r-circle {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        border: 1.5px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--gray-light);
-        transition: all var(--tr);
-        cursor: pointer;
-        user-select: none;
-      }
-      .r-opt input:checked ~ .r-circle {
-        background: var(--orange);
-        border-color: var(--orange);
-        color: var(--white);
-      }
-      .r-opt:hover .r-circle {
-        border-color: var(--orange);
-        color: var(--orange);
-      }
-      .assessment-actions {
-        margin-top: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 16px;
-        padding-top: 32px;
-        border-top: 1px solid var(--border);
-      }
-      .progress-count {
-        font-size: 13px;
-        color: var(--gray-light);
-      }
-      .btn-score {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 32px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: linear-gradient(135deg, #e8782a, #f5b731);
-        color: var(--white);
-        transition: all var(--tr);
-        opacity: 0.5;
-        pointer-events: none;
-      }
-      .btn-score.ready {
-        opacity: 1;
-        pointer-events: auto;
-      }
-      .btn-score.ready:hover {
-        opacity: 0.88;
-        transform: translateY(-2px);
-      }
+    /* Score Display */
+    .score-display {
+      display: none;
+      margin-top: 48px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .score-display.visible {
+      display: block;
+    }
+    .score-header {
+      background: linear-gradient(135deg, #3d1e08, #e8782a);
+      color: var(--white);
+      padding: 40px 48px;
+      text-align: center;
+    }
+    .score-big {
+      font-size: 80px;
+      font-weight: 100;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .score-pct {
+      font-size: 32px;
+      font-weight: 300;
+    }
+    .score-stage-badge {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 7px 22px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      color: var(--white);
+    }
+    .score-body {
+      background: var(--light-blue);
+      padding: 40px 48px;
+    }
+    .score-body h3 {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 24px;
+      text-align: center;
+      color: var(--black);
+    }
+    .pillar-scores {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .pillar-score-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+    }
+    .ps-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: 10px;
+    }
+    .ps-bar-track {
+      height: 8px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .ps-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, #e8782a, #f5b731);
+      transition: width 1.2s ease;
+    }
+    .ps-pct {
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--black);
+    }
+    .score-interpretation {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 32px;
+    }
+    .si-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+    .si-text {
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.72;
+    }
 
-      /* Score Display */
-      .score-display {
-        display: none;
-        margin-top: 48px;
-        border-radius: var(--radius);
-        overflow: hidden;
-        border: 1px solid var(--border);
-      }
-      .score-display.visible {
-        display: block;
-      }
-      .score-header {
-        background: linear-gradient(135deg, #3d1e08, #e8782a);
-        color: var(--white);
-        padding: 40px 48px;
-        text-align: center;
-      }
-      .score-big {
-        font-size: 80px;
-        font-weight: 100;
-        letter-spacing: -0.04em;
-        line-height: 1;
-      }
-      .score-pct {
-        font-size: 32px;
-        font-weight: 300;
-      }
-      .score-stage-badge {
-        display: inline-block;
-        margin-top: 14px;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        padding: 7px 22px;
-        border-radius: 100px;
-        border: 1.5px solid rgba(255, 255, 255, 0.5);
-        color: var(--white);
-      }
-      .score-body {
-        background: var(--light-blue);
-        padding: 40px 48px;
-      }
-      .score-body h3 {
-        font-size: 18px;
-        font-weight: 400;
-        margin-bottom: 24px;
-        text-align: center;
-        color: var(--black);
-      }
-      .pillar-scores {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-bottom: 32px;
-      }
-      .pillar-score-item {
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 22px 20px;
-      }
-      .ps-label {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--gray-mid);
-        margin-bottom: 10px;
-      }
-      .ps-bar-track {
-        height: 8px;
-        background: var(--border);
-        border-radius: 100px;
-        overflow: hidden;
-        margin-bottom: 8px;
-      }
-      .ps-bar-fill {
-        height: 100%;
-        border-radius: 100px;
-        background: linear-gradient(90deg, #e8782a, #f5b731);
-        transition: width 1.2s ease;
-      }
-      .ps-pct {
-        font-size: 20px;
-        font-weight: 300;
-        color: var(--black);
-      }
-      .score-interpretation {
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 24px 28px;
-        margin-bottom: 32px;
-      }
-      .si-label {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--orange);
-        margin-bottom: 8px;
-      }
-      .si-text {
-        font-size: 14px;
-        color: var(--gray-mid);
-        line-height: 1.72;
-      }
+    /* Lead Form */
+    .lead-form-wrap {
+      display: none;
+      padding: 40px 48px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+    .lead-form-wrap.visible {
+      display: block;
+    }
+    .lead-form-wrap h3 {
+      font-size: 20px;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .lead-form-wrap p {
+      font-size: 14px;
+      color: var(--gray-mid);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .lead-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-field label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+    }
+    .form-field input,
+    .form-field select {
+      font-family: var(--font);
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--black);
+      outline: none;
+      transition: border-color var(--tr);
+      background: var(--white);
+    }
+    .form-field input:focus,
+    .form-field select:focus {
+      border-color: var(--orange);
+    }
+    .form-field.full {
+      grid-column: 1/-1;
+    }
+    .btn-submit {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #e8782a, #f5b731);
+      color: var(--white);
+      transition: all var(--tr);
+    }
+    .btn-submit:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+    .form-note {
+      font-size: 12px;
+      color: var(--gray-light);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
 
-      /* Lead Form */
-      .lead-form-wrap {
-        display: none;
-        padding: 40px 48px;
-        background: var(--white);
-        border-top: 1px solid var(--border);
-      }
-      .lead-form-wrap.visible {
-        display: block;
-      }
-      .lead-form-wrap h3 {
-        font-size: 20px;
-        font-weight: 300;
-        letter-spacing: -0.01em;
-        margin-bottom: 8px;
-      }
-      .lead-form-wrap p {
-        font-size: 14px;
-        color: var(--gray-mid);
-        margin-bottom: 28px;
-        line-height: 1.65;
-      }
-      .lead-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-bottom: 20px;
-      }
-      .form-field {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .form-field label {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--gray-mid);
-      }
-      .form-field input,
-      .form-field select {
-        font-family: var(--font);
-        font-size: 14px;
-        padding: 12px 14px;
-        border: 1.5px solid var(--border);
-        border-radius: var(--radius);
-        color: var(--black);
-        outline: none;
-        transition: border-color var(--tr);
-        background: var(--white);
-      }
-      .form-field input:focus,
-      .form-field select:focus {
-        border-color: var(--orange);
-      }
-      .form-field.full {
-        grid-column: 1/-1;
-      }
-      .btn-submit {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 14px 36px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: linear-gradient(135deg, #e8782a, #f5b731);
-        color: var(--white);
-        transition: all var(--tr);
-      }
-      .btn-submit:hover {
-        opacity: 0.88;
-        transform: translateY(-2px);
-      }
-      .form-note {
-        font-size: 12px;
-        color: var(--gray-light);
-        margin-top: 12px;
-        line-height: 1.5;
-      }
+    /* CTA Band */
+    .cta-band {
+      background: linear-gradient(135deg, #3d1e08 0%, #e8782a 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 40%,
+          rgba(255, 255, 255, 0.07) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--orange);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-      /* CTA Band */
-      .cta-band {
-        background: linear-gradient(135deg, #3d1e08 0%, #e8782a 100%);
-        color: var(--white);
-        padding: 80px 48px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .cta-band::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            circle at 25% 40%,
-            rgba(255, 255, 255, 0.07) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 70%,
-            rgba(255, 255, 255, 0.05) 0%,
-            transparent 45%
-          );
-        pointer-events: none;
-      }
-      .cta-band .container {
-        position: relative;
-        z-index: 1;
-      }
-      .cta-band h2 {
-        font-size: clamp(28px, 4.5vw, 52px);
-        font-weight: 300;
-        letter-spacing: -0.02em;
-        margin-bottom: 16px;
-      }
-      .cta-band p {
-        font-size: 16px;
-        color: rgba(255, 255, 255, 0.68);
-        max-width: 520px;
-        margin: 0 auto 38px;
-        line-height: 1.72;
-      }
-      .cta-band-actions {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .btn-white-solid {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 600;
-        padding: 13px 30px;
-        border-radius: var(--radius);
-        border: none;
-        cursor: pointer;
-        background: var(--white);
-        color: var(--orange);
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-white-solid:hover {
-        background: var(--light-blue);
-        transform: translateY(-1px);
-      }
-      .btn-white-ghost {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
-        padding: 12px 30px;
-        border-radius: var(--radius);
-        border: 1.5px solid rgba(255, 255, 255, 0.45);
-        cursor: pointer;
-        color: var(--white);
-        background: transparent;
-        transition: all var(--tr);
-        display: inline-block;
-      }
-      .btn-white-ghost:hover {
-        border-color: rgba(255, 255, 255, 0.9);
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .fade-up {
-        opacity: 0;
-        transform: translateY(22px);
-        transition:
-          opacity 0.55s ease,
-          transform 0.55s ease;
-      }
-      .fade-up.visible {
-        opacity: 1;
-        transform: none;
-      }
-    </style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
   <Header client:load />
 
-    <!-- Hero -->
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="fade-up">
-          <div class="hero-eyebrow">
-            <span class="hero-eyebrow-dot"></span>Digital &amp; Content
-            Transformation
-          </div>
-          <h1>
-            Content Readiness™<br /><span class="accent"
-              >The Foundation Before Strategy.</span>
-          </h1>
-          <p class="hero-sub">
-            Content Readiness™ is the state of your written, visual, and
-            animated content — and its preparedness for delivery through today's
-            and tomorrow's digital and immersive platforms. Before you scale,
-            you need to know where you stand.
-          </p>
-          <div class="hero-actions">
-            <a href="#assessment" class="btn-orange">Take the Assessment →</a>
-            <a href="/transformation" class="btn-ghost-dark"
-              >← Back to Transformation</a
-            >
-          </div>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>Digital &amp; Content
+          Transformation
         </div>
-      </div>
-    </section>
-
-    <!-- What Is It -->
-    <section class="overview-section" id="overview">
-      <div class="overview-split fade-up">
-        <div class="overview-left">
-          <div class="section-label">Proprietary Framework</div>
-          <h2>Is your content ready for the technology of tomorrow?</h2>
-          <p>
-            Most organizations have significant investments in content — product
-            documentation, training materials, marketing assets, technical data
-            — but little visibility into how ready that content is to perform in
-            modern digital and immersive environments.
-          </p>
-          <div class="overview-quote">
-            "Content Readiness is the state of written, visual and animated
-            content and its preparedness for ingestion into human-centered
-            design experiences delivered through mobile, tablet, augmented
-            reality, virtual reality, mixed reality and AI platforms."
-          </div>
-          <p style="font-size:14px;color:var(--gray-mid);margin-bottom:20px;">
-            The gap between your existing content and what's required to deliver
-            great XR, AI, and digital experiences is your Content Readiness gap.
-            ENTEVATE helps you measure it, close it, and build systems to stay
-            ready.
-          </p>
-          <div class="platform-chips">
-            <span class="platform-chip">Mobile</span>
-            <span class="platform-chip">Tablet</span>
-            <span class="platform-chip">Augmented Reality</span>
-            <span class="platform-chip">Virtual Reality</span>
-            <span class="platform-chip">Mixed Reality</span>
-            <span class="platform-chip">AI / Bots</span>
-          </div>
-        </div>
-        <div class="overview-right">
-          <div class="overview-stat">
-            <div class="overview-stat-accent">The Reality</div>
-            <div class="overview-stat-num">Most</div>
-            <div class="overview-stat-label">
-              organizations do not have a process to convert old content, create
-              new content, or store, manage, and distribute content in a format
-              digestible by emerging technologies.
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-accent">Our Approach</div>
-            <div class="overview-stat-num">3</div>
-            <div class="overview-stat-label">
-              Core dimensions — People, Platform, and Process — evaluated
-              together to give you a complete picture of your content health and
-              a clear path forward.
-            </div>
-          </div>
-          <div class="overview-stat">
-            <div class="overview-stat-accent">The Outcome</div>
-            <div class="overview-stat-num">Score</div>
-            <div class="overview-stat-label">
-              A Content Readiness Score with a graded plan of action — so you
-              know exactly where to invest first for maximum impact.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Three Pillars -->
-    <section class="pillars-section" id="pillars">
-      <div class="container">
-        <div class="fade-up">
-          <div class="section-label">Three Dimensions</div>
-          <h2 class="section-title">People. Platform. Process.</h2>
-          <p class="section-subtitle">
-            Content Readiness™ evaluates your organization across three core
-            dimensions. Strength in all three is what enables content to perform
-            at scale.
-          </p>
-        </div>
-        <div class="pillars-grid">
-          <div class="pillar-card pc-people fade-up">
-            <div class="pillar-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle><path
-                  d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <h3>People Readiness</h3>
-            <p>
-              Are your teams aligned on content goals, roles, and workflows? We
-              assess skills, ownership, and collaboration patterns to surface
-              gaps before they become bottlenecks.
-            </p>
-            <ul>
-              <li>Content ownership &amp; accountability</li>
-              <li>Cross-functional team alignment</li>
-              <li>Skills for digital &amp; immersive formats</li>
-              <li>Training &amp; onboarding processes</li>
-            </ul>
-          </div>
-          <div class="pillar-card pc-platform fade-up">
-            <div class="pillar-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><rect
-                  x="2"
-                  y="3"
-                  width="20"
-                  height="14"
-                  rx="2"
-                  stroke="currentColor"
-                  stroke-width="1.6"></rect><path
-                  d="M8 21h8M12 17v4"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></path></svg
-              >
-            </div>
-            <h3>Platform Readiness</h3>
-            <p>
-              Are your tools and systems configured to support the content
-              strategy you're trying to execute? We evaluate technology fit,
-              integration quality, and scalability for emerging formats.
-            </p>
-            <ul>
-              <li>DAM, CMS, LMS integration health</li>
-              <li>Support for 3D, AR/VR, interactive</li>
-              <li>Centralized asset repository</li>
-              <li>Scalability without rework</li>
-            </ul>
-          </div>
-          <div class="pillar-card pc-process fade-up">
-            <div class="pillar-card-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M9 11l3 3L22 4"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><path
-                  d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <h3>Process Readiness</h3>
-            <p>
-              Do your workflows enable consistent, high-quality content creation
-              and distribution? We map your processes end-to-end and identify
-              where clarity, accountability, or automation can unlock capacity.
-            </p>
-            <ul>
-              <li>Documented, repeatable workflows</li>
-              <li>Metadata, tagging &amp; governance</li>
-              <li>Multi-channel distribution readiness</li>
-              <li>Quality control &amp; audit cycles</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Assessment -->
-    <section class="assessment-section" id="assessment">
-      <div class="container">
-        <div class="assessment-intro fade-up">
-          <div class="section-label">Take the Assessment</div>
-          <h2>Measure Your Content Readiness™</h2>
-          <p>
-            Answer 15 questions across People, Platform, and Process. Rate each
-            statement from 1 (Strongly Disagree) to 5 (Strongly Agree) based on
-            your organization's current state. Your score will reveal where you
-            stand — and where to focus first.
-          </p>
-        </div>
-
-        <!-- PEOPLE -->
-        <div class="pillar-group fade-up">
-          <div class="pillar-group-header">
-            <div class="pg-icon pg-people">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="9"
-                  cy="7"
-                  r="4"
-                  stroke="currentColor"
-                  stroke-width="1.6"></circle><path
-                  d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <div>
-              <div class="pg-title">People</div>
-              <div class="pg-subtitle">
-                Team alignment, skills, and ownership
-              </div>
-            </div>
-          </div>
-          <div id="q-people">
-            <div class="question-row">
-              <div>
-                <div class="q-num">P1</div><div class="q-text">
-                  Our team clearly understands our content goals and overall
-                  strategy.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="p1">
-                  <label class="r-opt"
-                    ><input type="radio" name="p1" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  >
-                  <label class="r-opt"
-                    ><input type="radio" name="p1" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  >
-                  <label class="r-opt"
-                    ><input type="radio" name="p1" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  >
-                  <label class="r-opt"
-                    ><input type="radio" name="p1" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  >
-                  <label class="r-opt"
-                    ><input type="radio" name="p1" value="5" /><span
-                      class="r-circle">5</span
-                    ></label
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">P2</div><div class="q-text">
-                  Content roles, ownership, and accountability are clearly
-                  defined across departments.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="p2">
-                  <label class="r-opt"
-                    ><input type="radio" name="p2" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p2" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p2" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p2" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p2" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">P3</div><div class="q-text">
-                  Our team has the skills to create content for digital and
-                  immersive platforms (3D, AR/VR, interactive).
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="p3">
-                  <label class="r-opt"
-                    ><input type="radio" name="p3" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p3" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p3" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p3" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p3" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">P4</div><div class="q-text">
-                  Cross-functional teams (marketing, training, engineering)
-                  collaborate effectively on content initiatives.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="p4">
-                  <label class="r-opt"
-                    ><input type="radio" name="p4" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p4" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p4" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p4" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p4" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">P5</div><div class="q-text">
-                  We have formal training or onboarding processes in place for
-                  our content creators.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="p5">
-                  <label class="r-opt"
-                    ><input type="radio" name="p5" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p5" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p5" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p5" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="p5" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PLATFORM -->
-        <div class="pillar-group fade-up">
-          <div class="pillar-group-header">
-            <div class="pg-icon pg-platform">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                ><rect
-                  x="2"
-                  y="3"
-                  width="20"
-                  height="14"
-                  rx="2"
-                  stroke="currentColor"
-                  stroke-width="1.6"></rect><path
-                  d="M8 21h8M12 17v4"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"></path></svg
-              >
-            </div>
-            <div>
-              <div class="pg-title">Platform</div>
-              <div class="pg-subtitle">Technology, tools, and integration</div>
-            </div>
-          </div>
-          <div id="q-platform">
-            <div class="question-row">
-              <div>
-                <div class="q-num">PL1</div><div class="q-text">
-                  Our technology stack supports the content formats we currently
-                  need to produce and deliver.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pl1">
-                  <label class="r-opt"
-                    ><input type="radio" name="pl1" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl1" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl1" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl1" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl1" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PL2</div><div class="q-text">
-                  Our platforms integrate well with each other (DAM, CMS, LMS,
-                  configurators, etc.).
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pl2">
-                  <label class="r-opt"
-                    ><input type="radio" name="pl2" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl2" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl2" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl2" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl2" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PL3</div><div class="q-text">
-                  We have a centralized, searchable repository for storing and
-                  managing all content assets.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pl3">
-                  <label class="r-opt"
-                    ><input type="radio" name="pl3" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl3" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl3" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl3" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl3" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PL4</div><div class="q-text">
-                  Our platforms support emerging content formats such as 3D,
-                  AR/VR, interactive, and AI-driven experiences.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pl4">
-                  <label class="r-opt"
-                    ><input type="radio" name="pl4" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl4" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl4" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl4" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl4" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PL5</div><div class="q-text">
-                  We can scale our content production without major changes to
-                  our existing technology infrastructure.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pl5">
-                  <label class="r-opt"
-                    ><input type="radio" name="pl5" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl5" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl5" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl5" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pl5" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- PROCESS -->
-        <div class="pillar-group fade-up">
-          <div class="pillar-group-header">
-            <div class="pg-icon pg-process">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M9 11l3 3L22 4"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><path
-                  d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path></svg
-              >
-            </div>
-            <div>
-              <div class="pg-title">Process</div>
-              <div class="pg-subtitle">
-                Workflows, standards, and governance
-              </div>
-            </div>
-          </div>
-          <div id="q-process">
-            <div class="question-row">
-              <div>
-                <div class="q-num">PR1</div><div class="q-text">
-                  We have documented, repeatable processes for content creation
-                  and distribution.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pr1">
-                  <label class="r-opt"
-                    ><input type="radio" name="pr1" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr1" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr1" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr1" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr1" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PR2</div><div class="q-text">
-                  Content review, approval, and quality control processes are
-                  clear, consistent, and well-managed.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pr2">
-                  <label class="r-opt"
-                    ><input type="radio" name="pr2" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr2" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr2" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr2" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr2" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PR3</div><div class="q-text">
-                  Our content is properly tagged with metadata, organized, and
-                  governed by clear standards.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pr3">
-                  <label class="r-opt"
-                    ><input type="radio" name="pr3" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr3" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr3" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr3" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr3" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PR4</div><div class="q-text">
-                  We regularly audit and update content for accuracy, relevance,
-                  and brand alignment.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pr4">
-                  <label class="r-opt"
-                    ><input type="radio" name="pr4" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr4" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr4" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr4" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr4" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-            <div class="question-row">
-              <div>
-                <div class="q-num">PR5</div><div class="q-text">
-                  Our content can be deployed across multiple channels and
-                  platforms without significant rework.
-                </div>
-              </div>
-              <div class="rating-wrap">
-                <div class="rating-options" data-q="pr5">
-                  <label class="r-opt"
-                    ><input type="radio" name="pr5" value="1" /><span
-                      class="r-circle">1</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr5" value="2" /><span
-                      class="r-circle">2</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr5" value="3" /><span
-                      class="r-circle">3</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr5" value="4" /><span
-                      class="r-circle">4</span
-                    ></label
-                  ><label class="r-opt"
-                    ><input type="radio" name="pr5" value="5" /><span
-                      class="r-circle">5</span
-                    ></label>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Actions -->
-        <div class="assessment-actions fade-up">
-          <div class="progress-count" id="progressCount">0 of 15 answered</div>
-          <button class="btn-score" id="btnScore"
-            >Calculate My Readiness Score →</button
+        <h1>
+          Content Readiness™<br /><span class="accent"
+            >The Foundation Before Strategy.</span
+          >
+        </h1>
+        <p class="hero-sub">
+          Content Readiness™ is the state of your written, visual, and animated
+          content — and its preparedness for delivery through today's and
+          tomorrow's digital and immersive platforms. Before you scale, you need
+          to know where you stand.
+        </p>
+        <div class="hero-actions">
+          <a href="#assessment" class="btn-orange">Take the Assessment →</a>
+          <a href="/transformation" class="btn-ghost-dark"
+            >← Back to Transformation</a
           >
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Score Display -->
-        <div class="score-display" id="scoreDisplay">
-          <div class="score-header">
-            <div class="score-big" id="scoreNumber">—</div>
-            <div
-              style="font-size:16px;color:rgba(255,255,255,0.70);margin-top:6px;"
+  <!-- What Is It -->
+  <section class="overview-section" id="overview">
+    <div class="overview-split fade-up">
+      <div class="overview-left">
+        <div class="section-label">Proprietary Framework</div>
+        <h2>Is your content ready for the technology of tomorrow?</h2>
+        <p>
+          Most organizations have significant investments in content — product
+          documentation, training materials, marketing assets, technical data —
+          but little visibility into how ready that content is to perform in
+          modern digital and immersive environments.
+        </p>
+        <div class="overview-quote">
+          "Content Readiness is the state of written, visual and animated
+          content and its preparedness for ingestion into human-centered design
+          experiences delivered through mobile, tablet, augmented reality,
+          virtual reality, mixed reality and AI platforms."
+        </div>
+        <p style="font-size:14px;color:var(--gray-mid);margin-bottom:20px;">
+          The gap between your existing content and what's required to deliver
+          great XR, AI, and digital experiences is your Content Readiness gap.
+          ENTEVATE helps you measure it, close it, and build systems to stay
+          ready.
+        </p>
+        <div class="platform-chips">
+          <span class="platform-chip">Mobile</span>
+          <span class="platform-chip">Tablet</span>
+          <span class="platform-chip">Augmented Reality</span>
+          <span class="platform-chip">Virtual Reality</span>
+          <span class="platform-chip">Mixed Reality</span>
+          <span class="platform-chip">AI / Bots</span>
+        </div>
+      </div>
+      <div class="overview-right">
+        <div class="overview-stat">
+          <div class="overview-stat-accent">The Reality</div>
+          <div class="overview-stat-num">Most</div>
+          <div class="overview-stat-label">
+            organizations do not have a process to convert old content, create
+            new content, or store, manage, and distribute content in a format
+            digestible by emerging technologies.
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-accent">Our Approach</div>
+          <div class="overview-stat-num">3</div>
+          <div class="overview-stat-label">
+            Core dimensions — People, Platform, and Process — evaluated together
+            to give you a complete picture of your content health and a clear
+            path forward.
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-accent">The Outcome</div>
+          <div class="overview-stat-num">Score</div>
+          <div class="overview-stat-label">
+            A Content Readiness Score with a graded plan of action — so you know
+            exactly where to invest first for maximum impact.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars -->
+  <section class="pillars-section" id="pillars">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">Three Dimensions</div>
+        <h2 class="section-title">People. Platform. Process.</h2>
+        <p class="section-subtitle">
+          Content Readiness™ evaluates your organization across three core
+          dimensions. Strength in all three is what enables content to perform
+          at scale.
+        </p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card pc-people fade-up">
+          <div class="pillar-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
             >
-              Overall Readiness Score
-            </div>
-            <div class="score-stage-badge" id="stageBadge">—</div>
           </div>
-          <div class="score-body">
-            <h3>Score Breakdown by Pillar</h3>
-            <div class="pillar-scores">
-              <div class="pillar-score-item">
-                <div class="ps-label">People</div>
-                <div class="ps-bar-track">
-                  <div class="ps-bar-fill" id="barPeople" style="width:0%">
-                  </div>
-                </div>
-                <div class="ps-pct" id="pctPeople">—</div>
-              </div>
-              <div class="pillar-score-item">
-                <div class="ps-label">Platform</div>
-                <div class="ps-bar-track">
-                  <div class="ps-bar-fill" id="barPlatform" style="width:0%">
-                  </div>
-                </div>
-                <div class="ps-pct" id="pctPlatform">—</div>
-              </div>
-              <div class="pillar-score-item">
-                <div class="ps-label">Process</div>
-                <div class="ps-bar-track">
-                  <div class="ps-bar-fill" id="barProcess" style="width:0%">
-                  </div>
-                </div>
-                <div class="ps-pct" id="pctProcess">—</div>
+          <h3>People Readiness</h3>
+          <p>
+            Are your teams aligned on content goals, roles, and workflows? We
+            assess skills, ownership, and collaboration patterns to surface gaps
+            before they become bottlenecks.
+          </p>
+          <ul>
+            <li>Content ownership &amp; accountability</li>
+            <li>Cross-functional team alignment</li>
+            <li>Skills for digital &amp; immersive formats</li>
+            <li>Training &amp; onboarding processes</li>
+          </ul>
+        </div>
+        <div class="pillar-card pc-platform fade-up">
+          <div class="pillar-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="2"
+                y="3"
+                width="20"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><path
+                d="M8 21h8M12 17v4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h3>Platform Readiness</h3>
+          <p>
+            Are your tools and systems configured to support the content
+            strategy you're trying to execute? We evaluate technology fit,
+            integration quality, and scalability for emerging formats.
+          </p>
+          <ul>
+            <li>DAM, CMS, LMS integration health</li>
+            <li>Support for 3D, AR/VR, interactive</li>
+            <li>Centralized asset repository</li>
+            <li>Scalability without rework</li>
+          </ul>
+        </div>
+        <div class="pillar-card pc-process fade-up">
+          <div class="pillar-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M9 11l3 3L22 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Process Readiness</h3>
+          <p>
+            Do your workflows enable consistent, high-quality content creation
+            and distribution? We map your processes end-to-end and identify
+            where clarity, accountability, or automation can unlock capacity.
+          </p>
+          <ul>
+            <li>Documented, repeatable workflows</li>
+            <li>Metadata, tagging &amp; governance</li>
+            <li>Multi-channel distribution readiness</li>
+            <li>Quality control &amp; audit cycles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment -->
+  <section class="assessment-section" id="assessment">
+    <div class="container">
+      <div class="assessment-intro fade-up">
+        <div class="section-label">Take the Assessment</div>
+        <h2>Measure Your Content Readiness™</h2>
+        <p>
+          Answer 15 questions across People, Platform, and Process. Rate each
+          statement from 1 (Strongly Disagree) to 5 (Strongly Agree) based on
+          your organization's current state. Your score will reveal where you
+          stand — and where to focus first.
+        </p>
+      </div>
+
+      <!-- PEOPLE -->
+      <div class="pillar-group fade-up">
+        <div class="pillar-group-header">
+          <div class="pg-icon pg-people">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <div>
+            <div class="pg-title">People</div>
+            <div class="pg-subtitle">Team alignment, skills, and ownership</div>
+          </div>
+        </div>
+        <div id="q-people">
+          <div class="question-row">
+            <div>
+              <div class="q-num">P1</div><div class="q-text">
+                Our team clearly understands our content goals and overall
+                strategy.
               </div>
             </div>
-            <div class="score-interpretation">
-              <div class="si-label" id="stageLabel">—</div>
-              <div class="si-text" id="stageText">—</div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="p1">
+                <label class="r-opt"
+                  ><input type="radio" name="p1" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                >
+                <label class="r-opt"
+                  ><input type="radio" name="p1" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                >
+                <label class="r-opt"
+                  ><input type="radio" name="p1" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                >
+                <label class="r-opt"
+                  ><input type="radio" name="p1" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                >
+                <label class="r-opt"
+                  ><input type="radio" name="p1" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
             </div>
           </div>
-          <!-- Lead Capture -->
-          <div class="lead-form-wrap" id="leadFormWrap">
-            <h3>Get Your Personalized Action Plan</h3>
-            <p>
-              Share your contact details and we'll send you a detailed action
-              plan based on your Content Readiness™ score — along with
-              recommendations for each pillar.
-            </p>
-            <form id="leadForm" action="#" method="POST" novalidate>
-              <input
-                type="hidden"
-                name="_subject"
-                value="Content Readiness Assessment Submission"
-              />
-              <input type="hidden" name="score" id="hiddenScore" />
-              <input type="hidden" name="stage" id="hiddenStage" />
-              <input type="hidden" name="people_score" id="hiddenPeople" />
-              <input type="hidden" name="platform_score" id="hiddenPlatform" />
-              <input type="hidden" name="process_score" id="hiddenProcess" />
-              <div class="lead-grid">
-                <div class="form-field">
-                  <label>First Name *</label><input
-                    type="text"
-                    name="first_name"
-                    required
-                    placeholder="Jane"
-                  />
-                </div>
-                <div class="form-field">
-                  <label>Last Name *</label><input
-                    type="text"
-                    name="last_name"
-                    required
-                    placeholder="Smith"
-                  />
-                </div>
-                <div class="form-field">
-                  <label>Company *</label><input
-                    type="text"
-                    name="company"
-                    required
-                    placeholder="Acme Corp"
-                  />
-                </div>
-                <div class="form-field">
-                  <label>Your Role</label><input
-                    type="text"
-                    name="role"
-                    placeholder="VP of Marketing"
-                  />
-                </div>
-                <div class="form-field">
-                  <label>Business Email *</label><input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="jane@company.com"
-                  />
-                </div>
-                <div class="form-field">
-                  <label>Phone</label><input
-                    type="tel"
-                    name="phone"
-                    placeholder="(555) 000-0000"
-                  />
-                </div>
-                <div class="form-field full">
-                  <label>Industry</label>
-                  <select name="industry">
-                    <option value="">Select your industry</option>
-                    <option>Manufacturing</option>
-                    <option>Heavy Equipment</option>
-                    <option>Automotive</option>
-                    <option>Aviation &amp; Defense</option>
-                    <option>Construction</option>
-                    <option>Healthcare</option>
-                    <option>Energy</option>
-                    <option>Government</option>
-                    <option>Other</option>
-                  </select>
+          <div class="question-row">
+            <div>
+              <div class="q-num">P2</div><div class="q-text">
+                Content roles, ownership, and accountability are clearly defined
+                across departments.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="p2">
+                <label class="r-opt"
+                  ><input type="radio" name="p2" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p2" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p2" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p2" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p2" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">P3</div><div class="q-text">
+                Our team has the skills to create content for digital and
+                immersive platforms (3D, AR/VR, interactive).
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="p3">
+                <label class="r-opt"
+                  ><input type="radio" name="p3" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p3" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p3" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p3" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p3" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">P4</div><div class="q-text">
+                Cross-functional teams (marketing, training, engineering)
+                collaborate effectively on content initiatives.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="p4">
+                <label class="r-opt"
+                  ><input type="radio" name="p4" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p4" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p4" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p4" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p4" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">P5</div><div class="q-text">
+                We have formal training or onboarding processes in place for our
+                content creators.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="p5">
+                <label class="r-opt"
+                  ><input type="radio" name="p5" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p5" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p5" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p5" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="p5" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLATFORM -->
+      <div class="pillar-group fade-up">
+        <div class="pillar-group-header">
+          <div class="pg-icon pg-platform">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="2"
+                y="3"
+                width="20"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><path
+                d="M8 21h8M12 17v4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <div>
+            <div class="pg-title">Platform</div>
+            <div class="pg-subtitle">Technology, tools, and integration</div>
+          </div>
+        </div>
+        <div id="q-platform">
+          <div class="question-row">
+            <div>
+              <div class="q-num">PL1</div><div class="q-text">
+                Our technology stack supports the content formats we currently
+                need to produce and deliver.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pl1">
+                <label class="r-opt"
+                  ><input type="radio" name="pl1" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl1" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl1" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl1" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl1" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PL2</div><div class="q-text">
+                Our platforms integrate well with each other (DAM, CMS, LMS,
+                configurators, etc.).
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pl2">
+                <label class="r-opt"
+                  ><input type="radio" name="pl2" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl2" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl2" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl2" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl2" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PL3</div><div class="q-text">
+                We have a centralized, searchable repository for storing and
+                managing all content assets.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pl3">
+                <label class="r-opt"
+                  ><input type="radio" name="pl3" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl3" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl3" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl3" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl3" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PL4</div><div class="q-text">
+                Our platforms support emerging content formats such as 3D,
+                AR/VR, interactive, and AI-driven experiences.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pl4">
+                <label class="r-opt"
+                  ><input type="radio" name="pl4" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl4" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl4" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl4" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl4" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PL5</div><div class="q-text">
+                We can scale our content production without major changes to our
+                existing technology infrastructure.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pl5">
+                <label class="r-opt"
+                  ><input type="radio" name="pl5" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl5" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl5" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl5" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pl5" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROCESS -->
+      <div class="pillar-group fade-up">
+        <div class="pillar-group-header">
+          <div class="pg-icon pg-process">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M9 11l3 3L22 4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <div>
+            <div class="pg-title">Process</div>
+            <div class="pg-subtitle">Workflows, standards, and governance</div>
+          </div>
+        </div>
+        <div id="q-process">
+          <div class="question-row">
+            <div>
+              <div class="q-num">PR1</div><div class="q-text">
+                We have documented, repeatable processes for content creation
+                and distribution.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pr1">
+                <label class="r-opt"
+                  ><input type="radio" name="pr1" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr1" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr1" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr1" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr1" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PR2</div><div class="q-text">
+                Content review, approval, and quality control processes are
+                clear, consistent, and well-managed.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pr2">
+                <label class="r-opt"
+                  ><input type="radio" name="pr2" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr2" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr2" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr2" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr2" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PR3</div><div class="q-text">
+                Our content is properly tagged with metadata, organized, and
+                governed by clear standards.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pr3">
+                <label class="r-opt"
+                  ><input type="radio" name="pr3" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr3" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr3" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr3" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr3" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PR4</div><div class="q-text">
+                We regularly audit and update content for accuracy, relevance,
+                and brand alignment.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pr4">
+                <label class="r-opt"
+                  ><input type="radio" name="pr4" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr4" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr4" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr4" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr4" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+          <div class="question-row">
+            <div>
+              <div class="q-num">PR5</div><div class="q-text">
+                Our content can be deployed across multiple channels and
+                platforms without significant rework.
+              </div>
+            </div>
+            <div class="rating-wrap">
+              <div class="rating-options" data-q="pr5">
+                <label class="r-opt"
+                  ><input type="radio" name="pr5" value="1" /><span
+                    class="r-circle">1</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr5" value="2" /><span
+                    class="r-circle">2</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr5" value="3" /><span
+                    class="r-circle">3</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr5" value="4" /><span
+                    class="r-circle">4</span
+                  ></label
+                ><label class="r-opt"
+                  ><input type="radio" name="pr5" value="5" /><span
+                    class="r-circle">5</span
+                  ></label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="assessment-actions fade-up">
+        <div class="progress-count" id="progressCount">0 of 15 answered</div>
+        <button class="btn-score" id="btnScore"
+          >Calculate My Readiness Score →</button
+        >
+      </div>
+
+      <!-- Score Display -->
+      <div class="score-display" id="scoreDisplay">
+        <div class="score-header">
+          <div class="score-big" id="scoreNumber">—</div>
+          <div
+            style="font-size:16px;color:rgba(255,255,255,0.70);margin-top:6px;"
+          >
+            Overall Readiness Score
+          </div>
+          <div class="score-stage-badge" id="stageBadge">—</div>
+        </div>
+        <div class="score-body">
+          <h3>Score Breakdown by Pillar</h3>
+          <div class="pillar-scores">
+            <div class="pillar-score-item">
+              <div class="ps-label">People</div>
+              <div class="ps-bar-track">
+                <div class="ps-bar-fill" id="barPeople" style="width:0%"></div>
+              </div>
+              <div class="ps-pct" id="pctPeople">—</div>
+            </div>
+            <div class="pillar-score-item">
+              <div class="ps-label">Platform</div>
+              <div class="ps-bar-track">
+                <div class="ps-bar-fill" id="barPlatform" style="width:0%">
                 </div>
               </div>
-              <div style="position:absolute;left:-9999px;" aria-hidden="true">
-                <input
+              <div class="ps-pct" id="pctPlatform">—</div>
+            </div>
+            <div class="pillar-score-item">
+              <div class="ps-label">Process</div>
+              <div class="ps-bar-track">
+                <div class="ps-bar-fill" id="barProcess" style="width:0%"></div>
+              </div>
+              <div class="ps-pct" id="pctProcess">—</div>
+            </div>
+          </div>
+          <div class="score-interpretation">
+            <div class="si-label" id="stageLabel">—</div>
+            <div class="si-text" id="stageText">—</div>
+          </div>
+        </div>
+        <!-- Lead Capture -->
+        <div class="lead-form-wrap" id="leadFormWrap">
+          <h3>Get Your Personalized Action Plan</h3>
+          <p>
+            Share your contact details and we'll send you a detailed action plan
+            based on your Content Readiness™ score — along with recommendations
+            for each pillar.
+          </p>
+          <form id="leadForm" action="#" method="POST" novalidate>
+            <input
+              type="hidden"
+              name="_subject"
+              value="Content Readiness Assessment Submission"
+            />
+            <input type="hidden" name="score" id="hiddenScore" />
+            <input type="hidden" name="stage" id="hiddenStage" />
+            <input type="hidden" name="people_score" id="hiddenPeople" />
+            <input type="hidden" name="platform_score" id="hiddenPlatform" />
+            <input type="hidden" name="process_score" id="hiddenProcess" />
+            <div class="lead-grid">
+              <div class="form-field">
+                <label>First Name *</label><input
                   type="text"
-                  name="website_url"
-                  tabindex="-1"
-                  autocomplete="off"
+                  name="first_name"
+                  required
+                  placeholder="Jane"
                 />
               </div>
-              <button type="submit" class="btn-submit"
-                >Send Me My Action Plan →</button
-              >
-              <p class="form-note">
-                We respect your privacy. Your information is used only to
-                deliver your personalized Content Readiness report.
-              </p>
-            </form>
-          </div>
+              <div class="form-field">
+                <label>Last Name *</label><input
+                  type="text"
+                  name="last_name"
+                  required
+                  placeholder="Smith"
+                />
+              </div>
+              <div class="form-field">
+                <label>Company *</label><input
+                  type="text"
+                  name="company"
+                  required
+                  placeholder="Acme Corp"
+                />
+              </div>
+              <div class="form-field">
+                <label>Your Role</label><input
+                  type="text"
+                  name="role"
+                  placeholder="VP of Marketing"
+                />
+              </div>
+              <div class="form-field">
+                <label>Business Email *</label><input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="jane@company.com"
+                />
+              </div>
+              <div class="form-field">
+                <label>Phone</label><input
+                  type="tel"
+                  name="phone"
+                  placeholder="(555) 000-0000"
+                />
+              </div>
+              <div class="form-field full">
+                <label>Industry</label>
+                <select name="industry">
+                  <option value="">Select your industry</option>
+                  <option>Manufacturing</option>
+                  <option>Heavy Equipment</option>
+                  <option>Automotive</option>
+                  <option>Aviation &amp; Defense</option>
+                  <option>Construction</option>
+                  <option>Healthcare</option>
+                  <option>Energy</option>
+                  <option>Government</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+              <input
+                type="text"
+                name="website_url"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+            <button type="submit" class="btn-submit"
+              >Send Me My Action Plan →</button
+            >
+            <p class="form-note">
+              We respect your privacy. Your information is used only to deliver
+              your personalized Content Readiness report.
+            </p>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CTA Band -->
-    <section class="cta-band" id="contact">
-      <div class="container">
-        <div class="fade-up">
-          <h2>Ready to Close Your Content Readiness Gap?</h2>
-          <p>
-            Let ENTEVATE assess your people, platforms, and processes — and
-            build a plan to get you ready for what's next.
-          </p>
-          <div class="cta-band-actions">
-            <a href="/contact?service=transformation" class="btn-white-solid"
-              >Start a Conversation</a
-            >
-            <a href="/transformation" class="btn-white-ghost"
-              >← All Transformation Services</a
-            >
-          </div>
+  <!-- CTA Band -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to Close Your Content Readiness Gap?</h2>
+        <p>
+          Let ENTEVATE assess your people, platforms, and processes — and build
+          a plan to get you ready for what's next.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact?service=transformation" class="btn-white-solid"
+            >Start a Conversation</a
+          >
+          <a href="/transformation" class="btn-white-ghost"
+            >← All Transformation Services</a
+          >
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <Footer client:load />
+  <Footer client:load />
 
-    <script src="../../global.js"></script>
-    <script>
-      // Assessment logic
-      const questions = [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5",
-        "pl1",
-        "pl2",
-        "pl3",
-        "pl4",
-        "pl5",
-        "pr1",
-        "pr2",
-        "pr3",
-        "pr4",
-        "pr5",
-      ];
-      const peopleQs = ["p1", "p2", "p3", "p4", "p5"];
-      const platformQs = ["pl1", "pl2", "pl3", "pl4", "pl5"];
-      const processQs = ["pr1", "pr2", "pr3", "pr4", "pr5"];
-      const progressEl = document.getElementById("progressCount");
-      const btnScore = document.getElementById("btnScore");
+  <script src="../../global.js"></script>
+  <script>
+    // Assessment logic
+    const questions = [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "p5",
+      "pl1",
+      "pl2",
+      "pl3",
+      "pl4",
+      "pl5",
+      "pr1",
+      "pr2",
+      "pr3",
+      "pr4",
+      "pr5",
+    ];
+    const peopleQs = ["p1", "p2", "p3", "p4", "p5"];
+    const platformQs = ["pl1", "pl2", "pl3", "pl4", "pl5"];
+    const processQs = ["pr1", "pr2", "pr3", "pr4", "pr5"];
+    const progressEl = document.getElementById("progressCount");
+    const btnScore = document.getElementById("btnScore");
 
-      function getAnswered() {
-        return questions.filter((q) =>
-          document.querySelector('input[name="' + q + '"]:checked'),
-        );
+    function getAnswered() {
+      return questions.filter((q) =>
+        document.querySelector('input[name="' + q + '"]:checked'),
+      );
+    }
+    function pillarScore(qs) {
+      return qs.reduce((sum, q) => {
+        const el = document.querySelector('input[name="' + q + '"]:checked');
+        return sum + (el ? parseInt(el.value) : 0);
+      }, 0);
+    }
+
+    document.querySelectorAll(".rating-options input").forEach((input) => {
+      input.addEventListener("change", () => {
+        const answered = getAnswered().length;
+        progressEl.textContent = answered + " of 15 answered";
+        if (answered === 15) {
+          btnScore.classList.add("ready");
+        }
+      });
+    });
+
+    btnScore.addEventListener("click", () => {
+      const pScore = pillarScore(peopleQs);
+      const plScore = pillarScore(platformQs);
+      const prScore = pillarScore(processQs);
+      const total = pScore + plScore + prScore;
+      const pct = Math.round((total / 75) * 100);
+      const pPct = Math.round((pScore / 25) * 100);
+      const plPct = Math.round((plScore / 25) * 100);
+      const prPct = Math.round((prScore / 25) * 100);
+
+      let stage, stageLabel, stageText;
+      if (pct <= 39) {
+        stage = "Stage 1 — Not Content Ready";
+        stageLabel = "Significant Readiness Gaps Identified";
+        stageText =
+          "Your content ecosystem has fundamental gaps across People, Platform, and/or Process. Immediate action is needed to establish a baseline of readiness before scaling any digital or immersive initiatives.";
+      } else if (pct <= 59) {
+        stage = "Stage 2 — Emerging";
+        stageLabel = "Foundation Being Established";
+        stageText =
+          "You have the beginnings of a content-ready organization, but significant work remains. Focus on closing your lowest-scoring pillar first to build a solid foundation for transformation.";
+      } else if (pct <= 79) {
+        stage = "Stage 3 — Developing";
+        stageLabel = "On the Path to Readiness";
+        stageText =
+          "You're making progress. Your organization has meaningful content capabilities but clear opportunities to optimize. Targeted improvements to your weakest pillar will unlock significant gains.";
+      } else {
+        stage = "Stage 4 — Content Ready";
+        stageLabel = "Strong Content Foundation";
+        stageText =
+          "Your organization demonstrates strong content readiness. You're well-positioned to leverage advanced digital and immersive technologies. Focus on sustaining and evolving your capabilities as new platforms emerge.";
       }
-      function pillarScore(qs) {
-        return qs.reduce((sum, q) => {
-          const el = document.querySelector('input[name="' + q + '"]:checked');
-          return sum + (el ? parseInt(el.value) : 0);
-        }, 0);
-      }
 
-      document.querySelectorAll(".rating-options input").forEach((input) => {
-        input.addEventListener("change", () => {
-          const answered = getAnswered().length;
-          progressEl.textContent = answered + " of 15 answered";
-          if (answered === 15) {
-            btnScore.classList.add("ready");
+      document.getElementById("scoreNumber").textContent = pct + "%";
+      document.getElementById("stageBadge").textContent = stage;
+      document.getElementById("stageLabel").textContent = stageLabel;
+      document.getElementById("stageText").textContent = stageText;
+      document.getElementById("pctPeople").textContent = pPct + "%";
+      document.getElementById("pctPlatform").textContent = plPct + "%";
+      document.getElementById("pctProcess").textContent = prPct + "%";
+
+      // Hidden form fields
+      document.getElementById("hiddenScore").value = pct + "%";
+      document.getElementById("hiddenStage").value = stage;
+      document.getElementById("hiddenPeople").value = pPct + "%";
+      document.getElementById("hiddenPlatform").value = plPct + "%";
+      document.getElementById("hiddenProcess").value = prPct + "%";
+
+      const scoreEl = document.getElementById("scoreDisplay");
+      scoreEl.classList.add("visible");
+      setTimeout(() => {
+        document.getElementById("barPeople").style.width = pPct + "%";
+        document.getElementById("barPlatform").style.width = plPct + "%";
+        document.getElementById("barProcess").style.width = prPct + "%";
+      }, 100);
+      document.getElementById("leadFormWrap").classList.add("visible");
+      scoreEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // ─── Content Readiness Lead Form → HubSpot submission ───
+    document
+      .getElementById("leadForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        var form = document.getElementById("leadForm");
+        var btn = form.querySelector(".btn-submit");
+        // Honeypot check
+        var honeypot = form.querySelector('input[name="website_url"]');
+        if (honeypot && honeypot.value) {
+          form.innerHTML =
+            '<div style="text-align:center;padding:32px 0;"><h3 style="font-size:22px;font-weight:400;margin-bottom:10px;">Action Plan Requested!</h3><p style="font-size:14px;color:#6B6B6B;">Thanks! We\'ll send your personalized Content Readiness™ report shortly.</p></div>';
+          return;
+        }
+        var required = form.querySelectorAll("[required]");
+        var valid = true;
+        required.forEach(function (field) {
+          if (!field.value.trim()) {
+            field.style.borderColor = "#CB632F";
+            valid = false;
+          } else {
+            field.style.borderColor = "";
           }
         });
-      });
-
-      btnScore.addEventListener("click", () => {
-        const pScore = pillarScore(peopleQs);
-        const plScore = pillarScore(platformQs);
-        const prScore = pillarScore(processQs);
-        const total = pScore + plScore + prScore;
-        const pct = Math.round((total / 75) * 100);
-        const pPct = Math.round((pScore / 25) * 100);
-        const plPct = Math.round((plScore / 25) * 100);
-        const prPct = Math.round((prScore / 25) * 100);
-
-        let stage, stageLabel, stageText;
-        if (pct <= 39) {
-          stage = "Stage 1 — Not Content Ready";
-          stageLabel = "Significant Readiness Gaps Identified";
-          stageText =
-            "Your content ecosystem has fundamental gaps across People, Platform, and/or Process. Immediate action is needed to establish a baseline of readiness before scaling any digital or immersive initiatives.";
-        } else if (pct <= 59) {
-          stage = "Stage 2 — Emerging";
-          stageLabel = "Foundation Being Established";
-          stageText =
-            "You have the beginnings of a content-ready organization, but significant work remains. Focus on closing your lowest-scoring pillar first to build a solid foundation for transformation.";
-        } else if (pct <= 79) {
-          stage = "Stage 3 — Developing";
-          stageLabel = "On the Path to Readiness";
-          stageText =
-            "You're making progress. Your organization has meaningful content capabilities but clear opportunities to optimize. Targeted improvements to your weakest pillar will unlock significant gains.";
-        } else {
-          stage = "Stage 4 — Content Ready";
-          stageLabel = "Strong Content Foundation";
-          stageText =
-            "Your organization demonstrates strong content readiness. You're well-positioned to leverage advanced digital and immersive technologies. Focus on sustaining and evolving your capabilities as new platforms emerge.";
-        }
-
-        document.getElementById("scoreNumber").textContent = pct + "%";
-        document.getElementById("stageBadge").textContent = stage;
-        document.getElementById("stageLabel").textContent = stageLabel;
-        document.getElementById("stageText").textContent = stageText;
-        document.getElementById("pctPeople").textContent = pPct + "%";
-        document.getElementById("pctPlatform").textContent = plPct + "%";
-        document.getElementById("pctProcess").textContent = prPct + "%";
-
-        // Hidden form fields
-        document.getElementById("hiddenScore").value = pct + "%";
-        document.getElementById("hiddenStage").value = stage;
-        document.getElementById("hiddenPeople").value = pPct + "%";
-        document.getElementById("hiddenPlatform").value = plPct + "%";
-        document.getElementById("hiddenProcess").value = prPct + "%";
-
-        const scoreEl = document.getElementById("scoreDisplay");
-        scoreEl.classList.add("visible");
-        setTimeout(() => {
-          document.getElementById("barPeople").style.width = pPct + "%";
-          document.getElementById("barPlatform").style.width = plPct + "%";
-          document.getElementById("barProcess").style.width = prPct + "%";
-        }, 100);
-        document.getElementById("leadFormWrap").classList.add("visible");
-        scoreEl.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-
-      // ─── Content Readiness Lead Form → HubSpot submission ───
-      document
-        .getElementById("leadForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          var form = document.getElementById("leadForm");
-          var btn = form.querySelector(".btn-submit");
-          // Honeypot check
-          var honeypot = form.querySelector('input[name="website_url"]');
-          if (honeypot && honeypot.value) {
-            form.innerHTML =
-              '<div style="text-align:center;padding:32px 0;"><h3 style="font-size:22px;font-weight:400;margin-bottom:10px;">Action Plan Requested!</h3><p style="font-size:14px;color:#6B6B6B;">Thanks! We\'ll send your personalized Content Readiness™ report shortly.</p></div>';
-            return;
-          }
-          var required = form.querySelectorAll("[required]");
-          var valid = true;
-          required.forEach(function (field) {
-            if (!field.value.trim()) {
-              field.style.borderColor = "#CB632F";
-              valid = false;
-            } else {
-              field.style.borderColor = "";
-            }
-          });
-          if (!valid) return;
-          btn.disabled = true;
-          btn.textContent = "Sending…";
-          var payload = {
-            fields: [
-              { name: "firstname", value: form.first_name.value },
-              { name: "lastname", value: form.last_name.value },
-              { name: "company", value: form.company.value },
-              { name: "jobtitle", value: form.role.value },
-              { name: "email", value: form.email.value },
-              { name: "phone", value: form.phone.value },
-              { name: "industry", value: form.industry.value },
-              {
-                name: "content_readiness_score",
-                value: form.querySelector("#hiddenScore").value,
-              },
-              {
-                name: "content_readiness_stage",
-                value: form.querySelector("#hiddenStage").value,
-              },
-              {
-                name: "people_score",
-                value: form.querySelector("#hiddenPeople").value,
-              },
-              {
-                name: "platform_score",
-                value: form.querySelector("#hiddenPlatform").value,
-              },
-              {
-                name: "process_score",
-                value: form.querySelector("#hiddenProcess").value,
-              },
-            ],
-            context: {
-              pageUri: window.location.href,
-              pageName: document.title,
-            },
-          };
-          fetch(
-            "https://api.hsforms.com/submissions/v3/integration/submit/44191993/ef7b3576-d3f9-4afe-9d2c-80c10fadfd86",
+        if (!valid) return;
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        var payload = {
+          fields: [
+            { name: "firstname", value: form.first_name.value },
+            { name: "lastname", value: form.last_name.value },
+            { name: "company", value: form.company.value },
+            { name: "jobtitle", value: form.role.value },
+            { name: "email", value: form.email.value },
+            { name: "phone", value: form.phone.value },
+            { name: "industry", value: form.industry.value },
             {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
+              name: "content_readiness_score",
+              value: form.querySelector("#hiddenScore").value,
             },
-          )
-            .then(function (r) {
-              if (r.ok) {
-                form.innerHTML =
-                  '<div style="text-align:center;padding:32px 0;"><h3 style="font-size:22px;font-weight:400;margin-bottom:10px;">Action Plan Requested!</h3><p style="font-size:14px;color:#6B6B6B;">Thanks! We\'ll send your personalized Content Readiness™ report shortly.</p></div>';
-              } else {
-                btn.disabled = false;
-                btn.textContent = "Send Me My Action Plan →";
-                alert(
-                  "Something went wrong. Please try again or email us at hello@entevate.com.",
-                );
-              }
-            })
-            .catch(function () {
+            {
+              name: "content_readiness_stage",
+              value: form.querySelector("#hiddenStage").value,
+            },
+            {
+              name: "people_score",
+              value: form.querySelector("#hiddenPeople").value,
+            },
+            {
+              name: "platform_score",
+              value: form.querySelector("#hiddenPlatform").value,
+            },
+            {
+              name: "process_score",
+              value: form.querySelector("#hiddenProcess").value,
+            },
+          ],
+          context: {
+            pageUri: window.location.href,
+            pageName: document.title,
+          },
+        };
+        fetch(
+          "https://api.hsforms.com/submissions/v3/integration/submit/44191993/ef7b3576-d3f9-4afe-9d2c-80c10fadfd86",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          },
+        )
+          .then(function (r) {
+            if (r.ok) {
+              form.innerHTML =
+                '<div style="text-align:center;padding:32px 0;"><h3 style="font-size:22px;font-weight:400;margin-bottom:10px;">Action Plan Requested!</h3><p style="font-size:14px;color:#6B6B6B;">Thanks! We\'ll send your personalized Content Readiness™ report shortly.</p></div>';
+            } else {
               btn.disabled = false;
               btn.textContent = "Send Me My Action Plan →";
               alert(
                 "Something went wrong. Please try again or email us at hello@entevate.com.",
               );
-            });
-        });
-    </script>
+            }
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.textContent = "Send Me My Action Plan →";
+            alert(
+              "Something went wrong. Please try again or email us at hello@entevate.com.",
+            );
+          });
+      });
+  </script>
 </BaseLayout>

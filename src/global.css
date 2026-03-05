@@ -3,18 +3,21 @@
   --black: #181818;
   --white: #ffffff;
   --purple: #444561;
+  --purple-dark: #6a6b9e;
   --blue: #247b96;
+  --blue-light: #5ba8c4;
   --green: #3d978a;
   --teal: #2bbfa8;
   --teal-light: #6dd4a0;
   --orange: #e8782a;
   --orange-light: #ea9709;
+  --orange-amber: #f5b731;
   --orange-dark: #cb632f;
   --gray-mid: #6b6b6b;
   --gray-light: #a8a8a8;
   --border: #dde6f0;
   --mob-hover: #247b96;
-  --font: 'Archivo', system-ui, sans-serif;
+  --font: "Archivo", system-ui, sans-serif;
   --radius: 6px;
   --tr: 0.22s ease;
 }
@@ -321,6 +324,9 @@ nav {
   text-transform: uppercase;
   margin-bottom: 14px;
   display: inline-block;
+}
+
+.blue-gradient-clip {
   background: linear-gradient(90deg, #2060d8 0%, #38c6f4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -365,7 +371,7 @@ h2.section-title {
 }
 
 .service-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -505,7 +511,7 @@ h2.section-title {
 }
 
 .stat p {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--gray-mid);
 }
 
@@ -548,7 +554,7 @@ h2.section-title {
       rgba(68, 69, 97, 0.84) 45%,
       rgba(92, 71, 128, 0.84) 100%
     ),
-    url('/images/bt3.png') center/cover no-repeat;
+    url("/images/bt3.png") center/cover no-repeat;
   color: var(--white);
   padding: 80px 48px;
   text-align: center;
@@ -557,7 +563,7 @@ h2.section-title {
 }
 
 .cta-banner::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background:
@@ -634,7 +640,7 @@ h2.section-title {
 .card-ebm .blog-thumb::after,
 .card-dct .blog-thumb::after,
 .card-irm .blog-thumb::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 12px;
   left: 14px;
@@ -657,13 +663,13 @@ h2.section-title {
 
 /* Blog background images */
 .bt1 {
-  background: url('/images/bt1.png') center/cover no-repeat;
+  background: url("/images/bt1.png") center/cover no-repeat;
 }
 .bt2 {
-  background: url('/images/bt2.png') center/cover no-repeat;
+  background: url("/images/bt2.png") center/cover no-repeat;
 }
 .bt3 {
-  background: url('/images/bt3.png') center/cover no-repeat;
+  background: url("/images/bt3.png") center/cover no-repeat;
 }
 
 .blog-body {
@@ -767,7 +773,7 @@ footer {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
   gap: 48px;
   margin-bottom: 56px;
 }
@@ -808,7 +814,7 @@ footer {
 }
 
 .footer-col ul a {
-  font-size: 14px;
+  font-size: 13.5px;
   color: rgba(255, 255, 255, 0.62);
   transition: color var(--tr);
 }
@@ -866,7 +872,7 @@ footer {
   padding: 11px;
   border-radius: var(--radius);
   border: none;
-  background: var(--blue);
+  background: var(--teal);
   color: var(--white);
   cursor: pointer;
   transition: background var(--tr);
@@ -1080,15 +1086,15 @@ footer {
   opacity: 1;
 }
 
-.mob-services-sub a[href='/experiential.html']:hover {
+.mob-services-sub a[href="/experiential.html"]:hover {
   color: #3d978a;
 }
 
-.mob-services-sub a[href='/transformation.html']:hover {
+.mob-services-sub a[href="/transformation.html"]:hover {
   color: #e8782a;
 }
 
-.mob-services-sub a[href='/innovation.html']:hover {
+.mob-services-sub a[href="/innovation.html"]:hover {
   color: #6a6b9e;
 }
 
