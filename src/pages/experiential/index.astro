@@ -399,67 +399,6 @@ const description =
       .forEach((el, i) => {
         el.style.transitionDelay = `${i * 0.09}s`;
       });
-
-    // Newsletter form submission to HubSpot
-    (function () {
-      var forms = document.querySelectorAll("#newsletterForm");
-      forms.forEach(function (form) {
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          var btn = form.querySelector("button");
-          var msg = form.querySelector(".newsletter-msg");
-          var nameInput = form.querySelector('input[name="firstname"]');
-          var emailInput = form.querySelector('input[name="email"]');
-          var honeypot = form.querySelector('input[name="website_url"]');
-          if (honeypot && honeypot.value) {
-            form.innerHTML =
-              '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
-            return;
-          }
-          if (!emailInput.value.trim()) {
-            emailInput.style.borderColor = "#CB632F";
-            return;
-          }
-          btn.disabled = true;
-          btn.textContent = "Sending…";
-          var payload = {
-            fields: [
-              { name: "firstname", value: nameInput.value },
-              { name: "email", value: emailInput.value },
-            ],
-            context: {
-              pageUri: window.location.href,
-              pageName: document.title,
-            },
-          };
-          fetch(
-            "https://api.hsforms.com/submissions/v3/integration/submit/44191993/45cdf0bb-1463-4bd9-acce-11775f0ad863",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-            },
-          )
-            .then(function (r) {
-              if (r.ok) {
-                form.innerHTML =
-                  '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
-              } else {
-                btn.disabled = false;
-                btn.textContent = "Subscribe →";
-                msg.style.display = "block";
-                msg.textContent = "Something went wrong. Try again.";
-              }
-            })
-            .catch(function () {
-              btn.disabled = false;
-              btn.textContent = "Subscribe →";
-              msg.style.display = "block";
-              msg.textContent = "Something went wrong. Try again.";
-            });
-        });
-      });
-    })();
   </script>
 
   <style>

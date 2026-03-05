@@ -8,18 +8,21 @@ const Footer = ({ buttonStyle }: Props) => {
   useEffect(() => {
     // Newsletter form submission to HubSpot
     const forms = document.querySelectorAll("#newsletterForm");
+    const formLoadTime = Date.now();
+    const MIN_SUBMIT_SECONDS = 3;
 
-    function handleFormSubmit(e) {
+    function handleFormSubmit(e: Event) {
       e.preventDefault();
-      const form = e.target;
+      const form = e.target as HTMLFormElement;
       const btn = form.querySelector("button");
       const msg = form.querySelector(".newsletter-msg");
       const nameInput = form.querySelector('input[name="firstname"]');
       const emailInput = form.querySelector('input[name="email"]');
-      const honeypot = form.querySelector('input[name="website_url"]');
+      const botCheck = form.querySelector('input[name="website_url"]');
+      const hasValue = botCheck && (botCheck as HTMLInputElement).value;
+      const tooSoon = Date.now() - formLoadTime < MIN_SUBMIT_SECONDS * 1000;
 
-      // Honeypot spam protection
-      if (honeypot && honeypot.value) {
+      if (hasValue || tooSoon) {
         form.innerHTML =
           '<p style="font-size:13px;color:rgba(255,255,255,0.7);">Thanks for subscribing!</p>';
         return;
