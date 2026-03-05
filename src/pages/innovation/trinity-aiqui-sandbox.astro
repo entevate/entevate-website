@@ -161,7 +161,7 @@ const description =
       margin-bottom: 8px;
     }
     .pull-quote {
-      border-left: 3px solid var(--teal);
+      border-left: 3px solid var(--purple-dark);
       background: linear-gradient(
         135deg,
         rgba(106, 107, 158, 0.06),
@@ -185,7 +185,7 @@ const description =
       font-size: 13px;
       font-style: normal;
       font-weight: 500;
-      color: var(--teal);
+      color: var(--purple-dark);
       margin-top: 12px;
     }
 
@@ -211,7 +211,11 @@ const description =
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      background: linear-gradient(
+        90deg,
+        var(--purple-dark),
+        var(--purple-light)
+      );
     }
     .partner-card h4 {
       font-size: 13px;
@@ -248,7 +252,7 @@ const description =
       font-size: 36px;
       font-weight: 100;
       letter-spacing: -0.03em;
-      color: var(--teal);
+      color: var(--purple-dark);
       display: block;
       margin-bottom: 6px;
     }
@@ -279,7 +283,11 @@ const description =
       border-bottom: none;
     }
     .step-num {
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
+      background: linear-gradient(
+        135deg,
+        var(--purple-dark),
+        var(--purple-light)
+      );
       color: var(--white);
       font-size: 14px;
       font-weight: 700;
@@ -339,7 +347,7 @@ const description =
         rgba(106, 107, 158, 0.12),
         rgba(142, 144, 192, 0.12)
       );
-      color: var(--teal);
+      color: var(--purple-dark);
       border: 1px solid rgba(106, 107, 158, 0.25);
       margin-bottom: 12px;
     }
@@ -373,9 +381,9 @@ const description =
       border-left: 2px solid transparent;
     }
     .toc a:hover {
-      color: var(--teal);
+      color: var(--purple-dark);
       background: rgba(106, 107, 158, 0.06);
-      border-left-color: var(--teal);
+      border-left-color: var(--purple-dark);
     }
     .sidebar-cta {
       background: linear-gradient(
@@ -411,7 +419,7 @@ const description =
       border: none;
       cursor: pointer;
       background: var(--white);
-      color: var(--teal);
+      color: var(--purple-dark);
       transition: all var(--tr);
       display: inline-block;
       width: 100%;
@@ -439,7 +447,7 @@ const description =
       text-transform: uppercase;
       margin-bottom: 14px;
       display: inline-block;
-      color: var(--teal);
+      color: var(--purple-dark);
     }
     .section-title {
       font-size: clamp(26px, 3.5vw, 40px);
@@ -495,7 +503,7 @@ const description =
         rgba(106, 107, 158, 0.12),
         rgba(142, 144, 192, 0.08)
       );
-      color: var(--teal);
+      color: var(--purple-dark);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1065,7 +1073,7 @@ const description =
         </p>
         <a
           href="/innovation/aiqui.html"
-          style="font-size:13px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:4px;transition:gap var(--tr);"
+          style="font-size:13px;font-weight:600;color:var(--purple-dark);display:inline-flex;align-items:center;gap:4px;transition:gap var(--tr);"
           onmouseover="this.style.gap='8px'"
           onmouseout="this.style.gap='4px'">Explore AIQUI Framework →</a
         >
@@ -1177,7 +1185,7 @@ const description =
     </div>
   </section>
 
-  <Footer client:load />
+  <Footer client:load buttonStyle={{ background: "var(--purple-dark)" }} />
 
   <script src="../../global.js"></script>
   <script>

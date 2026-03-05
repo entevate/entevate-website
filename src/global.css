@@ -3,6 +3,7 @@
   --black: #181818;
   --white: #ffffff;
   --purple: #444561;
+  --purple-light: #8e90c0;
   --purple-dark: #6a6b9e;
   --blue: #247b96;
   --blue-light: #5ba8c4;
@@ -1182,9 +1183,23 @@ footer {
   .clients {
     padding: 28px 24px;
   }
+
+  .cta-banner {
+    padding: 64px 24px;
+  }
+
+  .blog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
 }
 
 @media (max-width: 600px) {
+  .cta-banner {
+    padding: 56px 20px;
+  }
+
   .stat-row {
     grid-template-columns: 1fr 1fr;
   }
