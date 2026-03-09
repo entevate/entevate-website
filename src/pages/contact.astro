@@ -38,7 +38,7 @@ const description =
       <!-- Left: info -->
       <div class="contact-info fade-up">
         <span class="section-label">Contact Us</span>
-        <h2>Get In<br />Touch</h2>
+        <h2 style="white-space:nowrap;">Get In Touch</h2>
         <p>
           Whether you're exploring a specific service, ready to kick off a
           project, or simply want to learn more about ENTEVATE — we'd love to
@@ -381,7 +381,7 @@ const description =
             { name: "email", value: formData.get("email") },
             { name: "phone", value: formData.get("phone") || "" },
             { name: "company", value: formData.get("company") || "" },
-            { name: "how_can_we_help_", value: formData.get("service") },
+            { name: "0-2/name", value: document.getElementById("service").options[document.getElementById("service").selectedIndex].text },
             { name: "message", value: formData.get("message") },
           ],
           context: {
