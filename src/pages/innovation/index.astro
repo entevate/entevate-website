@@ -67,8 +67,7 @@ const description =
             <div class="journey-content">
               <div class="journey-step-name">Ideation</div>
               <div class="journey-step-desc">
-                Surface and screen ideas through brainstorming, crowdsourcing,
-                and exploration.
+                Generate and screen ideas through brainstorming and crowdsourcing.
               </div>
             </div>
           </div>
@@ -82,8 +81,7 @@ const description =
             <div class="journey-content">
               <div class="journey-step-name">Validation</div>
               <div class="journey-step-desc">
-                Confirm feasibility, market fit, and demand through research and
-                customer discovery.
+                Validate impact, feasibility, and market demand through research.
               </div>
             </div>
           </div>
@@ -97,8 +95,7 @@ const description =
             <div class="journey-content">
               <div class="journey-step-name">Curation</div>
               <div class="journey-step-desc">
-                Refine the idea and shape a clear, stakeholder-aligned business
-                case.
+                Refine the idea and create a stakeholder-aligned business case.
               </div>
             </div>
           </div>
@@ -110,10 +107,9 @@ const description =
               <span class="step-s">Stage</span>
             </div>
             <div class="journey-content">
-              <div class="journey-step-name">Innovation</div>
+              <div class="journey-step-name">Innovation | MVP</div>
               <div class="journey-step-desc">
-                Build and test an MVP in a real-world setting, iterating on data
-                and learnings.
+                Build and test an MVP in real-world settings, iterating on feedback.
               </div>
             </div>
           </div>
@@ -127,8 +123,7 @@ const description =
             <div class="journey-content">
               <div class="journey-step-name">Operation</div>
               <div class="journey-step-desc">
-                Define team structure, roles, and processes for reliable ongoing
-                operations.
+                Establish team structure, roles, and go-to-market processes.
               </div>
             </div>
           </div>
@@ -142,8 +137,7 @@ const description =
             <div class="journey-content">
               <div class="journey-step-name">Amplification</div>
               <div class="journey-step-desc">
-                Drive adoption through targeted communication and feedback loops
-                that expand reach.
+                Drive awareness and adoption through marketing and feedback.
               </div>
             </div>
           </div>
@@ -157,8 +151,7 @@ const description =
             <div class="journey-content">
               <div class="journey-step-name">Acceleration</div>
               <div class="journey-step-desc">
-                Scale to full potential through performance optimization and
-                strategic partnerships.
+                Scale through strategic partnerships and external funding channels.
               </div>
             </div>
           </div>
@@ -172,8 +165,7 @@ const description =
             <div class="journey-content">
               <div class="journey-step-name">Harvest</div>
               <div class="journey-step-desc">
-                Sustain and compound value from a scaled innovation performing
-                at its peak.
+                Achieve profitability at scale across multiple innovation ecosystems.
               </div>
             </div>
           </div>
@@ -226,12 +218,10 @@ const description =
           <h3>Ecosystem Model: 7 Core Elements™</h3>
           <em>Map your full innovation ecosystem.</em>
           <p>
-            We assess your ecosystem across seven interconnected basecamps:
-            Policy/Advocacy, Research &amp; Innovation Development, Real
-            Estate/Infrastructure/Placemaking, Economic Development, Workforce
-            Development, Venture Development, and
-            Social/Community/Accessibility. Every layer is evaluated,
-            gap-analyzed, and roadmapped.
+            We assess your ecosystem across seven interconnected basecamps —
+            from policy and research to workforce and venture development.
+            Every layer is evaluated, gap-analyzed, and roadmapped into a
+            unified, milestone-driven action plan.
           </p>
           <a href="/innovation/ecosystem-model" class="offering-cta"
             >Explore the Model →</a
@@ -257,13 +247,12 @@ const description =
               <circle cx="10" cy="16" r="1" fill="currentColor"></circle>
             </svg>
           </div>
-          <h3>Innovation Sandbox™</h3>
+          <h3>Innovation Sandbox™ Prototyping</h3>
           <em>Start small. Learn fast. Scale with confidence.</em>
           <p>
             A contained, low-risk environment to prototype and test your most
-            promising ideas before full deployment. We design the sandbox, run
-            facilitated sessions, and deliver a validated signal for what to
-            build next.
+            promising ideas before full deployment. We design the sandbox,
+            run facilitated sessions, and deliver a validated signal.
           </p>
           <a href="/innovation/innovation-sandbox" class="offering-cta"
             >Run a Sandbox →</a
@@ -290,9 +279,10 @@ const description =
           <h3>Innovation Roadmapping™ + Venture Development</h3>
           <em>Strategy meets execution.</em>
           <p>
-            We build structured, milestone-driven innovation roadmaps aligned to
-            your organization's goals — then stay with you through venture
-            development to bring those milestones to life.
+            We build structured, milestone-driven innovation roadmaps aligned
+            to your organization's goals — then stay with you through venture
+            development to bring those milestones to life and deliver real
+            outcomes at every stage.
           </p>
           <a href="/innovation/roadmapping" class="offering-cta"
             >Build Your Roadmap →</a
@@ -311,12 +301,13 @@ const description =
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3>Sideline Capital Activation</h3>
+          <h3>Sideline Capital Activation &amp; Funding</h3>
           <em>Angel Academy™ | Innovation Funding Lab®</em>
           <p>
             Connecting innovators with capital through curated angel investor
             networks, funding readiness programming, and the Innovation Funding
-            Lab® — a hands-on track for ventures preparing to raise.
+            Lab® — a hands-on track for ventures preparing to raise their
+            next round of investment.
           </p>
           <a href="/innovation/sideline-capital" class="offering-cta"
             >Activate Capital →</a
@@ -789,7 +780,7 @@ const description =
     }
 
     .hero h1 {
-      font-size: clamp(50px, 7vw, 92px);
+      font-size: clamp(40px, 7vw, 82px);
       font-weight: 100;
       line-height: 1.04;
       color: var(--white);
@@ -910,7 +901,7 @@ const description =
     }
     .journey-track {
       display: flex;
-      min-width: max-content;
+      width: fit-content;
       position: relative;
       padding: 0 32px;
       gap: 0;
@@ -919,33 +910,33 @@ const description =
       content: "";
       position: absolute;
       top: 44px;
-      left: 112px;
-      right: 112px;
+      left: calc(32px + 110px / 2);
+      right: calc(32px + 110px / 2);
       height: 2px;
       background: linear-gradient(
         90deg,
         var(--blue) 0%,
-        var(--blue) 12.5%,
-        var(--green) 12.5%,
-        var(--green) 25%,
-        var(--purple) 25%,
-        var(--purple) 37.5%,
-        var(--orange-light) 37.5%,
+        var(--blue) 7.14%,
+        var(--green) 7.14%,
+        var(--green) 21.43%,
+        var(--purple) 21.43%,
+        var(--purple) 35.71%,
+        var(--orange-light) 35.71%,
         var(--orange-light) 50%,
         var(--blue) 50%,
-        var(--blue) 62.5%,
-        var(--green) 62.5%,
-        var(--green) 75%,
-        var(--purple) 75%,
-        var(--purple) 87.5%,
-        var(--orange-light) 87.5%,
+        var(--blue) 64.29%,
+        var(--green) 64.29%,
+        var(--green) 78.57%,
+        var(--purple) 78.57%,
+        var(--purple) 92.86%,
+        var(--orange-light) 92.86%,
         var(--orange-light) 100%
       );
       opacity: 0.35;
       z-index: 0;
     }
     .journey-step {
-      flex: 0 0 200px;
+      flex: 0 0 220px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1003,6 +994,7 @@ const description =
       font-size: 12px;
       color: var(--gray-mid);
       line-height: 1.58;
+      text-wrap: balance;
     }
     .c-blue {
       background: var(--blue);
@@ -1122,6 +1114,7 @@ const description =
       margin-bottom: 6px;
       letter-spacing: -0.01em;
       line-height: 1.3;
+      max-width: 240px;
     }
     .offering-card em {
       display: block;
@@ -1297,7 +1290,7 @@ const description =
     }
     .proof-stat {
       font-size: 20px;
-      font-weight: 700;
+      font-weight: 500;
       color: var(--black);
       margin-bottom: 10px;
       letter-spacing: -0.01em;

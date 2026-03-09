@@ -105,18 +105,20 @@ const description =
     <div class="clients-label">Trusted by leading organizations</div>
     <div class="clients-track-wrap">
       <div class="clients-track">
-        <span class="client-name">Caterpillar</span>
-        <span class="client-name">Motorola</span>
-        <span class="client-name">Beckman</span>
-        <span class="client-name">Rheem</span>
-        <span class="client-name">Oracle</span>
-        <span class="client-name">Boeing</span>
-        <span class="client-name">Caterpillar</span>
-        <span class="client-name">Motorola</span>
-        <span class="client-name">Beckman</span>
-        <span class="client-name">Rheem</span>
-        <span class="client-name">Oracle</span>
-        <span class="client-name">Boeing</span>
+        <img src="/logos/caterpillar.svg" alt="Caterpillar" class="client-logo" />
+        <img src="/logos/mustang-cat.svg" alt="Mustang CAT" class="client-logo" />
+        <img src="/logos/trinity-college.svg" alt="Trinity College" class="client-logo" />
+        <img src="/logos/cisco.svg" alt="Cisco" class="client-logo" />
+        <img src="/logos/city-of-hartford.svg" alt="City of Hartford" class="client-logo" />
+        <img src="/logos/blanchard-machinery.svg" alt="Blanchard Machinery" class="client-logo" />
+        <img src="/logos/thompson-tractor.svg" alt="Thompson Tractor" class="client-logo" />
+        <img src="/logos/caterpillar.svg" alt="Caterpillar" class="client-logo" />
+        <img src="/logos/mustang-cat.svg" alt="Mustang CAT" class="client-logo" />
+        <img src="/logos/trinity-college.svg" alt="Trinity College" class="client-logo" />
+        <img src="/logos/cisco.svg" alt="Cisco" class="client-logo" />
+        <img src="/logos/city-of-hartford.svg" alt="City of Hartford" class="client-logo" />
+        <img src="/logos/blanchard-machinery.svg" alt="Blanchard Machinery" class="client-logo" />
+        <img src="/logos/thompson-tractor.svg" alt="Thompson Tractor" class="client-logo" />
       </div>
     </div>
   </div>
@@ -150,11 +152,10 @@ const description =
             >
           </div>
           <h3>Experiential Branding &amp; Marketing</h3>
-          <em>Crafting immersive brand experiences that resonate.</em>
+          <em>Crafting immersive brand experiences that resonate, engage audiences, and drive measurable action.</em>
           <p>
-            We help you spark connection and drive action through intentional,
-            emotionally engaging brand moments. With tools like Momentify, every
-            interaction becomes measurable, memorable, and built to scale.
+            We spark connection through intentional, emotionally engaging brand
+            moments — measurable, memorable, and built to scale.
           </p>
           <a href="/experiential" class="learn-more">Learn More →</a>
         </div>
@@ -174,11 +175,10 @@ const description =
             >
           </div>
           <h3>Digital &amp; Content Transformation</h3>
-          <em>Content Readiness™ for a more connected, adaptable business.</em>
+          <em>Content Readiness™ for a more connected, adaptable, and future-ready business.</em>
           <p>
-            We align people, platforms, and processes to help you thrive in a
-            rapidly changing world. Our Content Readiness™ approach ensures your
-            content is always clear, strategic, and ready to perform.
+            We align people, platforms, and processes so your content is always
+            clear, strategic, and ready to perform.
           </p>
           <a href="/transformation" class="learn-more">Learn More →</a>
         </div>
@@ -199,11 +199,10 @@ const description =
             >
           </div>
           <h3>Innovation Roadmapping</h3>
-          <em>Clarity for bold ideas and the systems to bring them to life.</em>
+          <em>Clarity for bold ideas — and the structured systems to bring them to life at scale.</em>
           <p>
-            We turn big ideas into tangible strategies with frameworks built to
-            scale. From concept to execution, we help you align vision with
-            action — and move forward with confidence and clarity.
+            We turn big ideas into tangible strategies — from concept to
+            execution, aligning vision with action and clarity.
           </p>
           <a href="/innovation" class="learn-more">Learn More →</a>
         </div>
@@ -238,7 +237,7 @@ const description =
             <div class="stat">
               <h3>6+</h3><p>Fortune 500 clients served</p>
             </div>
-            <div class="stat"><h3>3</h3><p>Core innovation pillars</p></div>
+            <div class="stat"><h3>3</h3><p>Core innovation pillars driving impact</p></div>
             <div class="stat">
               <h3>100%</h3><p>Human-centered by design</p>
             </div>
@@ -333,8 +332,9 @@ const description =
               Real-World Use Case
             </h4>
             <p>
-              How spatial computing is reshaping the way teams collaborate and
-              deliver remote assistance across industries.
+              How spatial computing is reshaping the way distributed teams
+              collaborate, troubleshoot, and deliver real-time remote assistance
+              across complex industrial environments.
             </p>
             <div class="blog-read-more">Read More →</div>
           </div>
@@ -351,7 +351,8 @@ const description =
             </h4>
             <p>
               Comprehensive plans to lead your business through rapid digital
-              evolution — from ideation through execution and beyond.
+              evolution — from early ideation and validation through full-scale
+              execution and market growth.
             </p>
             <div class="blog-read-more">Read More →</div>
           </div>
@@ -368,8 +369,9 @@ const description =
               Revenue Growth
             </h4>
             <p>
-              The concrete business outcomes that immersive technology is
-              delivering for forward-thinking brands.
+              The concrete business outcomes that immersive technologies like
+              AR, VR, and spatial computing are delivering for forward-thinking
+              brands and enterprises today.
             </p>
             <div class="blog-read-more">Read More →</div>
           </div>
@@ -502,7 +504,7 @@ const description =
       background-clip: text;
     }
     .hero h1 {
-      font-size: clamp(52px, 7vw, 96px);
+      font-size: clamp(51px, 6.8vw, 97px);
       font-weight: 100;
       line-height: 1.04;
       color: var(--black);
@@ -584,9 +586,11 @@ const description =
       z-index: 2;
     }
 
-    .services-grid,
-    .blog-grid {
-      grid-template-columns: 1fr;
+    @media (max-width: 600px) {
+      .services-grid,
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ── About (index-specific) ── */

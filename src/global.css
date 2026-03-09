@@ -45,6 +45,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+p, li, dd, blockquote, td, th, caption, figcaption {
+  text-wrap: pretty;
+  orphans: 2;
+  widows: 2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -293,6 +303,19 @@ nav {
 
 .client-name:hover {
   color: var(--blue);
+}
+
+.client-logo {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+  opacity: 0.45;
+  transition: opacity var(--tr);
+  filter: grayscale(100%);
+}
+
+.client-logo:hover {
+  opacity: 0.8;
 }
 
 @keyframes clients-scroll {

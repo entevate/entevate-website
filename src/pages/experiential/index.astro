@@ -78,13 +78,13 @@ const description =
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3>Live Events & Brand Activations</h3>
+          <h3>Live Events &amp; Brand Activations Strategy</h3>
           <em>Where your brand becomes an experience.</em>
           <p>
             From trade show booths to full-scale corporate events, we design and
             produce immersive, on-brand experiences that create lasting
-            impressions. Every activation is rooted in strategy, executed with
-            precision, and measured for impact.
+            impressions and meaningful connections. Every activation is rooted
+            in strategy, executed with precision, and measured for real impact.
           </p>
           <a href="/contact?service=experiential" class="offering-cta"
             >Activate Your Brand →</a
@@ -108,13 +108,13 @@ const description =
                 stroke-width="1.6"></circle>
             </svg>
           </div>
-          <h3>AR, VR & Spatial Computing</h3>
+          <h3>AR, VR &amp; Spatial Computing Experiences</h3>
           <em>Redefining what brand engagement can be.</em>
           <p>
             We design and build augmented reality, virtual reality, and spatial
-            computing experiences that place your audience inside your story.
-            Powered by cutting-edge technology and grounded in measurable
-            outcomes that go beyond the hype.
+            computing experiences that place your audience inside your story —
+            powered by cutting-edge technology and grounded in measurable
+            outcomes that go well beyond the hype.
           </p>
           <a href="/contact?service=experiential" class="offering-cta"
             >Explore Immersive Tech →</a
@@ -139,7 +139,7 @@ const description =
                 stroke-linecap="round"></path>
             </svg>
           </div>
-          <h3>Content Production & Storytelling</h3>
+          <h3>Content Production &amp; Brand Storytelling</h3>
           <em>Stories that earn attention and drive action.</em>
           <p>
             From concept to final cut, we produce video, photography, and
@@ -168,7 +168,7 @@ const description =
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3>Trade Show & Exhibition Design</h3>
+          <h3>Trade Show &amp; Exhibition Experience Design</h3>
           <em>Stand out on the floor that matters most.</em>
           <p>
             We design trade show exhibits and exhibition environments that
@@ -189,17 +189,18 @@ const description =
   <section class="momentify-section" id="momentify">
     <div class="momentify-inner">
       <div class="momentify-left fade-up">
-        <span class="momentify-eyebrow">Featured Tool</span>
-        <h2>Momentify: Making Every Brand Moment Measurable</h2>
+        <span class="momentify-eyebrow">Featured Platform</span>
+        <img src="/logos/momentify-logo.svg" alt="Momentify" class="momentify-logo" />
+        <h2>The Operating System for In-Person Engagement</h2>
         <p>
-          Momentify is ENTEVATE's proprietary platform for capturing, measuring,
-          and amplifying brand experiences. Whether you're running a live
-          activation, an AR experience, or a multi-day event — Momentify gives
-          you real-time data on engagement, sentiment, and impact so you can
-          prove ROI and continuously improve.
+          Momentify captures, scores, and converts interactions at events and
+          venues using proprietary ROX (Return on Experience) scoring. From
+          trade shows to facility tours, it transforms attendee engagement into
+          real-time lead capture, intent scoring, and conversion tracking —
+          so you can finally tie experiential investments to measurable outcomes.
         </p>
         <a
-          href="https://www.momentifyapp.com/"
+          href="https://momentify-website.vercel.app/"
           target="_blank"
           class="btn-teal-solid">Explore Momentify ↗</a
         >
@@ -207,25 +208,25 @@ const description =
 
       <div class="momentify-stats fade-up">
         <div class="m-stat">
+          <div class="m-stat-val">ROX™</div>
+          <div class="m-stat-label">Return on Experience scoring across every interaction</div>
+        </div>
+        <div class="m-stat">
+          <div class="m-stat-val">92%</div>
+          <div class="m-stat-label">
+            Lead increase reported year-over-year by customers
+          </div>
+        </div>
+        <div class="m-stat">
           <div class="m-stat-val">Real-Time</div>
-          <div class="m-stat-label">Engagement tracking at live events</div>
-        </div>
-        <div class="m-stat">
-          <div class="m-stat-val">Scalable</div>
           <div class="m-stat-label">
-            From 50-person activations to global campaigns
+            Analytics, dashboards, and automated follow-up workflows
           </div>
         </div>
         <div class="m-stat">
-          <div class="m-stat-val">Measurable</div>
+          <div class="m-stat-val">Multi-Platform</div>
           <div class="m-stat-label">
-            ROI reporting built into every experience
-          </div>
-        </div>
-        <div class="m-stat">
-          <div class="m-stat-val">Human-First</div>
-          <div class="m-stat-label">
-            Data that reflects real emotional connections
+            Available on web, iOS, and Android — with offline capture
           </div>
         </div>
       </div>
@@ -468,7 +469,7 @@ const description =
     }
 
     .hero h1 {
-      font-size: clamp(50px, 7vw, 92px);
+      font-size: clamp(40px, 7vw, 82px);
       font-weight: 100;
       line-height: 1.04;
       color: var(--white);
@@ -641,6 +642,7 @@ const description =
       margin-bottom: 6px;
       letter-spacing: -0.01em;
       line-height: 1.3;
+      max-width: 240px;
     }
 
     .offering-card em {
@@ -707,6 +709,14 @@ const description =
       color: var(--teal-light);
       margin-bottom: 14px;
       display: block;
+    }
+
+    .momentify-logo {
+      height: 32px;
+      width: auto;
+      margin-bottom: 18px;
+      display: block;
+      filter: brightness(0) invert(1);
     }
 
     .momentify-left h2 {
@@ -839,7 +849,7 @@ const description =
 
     .proof-stat {
       font-size: 20px;
-      font-weight: 700;
+      font-weight: 500;
       color: var(--black);
       margin-bottom: 10px;
       letter-spacing: -0.01em;
