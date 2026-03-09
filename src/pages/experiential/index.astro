@@ -392,13 +392,12 @@ const description =
 
   <script src="../../global.js"></script>
   <script>
-    document
-      .querySelectorAll(
+    document;
+    window.onload = () => {
+      staggerFadeIn(
         ".offerings-grid .fade-up, .proof-grid .fade-up, .momentify-stats .m-stat",
-      )
-      .forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.09}s`;
-      });
+      );
+    };
   </script>
 
   <style>

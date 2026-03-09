@@ -376,15 +376,10 @@ const description =
 
   <script src="../global.js"></script>
   <script>
-    // Staggered animation delays for team grid
-    document.querySelectorAll(".team-grid .fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.07}s`;
-    });
-
-    // Staggered animation delays for value pills
-    document.querySelectorAll(".mission-right .value-pill").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-    });
+    window.onload = () => {
+      staggerFadeIn(".team-grid .fade-up");
+      staggerFadeIn(".mission-right .value-pill");
+    };
   </script>
 
   <style>

@@ -729,25 +729,12 @@ const description =
 
   <script src="../../global.js"></script>
   <script>
-    // Staggered animation delays for journey steps
-    document.querySelectorAll(".journey-step.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.06}s`;
-    });
-
-    // Staggered animation delays for offering cards
-    document.querySelectorAll(".offerings-grid .fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-    });
-
-    // Staggered animation delays for proof points
-    document.querySelectorAll(".proof-grid .fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.1}s`;
-    });
-
-    // Staggered animation delays for case cards
-    document.querySelectorAll(".cases-grid .fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.1}s`;
-    });
+    window.onload = () => {
+      staggerFadeIn(".journey-step.fade-up");
+      staggerFadeIn(".offerings-grid .fade-up");
+      staggerFadeIn(".proof-grid .fade-up");
+      staggerFadeIn(".cases-grid .fade-up");
+    };
   </script>
 
   <style>

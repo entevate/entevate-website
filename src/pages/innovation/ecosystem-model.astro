@@ -638,28 +638,10 @@ const description =
 
   <script src="../../global.js"></script>
   <script>
-    document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.09}s`;
-    });
-    document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-    });
-    document.querySelectorAll(".element-item").forEach((el, i) => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(16px)";
-      el.style.transition = `opacity 0.45s ease ${i * 0.06}s, transform 0.45s ease ${i * 0.06}s`;
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            el.style.opacity = "1";
-            el.style.transform = "none";
-            obs.unobserve(el);
-          }
-        },
-        { threshold: 0.15 },
-      );
-      obs.observe(el);
-    });
+    window.onload = () => {
+      staggerFadeIn(".process-step.fade-up");
+      staggerFadeIn(".for-card.fade-up");
+    };
   </script>
 
   <style>

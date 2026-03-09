@@ -1614,15 +1614,10 @@ const description =
 
   <script src="../../global.js"></script>
   <script>
-    // Stagger process steps
-    document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.09}s`;
-    });
-
-    // Stagger for-cards
-    document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-    });
+    window.onload = () => {
+      staggerFadeIn(".process-step.fade-up");
+      staggerFadeIn(".for-card.fade-up");
+    };
 
     // Stagger basecamp items
     document.querySelectorAll(".basecamp-item").forEach((el, i) => {

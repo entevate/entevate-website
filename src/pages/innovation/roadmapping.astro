@@ -1077,14 +1077,10 @@ const description =
 
   <script src="../../global.js"></script>
   <script>
-    document.querySelectorAll(".process-step.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.09}s`;
-    });
-    document.querySelectorAll(".for-card.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-    });
-    document.querySelectorAll(".stage-card.fade-up").forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.06}s`;
-    });
+    window.onload = () => {
+      staggerFadeIn(".process-step.fade-up");
+      staggerFadeIn(".for-card.fade-up");
+      staggerFadeIn(".stage-card.fade-up");
+    };
   </script>
 </BaseLayout>
