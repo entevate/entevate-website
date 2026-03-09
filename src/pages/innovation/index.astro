@@ -7,9 +7,40 @@ import "../../global.css";
 const title = "Innovation | Ventures | Ecosystem — ENTEVATE";
 const description =
   "ENTEVATE co-creates actionable innovation roadmaps that move ecosystems, ventures, and teams from ideation through amplification — with clarity at every stage.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Innovation | Ventures | Ecosystem",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/innovation",
+    "serviceType": "Innovation Consulting",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Innovation Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Innovation Roadmapping™ + Venture Development" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecosystem Model: 7 Core Elements™" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Innovation Sandbox™" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AIQUI Framework — AI & Quantum Innovation" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sideline Capital Activation & Funding" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Innovation", "item": "https://www.entevate.com/innovation" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->

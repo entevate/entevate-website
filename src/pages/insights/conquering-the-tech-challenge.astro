@@ -8,9 +8,30 @@ const title =
   "Conquering the Tech Challenge: Your Actionable Checklist for Navigating AR, VR, and AI — ENTEVATE";
 const description =
   "A practical guide to implementing emerging technologies like AR, VR, and AI in your business without getting overwhelmed by the complexity.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Conquering the Tech Challenge: Your Actionable Checklist for Navigating AR, VR, and AI",
+    "description": description,
+    "url": "https://www.entevate.com/insights/conquering-the-tech-challenge",
+    "author": { "@type": "Organization", "name": "ENTEVATE" },
+    "publisher": { "@type": "Organization", "name": "ENTEVATE", "logo": { "@type": "ImageObject", "url": "https://www.entevate.com/favicon.png" } }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.entevate.com/our-work" },
+      { "@type": "ListItem", "position": 3, "name": "Conquering the Tech Challenge", "item": "https://www.entevate.com/insights/conquering-the-tech-challenge" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogType="article" jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- ═══ HERO ═══ -->

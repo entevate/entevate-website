@@ -7,9 +7,30 @@ import "../../global.css";
 const title = "Innovation Sandbox™ — ENTEVATE";
 const description =
   "The Innovation Sandbox™ is a contained, facilitated environment for prototyping and validating your most promising ideas — with low risk, fast learning, and a clear signal for what to build next.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Innovation Sandbox™",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/innovation/innovation-sandbox",
+    "serviceType": "Innovation Prototyping"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Innovation", "item": "https://www.entevate.com/innovation" },
+      { "@type": "ListItem", "position": 3, "name": "Innovation Sandbox™", "item": "https://www.entevate.com/innovation/innovation-sandbox" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <style>
     /* Section helpers */
     .container {

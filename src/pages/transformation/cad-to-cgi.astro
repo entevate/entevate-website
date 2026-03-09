@@ -7,9 +7,30 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const title = "CAD to CGI Conversion — ENTEVATE";
 const description =
   "Transform your existing CAD data into photorealistic CGI assets for marketing, training, sales, and XR experiences.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "CAD-to-CGI Conversion & Visualization",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/transformation/cad-to-cgi",
+    "serviceType": "3D Visualization & Conversion"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Transformation", "item": "https://www.entevate.com/transformation" },
+      { "@type": "ListItem", "position": 3, "name": "CAD to CGI", "item": "https://www.entevate.com/transformation/cad-to-cgi" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <style>
     /* Shared */
     .section {

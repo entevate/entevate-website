@@ -8,9 +8,22 @@ const title =
   "ENTEVATE | Experiential Branding, Digital Transformation & Innovation Roadmapping";
 const description =
   "Human-centered innovation partner. We partner with organizations ready to evolve—designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.";
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ENTEVATE",
+  "url": "https://www.entevate.com",
+  "description": description,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.entevate.com/contact?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+});
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogType="website" jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- Hero -->

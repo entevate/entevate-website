@@ -8,9 +8,39 @@ import "../../global.css";
 const title = "Experiential Branding & Marketing — ENTEVATE";
 const description =
   "We help you spark connection and drive action through intentional, emotionally engaging brand moments. With tools like Momentify, every interaction becomes measurable, memorable, and built to scale.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Experiential Branding & Marketing",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/experiential",
+    "serviceType": "Experiential Marketing",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Experiential Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Trade Show Activations & Exhibit Design" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Momentify Platform — In-Person Engagement & ROX™ Scoring" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AR/VR/Spatial Computing Experiences" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Strategy & Experiential Marketing" } }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Experiential Branding & Marketing", "item": "https://www.entevate.com/experiential" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->

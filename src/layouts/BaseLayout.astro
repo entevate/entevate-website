@@ -2,9 +2,48 @@
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  jsonLd?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  ogImage = '/images/entevate-og-default.svg',
+  ogType = 'website',
+  canonicalUrl,
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = 'https://www.entevate.com';
+const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).href;
+
+const organizationSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ENTEVATE",
+  "url": siteUrl,
+  "logo": `${siteUrl}/favicon.png`,
+  "description": "Human-centered innovation partner — experiential branding, digital transformation, and innovation roadmapping.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "url": `${siteUrl}/contact`
+  },
+  "knowsAbout": [
+    "Experiential Branding",
+    "Digital Transformation",
+    "Content Readiness",
+    "Innovation Roadmapping",
+    "AR/VR/Spatial Computing",
+    "Innovation Ecosystems",
+    "Trade Show Activations",
+    "CAD to CGI Conversion"
+  ]
+});
 ---
 
 <!doctype html>
@@ -16,7 +55,29 @@ const { title, description } = Astro.props;
     {description && (
       <meta name="description" content={description} />
     )}
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="ENTEVATE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Structured Data: Organization (global) -->
+    <script type="application/ld+json" set:html={organizationSchema} />
+
+    <!-- Structured Data: Page-specific -->
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

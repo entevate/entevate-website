@@ -7,9 +7,23 @@ import "../global.css";
 const title = "About Us — ENTEVATE";
 const description =
   "We are a human-centered innovation partner for leaders ready to build what comes next — at the intersection of experiential branding, digital transformation, and strategic roadmapping.";
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About ENTEVATE",
+  "description": description,
+  "url": "https://www.entevate.com/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "ENTEVATE",
+    "url": "https://www.entevate.com",
+    "description": "Human-centered innovation partner — experiential branding, digital transformation, and innovation roadmapping."
+  }
+});
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->

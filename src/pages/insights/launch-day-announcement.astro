@@ -7,9 +7,30 @@ import "../../global.css";
 const title = "Launch Day: ENTEVATE Is Here — ENTEVATE";
 const description =
   "Launch announcement for ENTEVATE, outlining our mission, services, and how to connect.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Launch Day: ENTEVATE Is Here",
+    "description": description,
+    "url": "https://www.entevate.com/insights/launch-day-announcement",
+    "author": { "@type": "Organization", "name": "ENTEVATE" },
+    "publisher": { "@type": "Organization", "name": "ENTEVATE", "logo": { "@type": "ImageObject", "url": "https://www.entevate.com/favicon.png" } }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.entevate.com/our-work" },
+      { "@type": "ListItem", "position": 3, "name": "Launch Day", "item": "https://www.entevate.com/insights/launch-day-announcement" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogType="article" jsonLd={jsonLd}>
   <style>
     /* ── Hero ── */
     .hero {

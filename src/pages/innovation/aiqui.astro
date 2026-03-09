@@ -7,9 +7,30 @@ import "../../global.css";
 const title = "AIQUI Framework — ENTEVATE";
 const description =
   "AIQUI is ENTEVATE’s applied framework for AI and quantum innovation, mapping the full ecosystem across seven core basecamps.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AIQUI Framework — AI & Quantum Innovation",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/innovation/aiqui",
+    "serviceType": "AI & Quantum Innovation Consulting"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Innovation", "item": "https://www.entevate.com/innovation" },
+      { "@type": "ListItem", "position": 3, "name": "AIQUI", "item": "https://www.entevate.com/innovation/aiqui" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <style>
     /* ── Shared ── */
     .section {
@@ -890,13 +911,13 @@ const description =
     .mob-services-sub a:hover .mob-sub-icon {
       opacity: 1;
     }
-    .mob-services-sub a[href="/experiential.html"]:hover {
+    .mob-services-sub a[href="/experiential"]:hover {
       color: #3d978a;
     }
-    .mob-services-sub a[href="/transformation.html"]:hover {
+    .mob-services-sub a[href="/transformation"]:hover {
       color: #e8782a;
     }
-    .mob-services-sub a[href="/innovation.html"]:hover {
+    .mob-services-sub a[href="/innovation"]:hover {
       color: #6a6b9e;
     }
     .mob-link {
@@ -1602,7 +1623,7 @@ const description =
           <a href="/contact?service=aiqui" class="btn-white-solid"
             >Schedule a Discovery Call</a
           >
-          <a href="/innovation.html" class="btn-white-ghost"
+          <a href="/innovation" class="btn-white-ghost"
             >Back to Innovation Overview</a
           >
         </div>

@@ -7,9 +7,34 @@ import "../../global.css";
 const title = "Ecosystem Model: 7 Core Elements™ — ENTEVATE";
 const description =
   "ENTEVATE's 7 Core Elements™ framework gives any innovation ecosystem a complete, structured map — covering every stakeholder, sector, and stage from assessment through activation.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Ecosystem Model: 7 Core Elements™",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/innovation/ecosystem-model",
+    "serviceType": "Innovation Ecosystem Consulting",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Innovation districts, cities, universities, economic development organizations, enterprise innovation teams"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Innovation", "item": "https://www.entevate.com/innovation" },
+      { "@type": "ListItem", "position": 3, "name": "Ecosystem Model", "item": "https://www.entevate.com/innovation/ecosystem-model" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- Hero -->

@@ -7,9 +7,34 @@ import "../../global.css";
 const title = "Content Readiness™ — ENTEVATE";
 const description =
   "Content Readiness™ is the state of your written, visual, and animated content — and its preparedness for delivery through today's and tomorrow's digital and immersive platforms.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Content Readiness™",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/transformation/content-readiness",
+    "serviceType": "Content Strategy & Assessment",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Enterprise content teams, marketing organizations, companies undergoing digital transformation"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Transformation", "item": "https://www.entevate.com/transformation" },
+      { "@type": "ListItem", "position": 3, "name": "Content Readiness™", "item": "https://www.entevate.com/transformation/content-readiness" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <style>
     /* Shared */
     .section {

@@ -8,9 +8,30 @@ const title =
   "Finding Your Perfect Match: Partnering for Digital Innovation Success — ENTEVATE";
 const description =
   "A practical framework for choosing the right digital innovation partner and building partnerships that actually deliver results.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Finding Your Perfect Match: Partnering for Digital Innovation Success",
+    "description": description,
+    "url": "https://www.entevate.com/insights/finding-your-perfect-match",
+    "author": { "@type": "Organization", "name": "ENTEVATE" },
+    "publisher": { "@type": "Organization", "name": "ENTEVATE", "logo": { "@type": "ImageObject", "url": "https://www.entevate.com/favicon.png" } }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://www.entevate.com/our-work" },
+      { "@type": "ListItem", "position": 3, "name": "Finding Your Perfect Match", "item": "https://www.entevate.com/insights/finding-your-perfect-match" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogType="article" jsonLd={jsonLd}>
   <style>
     .hero {
       background:

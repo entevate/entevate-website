@@ -1,0 +1,73 @@
+# ENTEVATE — Human-Centered Innovation Partner
+
+> ENTEVATE partners with organizations ready to evolve — designing immersive brand experiences, aligning digital content, and building actionable roadmaps for lasting impact.
+
+## Company Overview
+
+ENTEVATE is a human-centered innovation consultancy operating at the intersection of three pillars: Experiential Branding & Marketing, Digital & Content Transformation, and Innovation Ecosystems & Venture Development.
+
+We work with Fortune 500 enterprises, manufacturing and industrial companies, universities and research institutions, economic development organizations, innovation districts, and technology startups.
+
+Website: https://www.entevate.com
+Contact: https://www.entevate.com/contact
+
+## Three Pillars
+
+### 1. Experiential Branding & Marketing
+Design and execute immersive, emotionally engaging brand experiences for trade shows, events, and digital touchpoints. Powered by Momentify — our proprietary platform for in-person engagement with ROX™ (Return on Experience) scoring.
+- Trade show activations and exhibit design
+- AR/VR/spatial computing experiences
+- Brand strategy and experiential marketing
+- Momentify platform for engagement measurement
+URL: https://www.entevate.com/experiential
+
+### 2. Digital & Content Transformation
+Align people, platforms, and processes through Content Readiness™ — our proprietary framework for evaluating and optimizing written, visual, and animated content across every digital and immersive channel.
+- Content Readiness™ assessment and scoring
+- Digital transformation strategy and execution
+- CAD-to-CGI conversion and visualization
+- Remote assistance and spatial workflows
+- Learning & development, change management
+URL: https://www.entevate.com/transformation
+
+### 3. Innovation | Ventures | Ecosystem
+Co-create actionable innovation roadmaps that move ecosystems, ventures, and teams from ideation through amplification.
+- Innovation Roadmapping™ (8-stage methodology from Ideation to Amplification)
+- Ecosystem Model: 7 Core Elements™ framework for mapping innovation ecosystems
+- Innovation Sandbox™ for prototyping and validating ideas
+- AIQUI framework for AI and quantum innovation
+- Sideline Capital activation and venture development
+URL: https://www.entevate.com/innovation
+
+## Proprietary Frameworks & Tools
+
+- **Content Readiness™**: Assessment methodology for evaluating content preparedness across digital and immersive platforms
+- **Momentify**: Operating system for in-person engagement with ROX™ (Return on Experience) scoring
+- **Innovation Roadmapping™**: 8-stage process — Ideation, Validation, Business Case, Prototyping, Operationalization, Go-to-Market, Amplification, Scale
+- **7 Core Elements™**: Comprehensive framework for mapping every stakeholder, sector, and stage in an innovation ecosystem
+- **Innovation Sandbox™**: Contained environment for prototyping and validating promising ideas with low risk and fast learning
+- **AIQUI**: Applied framework for AI and quantum innovation across seven core basecamps
+- **Core Elements Basecamps™**: Structured activation points within the 7 Core Elements ecosystem
+
+## Target Personas
+
+- **Fortune 500 & Enterprise**: Trade show activations, digital transformation, content optimization
+- **Manufacturing & Industrial**: CAD-to-CGI conversion, AR remote assistance, spatial workflows
+- **Universities & Research Institutions**: Innovation ecosystem mapping, AIQUI framework, sandbox prototyping
+- **Economic Development Organizations**: Ecosystem model design, innovation district strategy, stakeholder alignment
+- **Innovation Districts & Cities**: 7 Core Elements mapping, roadmapping, venture development
+- **Startups & Ventures**: Innovation Sandbox prototyping, roadmapping, go-to-market strategy
+
+## Case Studies
+
+- Fortune 500 Trade Show Activation: AR-powered multi-zone exhibit design
+- Energy Innovation Lab: Innovation lab build from roadmap to live experimentation
+- Trinity College AIQUI Sandbox: AI and quantum innovation ecosystem mapping
+
+## Insights & Thought Leadership
+
+ENTEVATE publishes insights on experiential branding, AR/VR strategy, digital transformation, innovation roadmapping, and emerging technology adoption.
+
+## Full Documentation
+
+For detailed information, see: https://www.entevate.com/llms-full.txt

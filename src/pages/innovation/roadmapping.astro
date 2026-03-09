@@ -7,9 +7,46 @@ import "../../global.css";
 const title = "Innovation Roadmapping™ + Venture Development — ENTEVATE";
 const description =
   "Actionable innovation roadmaps and venture development — from ideation through amplification, with clarity at every stage.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Innovation Roadmapping™ + Venture Development",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/innovation/roadmapping",
+    "serviceType": "Innovation Consulting"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "ENTEVATE Innovation Roadmapping™ — 8-Stage Methodology",
+    "description": "A structured 8-stage innovation process from ideation to scale.",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Ideation", "text": "Generate and screen ideas through brainstorming and crowdsourcing." },
+      { "@type": "HowToStep", "position": 2, "name": "Validation", "text": "Validate impact, feasibility, and market demand through research." },
+      { "@type": "HowToStep", "position": 3, "name": "Business Case", "text": "Refine the idea and create a stakeholder-aligned business case." },
+      { "@type": "HowToStep", "position": 4, "name": "Prototyping", "text": "Build and test an MVP in real-world settings, iterating on feedback." },
+      { "@type": "HowToStep", "position": 5, "name": "Operationalization", "text": "Establish team structure, roles, and go-to-market processes." },
+      { "@type": "HowToStep", "position": 6, "name": "Go-to-Market", "text": "Drive awareness and adoption through marketing and feedback." },
+      { "@type": "HowToStep", "position": 7, "name": "Amplification", "text": "Scale through strategic partnerships and external funding channels." },
+      { "@type": "HowToStep", "position": 8, "name": "Scale", "text": "Achieve profitability at scale across multiple innovation ecosystems." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Innovation", "item": "https://www.entevate.com/innovation" },
+      { "@type": "ListItem", "position": 3, "name": "Roadmapping", "item": "https://www.entevate.com/innovation/roadmapping" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header client:load />
 
   <style>
@@ -619,7 +656,7 @@ const description =
           through to venture formation, funding readiness, and scale.
         </p>
         <div class="hero-actions">
-          <a href="/contact.html?service=roadmapping" class="btn-primary"
+          <a href="/contact?service=roadmapping" class="btn-primary"
             >Start Your Roadmap →</a
           >
           <a href="#journey" class="btn-ghost-dark"
@@ -1061,10 +1098,10 @@ const description =
           full 8-stage journey.
         </p>
         <div class="cta-band-actions">
-          <a href="/contact.html?service=roadmapping" class="btn-white-solid"
+          <a href="/contact?service=roadmapping" class="btn-white-solid"
             >Start Your Roadmap</a
           >
-          <a href="/innovation.html" class="btn-white-ghost"
+          <a href="/innovation" class="btn-white-ghost"
             >Back to Innovation Overview</a
           >
         </div>

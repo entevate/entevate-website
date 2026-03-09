@@ -7,9 +7,30 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const title = "Digital Transformation Strategy — ENTEVATE";
 const description =
   "Human-centered digital transformation: learning & development, process design, change management, and governance.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Digital Transformation Strategy",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/transformation/digital-strategy",
+    "serviceType": "Digital Transformation Consulting"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Transformation", "item": "https://www.entevate.com/transformation" },
+      { "@type": "ListItem", "position": 3, "name": "Digital Strategy", "item": "https://www.entevate.com/transformation/digital-strategy" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <style>
     .section {
       padding: 80px 48px;

@@ -7,9 +7,30 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const title = "Remote Assistance & Spatial Workflows — ENTEVATE";
 const description =
   "AR-powered remote assistance and spatial workflow design for field teams, service technicians, and distributed workforces.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Remote Assistance & Spatial Workflows",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/transformation/remote-assistance",
+    "serviceType": "AR Remote Assistance"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Transformation", "item": "https://www.entevate.com/transformation" },
+      { "@type": "ListItem", "position": 3, "name": "Remote Assistance", "item": "https://www.entevate.com/transformation/remote-assistance" }
+    ]
+  }
+]);
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <style>
     .section {
       padding: 80px 48px;

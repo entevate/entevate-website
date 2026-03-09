@@ -7,9 +7,26 @@ import "../global.css";
 const title = "Our Work — ENTEVATE";
 const description =
   "Real engagements, tangible outcomes, and thinking from the frontier of experiential branding, digital transformation, and innovation strategy.";
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Our Work",
+  "description": description,
+  "url": "https://www.entevate.com/our-work",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "ENTEVATE Case Studies & Insights",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "url": "https://www.entevate.com/experiential/fortune-500-trade-show" },
+      { "@type": "ListItem", "position": 2, "url": "https://www.entevate.com/innovation/energy-innovation-lab" },
+      { "@type": "ListItem", "position": 3, "url": "https://www.entevate.com/innovation/trinity-aiqui-sandbox" }
+    ]
+  }
+});
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->

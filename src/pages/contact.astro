@@ -8,9 +8,27 @@ import "../global.css";
 const title = "Contact Us — ENTEVATE";
 const description =
   "Ready to build something exceptional? Tell us about your challenge. We'll respond within one business day with a path forward.";
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact ENTEVATE",
+  "description": description,
+  "url": "https://www.entevate.com/contact",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "ENTEVATE",
+    "url": "https://www.entevate.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "url": "https://www.entevate.com/contact"
+    }
+  }
+});
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- Hero -->
