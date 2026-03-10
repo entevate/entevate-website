@@ -89,6 +89,7 @@ const jsonLd = JSON.stringify([
     <div class="journey-outer">
       <div class="journey-wrap" id="journeyScroll">
         <div class="journey-track">
+          <div class="journey-line" aria-hidden="true"></div>
           <!-- Stage 1 -->
           <div class="journey-step fade-up">
             <div class="journey-num c-blue">
@@ -937,13 +938,12 @@ const jsonLd = JSON.stringify([
       padding: 0 32px;
       gap: 0;
     }
-    .journey-track::before {
-      content: "";
+    .journey-line {
       position: absolute;
-      top: 44px;
-      left: calc(32px + 110px / 2);
-      right: calc(32px + 110px / 2);
-      height: 2px;
+      top: 43px;
+      left: 87px;
+      width: calc(100% - 174px);
+      height: 3px;
       background: linear-gradient(
         90deg,
         var(--blue) 0%,
@@ -963,8 +963,9 @@ const jsonLd = JSON.stringify([
         var(--orange-light) 92.86%,
         var(--orange-light) 100%
       );
-      opacity: 0.35;
-      z-index: 0;
+      opacity: 0.5;
+      z-index: 1;
+      pointer-events: none;
     }
     .journey-step {
       flex: 0 0 220px;
@@ -1593,11 +1594,10 @@ const jsonLd = JSON.stringify([
         min-width: auto;
         padding: 0;
       }
-      .journey-track::before {
+      .journey-line {
         top: 44px;
         bottom: 44px;
         left: 43px;
-        right: auto;
         width: 2px;
         height: auto;
         background: linear-gradient(
