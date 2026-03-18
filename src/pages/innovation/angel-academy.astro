@@ -1,0 +1,1328 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.jsx";
+import Footer from "../../components/Footer.jsx";
+import "../../global.css";
+
+const title = "Angel Academy™ — Activating Sideline Capital | ENTEVATE";
+const description =
+  "Angel Academy™ equips accredited investors with the knowledge, networks, and deal-flow access to confidently invest in early-stage ventures — activating sideline capital where it matters most.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Angel Academy™",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/innovation/angel-academy",
+    "serviceType": "Angel Investor Education & Capital Activation"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Innovation", "item": "https://www.entevate.com/innovation" },
+      { "@type": "ListItem", "position": 3, "name": "Angel Academy™", "item": "https://www.entevate.com/innovation/angel-academy" }
+    ]
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd}>
+  <style>
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--orange-light);
+    }
+
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(15, 14, 32, 0.62) 0%,
+          rgba(32, 32, 58, 0.52) 50%,
+          rgba(50, 50, 82, 0.44) 100%
+        ),
+        url("/images/bt3.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(234, 151, 9, 0.14);
+      border: 1px solid rgba(234, 151, 9, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ea9709, #f5c842);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6.5vw, 78px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 900px;
+    }
+
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #f5c842 0%, #ffdf80 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 660px;
+      margin-bottom: 42px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #c47f00 0%, #ea9709 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #a36900 0%, #c47f00 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(234, 151, 9, 0.5);
+    }
+
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Overview */
+    .overview-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .overview-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .overview-left h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .overview-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .overview-left p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .overview-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-top: 8px;
+    }
+
+    .overview-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px;
+      background: var(--light-blue);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .overview-stat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .osi-orange {
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+    }
+
+    .osi-green {
+      background: rgba(61, 151, 138, 0.1);
+      color: var(--green);
+    }
+
+    .osi-purple {
+      background: rgba(68, 69, 97, 0.1);
+      color: var(--purple);
+    }
+
+    .osi-blue {
+      background: rgba(36, 123, 150, 0.1);
+      color: var(--blue);
+    }
+
+    .overview-stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .overview-stat-label {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.5;
+    }
+
+    /* Workshop Stages */
+    .stages-section {
+      background: var(--light-blue);
+      padding: 88px 48px;
+    }
+
+    .stages-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .stages-header {
+      margin-bottom: 56px;
+    }
+
+    .stages-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .stages-grid::before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: calc(12.5% + 14px);
+      right: calc(12.5% + 14px);
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--orange-light) 0%,
+        var(--green) 33%,
+        var(--purple) 66%,
+        var(--blue) 100%
+      );
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .stage-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stage-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+      transition:
+        transform var(--tr),
+        box-shadow var(--tr);
+    }
+
+    .stage-step:hover .stage-num {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .sn-amber { background: var(--orange-light); }
+    .sn-green { background: var(--green); }
+    .sn-purple { background: var(--purple); }
+    .sn-blue { background: var(--blue); }
+
+    .stage-step-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .stage-step-desc {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* Ecosystem section */
+    .ecosystem-section {
+      background: var(--white);
+      padding: 88px 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .ecosystem-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .ecosystem-header {
+      margin-bottom: 56px;
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .eco-card {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+
+    .eco-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .eco-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+    }
+
+    .eco-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .eco-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
+
+    /* Who It's For */
+    .for-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 88px 48px;
+    }
+
+    .for-header {
+      max-width: 1160px;
+      margin: 0 auto 52px;
+    }
+
+    .for-header .section-label {
+      color: var(--orange-light) !important;
+    }
+
+    .for-header .section-title {
+      color: var(--white);
+    }
+
+    .for-header .section-subtitle {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .for-grid {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .for-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      transition:
+        background var(--tr),
+        border-color var(--tr),
+        transform var(--tr);
+    }
+
+    .for-card:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-3px);
+    }
+
+    .for-card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .fci-amber {
+      background: rgba(234, 151, 9, 0.2);
+      color: #f5c842;
+    }
+
+    .fci-green {
+      background: rgba(61, 151, 138, 0.2);
+      color: #72d4c5;
+    }
+
+    .fci-blue {
+      background: rgba(36, 123, 150, 0.2);
+      color: #4dc8e0;
+    }
+
+    .fci-purple {
+      background: rgba(142, 144, 200, 0.2);
+      color: #b4baff;
+    }
+
+    .for-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .for-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.7;
+    }
+
+    /* RYG Section */
+    .ryg-section {
+      background: var(--light-blue);
+      padding: 88px 48px;
+    }
+
+    .ryg-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .ryg-left h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .ryg-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .ryg-topics {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .ryg-topics li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+
+    .ryg-topics li .ryg-bullet {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(234, 151, 9, 0.1);
+      color: var(--orange-light);
+      margin-top: 1px;
+    }
+
+    .ryg-topics li strong {
+      color: var(--black);
+    }
+
+    /* CTA Band */
+    .cta-band {
+      background: linear-gradient(135deg, #b07200 0%, var(--purple) 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 40%,
+          rgba(255, 255, 255, 0.07) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--orange-light);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero {
+        padding: 72px 24px 88px;
+        min-height: auto;
+      }
+
+      .overview-inner,
+      .ryg-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .stages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+
+      .stages-grid::before {
+        display: none;
+      }
+
+      .ecosystem-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .for-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .overview-section,
+      .stages-section,
+      .ecosystem-section,
+      .for-section,
+      .ryg-section,
+      .cta-band {
+        padding: 64px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px 72px;
+      }
+
+      .stages-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .for-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cta-band-actions {
+        flex-direction: column;
+      }
+
+      .btn-white-solid,
+      .btn-white-ghost {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+  <Header client:load />
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          Angel Academy™
+        </div>
+        <h1>
+          Activating <span class="accent">Sideline Capital</span> for Early-Stage Ventures.
+        </h1>
+        <p class="hero-sub">
+          Angel Academy™ is a hands-on investor education program that equips accredited investors with the knowledge, networks, and deal-flow access to confidently deploy capital into high-potential startups — strengthening innovation ecosystems from the ground up.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact?service=angel-academy" class="btn-primary"
+            >Launch in Your Market →</a
+          >
+          <a href="#stages" class="btn-ghost-dark">See the Four Stages ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ OVERVIEW ═══════════════════════════ -->
+  <section class="overview-section" id="overview">
+    <div class="overview-inner">
+      <div class="overview-left fade-up">
+        <div class="section-label">The Opportunity</div>
+        <h2>
+          Hundreds of millions of potential angel investors. A fraction are active.
+        </h2>
+        <p>
+          There is an enormous pool of accredited investors worldwide who have the means and interest to invest in startups — but lack the education, confidence, and network to take the first step. Angel Academy™ bridges that gap with a structured, community-driven program designed to activate this sideline capital and channel it toward fundable ventures.
+        </p>
+        <p>
+          Through immersive workshops, ongoing monthly sessions, and a curated ecosystem model, Angel Academy™ turns aspiring investors into informed, engaged angels — and connects them directly with startups ready to raise.
+        </p>
+      </div>
+
+      <div class="overview-right fade-up">
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-orange">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">$24M+</div>
+            <div class="overview-stat-label">
+              Total capital invested through Angel Academy sourced deals
+            </div>
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-green">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">400+</div>
+            <div class="overview-stat-label">
+              Accredited investors engaged across multiple markets
+            </div>
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-purple">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M22 11.08V12a10 10 0 11-5.93-9.14"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path><polyline
+                points="22 4 12 14.01 9 11.01"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></polyline></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">225+</div>
+            <div class="overview-stat-label">
+              Ventures engaged with 37 investments sourced and 7 successful exits
+            </div>
+          </div>
+        </div>
+        <div class="overview-stat">
+          <div class="overview-stat-icon osi-blue">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><line
+                x1="2"
+                y1="12"
+                x2="22"
+                y2="12"
+                stroke="currentColor"
+                stroke-width="1.6"></line><path
+                d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                stroke="currentColor"
+                stroke-width="1.6"></path></svg
+            >
+          </div>
+          <div class="overview-stat-body">
+            <div class="overview-stat-num">Multi-Market</div>
+            <div class="overview-stat-label">
+              Deployed across Maryland, DC, Virginia, Florida, North Carolina, and Massachusetts
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOUR STAGES ═══════════════════════════ -->
+  <section class="stages-section" id="stages">
+    <div class="stages-inner">
+      <div class="stages-header fade-up" style="text-align:center;">
+        <div class="section-label" style="display:block;text-align:center;">
+          Workshop Curriculum
+        </div>
+        <h2 class="section-title" style="text-align:center;margin:0 auto 14px;">
+          Four stages. From fundamentals to harvest.
+        </h2>
+        <p class="section-subtitle" style="margin:0 auto;text-align:center;">
+          Each Angel Academy™ workshop takes participants through a progressive curriculum — building knowledge, confidence, and real-world application at every stage.
+        </p>
+      </div>
+
+      <div class="stages-grid">
+        <div class="stage-step fade-up">
+          <div class="stage-num sn-amber">1</div>
+          <div class="stage-step-name">Pre-Flight</div>
+          <div class="stage-step-desc">
+            Learn the foundational concepts of angel investing — the investor's role, investment criteria, personal wealth perspectives, and due diligence fundamentals.
+          </div>
+        </div>
+
+        <div class="stage-step fade-up">
+          <div class="stage-num sn-green">2</div>
+          <div class="stage-step-name">Earning Your Wings</div>
+          <div class="stage-step-desc">
+            Dive deeper into deal structuring, valuation methodologies, and portfolio management through interactive exercises and real-world case studies.
+          </div>
+        </div>
+
+        <div class="stage-step fade-up">
+          <div class="stage-num sn-purple">3</div>
+          <div class="stage-step-name">Wheels Up</div>
+          <div class="stage-step-desc">
+            Engage in mock investment pitch sessions, applying newly acquired knowledge and receiving direct feedback from experienced angel investors and prospective ventures.
+          </div>
+        </div>
+
+        <div class="stage-step fade-up">
+          <div class="stage-num sn-blue">4</div>
+          <div class="stage-step-name">Successful Landing</div>
+          <div class="stage-step-desc">
+            Navigate exit strategies and harvest scenarios — from founder buyouts and strategic acquisitions to roll-up mergers and IPOs.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ ECOSYSTEM APPROACH ═══════════════════════════ -->
+  <section class="ecosystem-section" id="ecosystem">
+    <div class="ecosystem-inner">
+      <div class="ecosystem-header fade-up">
+        <div class="section-label">Beyond the Workshop</div>
+        <h2 class="section-title">Built on an Ecosystem Model.</h2>
+        <p class="section-subtitle">
+          Angel Academy™ isn't a one-day event — it's an ongoing engagement architecture that sustains momentum, deepens knowledge, and connects investors with deal flow over time.
+        </p>
+      </div>
+
+      <div class="ecosystem-grid">
+        <div class="eco-card fade-up">
+          <div class="eco-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="2"
+                y="3"
+                width="20"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><line
+                x1="8"
+                y1="21"
+                x2="16"
+                y2="21"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="12"
+                y1="17"
+                x2="12"
+                y2="21"
+                stroke="currentColor"
+                stroke-width="1.6"></line></svg
+            >
+          </div>
+          <h3>Quarterly Workshops</h3>
+          <p>
+            Intensive half-day sessions covering the full four-stage curriculum — facilitated by seasoned investors, founders, and industry experts. Each cohort builds knowledge progressively.
+          </p>
+        </div>
+
+        <div class="eco-card fade-up">
+          <div class="eco-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="3"
+                y="4"
+                width="18"
+                height="18"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><line
+                x1="16"
+                y1="2"
+                x2="16"
+                y2="6"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="8"
+                y1="2"
+                x2="8"
+                y2="6"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="3"
+                y1="10"
+                x2="21"
+                y2="10"
+                stroke="currentColor"
+                stroke-width="1.6"></line></svg
+            >
+          </div>
+          <h3>Monthly Deep-Dives</h3>
+          <p>
+            Ongoing sessions that explore market trends, advanced investment strategies, and real-time case studies. These keep investors engaged and continuously sharpening their approach.
+          </p>
+        </div>
+
+        <div class="eco-card fade-up">
+          <div class="eco-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h3>Curated Deal Flow</h3>
+          <p>
+            Angel Academy™ participants gain access to a curated pipeline of fundable ventures — connecting investors directly with startups that have been through founder readiness programming.
+          </p>
+        </div>
+
+        <div class="eco-card fade-up">
+          <div class="eco-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><line
+                x1="2"
+                y1="12"
+                x2="22"
+                y2="12"
+                stroke="currentColor"
+                stroke-width="1.6"></line><path
+                d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"
+                stroke="currentColor"
+                stroke-width="1.6"></path></svg
+            >
+          </div>
+          <h3>Digital Community Platform</h3>
+          <p>
+            A collaborative digital environment where participants engage in discussions, access curated resources, and build lasting connections within the angel investing community year-round.
+          </p>
+        </div>
+
+        <div class="eco-card fade-up">
+          <div class="eco-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><line
+                x1="18"
+                y1="20"
+                x2="18"
+                y2="10"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="12"
+                y1="20"
+                x2="12"
+                y2="4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line><line
+                x1="6"
+                y1="20"
+                x2="6"
+                y2="14"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></line></svg
+            >
+          </div>
+          <h3>Metric-Driven Outcomes</h3>
+          <p>
+            For ecosystem partners and sponsors, Angel Academy™ delivers measurable data on investor engagement, deal-flow health, and capital activation across the region.
+          </p>
+        </div>
+
+        <div class="eco-card fade-up">
+          <div class="eco-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><polyline
+                points="14 2 14 8 20 8"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></polyline></svg
+            >
+          </div>
+          <h3>Sponsor & Partner Integration</h3>
+          <p>
+            Ecosystem sponsors — from economic development agencies to universities and accelerators — are woven into the program as co-hosts, mentors, and strategic collaborators.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ WHO IT'S FOR ═══════════════════════════ -->
+  <section class="for-section" id="for">
+    <div class="for-header fade-up">
+      <div class="section-label">Who It's For</div>
+      <h2 class="section-title">
+        Built for investors ready to step off the sidelines.
+      </h2>
+      <p class="section-subtitle">
+        Angel Academy™ serves a wide range of stakeholders across the innovation ecosystem — anyone with a stake in activating early-stage capital.
+      </p>
+    </div>
+
+    <div class="for-grid">
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-amber">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Aspiring Angel Investors</h3>
+        <p>
+          Accredited investors looking to diversify their portfolio into early-stage ventures but lacking the frameworks, networks, and confidence to deploy capital.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><rect
+              x="2"
+              y="7"
+              width="20"
+              height="14"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.6"></rect><path
+              d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Economic Development Agencies</h3>
+        <p>
+          Regional EDAs seeking to catalyze innovation-driven growth by building a robust pipeline of local angel investors and connecting them with venture deal flow.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path><path
+              d="M9 22V12h6v10"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Universities & Incubators</h3>
+        <p>
+          Academic institutions and accelerator programs looking to embed investor education into their ecosystem and create a bridge between startups and local capital.
+        </p>
+      </div>
+
+      <div class="for-card fade-up">
+        <div class="for-card-icon fci-purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            ><path
+              d="M22 12h-4l-3 9L9 3l-3 9H2"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path></svg
+          >
+        </div>
+        <h3>Startup Founders & CxOs</h3>
+        <p>
+          Early-stage ventures preparing to raise capital benefit from the companion Raise Your Game™ bootcamp — building investor-readiness and connecting directly with trained angels.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ RAISE YOUR GAME ═══════════════════════════ -->
+  <section class="ryg-section" id="ryg">
+    <div class="ryg-inner">
+      <div class="ryg-left fade-up">
+        <div class="section-label">Companion Program</div>
+        <h2>
+          Raise Your Game™ — the founder side of the equation.
+        </h2>
+        <p>
+          While Angel Academy™ trains investors, Raise Your Game™ prepares founders. This structured CxO bootcamp ensures that ventures entering the deal-flow pipeline are investor-ready — with strong fundamentals, polished pitches, and calibrated expectations.
+        </p>
+        <p>
+          When both programs run in tandem, the result is a high-trust ecosystem where founders and investors speak the same language — and deals close with confidence.
+        </p>
+      </div>
+
+      <div class="overview-right fade-up">
+        <ul class="ryg-topics">
+          <li>
+            <span class="ryg-bullet">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+            </span>
+            <span><strong>CxO 101</strong> — How to be a strong startup leader and inspire a team-building culture</span>
+          </li>
+          <li>
+            <span class="ryg-bullet">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+            </span>
+            <span><strong>Pitch Perfect</strong> — Best practices for pitching your company and avoiding common pitfalls</span>
+          </li>
+          <li>
+            <span class="ryg-bullet">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+            </span>
+            <span><strong>Virtualizing Your Company</strong> — Lean startup approaches and outsourcing non-core functions</span>
+          </li>
+          <li>
+            <span class="ryg-bullet">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+            </span>
+            <span><strong>Raising Capital</strong> — Capital options and waypoints for growing ventures</span>
+          </li>
+          <li>
+            <span class="ryg-bullet">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+            </span>
+            <span><strong>Exit / Harvest Roadmapping</strong> — Venture lifecycle stages and how to exit well as founders</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Activate Capital in Your Market.</h2>
+        <p>
+          Whether you're an aspiring angel, an economic development agency, or a university building an innovation ecosystem — Angel Academy™ brings the education, community, and deal flow to make it happen.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact?service=angel-academy" class="btn-white-solid"
+            >Bring Angel Academy to Your Region</a
+          >
+          <a href="/innovation" class="btn-white-ghost"
+            >Back to Innovation Overview</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load buttonStyle={{ background: "var(--purple-dark)" }} />
+
+  <script src="../../global.js"></script>
+  <script>
+    window.onload = () => {
+      staggerFadeIn(".stage-step.fade-up");
+      staggerFadeIn(".for-card.fade-up");
+      staggerFadeIn(".eco-card.fade-up");
+    };
+  </script>
+</BaseLayout>
