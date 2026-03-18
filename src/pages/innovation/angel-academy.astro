@@ -44,7 +44,7 @@ const jsonLd = JSON.stringify([
       text-transform: uppercase;
       margin-bottom: 14px;
       display: inline-block;
-      color: var(--orange-light);
+      color: var(--orange-dark);
     }
 
     h2.section-title {
@@ -96,8 +96,8 @@ const jsonLd = JSON.stringify([
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      background: rgba(234, 151, 9, 0.14);
-      border: 1px solid rgba(234, 151, 9, 0.38);
+      background: rgba(203, 99, 47, 0.14);
+      border: 1px solid rgba(203, 99, 47, 0.38);
       padding: 6px 16px;
       border-radius: 100px;
       margin-bottom: 28px;
@@ -108,7 +108,7 @@ const jsonLd = JSON.stringify([
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ea9709, #f5c842);
+      background: linear-gradient(135deg, #cb632f, #e8845a);
       flex-shrink: 0;
     }
 
@@ -124,7 +124,7 @@ const jsonLd = JSON.stringify([
     }
 
     .hero h1 .accent {
-      background: linear-gradient(90deg, #f5c842 0%, #ffdf80 100%);
+      background: linear-gradient(90deg, #e8845a 0%, #f5b89a 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -153,16 +153,16 @@ const jsonLd = JSON.stringify([
       border-radius: var(--radius);
       border: none;
       cursor: pointer;
-      background: linear-gradient(135deg, #c47f00 0%, #ea9709 100%);
+      background: linear-gradient(135deg, #a84e22 0%, #cb632f 100%);
       color: var(--white);
       transition: all var(--tr);
       display: inline-block;
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, #a36900 0%, #c47f00 100%);
+      background: linear-gradient(135deg, #8f3f18 0%, #a84e22 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(234, 151, 9, 0.5);
+      box-shadow: 0 6px 24px rgba(203, 99, 47, 0.5);
     }
 
     .btn-ghost-dark {
@@ -249,19 +249,19 @@ const jsonLd = JSON.stringify([
       justify-content: center;
     }
 
-    .osi-orange {
-      background: rgba(234, 151, 9, 0.1);
-      color: var(--orange-light);
-    }
-
-    .osi-green {
-      background: rgba(61, 151, 138, 0.1);
-      color: var(--green);
+    .osi-red {
+      background: rgba(203, 99, 47, 0.1);
+      color: var(--orange-dark);
     }
 
     .osi-purple {
       background: rgba(68, 69, 97, 0.1);
       color: var(--purple);
+    }
+
+    .osi-green {
+      background: rgba(61, 151, 138, 0.1);
+      color: var(--green);
     }
 
     .osi-blue {
@@ -271,7 +271,7 @@ const jsonLd = JSON.stringify([
 
     .overview-stat-num {
       font-size: 28px;
-      font-weight: 700;
+      font-weight: 500;
       letter-spacing: -0.02em;
       color: var(--black);
       line-height: 1;
@@ -315,9 +315,8 @@ const jsonLd = JSON.stringify([
       height: 2px;
       background: linear-gradient(
         90deg,
-        var(--orange-light) 0%,
-        var(--green) 33%,
-        var(--purple) 66%,
+        var(--orange-dark) 0%,
+        var(--purple) 50%,
         var(--blue) 100%
       );
       opacity: 0.3;
@@ -357,10 +356,10 @@ const jsonLd = JSON.stringify([
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
     }
 
-    .sn-amber { background: var(--orange-light); }
-    .sn-green { background: var(--green); }
-    .sn-purple { background: var(--purple); }
-    .sn-blue { background: var(--blue); }
+    .sn-1 { background: var(--orange-dark); }
+    .sn-2 { background: #8b5e6b; }
+    .sn-3 { background: var(--purple); }
+    .sn-4 { background: var(--blue); }
 
     .stage-step-name {
       font-size: 15px;
@@ -420,8 +419,8 @@ const jsonLd = JSON.stringify([
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      background: rgba(234, 151, 9, 0.1);
-      color: var(--orange-light);
+      background: rgba(203, 99, 47, 0.1);
+      color: var(--orange-dark);
     }
 
     .eco-card h3 {
@@ -451,7 +450,7 @@ const jsonLd = JSON.stringify([
     }
 
     .for-header .section-label {
-      color: var(--orange-light) !important;
+      color: var(--orange-dark) !important;
     }
 
     .for-header .section-title {
@@ -497,9 +496,9 @@ const jsonLd = JSON.stringify([
       margin-bottom: 20px;
     }
 
-    .fci-amber {
-      background: rgba(234, 151, 9, 0.2);
-      color: #f5c842;
+    .fci-red {
+      background: rgba(203, 99, 47, 0.2);
+      color: #e8845a;
     }
 
     .fci-green {
@@ -523,6 +522,7 @@ const jsonLd = JSON.stringify([
       color: var(--white);
       margin-bottom: 10px;
       line-height: 1.3;
+      min-height: 2.6em;
     }
 
     .for-card p {
@@ -543,7 +543,7 @@ const jsonLd = JSON.stringify([
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: start;
+      align-items: center;
     }
 
     .ryg-left h2 {
@@ -587,8 +587,8 @@ const jsonLd = JSON.stringify([
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      background: rgba(234, 151, 9, 0.1);
-      color: var(--orange-light);
+      background: rgba(203, 99, 47, 0.1);
+      color: var(--orange-dark);
       margin-top: 1px;
     }
 
@@ -598,30 +598,19 @@ const jsonLd = JSON.stringify([
 
     /* CTA Band */
     .cta-band {
-      background: linear-gradient(135deg, #b07200 0%, var(--purple) 100%);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(15, 14, 32, 0.62) 0%,
+          rgba(32, 32, 58, 0.52) 50%,
+          rgba(50, 50, 82, 0.44) 100%
+        ),
+        url("/images/bt3.png") center/cover no-repeat;
       color: var(--white);
       padding: 80px 48px;
       text-align: center;
       position: relative;
       overflow: hidden;
-    }
-
-    .cta-band::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(
-          circle at 25% 40%,
-          rgba(255, 255, 255, 0.07) 0%,
-          transparent 50%
-        ),
-        radial-gradient(
-          circle at 80% 70%,
-          rgba(255, 255, 255, 0.05) 0%,
-          transparent 45%
-        );
-      pointer-events: none;
     }
 
     .cta-band .container {
@@ -661,7 +650,7 @@ const jsonLd = JSON.stringify([
       border: none;
       cursor: pointer;
       background: var(--white);
-      color: var(--orange-light);
+      color: var(--orange-dark);
       transition: all var(--tr);
       display: inline-block;
     }
@@ -751,6 +740,10 @@ const jsonLd = JSON.stringify([
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .for-card h3 {
+        min-height: auto;
+      }
     }
 
     @media (max-width: 600px) {
@@ -797,7 +790,7 @@ const jsonLd = JSON.stringify([
       <div class="overview-left fade-up">
         <div class="section-label">The Opportunity</div>
         <h2>
-          Hundreds of millions of potential angel investors. A fraction are active.
+          Millions of potential angel investors. A fraction are active.
         </h2>
         <p>
           There is an enormous pool of accredited investors worldwide who have the means and interest to invest in startups — but lack the education, confidence, and network to take the first step. Angel Academy™ bridges that gap with a structured, community-driven program designed to activate this sideline capital and channel it toward fundable ventures.
@@ -809,7 +802,7 @@ const jsonLd = JSON.stringify([
 
       <div class="overview-right fade-up">
         <div class="overview-stat">
-          <div class="overview-stat-icon osi-orange">
+          <div class="overview-stat-icon osi-red">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><path
                 d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"
@@ -827,7 +820,7 @@ const jsonLd = JSON.stringify([
           </div>
         </div>
         <div class="overview-stat">
-          <div class="overview-stat-icon osi-green">
+          <div class="overview-stat-icon osi-purple">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><path
                 d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
@@ -854,7 +847,7 @@ const jsonLd = JSON.stringify([
           </div>
         </div>
         <div class="overview-stat">
-          <div class="overview-stat-icon osi-purple">
+          <div class="overview-stat-icon osi-green">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
               ><path
                 d="M22 11.08V12a10 10 0 11-5.93-9.14"
@@ -914,7 +907,7 @@ const jsonLd = JSON.stringify([
           Workshop Curriculum
         </div>
         <h2 class="section-title" style="text-align:center;margin:0 auto 14px;">
-          Four stages. From fundamentals to harvest.
+          Your flight plan. Four stages to liftoff.
         </h2>
         <p class="section-subtitle" style="margin:0 auto;text-align:center;">
           Each Angel Academy™ workshop takes participants through a progressive curriculum — building knowledge, confidence, and real-world application at every stage.
@@ -923,34 +916,34 @@ const jsonLd = JSON.stringify([
 
       <div class="stages-grid">
         <div class="stage-step fade-up">
-          <div class="stage-num sn-amber">1</div>
+          <div class="stage-num sn-1">1</div>
           <div class="stage-step-name">Pre-Flight</div>
           <div class="stage-step-desc">
-            Learn the foundational concepts of angel investing — the investor's role, investment criteria, personal wealth perspectives, and due diligence fundamentals.
+            Build your foundation — understanding the angel investor's role, key investment criteria, personal wealth perspectives, and the fundamentals of due diligence.
           </div>
         </div>
 
         <div class="stage-step fade-up">
-          <div class="stage-num sn-green">2</div>
+          <div class="stage-num sn-2">2</div>
           <div class="stage-step-name">Earning Your Wings</div>
           <div class="stage-step-desc">
-            Dive deeper into deal structuring, valuation methodologies, and portfolio management through interactive exercises and real-world case studies.
+            Go deeper into deal structuring, valuation methodologies, and portfolio management through hands-on exercises, interactive simulations, and real-world case studies.
           </div>
         </div>
 
         <div class="stage-step fade-up">
-          <div class="stage-num sn-purple">3</div>
+          <div class="stage-num sn-3">3</div>
           <div class="stage-step-name">Wheels Up</div>
           <div class="stage-step-desc">
-            Engage in mock investment pitch sessions, applying newly acquired knowledge and receiving direct feedback from experienced angel investors and prospective ventures.
+            Put knowledge into practice with mock investment pitch sessions — receiving direct feedback from experienced angel investors and prospective portfolio ventures.
           </div>
         </div>
 
         <div class="stage-step fade-up">
-          <div class="stage-num sn-blue">4</div>
+          <div class="stage-num sn-4">4</div>
           <div class="stage-step-name">Successful Landing</div>
           <div class="stage-step-desc">
-            Navigate exit strategies and harvest scenarios — from founder buyouts and strategic acquisitions to roll-up mergers and IPOs.
+            Navigate exit strategies and harvest scenarios — from founder buyouts and strategic acquisitions to roll-up mergers, growth equity plays, and public offerings.
           </div>
         </div>
       </div>
@@ -1164,7 +1157,7 @@ const jsonLd = JSON.stringify([
 
     <div class="for-grid">
       <div class="for-card fade-up">
-        <div class="for-card-icon fci-amber">
+        <div class="for-card-icon fci-red">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
             ><path
               d="M12 2v20M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"
@@ -1174,9 +1167,9 @@ const jsonLd = JSON.stringify([
               stroke-linejoin="round"></path></svg
           >
         </div>
-        <h3>Aspiring Angel Investors</h3>
+        <h3>High Net Worth Individuals &amp; Aspiring Angels</h3>
         <p>
-          Accredited investors looking to diversify their portfolio into early-stage ventures but lacking the frameworks, networks, and confidence to deploy capital.
+          Executives, entrepreneurs, athletes, and accredited investors ready to diversify into startups with the right education and network.
         </p>
       </div>
 
@@ -1197,9 +1190,9 @@ const jsonLd = JSON.stringify([
               stroke-linejoin="round"></path></svg
           >
         </div>
-        <h3>Economic Development Agencies</h3>
+        <h3>Economic Development Agencies &amp; Regions</h3>
         <p>
-          Regional EDAs seeking to catalyze innovation-driven growth by building a robust pipeline of local angel investors and connecting them with venture deal flow.
+          Regional EDAs catalyzing innovation-driven growth by building a pipeline of trained local angel investors and venture deal flow.
         </p>
       </div>
 
@@ -1217,9 +1210,9 @@ const jsonLd = JSON.stringify([
               stroke-linejoin="round"></path></svg
           >
         </div>
-        <h3>Universities & Incubators</h3>
+        <h3>Universities, Incubators &amp; Accelerators</h3>
         <p>
-          Academic institutions and accelerator programs looking to embed investor education into their ecosystem and create a bridge between startups and local capital.
+          Academic institutions and startup programs embedding investor education into their ecosystem to bridge ventures with local capital.
         </p>
       </div>
 
@@ -1234,9 +1227,9 @@ const jsonLd = JSON.stringify([
               stroke-linejoin="round"></path></svg
           >
         </div>
-        <h3>Startup Founders & CxOs</h3>
+        <h3>Startup Founders &amp; Venture CxOs</h3>
         <p>
-          Early-stage ventures preparing to raise capital benefit from the companion Raise Your Game™ bootcamp — building investor-readiness and connecting directly with trained angels.
+          Early-stage ventures preparing to raise through the Raise Your Game™ bootcamp — building investor-readiness and angel connections.
         </p>
       </div>
     </div>
