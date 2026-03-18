@@ -112,6 +112,10 @@ URL: https://www.entevate.com/innovation/aiqui
 **Sideline Capital Activation & Funding**
 Venture development and funding activation to bring innovation investments off the sidelines and into action.
 
+**Angel Academy™ — Investor Education & Capital Activation**
+A hands-on investor education program that equips accredited investors — including high net worth individuals, executives, entrepreneurs, and professional athletes — with the knowledge, networks, and deal-flow access to confidently invest in early-stage ventures. The program features four progressive workshop stages (Pre-Flight, Earning Your Wings, Wheels Up, Successful Landing), ongoing monthly deep-dives, a curated deal-flow pipeline, and a digital community platform. Angel Academy has engaged 400+ accredited investors, facilitated $24M+ in capital deployment across 37 investments, and delivered 7 successful exits. Complemented by the Raise Your Game™ founder bootcamp for startup CxOs.
+URL: https://www.entevate.com/innovation/angel-academy
+
 ### Who It's For
 - Innovation labs and research centers
 - Executive leadership and strategy teams
@@ -119,6 +123,8 @@ Venture development and funding activation to bring innovation investments off t
 - Universities and research institutions
 - Economic development organizations
 - Innovation districts and cities
+- Aspiring angel investors and high net worth individuals
+- Accredited investors seeking startup portfolio diversification
 
 ### Case Study: Energy Innovation Lab
 ENTEVATE partnered with an energy sector client to build an innovation lab — from roadmap design through live experimentation and venture development.
@@ -152,6 +158,12 @@ An applied framework spanning seven core basecamps for navigating AI and quantum
 
 ### Core Elements Basecamps™
 Structured activation points within the 7 Core Elements ecosystem framework, providing entry points for organizations at different stages of ecosystem development.
+
+### Angel Academy™
+A four-stage investor education program (Pre-Flight, Earning Your Wings, Wheels Up, Successful Landing) that activates sideline capital for early-stage ventures. Combines quarterly workshops, monthly deep-dive sessions, curated deal flow, and a digital community platform built on an Ecosystem Model Approach.
+
+### Raise Your Game™
+A companion CxO bootcamp for startup founders covering leadership fundamentals, pitch preparation, lean startup approaches, capital raising, and exit/harvest roadmapping — ensuring ventures entering the deal-flow pipeline are investor-ready.
 
 ---
 
@@ -241,4 +253,5 @@ ENTEVATE publishes original insights on experiential branding, immersive technol
 - Innovation Sandbox: https://www.entevate.com/innovation/innovation-sandbox
 - AIQUI: https://www.entevate.com/innovation/aiqui
 - Energy Innovation Lab Case Study: https://www.entevate.com/innovation/energy-innovation-lab
+- Angel Academy: https://www.entevate.com/innovation/angel-academy
 - Trinity AIQUI Sandbox Case Study: https://www.entevate.com/innovation/trinity-aiqui-sandbox

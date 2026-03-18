@@ -37,7 +37,9 @@ Co-create actionable innovation roadmaps that move ecosystems, ventures, and tea
 - Innovation Sandbox™ for prototyping and validating ideas
 - AIQUI framework for AI and quantum innovation
 - Sideline Capital activation and venture development
+- Angel Academy™: Investor education program activating sideline capital for early-stage ventures through workshops, ecosystem engagement, and curated deal flow
 URL: https://www.entevate.com/innovation
+Angel Academy URL: https://www.entevate.com/innovation/angel-academy
 
 ## Proprietary Frameworks & Tools
 
@@ -48,6 +50,8 @@ URL: https://www.entevate.com/innovation
 - **Innovation Sandbox™**: Contained environment for prototyping and validating promising ideas with low risk and fast learning
 - **AIQUI**: Applied framework for AI and quantum innovation across seven core basecamps
 - **Core Elements Basecamps™**: Structured activation points within the 7 Core Elements ecosystem
+- **Angel Academy™**: Hands-on investor education program for accredited investors with four progressive stages (Pre-Flight, Earning Your Wings, Wheels Up, Successful Landing)
+- **Raise Your Game™**: Companion CxO bootcamp preparing startup founders to be investor-ready
 
 ## Target Personas
 

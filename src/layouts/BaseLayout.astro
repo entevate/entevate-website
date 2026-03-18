@@ -28,11 +28,25 @@ const organizationSchema = JSON.stringify({
   "url": siteUrl,
   "logo": `${siteUrl}/favicon.png`,
   "description": "Human-centered innovation partner — experiential branding, digital transformation, and innovation roadmapping.",
+  "foundingDate": "2016",
+  "founder": {
+    "@type": "Person",
+    "name": "Mike Binko"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "United States"
+  },
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "sales",
     "url": `${siteUrl}/contact`
   },
+  "sameAs": [
+    "https://www.linkedin.com/company/entevate",
+    "https://www.facebook.com/entevate",
+    "https://twitter.com/entevate"
+  ],
   "knowsAbout": [
     "Experiential Branding",
     "Digital Transformation",
@@ -41,7 +55,11 @@ const organizationSchema = JSON.stringify({
     "AR/VR/Spatial Computing",
     "Innovation Ecosystems",
     "Trade Show Activations",
-    "CAD to CGI Conversion"
+    "CAD to CGI Conversion",
+    "Angel Investing Education",
+    "Startup Ecosystem Development",
+    "AIQUI Framework",
+    "AI and Quantum Innovation"
   ]
 });
 ---
@@ -62,9 +80,12 @@ const organizationSchema = JSON.stringify({
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="ENTEVATE" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

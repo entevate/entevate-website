@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import "../global.css";
+
+const title = "Page Not Found — ENTEVATE";
+const description = "The page you're looking for doesn't exist or has been moved.";
+---
+
+<BaseLayout title={title} description={description}>
+  <style>
+    .error-section {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(15, 14, 32, 0.62) 0%,
+          rgba(32, 32, 58, 0.52) 50%,
+          rgba(50, 50, 82, 0.44) 100%
+        ),
+        url("/images/bt3.png") center/cover no-repeat;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 96px 24px;
+    }
+
+    .error-inner {
+      max-width: 560px;
+    }
+
+    .error-code {
+      font-size: clamp(80px, 15vw, 140px);
+      font-weight: 100;
+      color: rgba(255, 255, 255, 0.12);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .error-inner h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .error-inner p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .error-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--purple);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-white:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    @media (max-width: 600px) {
+      .error-actions {
+        flex-direction: column;
+      }
+      .btn-white, .btn-ghost {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <Header client:load />
+
+  <section class="error-section">
+    <div class="error-inner">
+      <div class="error-code">404</div>
+      <h1>This page doesn't exist.</h1>
+      <p>The page you're looking for may have been moved or no longer exists. Let's get you back on track.</p>
+      <div class="error-actions">
+        <a href="/" class="btn-white">Back to Home →</a>
+        <a href="/contact" class="btn-ghost">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load buttonStyle={{ background: "var(--purple-dark)" }} />
+  <script src="../global.js"></script>
+</BaseLayout>
