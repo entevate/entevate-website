@@ -1,0 +1,906 @@
+---
+import Footer from "../../components/Footer.jsx";
+import Header from "../../components/Header.jsx";
+import "../../global.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const title = "AI Foundry™ — Custom AI Systems | ENTEVATE";
+const description =
+  "We design, build, and operate AI pipelines that power content workflows, brand systems, and full-stack applications — turning concepts into production-grade intelligent systems.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Foundry™",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/operational-intelligence/ai-foundry",
+    "serviceType": "AI Systems Development & Operations"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Operational Intelligence", "item": "https://www.entevate.com/operational-intelligence" },
+      { "@type": "ListItem", "position": 3, "name": "AI Foundry", "item": "https://www.entevate.com/operational-intelligence/ai-foundry" }
+    ]
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/og/oi-og.png" jsonLd={jsonLd}>
+  <style>
+    .section {
+      padding: 80px 48px;
+    }
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--orange);
+    }
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(50, 22, 5, 0.72) 0%,
+          rgba(85, 42, 12, 0.55) 50%,
+          rgba(232, 120, 42, 0.38) 100%
+        ),
+        url("/images/bt2.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(232, 120, 42, 0.14);
+      border: 1px solid rgba(232, 120, 42, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f5b731, #fff5e0);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 74px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 860px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #f5b731 0%, #fff5e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 42px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--orange) 0%, #f5b731 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(115, 65, 25, 0.45);
+    }
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Framework */
+    .framework-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .fw-card {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .fw-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .fw-1::before {
+      background: linear-gradient(90deg, var(--orange), #f5b731);
+    }
+    .fw-2::before {
+      background: linear-gradient(90deg, #ea9709, #f5c842);
+    }
+    .fw-3::before {
+      background: linear-gradient(90deg, #cb632f, var(--orange));
+    }
+    .fw-card:hover {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+    .fw-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .fw-1 .fw-icon {
+      background: rgba(232, 120, 42, 0.1);
+      color: var(--orange);
+    }
+    .fw-2 .fw-icon {
+      background: rgba(234, 151, 9, 0.1);
+      color: #ea9709;
+    }
+    .fw-3 .fw-icon {
+      background: rgba(203, 99, 47, 0.1);
+      color: #cb632f;
+    }
+    .fw-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 10px;
+    }
+    .fw-card h3 {
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .fw-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
+
+    /* What We Build */
+    .build-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+    .build-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .build-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .build-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      background: linear-gradient(90deg, var(--orange), #f5b731);
+    }
+    .build-card:hover {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+    .build-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      background: rgba(232, 120, 42, 0.1);
+      color: var(--orange);
+    }
+    .build-card h3 {
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .build-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
+
+    /* Stats */
+    .stats-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 52px;
+    }
+    .stat-card {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      text-align: center;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .stat-card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+      transform: translateY(-3px);
+    }
+    .stat-number {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 200;
+      letter-spacing: -0.03em;
+      color: var(--orange);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+    .stat-desc {
+      font-size: 14px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* Who It's For */
+    .audience-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .audience-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .audience-card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+      transform: translateY(-3px);
+    }
+    .audience-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(232, 120, 42, 0.09);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .audience-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .audience-card p {
+      font-size: 13px;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* CTA Band */
+    .cta-band {
+      background: linear-gradient(135deg, #3d1e08 0%, var(--orange) 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle at 25% 40%,
+          rgba(255, 255, 255, 0.07) 0%,
+          transparent 50%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 45%
+        );
+      pointer-events: none;
+    }
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--orange);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .framework-grid,
+      .build-grid,
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .audience-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 24px 80px;
+        min-height: 60vh;
+      }
+      .section,
+      .framework-section,
+      .build-section,
+      .stats-section,
+      .audience-section,
+      .cta-band {
+        padding: 60px 24px;
+      }
+      .framework-grid,
+      .build-grid,
+      .stats-grid,
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  <Header client:load />
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>AI Foundry&trade;
+        </div>
+        <h1>
+          Custom AI Systems,<br /><span class="accent"
+            >Forged for Your Operations.</span
+          >
+        </h1>
+        <p class="hero-sub">
+          We design, build, and operate AI pipelines that power content
+          workflows, brand systems, and full-stack applications &mdash; turning
+          concepts into production-grade intelligent systems.
+        </p>
+        <div class="hero-actions">
+          <a href="#framework" class="btn-primary"
+            >Explore the Foundry &rarr;</a
+          >
+          <a href="/contact?service=ai-foundry" class="btn-ghost-dark"
+            >Schedule a Discovery Call</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Framework: Learn | Build | Run -->
+  <section class="framework-section" id="framework">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">Learn &nbsp;|&nbsp; Build &nbsp;|&nbsp; Run</div>
+        <h2 class="section-title">Three delivery models. One goal.</h2>
+        <p class="section-subtitle">
+          Whether you want to learn how to build AI systems, co-create them with
+          us, or hand off operations entirely &mdash; we meet you where you are.
+        </p>
+      </div>
+      <div class="framework-grid">
+        <div class="fw-card fw-1 fade-up">
+          <div class="fw-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <div class="fw-label">Workshop</div>
+          <h3>Learn</h3>
+          <p>
+            We teach your team to design and build AI pipelines through hands-on
+            workshops. Your team leaves with working systems and the skills to
+            iterate independently.
+          </p>
+        </div>
+
+        <div class="fw-card fw-2 fade-up">
+          <div class="fw-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><circle
+                cx="9"
+                cy="7"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <div class="fw-label">Co-Build</div>
+          <h3>Build</h3>
+          <p>
+            We design and ship the first AI system together. Your team owns the
+            output, understands the architecture, and can extend it from day
+            one.
+          </p>
+        </div>
+
+        <div class="fw-card fw-3 fade-up">
+          <div class="fw-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 2L2 7l10 5 10-5-10-5z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path><path
+                d="M2 17l10 5 10-5M2 12l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <div class="fw-label">Managed Service</div>
+          <h3>Run</h3>
+          <p>
+            We build and operate production AI pipelines on your behalf &mdash;
+            content automation, brand systems, and full-stack applications that
+            run continuously.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Build -->
+  <section class="build-section" id="capabilities">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">What We Build</div>
+        <h2 class="section-title">AI systems for real operations.</h2>
+        <p class="section-subtitle">
+          Every system we build is designed for production &mdash; not demos.
+          These are the three capability areas where we deliver the most impact.
+        </p>
+      </div>
+      <div class="build-grid">
+        <div class="build-card fade-up">
+          <div class="build-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path><path
+                d="M14 2v6h6M16 13H8M16 17H8M10 9H8"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Content Workflows &amp; Automation</h3>
+          <p>
+            Intelligent pipelines that ingest, process, generate, and distribute
+            content at scale &mdash; from documentation to marketing collateral.
+          </p>
+        </div>
+
+        <div class="build-card fade-up">
+          <div class="build-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><circle
+                cx="8.5"
+                cy="8.5"
+                r="1.5"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M21 15l-5-5L5 21"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Brand &amp; Visual Identity Systems</h3>
+          <p>
+            AI-powered design systems that generate on-brand assets, enforce
+            visual standards, and accelerate creative production across channels.
+          </p>
+        </div>
+
+        <div class="build-card fade-up">
+          <div class="build-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M13 2L3 14h9l-1 8 9-12h-9l1-8z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Full-Stack Enablement</h3>
+          <p>
+            End-to-end application development powered by AI &mdash; from
+            concept to deployed product in days, not months.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section" id="proof">
+    <div class="container">
+      <div class="fade-up" style="text-align:center;margin-bottom:52px;">
+        <div class="section-label" style="display:block;text-align:center;">
+          Proof of Speed
+        </div>
+        <h2 class="section-title" style="text-align:center;">
+          From concept to production &mdash; fast.
+        </h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card fade-up">
+          <div class="stat-number">8</div>
+          <div class="stat-desc">
+            Middleware components, concept to production in one week
+          </div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-number">&lt; 2 Hrs</div>
+          <div class="stat-desc">
+            Complete brand kits and design systems delivered
+          </div>
+        </div>
+        <div class="stat-card fade-up">
+          <div class="stat-number">Days</div>
+          <div class="stat-desc">
+            New websites shipped &mdash; not weeks
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="audience-section" id="audience">
+    <div class="container">
+      <div class="fade-up" style="text-align:center;margin-bottom:52px;">
+        <div class="section-label" style="display:block;text-align:center;">
+          Who It&rsquo;s For
+        </div>
+        <h2 class="section-title" style="text-align:center;">
+          Built for teams that need to move.
+        </h2>
+      </div>
+      <div class="audience-grid">
+        <div class="audience-card fade-up">
+          <div class="audience-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="2"
+                y="3"
+                width="20"
+                height="14"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><path
+                d="M8 21h8M12 17v4"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"></path></svg
+            >
+          </div>
+          <h3>Enterprise Operations Teams</h3>
+          <p>
+            Automate repetitive workflows, integrate AI into existing systems,
+            and drive operational efficiency at scale.
+          </p>
+        </div>
+        <div class="audience-card fade-up">
+          <div class="audience-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="1.6"></rect><circle
+                cx="8.5"
+                cy="8.5"
+                r="1.5"
+                stroke="currentColor"
+                stroke-width="1.6"></circle><path
+                d="M21 15l-5-5L5 21"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Marketing &amp; Brand Teams</h3>
+          <p>
+            Generate on-brand content and visual assets at speed, with AI
+            systems that enforce your standards automatically.
+          </p>
+        </div>
+        <div class="audience-card fade-up">
+          <div class="audience-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M12 2L2 7l10 5 10-5-10-5z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path><path
+                d="M2 17l10 5 10-5M2 12l10 5 10-5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Product &amp; Technology Teams</h3>
+          <p>
+            Accelerate development cycles with AI-powered tooling, from
+            prototyping through production deployment.
+          </p>
+        </div>
+        <div class="audience-card fade-up">
+          <div class="audience-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              ><path
+                d="M13 2L3 14h9l-1 8 9-12h-9l1-8z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path></svg
+            >
+          </div>
+          <h3>Startups &amp; Early-Stage Ventures</h3>
+          <p>
+            Ship production-grade products in days with AI-native development
+            &mdash; move faster than teams ten times your size.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to Forge Your AI System?</h2>
+        <p>
+          Let&rsquo;s talk about what you&rsquo;re building &mdash; and how the
+          Foundry can get you there faster.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact?service=ai-foundry" class="btn-white-solid"
+            >Start a Conversation &rarr;</a
+          >
+          <a href="/operational-intelligence" class="btn-white-ghost"
+            >Explore Our Services</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load />
+
+  <script src="../../global.js"></script>
+</BaseLayout>

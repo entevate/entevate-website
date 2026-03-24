@@ -15,7 +15,7 @@ const jsonLd = JSON.stringify([
     "name": "Remote Assistance & Spatial Workflows",
     "provider": { "@type": "Organization", "name": "ENTEVATE" },
     "description": description,
-    "url": "https://www.entevate.com/transformation/remote-assistance",
+    "url": "https://www.entevate.com/operational-intelligence/remote-assistance",
     "serviceType": "AR Remote Assistance"
   },
   {
@@ -23,14 +23,14 @@ const jsonLd = JSON.stringify([
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
-      { "@type": "ListItem", "position": 2, "name": "Transformation", "item": "https://www.entevate.com/transformation" },
-      { "@type": "ListItem", "position": 3, "name": "Remote Assistance", "item": "https://www.entevate.com/transformation/remote-assistance" }
+      { "@type": "ListItem", "position": 2, "name": "Operational Intelligence", "item": "https://www.entevate.com/operational-intelligence" },
+      { "@type": "ListItem", "position": 3, "name": "Remote Assistance", "item": "https://www.entevate.com/operational-intelligence/remote-assistance" }
     ]
   }
 ]);
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/og/dct-og.png" jsonLd={jsonLd}>
+<BaseLayout title={title} description={description} ogImage="/images/og/oi-og.png" jsonLd={jsonLd}>
   <style>
     .section {
       padding: 80px 48px;
@@ -592,8 +592,8 @@ const jsonLd = JSON.stringify([
     <div class="hero-inner">
       <div class="fade-up">
         <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>Digital &amp; Content
-          Transformation
+          <span class="hero-eyebrow-dot"></span>
+          Operational Intelligence
         </div>
         <h1>
           Expert Knowledge,<br /><span class="accent"
@@ -610,7 +610,7 @@ const jsonLd = JSON.stringify([
           <a href="/contact?service=transformation" class="btn-orange"
             >Design Your Workflow →</a
           >
-          <a href="/transformation" class="btn-ghost-dark"
+          <a href="/operational-intelligence" class="btn-ghost-dark"
             >← Back to Transformation</a
           >
         </div>
@@ -1147,7 +1147,7 @@ const jsonLd = JSON.stringify([
           <a href="/contact?service=transformation" class="btn-white-solid"
             >Start the Conversation →</a
           >
-          <a href="/transformation" class="btn-white-ghost"
+          <a href="/operational-intelligence" class="btn-white-ghost"
             >← All Transformation Services</a
           >
         </div>

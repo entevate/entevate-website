@@ -182,7 +182,7 @@ const Footer = ({ buttonStyle }: Props) => {
                 </a>
               </li>
               <li>
-                <a href="/transformation">
+                <a href="/operational-intelligence">
                   Digital &amp; Content Transformation
                 </a>
               </li>

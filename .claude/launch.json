@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ENTEVATE Website",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["astro", "dev", "--port", "5050"],
+      "port": 5050
+    }
+  ]
+}

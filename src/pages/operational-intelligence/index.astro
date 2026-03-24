@@ -5,23 +5,24 @@ import Footer from "../../components/Footer.jsx";
 import "../../global.css";
 
 // Page metadata
-const title = "Digital & Content Transformation — ENTEVATE";
+const title = "Operational Intelligence — ENTEVATE";
 const description =
-  "We align people, platforms, and processes to help you thrive in a rapidly changing world. Our Content Readiness™ approach ensures your content is always clear, strategic, and ready to perform — across every channel, at every stage of growth.";
+  "We build intelligent systems that transform how organizations operate — from AI-powered pipelines and content automation to spatial workflows and visual asset production.";
 
 const jsonLd = JSON.stringify([
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Digital & Content Transformation",
+    "name": "Operational Intelligence",
     "provider": { "@type": "Organization", "name": "ENTEVATE" },
     "description": description,
-    "url": "https://www.entevate.com/transformation",
-    "serviceType": "Digital Transformation",
+    "url": "https://www.entevate.com/operational-intelligence",
+    "serviceType": "Operational Intelligence",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Transformation Services",
+      "name": "Operational Intelligence Services",
       "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Foundry™" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Readiness™ Assessment & Scoring" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation Strategy & Execution" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CAD-to-CGI Conversion & Visualization" } },
@@ -35,18 +36,18 @@ const jsonLd = JSON.stringify([
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is Content Readiness?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Content Readiness™ is ENTEVATE's proprietary assessment that scores how prepared your content is to perform across every channel and stage of growth — identifying gaps in clarity, strategy, and scalability before they become costly problems." }
+        "name": "What is AI Foundry?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AI Foundry™ is ENTEVATE's end-to-end AI systems practice. We design, build, and manage custom AI pipelines — from content automation and brand intelligence to full-stack applications — taking projects from concept to production." }
       },
       {
         "@type": "Question",
-        "name": "What is CAD to CGI conversion?",
-        "acceptedAnswer": { "@type": "Answer", "text": "CAD to CGI conversion transforms your existing engineering CAD data into photorealistic 3D visuals for marketing, sales, training, and AR/VR experiences — eliminating the need for physical prototypes and product photography." }
+        "name": "How does ENTEVATE approach operational intelligence?",
+        "acceptedAnswer": { "@type": "Answer", "text": "ENTEVATE builds intelligent systems around how organizations actually operate. We combine AI-powered pipelines, content automation, spatial workflows, and visual asset production to create production-grade solutions that integrate with your existing people and processes." }
       },
       {
         "@type": "Question",
-        "name": "How does ENTEVATE approach digital transformation?",
-        "acceptedAnswer": { "@type": "Answer", "text": "ENTEVATE aligns people, platforms, and processes through a structured digital transformation strategy that includes content readiness assessment, technology integration, spatial workflows, and ongoing optimization to help organizations thrive in a rapidly changing digital landscape." }
+        "name": "What industries does ENTEVATE serve with AI and operational intelligence?",
+        "acceptedAnswer": { "@type": "Answer", "text": "ENTEVATE partners with organizations across manufacturing, technology, energy, hospitality, and professional services to deploy AI systems, spatial workflows, and visualization pipelines that drive measurable operational improvement." }
       }
     ]
   },
@@ -55,13 +56,13 @@ const jsonLd = JSON.stringify([
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
-      { "@type": "ListItem", "position": 2, "name": "Digital & Content Transformation", "item": "https://www.entevate.com/transformation" }
+      { "@type": "ListItem", "position": 2, "name": "Operational Intelligence", "item": "https://www.entevate.com/operational-intelligence" }
     ]
   }
 ]);
 ---
 
-<BaseLayout title={title} description={description} ogImage="/images/og/dct-og.png" jsonLd={jsonLd}>
+<BaseLayout title={title} description={description} ogImage="/images/og/oi-og.png" jsonLd={jsonLd}>
   <Header client:load />
 
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
@@ -70,22 +71,21 @@ const jsonLd = JSON.stringify([
       <div class="fade-up">
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-dot"></span>
-          Digital &amp; Content Transformation
+          Operational Intelligence
         </div>
         <h1>
-          Content Readiness™ for a <span class="accent"
-            >More Connected, Adaptable Business.</span
+          AI Systems, Forged for <span class="accent"
+            >How You Actually Operate.</span
           >
         </h1>
         <p class="hero-sub">
-          We align people, platforms, and processes to help you thrive in a
-          rapidly changing world. Our Content Readiness™ approach ensures your
-          content is always clear, strategic, and ready to perform — across
-          every channel, at every stage of growth.
+          We build intelligent systems that transform how organizations operate
+          — from AI-powered pipelines and content automation to spatial
+          workflows and visual asset production.
         </p>
         <div class="hero-actions">
-          <a href="/transformation/content-readiness" class="btn-orange"
-            >Assess Your Readiness →</a
+          <a href="/operational-intelligence/ai-foundry" class="btn-orange"
+            >Explore AI Foundry →</a
           >
           <a href="#offerings" class="btn-ghost-dark">Explore Our Services ↓</a>
         </div>
@@ -98,16 +98,43 @@ const jsonLd = JSON.stringify([
     <div class="container">
       <div class="fade-up">
         <div class="section-label">What We Do</div>
-        <h2 class="section-title">Four pathways to transformation.</h2>
+        <h2 class="section-title">Five pillars of intelligent operations.</h2>
         <p class="section-subtitle">
-          Whether you're navigating a digital shift, restructuring your content
-          strategy, or deploying next-gen visualization — we align your people,
-          platforms, and processes around what matters most.
+          Whether you're building AI pipelines, restructuring your content
+          strategy, or deploying next-gen visualization — we design intelligent
+          systems around how your organization actually works.
         </p>
       </div>
 
       <div class="offerings-grid">
-        <div class="offering-card oc-orange fade-up">
+        <div class="offering-card oc-purple fade-up">
+          <div class="offering-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2L2 7v10l10 5 10-5V7L12 2z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path>
+              <path
+                d="M12 22V12M12 12L2 7M12 12l10-5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3>AI Foundry™</h3>
+          <em>Concept to production.</em>
+          <p>
+            Custom AI systems — from content pipelines and brand automation to
+            full-stack applications. We design, build, and manage intelligent
+            systems that integrate with your people and processes from day one.
+          </p>
+          <a href="/operational-intelligence/ai-foundry" class="offering-cta"
+            >Explore the Foundry →</a
+          >
+        </div>
+
+        <div class="offering-card oc-indigo fade-up">
           <div class="offering-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <rect
@@ -152,12 +179,12 @@ const jsonLd = JSON.stringify([
             capabilities. We assess People, Platform, and Process to surface
             gaps and deliver a prioritized action plan.
           </p>
-          <a href="/transformation/content-readiness" class="offering-cta"
+          <a href="/operational-intelligence/content-readiness" class="offering-cta"
             >Take the Assessment →</a
           >
         </div>
 
-        <div class="offering-card oc-amber fade-up">
+        <div class="offering-card oc-violet fade-up">
           <div class="offering-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -182,12 +209,12 @@ const jsonLd = JSON.stringify([
             Process &amp; Standards, Change Management, Tools &amp; Storage, and
             Metadata Governance.
           </p>
-          <a href="/transformation/digital-strategy" class="offering-cta"
+          <a href="/operational-intelligence/digital-strategy" class="offering-cta"
             >Build Your Strategy →</a
           >
         </div>
 
-        <div class="offering-card oc-rust fade-up">
+        <div class="offering-card oc-slate fade-up">
           <div class="offering-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -212,12 +239,12 @@ const jsonLd = JSON.stringify([
             gives engineering-driven organizations the visual language to sell,
             explain, and inspire — without waiting for physical prototypes.
           </p>
-          <a href="/transformation/cad-to-cgi" class="offering-cta"
+          <a href="/operational-intelligence/cad-to-cgi" class="offering-cta"
             >See the Difference →</a
           >
         </div>
 
-        <div class="offering-card oc-gold fade-up">
+        <div class="offering-card oc-lavender fade-up">
           <div class="offering-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
@@ -248,7 +275,7 @@ const jsonLd = JSON.stringify([
             and distributed workforces. Reduce downtime, improve resolution
             rates, and build institutional knowledge — at scale.
           </p>
-          <a href="/transformation/remote-assistance" class="offering-cta"
+          <a href="/operational-intelligence/remote-assistance" class="offering-cta"
             >Explore Remote Assistance →</a
           >
         </div>
@@ -256,21 +283,20 @@ const jsonLd = JSON.stringify([
     </div>
   </section>
 
-  <!-- ═══════════════════════════ CONTENT READINESS SPOTLIGHT ═══════════════════════════ -->
-  <section class="readiness-section" id="readiness">
+  <!-- ═══════════════════════════ AI FOUNDRY SPOTLIGHT ═══════════════════════════ -->
+  <section class="readiness-section" id="foundry">
     <div class="readiness-inner">
       <div class="readiness-left fade-up">
-        <span class="readiness-eyebrow">Proprietary Framework</span>
-        <h2>Content Readiness™: Align Before You Scale</h2>
+        <span class="readiness-eyebrow">Featured Offering</span>
+        <h2>AI Foundry™: From Concept to Production</h2>
         <p>
-          Content Readiness™ is ENTEVATE's diagnostic and strategic framework
-          for evaluating organizational content health. Before any
-          transformation effort, we assess your people, platforms, and processes
-          across three core dimensions — giving you the clarity to move forward
-          with confidence.
+          AI Foundry™ is ENTEVATE's end-to-end AI systems practice. We take
+          organizations from first idea to production-grade AI — through a
+          structured Learn | Build | Run framework designed to reduce risk,
+          accelerate delivery, and ensure lasting adoption.
         </p>
-        <a href="/transformation/content-readiness" class="btn-orange-solid"
-          >Start Your Assessment →</a
+        <a href="/operational-intelligence/ai-foundry" class="btn-orange-solid"
+          >Explore AI Foundry →</a
         >
       </div>
 
@@ -278,45 +304,45 @@ const jsonLd = JSON.stringify([
         <div class="r-pillar">
           <div
             class="r-pillar-dot"
-            style="background: linear-gradient(135deg, #FFE5C0, #FFF5E0);"
+            style="background: linear-gradient(135deg, #f5c842, #fff5e0);"
           >
           </div>
           <div>
-            <div class="r-pillar-title">People Readiness</div>
+            <div class="r-pillar-title">Learn (Workshop)</div>
             <div class="r-pillar-desc">
-              Are your teams aligned on content goals, roles, and workflows? We
-              assess skills, ownership, and collaboration patterns to surface
-              gaps before they become bottlenecks.
+              We start with discovery — mapping your workflows, data landscape,
+              and operational pain points to identify where AI creates real
+              leverage. You leave with a prioritized roadmap and clear next steps.
             </div>
           </div>
         </div>
         <div class="r-pillar">
           <div
             class="r-pillar-dot"
-            style="background: linear-gradient(135deg, #EA9709, #F5C842);"
+            style="background: linear-gradient(135deg, var(--orange), #f5b731);"
           >
           </div>
           <div>
-            <div class="r-pillar-title">Platform Readiness</div>
+            <div class="r-pillar-title">Build (Co-Build)</div>
             <div class="r-pillar-desc">
-              Are your tools and systems set up to support the content strategy
-              you're trying to execute? We evaluate technology fit, integration
-              quality, and scalability.
+              We design and develop your AI systems alongside your team —
+              custom pipelines, automations, and applications built to integrate
+              with your existing tools and processes from day one.
             </div>
           </div>
         </div>
         <div class="r-pillar">
           <div
             class="r-pillar-dot"
-            style="background: linear-gradient(135deg, #CB632F, #E8782A);"
+            style="background: linear-gradient(135deg, var(--orange-dark), var(--orange));"
           >
           </div>
           <div>
-            <div class="r-pillar-title">Process Readiness</div>
+            <div class="r-pillar-title">Run (Managed)</div>
             <div class="r-pillar-desc">
-              Do your workflows enable consistent, high-quality content creation
-              and distribution? We map your processes end-to-end and identify
-              where clarity, accountability, or automation can unlock capacity.
+              We operate and optimize your AI systems post-launch — monitoring
+              performance, tuning models, and scaling capabilities so your team
+              stays focused on outcomes, not infrastructure.
             </div>
           </div>
         </div>
@@ -329,7 +355,7 @@ const jsonLd = JSON.stringify([
     <div class="container">
       <div class="why-header fade-up">
         <div class="section-label">Why ENTEVATE</div>
-        <h2 class="section-title">Change, done right.</h2>
+        <h2 class="section-title">Intelligence, operationalized.</h2>
       </div>
 
       <div class="proof-grid">
@@ -350,10 +376,10 @@ const jsonLd = JSON.stringify([
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <div class="proof-stat">Content Readiness™</div>
+          <div class="proof-stat">Production-Grade AI</div>
           <div class="proof-desc">
-            A proprietary diagnostic framework that gives you clarity before you
-            commit budget to transformation.
+            We don't experiment — we ship. Our AI pipelines run in production
+            from week one, delivering measurable value from the start.
           </div>
         </div>
 
@@ -374,11 +400,11 @@ const jsonLd = JSON.stringify([
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <div class="proof-stat">Human-Led Change</div>
+          <div class="proof-stat">Human-Led Intelligence</div>
           <div class="proof-desc">
-            We design transformation strategies around your people — not just
-            your technology — ensuring lasting adoption and real behavior
-            change.
+            We design intelligent systems around your people and processes —
+            not the other way around — ensuring lasting adoption and real
+            behavior change.
           </div>
         </div>
 
@@ -395,8 +421,8 @@ const jsonLd = JSON.stringify([
           <div class="proof-stat">Cross-Industry Expertise</div>
           <div class="proof-desc">
             We've partnered with Fortune 500 companies across manufacturing,
-            hospitality, technology, and energy to deliver digital
-            transformation at scale.
+            hospitality, technology, and energy to deploy AI, spatial workflows,
+            and visualization at scale.
           </div>
         </div>
       </div>
@@ -408,15 +434,15 @@ const jsonLd = JSON.stringify([
     <div class="container">
       <div class="fade-up">
         <div class="section-label">In the Field</div>
-        <h2 class="section-title">Transformation at work.</h2>
+        <h2 class="section-title">Intelligence at work.</h2>
         <p class="section-subtitle">
-          Real engagements where content strategy and digital transformation
+          Real engagements where AI systems and operational intelligence
           delivered measurable, lasting change.
         </p>
       </div>
 
       <div class="cases-grid">
-        <div class="case-card cc-orange fade-up">
+        <div class="case-card cc-purple fade-up">
           <div class="case-img">
             <img src="/images/bt2.png" alt="Remote Assistance Case Study" />
           </div>
@@ -436,12 +462,12 @@ const jsonLd = JSON.stringify([
             <div class="case-outcome">Reduced Resolution Time</div>
             <div class="case-outcome">Field Team Training Delivered</div>
           </div>
-          <a href="/transformation/remote-assistance" class="case-cta"
+          <a href="/operational-intelligence/remote-assistance" class="case-cta"
             >Learn More →</a
           >
         </div>
 
-        <div class="case-card cc-amber fade-up">
+        <div class="case-card cc-indigo fade-up">
           <div class="case-img">
             <img src="/images/bt3.png" alt="CAD to CGI Case Study" />
           </div>
@@ -461,7 +487,7 @@ const jsonLd = JSON.stringify([
             <div class="case-outcome">Faster Go-to-Market</div>
             <div class="case-outcome">Sales Enablement Content Built</div>
           </div>
-          <a href="/transformation/cad-to-cgi" class="case-cta">Learn More →</a>
+          <a href="/operational-intelligence/cad-to-cgi" class="case-cta">Learn More →</a>
         </div>
       </div>
     </div>
@@ -471,16 +497,15 @@ const jsonLd = JSON.stringify([
   <section class="cta-band" id="contact">
     <div class="container">
       <div class="fade-up">
-        <h2>Ready to Transform How Your Content Performs?</h2>
+        <h2>Ready to Build Intelligent Operations?</h2>
         <p>
-          Let's assess your readiness and build a transformation strategy that
-          actually sticks.
+          Let's design the AI systems that will power your next chapter.
         </p>
         <div class="cta-band-actions">
-          <a href="/transformation/content-readiness" class="btn-white-solid"
-            >Start Your Assessment</a
+          <a href="/operational-intelligence/ai-foundry" class="btn-white-solid"
+            >Explore AI Foundry</a
           >
-          <a href="/contact?service=transformation" class="btn-white-ghost"
+          <a href="/contact?service=operational-intelligence" class="btn-white-ghost"
             >Schedule a Discovery Call</a
           >
         </div>
@@ -498,14 +523,14 @@ const jsonLd = JSON.stringify([
   </script>
 
   <style>
-    /* ── Hero (Transformation) ── */
+    /* ── Hero (Operational Intelligence) ── */
     .hero {
       background:
         linear-gradient(
           135deg,
           rgba(50, 22, 5, 0.55) 0%,
           rgba(85, 42, 12, 0.45) 50%,
-          rgba(115, 65, 25, 0.38) 100%
+          rgba(85, 42, 12, 0.38) 100%
         ),
         url("/images/bt2.png") center/cover no-repeat;
       position: relative;
@@ -589,7 +614,7 @@ const jsonLd = JSON.stringify([
       border-radius: var(--radius);
       border: none;
       cursor: pointer;
-      background: linear-gradient(135deg, #e8782a 0%, #f5b731 100%);
+      background: linear-gradient(135deg, var(--orange) 0%, #f5b731 100%);
       color: var(--white);
       transition: all var(--tr);
       display: inline-block;
@@ -660,16 +685,19 @@ const jsonLd = JSON.stringify([
       border-radius: var(--radius) var(--radius) 0 0;
     }
 
-    .oc-orange::before {
-      background: linear-gradient(90deg, #e8782a, #f5b731);
+    .oc-purple::before {
+      background: linear-gradient(90deg, var(--orange), #f5b731);
     }
-    .oc-amber::before {
+    .oc-indigo::before {
+      background: linear-gradient(90deg, var(--orange-dark), var(--orange));
+    }
+    .oc-violet::before {
       background: linear-gradient(90deg, #ea9709, #f5c842);
     }
-    .oc-rust::before {
+    .oc-slate::before {
       background: linear-gradient(90deg, #cb632f, #e8782a);
     }
-    .oc-gold::before {
+    .oc-lavender::before {
       background: linear-gradient(90deg, #f5b731, #fdd068);
     }
 
@@ -688,21 +716,25 @@ const jsonLd = JSON.stringify([
       margin-bottom: 20px;
     }
 
-    .oc-orange .offering-icon {
+    .oc-purple .offering-icon {
       background: rgba(232, 120, 42, 0.1);
       color: var(--orange);
     }
-    .oc-amber .offering-icon {
-      background: rgba(234, 151, 9, 0.1);
-      color: var(--orange-light);
-    }
-    .oc-rust .offering-icon {
-      background: rgba(203, 99, 47, 0.1);
+    .oc-indigo .offering-icon {
+      background: rgba(91, 77, 199, 0.1);
       color: var(--orange-dark);
     }
-    .oc-gold .offering-icon {
-      background: rgba(245, 183, 49, 0.1);
-      color: var(--orange-amber);
+    .oc-violet .offering-icon {
+      background: rgba(139, 92, 246, 0.1);
+      color: #ea9709;
+    }
+    .oc-slate .offering-icon {
+      background: rgba(99, 102, 241, 0.1);
+      color: #cb632f;
+    }
+    .oc-lavender .offering-icon {
+      background: rgba(126, 87, 194, 0.1);
+      color: #f5b731;
     }
 
     .offering-card h3 {
@@ -748,14 +780,14 @@ const jsonLd = JSON.stringify([
       gap: 10px;
     }
 
-    /* ── Content Readiness Spotlight ── */
+    /* ── AI Foundry Spotlight ── */
     .readiness-section {
       background:
         linear-gradient(
           135deg,
           rgba(50, 22, 5, 0.55) 0%,
           rgba(85, 42, 12, 0.45) 50%,
-          rgba(115, 65, 25, 0.38) 100%
+          rgba(85, 42, 12, 0.38) 100%
         ),
         url("/images/bt2.png") center/cover no-repeat;
       color: var(--white);
@@ -776,7 +808,7 @@ const jsonLd = JSON.stringify([
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--orange-amber);
+      color: #f5b731;
       margin-bottom: 14px;
       display: block;
     }
@@ -969,11 +1001,11 @@ const jsonLd = JSON.stringify([
       border-radius: var(--radius) var(--radius) 0 0;
     }
 
-    .cc-orange::before {
-      background: linear-gradient(90deg, #e8782a, #f5b731);
+    .cc-purple::before {
+      background: linear-gradient(90deg, var(--orange), #f5b731);
     }
-    .cc-amber::before {
-      background: linear-gradient(90deg, #cb632f, #e8782a);
+    .cc-indigo::before {
+      background: linear-gradient(90deg, var(--orange-dark), var(--orange));
     }
 
     .case-card:hover {
@@ -1021,10 +1053,10 @@ const jsonLd = JSON.stringify([
       flex-shrink: 0;
     }
 
-    .cc-orange .case-tag::before {
+    .cc-purple .case-tag::before {
       background: var(--orange);
     }
-    .cc-amber .case-tag::before {
+    .cc-indigo .case-tag::before {
       background: var(--orange-dark);
     }
 
@@ -1075,10 +1107,10 @@ const jsonLd = JSON.stringify([
       transition: gap var(--tr);
     }
 
-    .cc-orange .case-cta {
+    .cc-purple .case-cta {
       color: var(--orange);
     }
-    .cc-amber .case-cta {
+    .cc-indigo .case-cta {
       color: var(--orange-dark);
     }
 
@@ -1088,7 +1120,7 @@ const jsonLd = JSON.stringify([
 
     /* ── CTA Band ── */
     .cta-band {
-      background: linear-gradient(135deg, #3d1e08 0%, #e8782a 100%);
+      background: linear-gradient(135deg, #3d1e08 0%, var(--orange) 100%);
       color: var(--white);
       padding: 80px 48px;
       text-align: center;
