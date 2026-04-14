@@ -26,7 +26,6 @@ Align people, platforms, and processes through Content Readiness™ — our prop
 - Content Readiness™ assessment and scoring
 - Digital transformation strategy and execution
 - CAD-to-CGI conversion and visualization
-- Remote assistance and spatial workflows
 - Learning & development, change management
 URL: https://www.entevate.com/transformation
 
@@ -56,7 +55,7 @@ Angel Academy URL: https://www.entevate.com/innovation/angel-academy
 ## Target Personas
 
 - **Fortune 500 & Enterprise**: Trade show activations, digital transformation, content optimization
-- **Manufacturing & Industrial**: CAD-to-CGI conversion, AR remote assistance, spatial workflows
+- **Manufacturing & Industrial**: CAD-to-CGI conversion, AI pipelines, digital transformation
 - **Universities & Research Institutions**: Innovation ecosystem mapping, AIQUI framework, sandbox prototyping
 - **Economic Development Organizations**: Ecosystem model design, innovation district strategy, stakeholder alignment
 - **Innovation Districts & Cities**: 7 Core Elements mapping, roadmapping, venture development

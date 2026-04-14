@@ -65,10 +65,6 @@ URL: https://www.entevate.com/transformation/digital-strategy
 Transform existing CAD data into photorealistic CGI assets for marketing, training, sales, and XR experiences. Bridge the gap between engineering data and visual content.
 URL: https://www.entevate.com/transformation/cad-to-cgi
 
-**Remote Assistance & Spatial Workflows**
-AR-powered remote assistance and spatial workflow design for field teams, service technicians, and distributed workforces.
-URL: https://www.entevate.com/transformation/remote-assistance
-
 ### Who It's For
 - Enterprise content and marketing teams
 - Manufacturing and industrial companies with CAD data
@@ -175,8 +171,8 @@ A companion CxO bootcamp for startup founders covering leadership fundamentals, 
 **Value**: Measurable ROI through ROX™ scoring, content alignment across channels, immersive customer experiences
 
 ### Manufacturing & Industrial Companies
-**Needs**: CAD-to-CGI conversion, remote assistance, spatial workflows, product visualization, training
-**Solutions**: CAD-to-CGI conversion, remote assistance & spatial workflows, trade show activations
+**Needs**: CAD-to-CGI conversion, product visualization, training, AI pipelines
+**Solutions**: CAD-to-CGI conversion, AI Foundry, trade show activations
 **Value**: Repurpose existing CAD data into marketing assets, reduce field service costs, improve training effectiveness
 
 ### Universities & Research Institutions
@@ -246,7 +242,6 @@ ENTEVATE publishes original insights on experiential branding, immersive technol
 - Content Readiness: https://www.entevate.com/transformation/content-readiness
 - Digital Strategy: https://www.entevate.com/transformation/digital-strategy
 - CAD to CGI: https://www.entevate.com/transformation/cad-to-cgi
-- Remote Assistance: https://www.entevate.com/transformation/remote-assistance
 - Innovation: https://www.entevate.com/innovation
 - Ecosystem Model: https://www.entevate.com/innovation/ecosystem-model
 - Roadmapping: https://www.entevate.com/innovation/roadmapping

@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandPortal from "../components/BrandPortal.jsx";
+import "../global.css";
+import "../brand-portal.css";
+
+const title = "Brand Portal — ENTEVATE";
+const description = "Internal brand kit and design system for ENTEVATE.";
+---
+
+<BaseLayout title={title} description={description}>
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+  <BrandPortal client:load />
+</BaseLayout>
