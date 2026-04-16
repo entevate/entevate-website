@@ -1,0 +1,512 @@
+/* ==========================================================================
+   ENTEVATE Brand Design Tokens
+   Extracted from entevate.com
+   Last updated: 2026-04-15
+
+   This file is a standalone reference of all brand-level design tokens
+   used across the ENTEVATE website. It can be imported as a foundation
+   layer or used as a design token specification sheet.
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. CUSTOM PROPERTIES / DESIGN TOKENS
+   ========================================================================== */
+
+:root {
+  /* --- Colors --- */
+  --light-blue: #eef5fd;        /* Alt-section backgrounds, hover states */
+  --black: #181818;             /* Primary text, footer background */
+  --white: #ffffff;             /* Page background, button text on dark */
+  --purple: #444561;            /* Button hover state, brand accent */
+  --purple-light: #8e90c0;     /* Innovation gradient end, light accent */
+  --purple-dark: #6a6b9e;      /* Innovation service hover color */
+  --blue: #247b96;             /* Primary CTA, links, active states */
+  --blue-light: #5ba8c4;       /* Secondary blue accent */
+  --green: #3d978a;            /* Newsletter button hover, accent */
+  --teal: #2bbfa8;             /* Experiential brand color, gradient start */
+  --teal-light: #6dd4a0;       /* Experiential gradient end */
+  --orange: #e8782a;           /* Operational Intelligence brand color */
+  --orange-light: #ea9709;     /* Orange CTA button background */
+  --orange-amber: #f5b731;     /* OI gradient end, warm accent */
+  --orange-dark: #cb632f;      /* Orange button hover state */
+  --gray-mid: #6b6b6b;         /* Body text, secondary copy */
+  --gray-light: #a8a8a8;       /* Tertiary text, client logos, labels */
+  --border: #dde6f0;           /* Card borders, dividers, nav border */
+  --mob-hover: #247b96;        /* Mobile drawer link hover (matches --blue) */
+
+  /* --- Typography --- */
+  --font: "Archivo", system-ui, sans-serif;
+
+  /* --- Shape --- */
+  --radius: 6px;
+
+  /* --- Motion --- */
+  --tr: 0.22s ease;
+}
+
+
+/* ==========================================================================
+   2. TYPOGRAPHY
+   ========================================================================== */
+
+/*
+ * Font Family
+ * -----------
+ * Primary: "Archivo" (Google Fonts), system-ui fallback
+ * Used globally on body, all buttons, navigation, and form elements.
+ *
+ * Base Body
+ * ---------
+ * Size:           16px
+ * Line-height:    1.6
+ * Color:          var(--black) / #181818
+ * Rendering:      -webkit-font-smoothing: antialiased
+ * Text-wrap:      pretty (paragraphs, lists, captions)
+ *
+ * Headings (h1-h6)
+ * ----------------
+ * Text-wrap:      balance
+ *
+ * Section Title (h2.section-title)
+ * --------------------------------
+ * Size:           clamp(30px, 4vw, 48px)
+ * Weight:         300 (light)
+ * Letter-spacing: -0.02em
+ * Line-height:    1.1
+ *
+ * CTA Banner Heading (h2)
+ * -----------------------
+ * Size:           clamp(26px, 4vw, 44px)
+ * Weight:         300
+ * Letter-spacing: -0.02em
+ *
+ * Section Subtitle
+ * ----------------
+ * Size:           15px
+ * Color:          var(--gray-mid)
+ * Line-height:    1.75
+ * Max-width:      540px
+ *
+ * Service Card Heading (h3)
+ * -------------------------
+ * Size:           19px
+ * Weight:         300
+ * Letter-spacing: -0.01em
+ *
+ * Stat Number (h3)
+ * ----------------
+ * Size:           52px
+ * Weight:         300
+ * Letter-spacing: -0.03em
+ *
+ * Blog Card Heading (h4)
+ * ----------------------
+ * Size:           14px
+ * Weight:         300
+ * Line-height:    1.4
+ *
+ * Section Label
+ * -------------
+ * Size:           11px
+ * Weight:         700
+ * Letter-spacing: 0.12em
+ * Transform:      uppercase
+ *
+ * Client Bar Label
+ * ----------------
+ * Size:           11px
+ * Weight:         600
+ * Letter-spacing: 0.1em
+ * Transform:      uppercase
+ * Color:          var(--gray-light)
+ *
+ * Client Name
+ * -----------
+ * Size:           14px
+ * Weight:         700
+ * Letter-spacing: 0.07em
+ * Transform:      uppercase
+ * Color:          var(--gray-light)
+ *
+ * Blog Tag
+ * --------
+ * Size:           10px
+ * Weight:         700
+ * Letter-spacing: 0.1em
+ * Transform:      uppercase
+ *
+ * Learn More Link
+ * ---------------
+ * Size:           12px
+ * Weight:         700
+ * Letter-spacing: 0.05em
+ * Transform:      uppercase
+ *
+ * Blog Read-More Pill
+ * -------------------
+ * Size:           11px
+ * Weight:         600
+ * Letter-spacing: 0.05em
+ * Transform:      uppercase
+ *
+ * Nav Links
+ * ---------
+ * Size:           13.5px
+ * Weight:         500
+ *
+ * Dropdown Links
+ * --------------
+ * Size:           13px
+ * Weight:         400
+ *
+ * Footer Column Heading
+ * ---------------------
+ * Size:           10px
+ * Weight:         700
+ * Letter-spacing: 0.12em
+ * Transform:      uppercase
+ * Color:          rgba(255, 255, 255, 0.3)
+ *
+ * Footer Links
+ * ------------
+ * Size:           13.5px
+ * Color:          rgba(255, 255, 255, 0.62)
+ *
+ * Footer Bottom / Copyright
+ * -------------------------
+ * Size:           13px
+ * Color:          rgba(255, 255, 255, 0.28)
+ *
+ * Button Sizes
+ * ------------
+ * btn-outline:    13px / weight 600
+ * btn-primary:    14px / weight 600
+ * btn-ghost:      14px / weight 500
+ * btn-orange:     14px / weight 700
+ * btn-gradient:   14px / weight 600
+ */
+
+
+/* ==========================================================================
+   3. COLOR PALETTE
+   ========================================================================== */
+
+/*
+ * Primary Brand Colors
+ * --------------------
+ * Black (#181818)            -- Primary text, footer bg, btn-outline border/hover
+ * White (#ffffff)            -- Page background, text on dark surfaces
+ * Blue (#247b96)             -- Primary CTA, link hover, focus ring, newsletter btn
+ *
+ * Service Pillar Colors
+ * ---------------------
+ * Teal (#2bbfa8)             -- Experiential Business Model primary
+ * Teal Light (#6dd4a0)       -- Experiential gradient end
+ * Orange (#e8782a)           -- Operational Intelligence primary
+ * Orange Amber (#f5b731)     -- OI gradient end
+ * Purple (#444561)           -- Innovation primary, btn-primary hover bg
+ * Purple Light (#8e90c0)     -- Innovation gradient end
+ * Purple Dark (#6a6b9e)      -- Innovation hover accent
+ *
+ * CTA / Action Colors
+ * -------------------
+ * Orange Light (#ea9709)     -- btn-orange background
+ * Orange Dark (#cb632f)      -- btn-orange hover background
+ * Green (#3d978a)            -- Newsletter btn hover, experiential accent
+ * Blue Light (#5ba8c4)       -- Secondary blue accent
+ *
+ * Neutral / UI Colors
+ * -------------------
+ * Light Blue (#eef5fd)       -- Section-alt bg, dropdown hover bg, mobile submenu bg
+ * Gray Mid (#6b6b6b)         -- Body copy, descriptions, stat captions
+ * Gray Light (#a8a8a8)       -- Labels, client names, muted text
+ * Border (#dde6f0)           -- Card borders, nav underline, dividers
+ *
+ * Footer Alpha Colors
+ * -------------------
+ * rgba(255, 255, 255, 0.62)  -- Footer link text
+ * rgba(255, 255, 255, 0.42)  -- Footer brand description
+ * rgba(255, 255, 255, 0.38)  -- Social icon default
+ * rgba(255, 255, 255, 0.35)  -- Footer address text
+ * rgba(255, 255, 255, 0.30)  -- Footer column headings
+ * rgba(255, 255, 255, 0.28)  -- Footer copyright, newsletter placeholder
+ * rgba(255, 255, 255, 0.12)  -- Newsletter input border
+ * rgba(255, 255, 255, 0.08)  -- Footer bottom divider
+ * rgba(255, 255, 255, 0.06)  -- Newsletter input background
+ * rgba(255, 255, 255, 0.65)  -- CTA banner body text
+ *
+ * Blog Card Variant: General
+ * --------------------------
+ * #3b8fe8                    -- General / insights blue (tag, read-more)
+ * #5bc8f5                    -- General gradient end
+ */
+
+
+/* ==========================================================================
+   4. GRADIENTS
+   ========================================================================== */
+
+/*
+ * Brand Gradient (Blue)
+ * ---------------------
+ * Used for: section labels, stat numbers, btn-gradient, blue-gradient-clip text
+ */
+.gradient-brand {
+  background: linear-gradient(90deg, #2060d8 0%, #38c6f4 100%);
+}
+
+/*
+ * Experiential Gradient (Teal/Green)
+ * ----------------------------------
+ * Used for: service card s1 top bar, learn-more text, blog tag, read-more pill
+ */
+.gradient-experiential {
+  background: linear-gradient(90deg, #2bbfa8 0%, #6dd4a0 100%);
+}
+
+/*
+ * Operational Intelligence Gradient (Orange/Amber)
+ * ------------------------------------------------
+ * Used for: service card s2 top bar, learn-more text, blog tag, read-more pill
+ */
+.gradient-oi {
+  background: linear-gradient(90deg, #e8782a 0%, #f5b731 100%);
+}
+
+/*
+ * Innovation Gradient (Purple)
+ * ----------------------------
+ * Used for: service card s3 top bar, learn-more text, blog tag, read-more pill
+ */
+.gradient-innovation {
+  background: linear-gradient(90deg, #5b5c8c 0%, #8e90c0 100%);
+}
+
+/*
+ * General / Insights Gradient (Sky Blue)
+ * --------------------------------------
+ * Used for: general blog card tags and read-more pills
+ */
+.gradient-general {
+  background: linear-gradient(90deg, #3b8fe8 0%, #5bc8f5 100%);
+}
+
+/*
+ * CTA Banner Background
+ * ---------------------
+ * Multi-layer overlay on background image
+ */
+.gradient-cta-banner {
+  background: linear-gradient(
+    135deg,
+    rgba(45, 43, 78, 0.88) 0%,
+    rgba(68, 69, 97, 0.84) 45%,
+    rgba(92, 71, 128, 0.84) 100%
+  );
+}
+
+/*
+ * CTA Banner Radial Overlays (::before pseudo)
+ * ---------------------------------------------
+ * Adds depth and color variation to CTA section
+ */
+/*
+  radial-gradient(circle at 75% 30%, rgba(92, 71, 128, 0.5) 0%, transparent 60%),
+  radial-gradient(circle at 20% 70%, rgba(45, 43, 78, 0.6) 0%, transparent 50%)
+*/
+
+/*
+ * Service Icon Background Gradients (12% opacity tints)
+ * -----------------------------------------------------
+ * Experiential: rgba(43,191,168,0.12) -> rgba(109,212,160,0.12) at 135deg
+ * OI:           rgba(232,120,42,0.12) -> rgba(245,183,49,0.12) at 135deg
+ * Innovation:   rgba(91,92,140,0.12) -> rgba(142,144,192,0.12) at 135deg
+ */
+
+
+/* ==========================================================================
+   5. SPACING & LAYOUT
+   ========================================================================== */
+
+/*
+ * Container
+ * ---------
+ * Max-width:        1160px
+ * Centering:        margin: 0 auto
+ *
+ * Section Padding
+ * ---------------
+ * Default:          96px 48px (vertical horizontal)
+ * Tablet (<=960px): 72px 24px
+ *
+ * CTA Banner Padding
+ * ------------------
+ * Default:          80px 48px
+ * Tablet (<=960px): 64px 24px
+ * Mobile (<=600px): 56px 20px
+ *
+ * Nav Padding
+ * -----------
+ * Default:          0 48px
+ * Tablet (<=960px): 0 24px
+ *
+ * Nav Height
+ * ----------
+ * 70px (sticky, z-index: 100)
+ *
+ * Client Bar Padding
+ * ------------------
+ * Default:          36px 48px
+ * Tablet (<=960px): 28px 24px
+ *
+ * Footer Padding
+ * --------------
+ * Default:          72px 48px 40px
+ * Mobile (<=600px): 56px 20px 32px
+ *
+ * Grid Gaps
+ * ---------
+ * Services grid:    24px (3-column)
+ * Blog grid:        24px (3-column)
+ * Stat row:         24px (3-column, 2-column on mobile)
+ * Footer top:       48px (4-column), 32px at tablet (2-column), 1-column on mobile
+ * Nav links:        32px
+ * Footer socials:   16px
+ */
+
+
+/* ==========================================================================
+   6. BORDER & RADIUS
+   ========================================================================== */
+
+/*
+ * Border Color
+ * ------------
+ * Primary border:     var(--border) / #dde6f0
+ * Footer divider:     rgba(255, 255, 255, 0.08)
+ * Newsletter input:   rgba(255, 255, 255, 0.12)
+ * Mobile sub-menu:    rgba(221, 230, 240, 0.7)
+ * btn-outline border: 1.5px solid var(--black)
+ *
+ * Border Radius
+ * -------------
+ * Default:            var(--radius) / 6px  -- cards, buttons, dropdowns, inputs
+ * Service icon:       10px
+ * Blog read-more:     100px (pill shape)
+ * Pill dot:           50% (circle)
+ */
+
+
+/* ==========================================================================
+   7. ELEVATION & SHADOWS
+   ========================================================================== */
+
+/*
+ * Card Hover
+ * ----------
+ * Service cards:      0 10px 40px rgba(0, 0, 0, 0.08)
+ * Blog cards:         0 8px 32px rgba(0, 0, 0, 0.07)
+ *
+ * Dropdown
+ * --------
+ * Nav dropdown:       0 8px 24px rgba(0, 0, 0, 0.08)
+ *
+ * Mobile Drawer
+ * -------------
+ * Drawer panel:       -6px 0 32px rgba(0, 0, 0, 0.16)
+ *
+ * Mobile Overlay
+ * --------------
+ * Backdrop:           rgba(0, 0, 0, 0.48)
+ */
+
+
+/* ==========================================================================
+   8. TRANSITIONS & ANIMATION
+   ========================================================================== */
+
+/*
+ * Base Transition
+ * ---------------
+ * var(--tr) = 0.22s ease
+ * Applied to: color, background, box-shadow, transform, opacity, border-color, gap
+ *
+ * Fade-Up Reveal
+ * --------------
+ * Initial state:     opacity: 0; transform: translateY(22px)
+ * Visible state:     opacity: 1; transform: none
+ * Duration:          0.55s ease (both opacity and transform)
+ * Trigger:           .visible class added via IntersectionObserver
+ *
+ * Mobile Drawer
+ * -------------
+ * Overlay fade:       0.28s ease
+ * Drawer slide:       0.32s cubic-bezier(0.4, 0, 0.2, 1)
+ * Chevron rotation:   0.22s ease
+ *
+ * Client Logo Scroll
+ * ------------------
+ * Keyframe:           clients-scroll
+ * Behavior:           translateX(0) to translateX(-50%), 22s linear infinite
+ * Pauses on hover
+ *
+ * Hover Transforms
+ * ----------------
+ * Service card:       translateY(-3px)
+ * Blog card:          translateY(-3px)
+ * btn-primary:        translateY(-1px)
+ * btn-orange:         translateY(-2px)
+ * btn-gradient:       translateY(-1px)
+ * Dropdown appear:    translateY(6px) -> translateY(0)
+ * Learn-more gap:     6px -> 10px
+ * Read-more gap:      5px -> 8px
+ */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes clients-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/*
+ * Breakpoint: 960px (Tablet)
+ * --------------------------
+ * - Nav collapses: center links and outline button hidden, hamburger shown
+ * - Nav horizontal padding reduces from 48px to 24px
+ * - Section padding reduces from 96px/48px to 72px/24px
+ * - Client bar padding reduces from 36px/48px to 28px/24px
+ * - CTA banner padding reduces from 80px/48px to 64px/24px
+ * - Footer grid switches from 4-column to 2-column, gap shrinks to 32px
+ * - Blog header stacks vertically with 16px gap
+ *
+ * Breakpoint: 600px (Mobile)
+ * --------------------------
+ * - CTA banner padding reduces to 56px/20px
+ * - Stat row switches from 3-column to 2-column
+ * - Footer grid becomes single column
+ * - Footer padding reduces to 56px/20px/32px
+ * - Footer bottom stacks vertically, centers text
+ *
+ * Note: Blog grid and services grid column adjustments are handled
+ * in individual page stylesheets, not in global.css.
+ */
