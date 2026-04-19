@@ -1,14 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "comment": [
-    "entevate.com/gtm is the canonical URL for the Growth Engine Next.js app.",
-    "The app itself lives in a separate Vercel project (entevate-growth-engine).",
-    "This vercel.json rewrites /gtm/* traffic from entevate.com to that deployment,",
-    "and redirects /growth-engine and its descendants to /gtm as a convenience alias.",
-    "",
-    "REPLACE 'entevate-growth-engine.vercel.app' with the real deployment URL",
-    "once the growth-engine Vercel project is created."
-  ],
   "rewrites": [
     {
       "source": "/gtm",
