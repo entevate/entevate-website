@@ -12,6 +12,14 @@
     {
       "source": "/api/gtm/:path*",
       "destination": "https://entevate-growth-engine.vercel.app/api/gtm/:path*"
+    },
+    {
+      "source": "/_next/:path*",
+      "destination": "https://entevate-growth-engine.vercel.app/_next/:path*"
+    },
+    {
+      "source": "/ENTEVATE-Logo_White.svg",
+      "destination": "https://entevate-growth-engine.vercel.app/ENTEVATE-Logo_White.svg"
     }
   ],
   "redirects": [
