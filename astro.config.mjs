@@ -6,7 +6,16 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.entevate.com',
-  integrations: [react(), sitemap({ filter: (page) => !page.includes('/brand') })],
+  integrations: [
+    react(),
+    sitemap({
+      // Exclude internal/gated portals from search indexing
+      filter: (page) =>
+        !page.includes('/brand') &&
+        !page.includes('/gtm') &&
+        !page.includes('/growth-engine'),
+    }),
+  ],
   redirects: {
     '/transformation': '/operational-intelligence',
     '/transformation/content-readiness': '/operational-intelligence/content-readiness',
