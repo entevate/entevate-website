@@ -676,6 +676,100 @@ const jsonLd = JSON.stringify([
       background: rgba(255, 255, 255, 0.1);
     }
 
+    /* Growth Engine Spotlight */
+    .ge-spotlight {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(50, 22, 5, 0.55) 0%,
+          rgba(85, 42, 12, 0.45) 50%,
+          rgba(85, 42, 12, 0.38) 100%
+        ),
+        url("/images/bt2.png") center/cover no-repeat;
+      color: var(--white);
+      padding: 80px 48px;
+    }
+    .ge-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .ge-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f5b731;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .ge-left h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .ge-left p {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+    .btn-orange-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--orange);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-orange-solid:hover {
+      background: var(--orange-dark);
+      transform: translateY(-1px);
+    }
+    .ge-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .r-pillar {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .r-pillar-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .r-pillar-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .r-pillar-desc {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.55;
+    }
+
     /* Responsive */
     @media (max-width: 960px) {
       .framework-grid,
@@ -685,6 +779,13 @@ const jsonLd = JSON.stringify([
       }
       .audience-grid {
         grid-template-columns: 1fr 1fr;
+      }
+      .ge-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .ge-spotlight {
+        padding: 72px 24px;
       }
     }
     @media (max-width: 768px) {
@@ -697,6 +798,7 @@ const jsonLd = JSON.stringify([
       .build-section,
       .stats-section,
       .audience-section,
+      .ge-spotlight,
       .cta-band {
         padding: 60px 24px;
       }
@@ -1001,6 +1103,74 @@ const jsonLd = JSON.stringify([
             initial concept to deployed production product in days,
             not months.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Growth Engine Spotlight -->
+  <section class="ge-spotlight" id="growth-engine">
+    <div class="ge-inner">
+      <div class="ge-left fade-up">
+        <span class="ge-eyebrow">Featured Deployment</span>
+        <h2>Growth Engine: AI-Powered Marketing Operations</h2>
+        <p>
+          A purpose-built platform that gives marketing and revenue teams a
+          single command center for brand, content, outreach, and analytics.
+          ENTEVATE configures it to each client's voice, personas, and GTM
+          motion. Already deployed across industries including SaaS, athletics,
+          and professional services.
+        </p>
+        <a href="/operational-intelligence/ai-foundry/growth-engine" class="btn-orange-solid"
+          >See the Platform &rarr;</a
+        >
+      </div>
+
+      <div class="ge-pillars fade-up">
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, #f5c842, #fff5e0);"></div>
+          <div>
+            <div class="r-pillar-title">Brand Studio</div>
+            <div class="r-pillar-desc">
+              Visual identity system, design tokens, social graphic builder, and asset library.
+            </div>
+          </div>
+        </div>
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, var(--orange), #f5b731);"></div>
+          <div>
+            <div class="r-pillar-title">Content Calendar</div>
+            <div class="r-pillar-desc">
+              Pipeline board and scheduling across all platforms.
+            </div>
+          </div>
+        </div>
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, #ea9709, #f5c842);"></div>
+          <div>
+            <div class="r-pillar-title">AI Content Builder</div>
+            <div class="r-pillar-desc">
+              One-click generation of infographics, microsites, carousels, and one-pagers.
+            </div>
+          </div>
+        </div>
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, var(--orange-dark), var(--orange));"></div>
+          <div>
+            <div class="r-pillar-title">GTM Analytics</div>
+            <div class="r-pillar-desc">
+              Persona system, solution mapping, and AI-generated outreach content.
+            </div>
+          </div>
+        </div>
+        <div class="r-pillar">
+          <div class="r-pillar-dot" style="background: linear-gradient(135deg, #cb632f, var(--orange-dark));"></div>
+          <div>
+            <div class="r-pillar-title">Email Outreach</div>
+            <div class="r-pillar-desc">
+              Template builder, campaign composer, batch send, and performance tracking.
+            </div>
+          </div>
         </div>
       </div>
     </div>

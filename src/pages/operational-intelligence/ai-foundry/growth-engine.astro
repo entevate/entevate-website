@@ -1,0 +1,882 @@
+---
+import Footer from "../../../components/Footer.jsx";
+import Header from "../../../components/Header.jsx";
+import "../../../global.css";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const title = "Growth Engine — AI Marketing Operations | ENTEVATE";
+const description =
+  "A purpose-built platform that gives marketing and revenue teams a single command center for brand, content, outreach, and analytics. Configured by ENTEVATE, running on day one.";
+
+const jsonLd = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Growth Engine",
+    "provider": { "@type": "Organization", "name": "ENTEVATE" },
+    "description": description,
+    "url": "https://www.entevate.com/operational-intelligence/ai-foundry/growth-engine",
+    "serviceType": "AI Marketing Operations Platform"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.entevate.com" },
+      { "@type": "ListItem", "position": 2, "name": "Operational Intelligence", "item": "https://www.entevate.com/operational-intelligence" },
+      { "@type": "ListItem", "position": 3, "name": "AI Foundry", "item": "https://www.entevate.com/operational-intelligence/ai-foundry" },
+      { "@type": "ListItem", "position": 4, "name": "Growth Engine", "item": "https://www.entevate.com/operational-intelligence/ai-foundry/growth-engine" }
+    ]
+  }
+]);
+---
+
+<BaseLayout title={title} description={description} ogImage="/images/og/oi-og.png" jsonLd={jsonLd}>
+  <style>
+    /* Shared */
+    .section {
+      padding: 80px 48px;
+    }
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+      color: var(--orange);
+    }
+    h2.section-title {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--gray-mid);
+      max-width: 580px;
+      line-height: 1.75;
+    }
+
+    /* Hero */
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(50, 22, 5, 0.72) 0%,
+          rgba(85, 42, 12, 0.55) 50%,
+          rgba(232, 120, 42, 0.38) 100%
+        ),
+        url("/images/bt2.png") center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      padding: 96px 48px 120px;
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(232, 120, 42, 0.14);
+      border: 1px solid rgba(232, 120, 42, 0.38);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero-eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f5b731, #fff5e0);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 6.5vw, 78px);
+      font-weight: 100;
+      line-height: 1.04;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      max-width: 860px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(90deg, #f5b731 0%, #fff5e0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 42px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--orange) 0%, #f5b731 100%);
+      color: var(--white);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(115, 65, 25, 0.45);
+    }
+    .btn-ghost-dark {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      background: none;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 26px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--tr);
+    }
+    .btn-ghost-dark:hover {
+      border-color: rgba(255, 255, 255, 0.8);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Overview */
+    .overview-section {
+      background: var(--white);
+      padding: 80px 48px;
+    }
+    .overview-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .overview-left p {
+      font-size: 15px;
+      color: var(--gray-mid);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .overview-left p:last-child {
+      font-style: italic;
+      color: var(--gray-light);
+      font-size: 14px;
+    }
+    .overview-chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .overview-chip {
+      background: var(--light-blue);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .overview-chip span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    /* Modules */
+    .modules-section {
+      background: var(--light-blue);
+      padding: 80px 48px;
+    }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 52px;
+    }
+    .module-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 26px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        box-shadow var(--tr),
+        transform var(--tr);
+    }
+    .module-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      background: linear-gradient(90deg, var(--orange), #f5b731);
+    }
+    .module-card:hover {
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+    .module-card.module-empty {
+      background: transparent;
+      border: 1.5px dashed var(--border);
+      box-shadow: none;
+      pointer-events: none;
+    }
+    .module-card.module-empty:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .module-card.module-empty::before {
+      display: none;
+    }
+    .module-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      background: rgba(232, 120, 42, 0.1);
+      color: var(--orange);
+    }
+    .module-card h3 {
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      line-height: 1.3;
+      color: var(--black);
+    }
+    .module-card p {
+      font-size: 13.5px;
+      color: var(--gray-mid);
+      line-height: 1.7;
+    }
+
+    /* Carousel */
+    .overview-carousel {
+      min-width: 0;
+    }
+    .carousel-wrapper {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+    }
+    .preview-chrome {
+      background: #f0f0f0;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .chrome-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+    .chrome-bar {
+      flex: 1;
+      height: 16px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.07);
+      margin-left: 8px;
+    }
+    .carousel-slides {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+    .carousel-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .carousel-nav {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .carousel-prev,
+    .carousel-next {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: background var(--tr), transform var(--tr);
+      flex-shrink: 0;
+    }
+    .carousel-prev:hover,
+    .carousel-next:hover {
+      background: var(--white);
+      transform: scale(1.08);
+    }
+    .carousel-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: var(--border);
+      cursor: pointer;
+      padding: 0;
+      transition: background var(--tr), transform var(--tr);
+    }
+    .carousel-dot.active {
+      background: var(--orange);
+      transform: scale(1.25);
+    }
+
+    /* Chips strip */
+    .chips-section {
+      background: var(--white);
+      padding: 0 48px 80px;
+    }
+    .chips-row {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    /* Differentiator */
+    .diff-section {
+      background: linear-gradient(135deg, #1a0a02 0%, #3d1e08 60%, #5a2d10 100%);
+      color: var(--white);
+      padding: 80px 48px;
+    }
+    .diff-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .diff-quote {
+      font-size: clamp(18px, 2.5vw, 26px);
+      font-weight: 300;
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .diff-proofs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .diff-proof {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+    }
+    .diff-proof-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .diff-proof-desc {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.55;
+    }
+
+    /* CTA Band */
+    .cta-band {
+      background: linear-gradient(135deg, #3d1e08 0%, var(--orange) 100%);
+      color: var(--white);
+      padding: 80px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 40%, rgba(255, 255, 255, 0.07) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .cta-band .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-band h2 {
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .cta-band p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 520px;
+      margin: 0 auto 38px;
+      line-height: 1.72;
+    }
+    .cta-band-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-white-solid {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 30px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      background: var(--white);
+      color: var(--orange);
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-solid:hover {
+      background: var(--light-blue);
+      transform: translateY(-1px);
+    }
+    .btn-white-ghost {
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 12px 30px;
+      border-radius: var(--radius);
+      border: 1.5px solid rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      color: var(--white);
+      background: transparent;
+      transition: all var(--tr);
+      display: inline-block;
+    }
+    .btn-white-ghost:hover {
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .overview-inner,
+      .diff-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .overview-section {
+        padding: 72px 32px;
+      }
+      .modules-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .chips-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 24px 80px;
+        min-height: 60vh;
+      }
+      .section,
+      .overview-section,
+      .modules-section,
+      .chips-section,
+      .diff-section,
+      .cta-band {
+        padding: 60px 24px;
+      }
+      .modules-grid {
+        grid-template-columns: 1fr;
+      }
+      .chips-row {
+        grid-template-columns: 1fr 1fr;
+      }
+      .module-card.module-empty {
+        display: none;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .carousel-prev,
+      .carousel-next {
+        width: 44px;
+        height: 44px;
+      }
+      .carousel-dots {
+        gap: 14px;
+        padding: 16px;
+      }
+    }
+  </style>
+
+  <Header client:load />
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>AI Foundry &mdash; Growth Engine
+        </div>
+        <h1>
+          Marketing Infrastructure,<br /><span class="accent"
+            >Built and Running.</span
+          >
+        </h1>
+        <p class="hero-sub">
+          Growth Engine gives marketing and revenue teams a single command center
+          for brand, content, outreach, and analytics. ENTEVATE configures it to
+          your organization, then hands you the keys.
+        </p>
+        <div class="hero-actions">
+          <a href="/contact?service=growth-engine" class="btn-primary"
+            >Schedule a Demo &rarr;</a
+          >
+          <a href="/operational-intelligence/ai-foundry" class="btn-ghost-dark"
+            >Back to AI Foundry</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What It Is -->
+  <section class="overview-section" id="platform">
+    <div class="overview-inner">
+      <div class="overview-left fade-up">
+        <div class="section-label">The Platform</div>
+        <h2 class="section-title">One system. Five modules.</h2>
+        <p>
+          Growth Engine is a purpose-built Next.js platform that consolidates
+          the tools marketing and revenue teams rely on: brand management,
+          content scheduling, AI-generated assets, GTM analytics, and outreach
+          operations.
+        </p>
+        <p>
+          ENTEVATE adapts it to each client through a structured configuration
+          process covering brand identity, personas, GTM motions, and KPIs.
+          Every module generates content scoped to the client's voice and market.
+        </p>
+      </div>
+      <div class="overview-carousel fade-up">
+        <div class="carousel-wrapper">
+          <div class="preview-chrome">
+            <span class="chrome-dot"></span>
+            <span class="chrome-dot"></span>
+            <span class="chrome-dot"></span>
+            <span class="chrome-bar"></span>
+          </div>
+          <div class="carousel-slides">
+            <div class="carousel-slide active">
+              <img src="/images/ge/ge-brand-studio.png" alt="Brand Studio" class="carousel-img" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/ge/ge-content-calendar.png" alt="Content Calendar" class="carousel-img" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/ge/ge-ai-content-builder.png" alt="AI Content Builder" class="carousel-img" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/ge/ge-gtm-analytics.png" alt="GTM Analytics" class="carousel-img" />
+            </div>
+            <div class="carousel-slide">
+              <img src="/images/ge/ge-email-outreach.png" alt="Email Outreach" class="carousel-img" />
+            </div>
+            <div class="carousel-nav">
+              <button class="carousel-prev" aria-label="Previous slide">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-next" aria-label="Next slide">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" aria-label="Brand Studio"></button>
+            <button class="carousel-dot" aria-label="Content Calendar"></button>
+            <button class="carousel-dot" aria-label="AI Content Builder"></button>
+            <button class="carousel-dot" aria-label="GTM Analytics"></button>
+            <button class="carousel-dot" aria-label="Email Outreach"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform Stats Chips -->
+  <section class="chips-section" id="chips">
+    <div class="container">
+      <div class="chips-row fade-up">
+        <div class="overview-chip">
+          <span>Powered by</span>
+          Claude AI
+        </div>
+        <div class="overview-chip">
+          <span>Scoped to</span>
+          Your Voice
+        </div>
+        <div class="overview-chip">
+          <span>Shipped</span>
+          Production-Ready
+        </div>
+        <div class="overview-chip">
+          <span>AI Generation</span>
+          Day One
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Five Modules -->
+  <section class="modules-section" id="modules">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">What's Inside</div>
+        <h2 class="section-title">Five modules. One configured platform.</h2>
+        <p class="section-subtitle">
+          Each module is built for a specific marketing function and wired to
+          your brand configuration from the start.
+        </p>
+      </div>
+      <div class="modules-grid">
+        <div class="module-card fade-up">
+          <div class="module-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.6"></circle>
+              <path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3>Brand Studio</h3>
+          <p>Visual identity system, design tokens, social graphic builder, and asset library. Everything on-brand, always.</p>
+        </div>
+
+        <div class="module-card fade-up">
+          <div class="module-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"></rect>
+              <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3>Content Calendar</h3>
+          <p>Pipeline board and scheduling across all platforms. Plan, review, and publish from a single view.</p>
+        </div>
+
+        <div class="module-card fade-up">
+          <div class="module-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14h9l-1 8 9-12h-9l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3>AI Content Builder</h3>
+          <p>One-click generation of infographics, microsites, carousels, and one-pagers. All scoped to your brand and voice.</p>
+        </div>
+
+        <div class="module-card fade-up">
+          <div class="module-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M3 3h18M3 9h18M3 15h12M3 21h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+              <circle cx="19" cy="19" r="3" stroke="currentColor" stroke-width="1.6"></circle>
+              <path d="M21.5 21.5l1.5 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h3>GTM Analytics</h3>
+          <p>Persona system, solution mapping, and AI-generated outreach content. Know your market, reach it precisely.</p>
+        </div>
+
+        <div class="module-card fade-up">
+          <div class="module-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3>Email Outreach</h3>
+          <p>Template builder, campaign composer, batch send, and performance tracking. Built-in AI drafting keeps every message on-brand and on-target.</p>
+        </div>
+
+        <div class="module-card module-empty fade-up" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentiator -->
+  <section class="diff-section" id="differentiator">
+    <div class="diff-inner">
+      <div class="diff-quote fade-up">
+        Most agencies deliver strategy decks. Growth Engine delivers working
+        infrastructure, configured for your team, deployed to production, with
+        AI generation running on day one.
+      </div>
+      <div class="diff-proofs fade-up">
+        <div class="diff-proof">
+          <div class="diff-proof-title">Infrastructure, not decks</div>
+          <div class="diff-proof-desc">
+            A running platform configured to your brand, not a slide deck with recommendations you have to execute yourself.
+          </div>
+        </div>
+        <div class="diff-proof">
+          <div class="diff-proof-title">Configured to your voice</div>
+          <div class="diff-proof-desc">
+            Every module is scoped to your brand identity, personas, and GTM motion before it generates a single piece of content.
+          </div>
+        </div>
+        <div class="diff-proof">
+          <div class="diff-proof-title">Live from day one</div>
+          <div class="diff-proof-desc">
+            ENTEVATE deploys Growth Engine to production and runs AI generation from the first session, not after a multi-month onboarding.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="cta-band" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <h2>Ready to See Growth Engine in Action?</h2>
+        <p>
+          Let&rsquo;s walk through what a configured deployment looks like for your team.
+        </p>
+        <div class="cta-band-actions">
+          <a href="/contact?service=growth-engine" class="btn-white-solid"
+            >Schedule a Demo &rarr;</a
+          >
+          <a href="/operational-intelligence/ai-foundry" class="btn-white-ghost"
+            >Explore AI Foundry</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer client:load buttonStyle={{ background: "var(--orange)" }} />
+
+  <script src="../../../global.js"></script>
+  <script>
+    (() => {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const prev = document.querySelector('.carousel-prev');
+      const next = document.querySelector('.carousel-next');
+      const slidesEl = document.querySelector('.carousel-slides');
+      let current = 0;
+      let touchStartX = 0;
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      function resetTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 4000); }
+
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetTimer(); }));
+      prev.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+      next.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+
+      slidesEl.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      slidesEl.addEventListener('touchend', (e) => {
+        const delta = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(delta) > 40) { goTo(delta > 0 ? current + 1 : current - 1); resetTimer(); }
+      }, { passive: true });
+
+      let timer = setInterval(() => goTo(current + 1), 4000);
+    })();
+  </script>
+</BaseLayout>
