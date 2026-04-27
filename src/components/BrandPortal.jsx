@@ -1581,7 +1581,10 @@ function SidebarSection({ tabId, section, activeTab, openSections, toggleSection
    ═══════════════════════════════════════════════ */
 
 export default function BrandPortal() {
-  const [authed, setAuthed] = useState(false);
+  // TEMPORARILY DISABLED: password gate bypassed. Restore by changing
+  // initial state back to `false` and re-enabling the sessionStorage check
+  // in the useEffect below.
+  const [authed, setAuthed] = useState(true);
   const [activeTab, setActiveTab] = useState('brand-kit');
   const [openSections, setOpenSections] = useState(new Set(['brand-kit', 'design-system', 'gtm-toolkit']));
   const [activeSection, setActiveSection] = useState(null);
