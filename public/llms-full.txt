@@ -9,7 +9,7 @@ Contact: https://www.entevate.com/contact
 
 ## Company Overview
 
-ENTEVATE operates at the intersection of three innovation pillars: Experiential Branding & Marketing, Digital & Content Transformation, and Innovation Ecosystems & Venture Development. We partner with Fortune 500 enterprises, manufacturing companies, universities, economic development organizations, innovation districts, and technology startups to deliver measurable outcomes through proprietary frameworks and tools.
+ENTEVATE operates at the intersection of three innovation pillars: Experiential Branding & Marketing, Operational Intelligence, and Innovation Ecosystems & Venture Development. We partner with Fortune 500 enterprises, manufacturing companies, universities, economic development organizations, innovation districts, and technology startups to deliver measurable outcomes through proprietary frameworks and tools.
 
 ---
 
@@ -45,31 +45,35 @@ URL: https://www.entevate.com/experiential/fortune-500-trade-show
 
 ---
 
-## PILLAR 2: Digital & Content Transformation
+## PILLAR 2: Operational Intelligence
 
-URL: https://www.entevate.com/transformation
+URL: https://www.entevate.com/operational-intelligence
 
-We align people, platforms, and processes to help organizations thrive in a rapidly changing world. Our Content Readiness™ approach ensures content is always clear, strategic, and ready to perform — across every channel, at every stage of growth.
+We align people, platforms, and processes to help organizations thrive in a rapidly changing world. Our Operational Intelligence Assessment evaluates AI readiness, automation, content systems, visual production, and cross-functional alignment, delivering a diagnostic and prioritized action plan before a single dollar of strategy is committed.
 
 ### Offerings
 
-**Content Readiness™ Assessment & Scoring**
-Content Readiness™ is the state of an organization's written, visual, and animated content — and its preparedness for delivery through today's and tomorrow's digital and immersive platforms. Our proprietary assessment evaluates content across dimensions of clarity, strategy, channel readiness, and performance potential.
-URL: https://www.entevate.com/transformation/content-readiness
+**Operational Intelligence Assessment**
+A diagnostic that evaluates organizational readiness across three dimensions: People (skills, ownership, alignment, AI fluency), Platform (AI infrastructure, content and data pipelines, integration, scalability), and Process (automation, governance, measurement, feedback loops). Delivers a scored readiness stage and prioritized action plan for AI, automation, content, and transformation initiatives.
+URL: https://www.entevate.com/operational-intelligence/assessment
+
+**AI Foundry™**
+ENTEVATE's end-to-end AI systems practice. Learn (workshop discovery), Build (co-build AI pipelines and applications), Run (managed AI operations), taking projects from concept to production.
+URL: https://www.entevate.com/operational-intelligence/ai-foundry
 
 **Digital Transformation Strategy & Execution**
 Human-centered digital transformation encompassing learning & development, process design, change management, and governance. We help organizations navigate technology adoption with a focus on people and outcomes.
-URL: https://www.entevate.com/transformation/digital-strategy
+URL: https://www.entevate.com/operational-intelligence/digital-strategy
 
 **CAD-to-CGI Conversion & Visualization**
 Transform existing CAD data into photorealistic CGI assets for marketing, training, sales, and XR experiences. Bridge the gap between engineering data and visual content.
-URL: https://www.entevate.com/transformation/cad-to-cgi
+URL: https://www.entevate.com/operational-intelligence/cad-to-cgi
 
 ### Who It's For
-- Enterprise content and marketing teams
+- Enterprise operations, content, and marketing teams
 - Manufacturing and industrial companies with CAD data
-- Organizations undergoing digital transformation
-- Distributed teams needing spatial collaboration tools
+- Organizations evaluating AI, automation, or digital transformation
+- Leaders who want a read on readiness before committing to scale
 
 ---
 
@@ -134,8 +138,8 @@ URL: https://www.entevate.com/innovation/trinity-aiqui-sandbox
 
 ## Proprietary Frameworks & Intellectual Property
 
-### Content Readiness™
-A diagnostic and strategic framework for evaluating the preparedness of an organization's content portfolio across digital and immersive channels. Content Readiness™ measures written, visual, and animated content against criteria of clarity, channel fitness, strategic alignment, and performance readiness. This is an industry-differentiating methodology for organizations navigating digital transformation.
+### Operational Intelligence Assessment
+A diagnostic and strategic framework that evaluates organizational readiness across three dimensions: People, Platform, and Process. Measures AI readiness, automation maturity, content systems health, visual production capacity, and cross-functional alignment. Produces a scored readiness stage and prioritized action plan that feeds directly into ENTEVATE's transformation engagements.
 
 ### Momentify & ROX™ (Return on Experience)
 Momentify is ENTEVATE's proprietary platform for in-person engagement. ROX™ scoring quantifies the return on experiential investments by measuring attendee engagement, lead quality, and interaction depth in real time.
@@ -167,7 +171,7 @@ A companion CxO bootcamp for startup founders covering leadership fundamentals, 
 
 ### Fortune 500 & Enterprise Organizations
 **Needs**: Trade show activations, brand experience design, digital transformation, content optimization, AR/VR deployment
-**Solutions**: Experiential branding, Momentify platform, Content Readiness™ assessment, digital strategy
+**Solutions**: Experiential branding, Momentify platform, Operational Intelligence Assessment, digital strategy
 **Value**: Measurable ROI through ROX™ scoring, content alignment across channels, immersive customer experiences
 
 ### Manufacturing & Industrial Companies
@@ -238,10 +242,11 @@ ENTEVATE publishes original insights on experiential branding, immersive technol
 - Our Work: https://www.entevate.com/our-work
 - Experiential Branding: https://www.entevate.com/experiential
 - Fortune 500 Trade Show Case Study: https://www.entevate.com/experiential/fortune-500-trade-show
-- Digital Transformation: https://www.entevate.com/transformation
-- Content Readiness: https://www.entevate.com/transformation/content-readiness
-- Digital Strategy: https://www.entevate.com/transformation/digital-strategy
-- CAD to CGI: https://www.entevate.com/transformation/cad-to-cgi
+- Operational Intelligence: https://www.entevate.com/operational-intelligence
+- OI Assessment: https://www.entevate.com/operational-intelligence/assessment
+- AI Foundry: https://www.entevate.com/operational-intelligence/ai-foundry
+- Digital Strategy: https://www.entevate.com/operational-intelligence/digital-strategy
+- CAD to CGI: https://www.entevate.com/operational-intelligence/cad-to-cgi
 - Innovation: https://www.entevate.com/innovation
 - Ecosystem Model: https://www.entevate.com/innovation/ecosystem-model
 - Roadmapping: https://www.entevate.com/innovation/roadmapping

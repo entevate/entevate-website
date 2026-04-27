@@ -897,8 +897,8 @@ function GTMToolkit() {
             color: '#e8782a',
             anchor: 'Custom AI systems, forged for how you actually operate.',
             proof: 'Concept to production with 8 middleware components in 1 week. Complete brand kits in < 2 hours. 700+ CAD variants converted. 8-figure cost savings.',
-            offerings: 'AI Foundry™ (Learn | Build | Run), Content Readiness™, Digital Transformation Strategy, CAD-to-CGI Pipeline',
-            ctas: ['What\'s your path from AI pilot to production?', 'Assess your content readiness in 45 minutes.', 'Unlock your CAD library — build once, use everywhere.'],
+            offerings: 'AI Foundry™ (Learn | Build | Run), Operational Intelligence Assessment, Digital Transformation Strategy, CAD-to-CGI Pipeline',
+            ctas: ['What\'s your path from AI pilot to production?', 'Assess your operational intelligence in 45 minutes.', 'Unlock your CAD library, build once, use everywhere.'],
           },
           {
             pillar: 'Innovation | Ventures | Ecosystem',
@@ -969,7 +969,7 @@ function GTMToolkit() {
             <ul><li>Collaborative Discovery</li><li>Phase 0 Scoping</li><li>Full-Scale Engagement</li></ul>
           </div>
           <div className="bp-voice-card" style={{borderTop:'3px solid #e8782a'}}>
-            <h4 style={{color:'#e8782a'}}>Content Readiness</h4>
+            <h4 style={{color:'#e8782a'}}>Operational Intelligence Assessment</h4>
             <ul><li>Collaborative Discovery</li><li>Phase 0 Assessment</li><li>Transformation Roadmap</li></ul>
           </div>
           <div className="bp-voice-card" style={{borderTop:'3px solid #2bbfa8'}}>
@@ -1044,7 +1044,7 @@ function GTMToolkit() {
             motivation: 'Few roles above this one — wants to make business impact to showcase innovative leadership for COO/CPO trajectory. Partnerships that handle heavy-lifting for trend analysis are valued.',
             buying: 'Decision-maker for small-to-mid L&D tech (<$75k). Heavy influencer for larger investments (>$75k).',
             events: ['ATD International', 'DevLearn', 'Learning & HR Tech Solutions Conference'],
-            entryPoints: ['Digital Strategy', 'Content Readiness', 'AI Foundry'],
+            entryPoints: ['OI Assessment', 'Digital Strategy', 'AI Foundry'],
           },
           {
             title: 'CMO / VP of Marketing',
@@ -1158,13 +1158,13 @@ function GTMToolkit() {
             weAreNot: 'A consulting firm that delivers decks and leaves. Not a pure-play AI vendor, IT integrator, or creative agency.',
             differ: [
               'AI Foundry™: concept to production in 1 week, 3 models (Learn | Build | Run)',
-              'Content Readiness™: assess foundations before investing in strategy',
+              'OI Assessment: assess operational foundations before investing in strategy',
               'CAD-to-CGI: 700+ machine variants converted, 8-figure cost savings',
               'Human-centered: start with people and processes, not technology',
             ],
             objections: [
               { q: '"We can build AI internally."', a: 'AI Foundry accelerates your team — we co-build the first pipeline, then you own it. Complete brand kits in < 2 hours. Websites in days, not weeks.' },
-              { q: '"We already have a digital strategy."', a: 'Strategy without content readiness fails. We assess the foundation first — people, platforms, and processes — before a single dollar goes to technology.' },
+              { q: '"We already have a digital strategy."', a: 'Strategy without operational readiness fails. We assess the foundation first across people, platforms, and processes before a single dollar goes to technology.' },
               { q: '"Our CAD files are fine where they are."', a: 'They\'re locked. Build once, use everywhere — marketing, training, AR/VR, configurators. One conversion unlocks 8-figure savings.' },
             ],
           },
@@ -1314,7 +1314,7 @@ function GTMToolkit() {
             { name: 'AIQUI Framework', file: 'AIQUI-Framework-Handout.pdf', pillar: 'Innovation', color: '#6a6b9e' },
             { name: 'Ecosystem Model', file: 'Ecosystem-Model-Handout.pdf', pillar: 'Innovation', color: '#6a6b9e' },
             { name: 'Innovation Sandbox', file: 'Innovation-Sandbox-Handout.pdf', pillar: 'Innovation', color: '#6a6b9e' },
-            { name: 'Content Readiness', file: 'Content-Readiness-Handout.pdf', pillar: 'OI', color: '#e8782a' },
+            { name: 'OI Assessment', file: 'Content-Readiness-Handout.pdf', pillar: 'OI', color: '#e8782a' },
             { name: 'Digital Strategy', file: 'Digital-Strategy-Handout.pdf', pillar: 'OI', color: '#e8782a' },
             { name: 'CAD-to-CGI', file: 'CAD-to-CGI-Handout.pdf', pillar: 'OI', color: '#e8782a' },
           ].map(op => (
@@ -1350,7 +1350,7 @@ function GTMToolkit() {
             questions: [
               { q: 'Where is your biggest operational bottleneck right now?', why: 'Listen for content, process, or technology gaps' },
               { q: 'How many AI pilots have you run vs. deployed to production?', why: 'POC-to-production gap — AI Foundry entry' },
-              { q: 'If I asked 5 people where to find [key content], would they all know?', why: 'Content Readiness pain point' },
+              { q: 'If I asked 5 people where to find [key content], would they all know?', why: 'OI Assessment pain point' },
               { q: 'What happens to your CAD files after engineering signs off?', why: 'CAD-to-CGI — locked digital assets' },
             ],
           },
@@ -1503,7 +1503,7 @@ function GTMToolkit() {
           <div className="bp-voice-card">
             <h4>Operational Intelligence & Experiential</h4>
             <ul>
-              <li>The content readiness gap nobody talks about</li>
+              <li>The operational intelligence gap nobody talks about</li>
               <li>From POC to production: why enterprise AI stalls</li>
               <li>Build Once, Use Everywhere: the CAD-to-CGI business case</li>
               <li>Measuring brand experiences: ROX vs. ROI</li>

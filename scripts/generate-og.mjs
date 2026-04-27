@@ -115,7 +115,7 @@ const images = [
     file: 'oi-og.png',
     bgImage: bt2,
     title: 'Operational\nIntelligence',
-    subtitle: 'AI-powered systems, content readiness, and digital transformation.',
+    subtitle: 'AI-powered systems, operational intelligence, and digital transformation.',
     tagline: 'entevate.com',
   },
   {

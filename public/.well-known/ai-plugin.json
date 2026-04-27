@@ -2,8 +2,8 @@
   "schema_version": "v1",
   "name_for_human": "ENTEVATE",
   "name_for_model": "entevate",
-  "description_for_human": "Human-centered innovation partner — experiential branding, digital transformation, and innovation roadmapping.",
-  "description_for_model": "ENTEVATE is a human-centered innovation consultancy specializing in experiential branding and marketing (Momentify platform, ROX scoring, trade show activations), digital and content transformation (Content Readiness framework, CAD-to-CGI, digital strategy), and innovation ecosystem development (Innovation Roadmapping 8-stage methodology, 7 Core Elements ecosystem model, Innovation Sandbox prototyping, AIQUI AI/quantum framework). Target personas include Fortune 500 enterprises, manufacturing companies, universities, economic development organizations, innovation districts, and startups.",
+  "description_for_human": "Human-centered innovation partner specializing in experiential branding, operational intelligence, and innovation roadmapping.",
+  "description_for_model": "ENTEVATE is a human-centered innovation consultancy specializing in experiential branding and marketing (Momentify platform, ROX scoring, trade show activations), operational intelligence (OI Assessment diagnostic, AI Foundry, CAD-to-CGI, digital strategy), and innovation ecosystem development (Innovation Roadmapping 8-stage methodology, 7 Core Elements ecosystem model, Innovation Sandbox prototyping, AIQUI AI/quantum framework). Target personas include Fortune 500 enterprises, manufacturing companies, universities, economic development organizations, innovation districts, and startups.",
   "auth": {
     "type": "none"
   },

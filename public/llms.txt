@@ -4,7 +4,7 @@
 
 ## Company Overview
 
-ENTEVATE is a human-centered innovation consultancy operating at the intersection of three pillars: Experiential Branding & Marketing, Digital & Content Transformation, and Innovation Ecosystems & Venture Development.
+ENTEVATE is a human-centered innovation consultancy operating at the intersection of three pillars: Experiential Branding & Marketing, Operational Intelligence, and Innovation Ecosystems & Venture Development.
 
 We work with Fortune 500 enterprises, manufacturing and industrial companies, universities and research institutions, economic development organizations, innovation districts, and technology startups.
 
@@ -21,13 +21,14 @@ Design and execute immersive, emotionally engaging brand experiences for trade s
 - Momentify platform for engagement measurement
 URL: https://www.entevate.com/experiential
 
-### 2. Digital & Content Transformation
-Align people, platforms, and processes through Content Readiness™ — our proprietary framework for evaluating and optimizing written, visual, and animated content across every digital and immersive channel.
-- Content Readiness™ assessment and scoring
+### 2. Operational Intelligence
+Align people, platforms, and processes through our Operational Intelligence Assessment, a proprietary framework for evaluating organizational readiness across AI systems, automation, content pipelines, visual production, and cross-functional alignment.
+- Operational Intelligence Assessment (People, Platform, Process scoring)
+- AI Foundry (custom AI systems, Learn | Build | Run)
 - Digital transformation strategy and execution
 - CAD-to-CGI conversion and visualization
 - Learning & development, change management
-URL: https://www.entevate.com/transformation
+URL: https://www.entevate.com/operational-intelligence
 
 ### 3. Innovation | Ventures | Ecosystem
 Co-create actionable innovation roadmaps that move ecosystems, ventures, and teams from ideation through amplification.
@@ -42,7 +43,7 @@ Angel Academy URL: https://www.entevate.com/innovation/angel-academy
 
 ## Proprietary Frameworks & Tools
 
-- **Content Readiness™**: Assessment methodology for evaluating content preparedness across digital and immersive platforms
+- **Operational Intelligence Assessment**: Diagnostic methodology for evaluating organizational readiness across People, Platform, and Process, covering AI, automation, content pipelines, and digital transformation
 - **Momentify**: Operating system for in-person engagement with ROX™ (Return on Experience) scoring
 - **Innovation Roadmapping™**: 8-stage process — Ideation, Validation, Business Case, Prototyping, Operationalization, Go-to-Market, Amplification, Scale
 - **7 Core Elements™**: Comprehensive framework for mapping every stakeholder, sector, and stage in an innovation ecosystem

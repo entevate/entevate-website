@@ -22,8 +22,8 @@ const jsonLd = JSON.stringify([
       "@type": "OfferCatalog",
       "name": "Operational Intelligence Services",
       "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Operational Intelligence Assessment" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Foundry™" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Readiness™ Assessment & Scoring" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation Strategy & Execution" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CAD-to-CGI Conversion & Visualization" } }
       ]
@@ -97,7 +97,7 @@ const jsonLd = JSON.stringify([
     <div class="container">
       <div class="fade-up">
         <div class="section-label">What We Do</div>
-        <h2 class="section-title">Five pillars of intelligent operations.</h2>
+        <h2 class="section-title">Four pillars of intelligent operations.</h2>
         <p class="section-subtitle">
           Whether you're building AI pipelines, restructuring your content
           strategy, or deploying next-gen visualization — we design intelligent
@@ -106,34 +106,6 @@ const jsonLd = JSON.stringify([
       </div>
 
       <div class="offerings-grid">
-        <div class="offering-card oc-purple fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2L2 7v10l10 5 10-5V7L12 2z"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"></path>
-              <path
-                d="M12 22V12M12 12L2 7M12 12l10-5"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <h3>AI Foundry™</h3>
-          <em>Concept to production.</em>
-          <p>
-            Custom AI systems, from content pipelines and brand automation
-            to full-stack applications. We design, build, and manage
-            production-grade intelligent systems that integrate with your
-            people and processes from day one.
-          </p>
-          <a href="/operational-intelligence/ai-foundry" class="offering-cta"
-            >Explore the Foundry →</a
-          >
-        </div>
-
         <div class="offering-card oc-indigo fade-up">
           <div class="offering-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -171,16 +143,44 @@ const jsonLd = JSON.stringify([
                 stroke-width="1.6"></rect>
             </svg>
           </div>
-          <h3>Content Readiness™ Assessment &amp; Scoring</h3>
-          <em>Clarity before strategy.</em>
+          <h3>Operational Intelligence Assessment</h3>
+          <em>The diagnostic that starts every engagement.</em>
           <p>
-            Our proprietary Content Readiness™ framework evaluates how well
-            your content aligns with your organization's goals, audiences, and
-            capabilities. We assess People, Platform, and Process to surface
-            gaps and deliver a prioritized action plan.
+            Our proprietary assessment evaluates your organization across
+            People, Platform, and Process to surface operational gaps, score
+            your readiness, and deliver a prioritized action plan covering
+            AI, automation, content systems, and cross-functional alignment.
           </p>
-          <a href="/operational-intelligence/content-readiness" class="offering-cta"
+          <a href="/operational-intelligence/assessment" class="offering-cta"
             >Take the Assessment →</a
+          >
+        </div>
+
+        <div class="offering-card oc-purple fade-up">
+          <div class="offering-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2L2 7v10l10 5 10-5V7L12 2z"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path>
+              <path
+                d="M12 22V12M12 12L2 7M12 12l10-5"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3>AI Foundry™</h3>
+          <em>Concept to production.</em>
+          <p>
+            Custom AI systems, from content pipelines and brand automation
+            to full-stack applications. We design, build, and manage
+            production-grade intelligent systems that integrate with your
+            people and processes from day one.
+          </p>
+          <a href="/operational-intelligence/ai-foundry" class="offering-cta"
+            >Explore the Foundry →</a
           >
         </div>
 
