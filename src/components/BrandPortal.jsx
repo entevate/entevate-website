@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import SignatureBuilder from './SignatureBuilder.jsx';
 
 const PASSWORD = 'entevate2026';
 const STORAGE_KEY = 'entevate_brand_auth';
@@ -147,6 +148,7 @@ const sidebarNav = {
       { id: 'bk-favicon', label: 'Favicon & Icons' },
       { id: 'bk-voice', label: 'Brand Voice & Values' },
       { id: 'bk-messaging', label: 'Key Messaging' },
+      { id: 'bk-signature', label: 'Email Signature' },
     ],
   },
   'design-system': {
@@ -501,6 +503,12 @@ function BrandKit() {
             <p className="bp-msg-text">Founded in 2016 and based in Frisco, Texas, ENTEVATE is a human-centered innovation partner for leaders ready to build what comes next. From immersive brand experiences powered by Momentify to co-created innovation roadmaps and applied AI frameworks like AIQUI, everything we build starts with people. Learn more at entevate.com.</p>
           </div>
         </div>
+      </section>
+
+      <section className="bp-section" id="bk-signature">
+        <h2>Email Signature</h2>
+        <p className="bp-desc">Build, save, and export your ENTEVATE email signature. Multiple variants are supported (e.g. Default, Conferences, External Outreach). Each ENTEVATE team member signs in with a magic link and manages their own signatures privately.</p>
+        <SignatureBuilder />
       </section>
     </div>
   );
