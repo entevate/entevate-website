@@ -138,16 +138,20 @@ export function buildSignatureHtml(sig) {
     ? `<tr><td colspan="2" style="padding-top:14px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>${socialCells}</tr></table></td></tr>`
     : '';
 
-  // Photo + logo block on the left
-  const leftCol = `
+  const hasMedia = Boolean(photo_url || logo_url);
+
+  // Photo + logo block on the left (only rendered when at least one is set)
+  const leftCol = hasMedia ? `
     <td valign="top" style="padding:0 24px 0 0;width:160px;">
       ${photo_url ? `<img src="${attr(photo_url)}" width="120" height="120" alt="${attr(full_name)}" style="display:block;width:120px;height:120px;border-radius:60px;object-fit:cover;border:0;outline:none;text-decoration:none;" />` : ''}
       ${logo_url ? `<div style="margin-top:14px;line-height:0;"><img src="${attr(logo_url)}" alt="ENTEVATE" style="display:block;height:24px;width:auto;border:0;outline:none;text-decoration:none;" /></div>` : ''}
     </td>
-  `;
+  ` : '';
 
   // Vertical divider as a 1px-wide cell with a left border
-  const divider = `<td style="border-left:1px solid ${esc(divider_color)};width:1px;padding:0;font-size:0;line-height:0;">&nbsp;</td>`;
+  const divider = hasMedia
+    ? `<td style="border-left:1px solid ${esc(divider_color)};width:1px;padding:0;font-size:0;line-height:0;">&nbsp;</td>`
+    : '';
 
   // Right column: identity stack + contact rows + socials
   const identityBlock = `
@@ -161,7 +165,7 @@ export function buildSignatureHtml(sig) {
   `;
 
   const rightCol = `
-    <td valign="top" style="padding:0 0 0 24px;">
+    <td valign="top" style="padding:0 0 0 ${hasMedia ? '24px' : '0'};">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0">
         ${identityBlock}
         ${contactRows}
@@ -273,38 +277,44 @@ export function downloadFile(content, filename, mime = 'text/html') {
 export const EXPORT_PRESETS = [
   {
     id: 'apple-mail',
-    label: 'Apple Mail',
-    hint: 'Downloads .htm. Drag into Mail > Preferences > Signatures, or replace the file under ~/Library/Mail/V*/MailData/Signatures/.',
+    label: 'Download for Apple Mail',
+    hint: 'Drag the .htm into Mail → Settings → Signatures.',
+    toast: 'Downloaded — drag into Mail → Settings → Signatures, or replace the file in ~/Library/Mail/V*/MailData/Signatures/',
     action: 'download-htm',
   },
   {
     id: 'outlook-desktop',
-    label: 'Outlook (desktop)',
-    hint: 'Downloads .htm. Save into the Signatures folder — Windows: %APPDATA%\\Microsoft\\Signatures, Mac: ~/Library/Group Containers/UBF8T346G9.Office/Outlook/Signatures.',
+    label: 'Download for Outlook (desktop)',
+    hint: 'Save into your Signatures folder. Mac/Windows paths shown after download.',
+    toast: 'Downloaded — save into Signatures. Win: %APPDATA%\\Microsoft\\Signatures · Mac: ~/Library/Group Containers/UBF8T346G9.Office/Outlook/Signatures',
     action: 'download-htm',
   },
   {
     id: 'gmail',
-    label: 'Gmail (web)',
-    hint: 'Copies as rich text. In Gmail Settings > General > Signature, paste into the editor.',
+    label: 'Copy for Gmail (web)',
+    hint: 'Paste into Gmail → Settings → General → Signature.',
+    toast: 'Copied — paste into Gmail → Settings → General → Signature',
     action: 'copy-rich',
   },
   {
     id: 'outlook-365',
-    label: 'Outlook 365 (web)',
-    hint: 'Copies as rich text. In Outlook Web > Settings > Mail > Compose and reply > Signatures, paste into the editor.',
+    label: 'Copy for Outlook 365 (web)',
+    hint: 'Paste into Outlook Web → Settings → Mail → Signatures.',
+    toast: 'Copied — paste into Outlook Web → Settings → Mail → Compose and reply → Signatures',
     action: 'copy-rich',
   },
   {
     id: 'raw-html',
-    label: 'Raw HTML',
-    hint: 'Copies the source HTML so you can paste it into any signature settings field that accepts HTML.',
+    label: 'Copy raw HTML',
+    hint: 'Paste into any HTML signature field.',
+    toast: 'HTML source copied',
     action: 'copy-source',
   },
   {
     id: 'plain-text',
-    label: 'Plain text',
-    hint: 'Stripped down to text only — for clients with no HTML support.',
+    label: 'Copy plain text',
+    hint: 'For clients with no HTML support.',
+    toast: 'Plain text copied',
     action: 'copy-text',
   },
 ];

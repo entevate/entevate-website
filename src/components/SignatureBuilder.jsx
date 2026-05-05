@@ -212,10 +212,10 @@ function Editor({ session }) {
 
   useEffect(() => { refresh(); }, [refresh]);
 
-  // Toast auto-dismiss
+  // Toast auto-dismiss — extra long so users can read where-to-paste paths
   useEffect(() => {
     if (!toast) return;
-    const t = setTimeout(() => setToast(''), 2400);
+    const t = setTimeout(() => setToast(''), 4500);
     return () => clearTimeout(t);
   }, [toast]);
 
@@ -327,17 +327,14 @@ function Editor({ session }) {
       if (preset.action === 'download-htm') {
         const filename = `entevate-signature-${slug(draft.label || 'default')}.htm`;
         downloadFile(wrapAsDocument(html, draft.label || 'ENTEVATE Email Signature'), filename, 'text/html');
-        setToast(`Downloaded ${filename}`);
       } else if (preset.action === 'copy-rich') {
         await copyRichHtmlToClipboard(html);
-        setToast(`Copied — paste into ${preset.label}`);
       } else if (preset.action === 'copy-source') {
         await copyPlainTextToClipboard(html);
-        setToast('HTML source copied');
       } else if (preset.action === 'copy-text') {
         await copyPlainTextToClipboard(buildSignatureText(draft));
-        setToast('Plain text copied');
       }
+      setToast(preset.toast || 'Done');
     } catch (err) {
       setError(err?.message || 'Export failed');
     }
@@ -418,10 +415,15 @@ function Editor({ session }) {
           </FormSection>
 
           <FormSection title="Media">
-            <Input label="Photo URL" value={draft?.photo_url || ''} onChange={(v) => setField('photo_url', v)} placeholder="https://…/your-photo.jpg" />
+            <PhotoUpload
+              value={draft?.photo_url || ''}
+              onChange={(v) => setField('photo_url', v)}
+              userId={userId}
+              fullName={draft?.full_name}
+            />
             <Input label="Logo URL" value={draft?.logo_url || ''} onChange={(v) => setField('logo_url', v)} placeholder="https://entevate.com/images/logo-mark.png" />
             <p className="bp-sig-hint">
-              Use absolute https URLs so images load in any inbox. Square photos at ~240×240 work best (we render at 120×120, retina-safe).
+              Square photos at ~240×240 work best (we render at 120×120, retina-safe). Logo accepts an absolute https URL.
             </p>
           </FormSection>
 
@@ -538,4 +540,116 @@ function slug(s) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
     .slice(0, 40) || 'signature';
+}
+
+// ── Photo upload (Supabase Storage) ───────────────────────────────────
+//
+// Uploads to the `signature-photos` bucket under the signed-in user's
+// folder so RLS isolates each user's headshots. Public read so images
+// load in any recipient's inbox. The returned public URL is written
+// straight into the signature draft via onChange — no save required for
+// it to flow through to exports.
+
+const PHOTO_BUCKET = 'signature-photos';
+const PHOTO_MAX_BYTES = 5 * 1024 * 1024;
+const PHOTO_MIME = /^image\//;
+
+function PhotoUpload({ value, onChange, userId, fullName }) {
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState('');
+  const [showUrl, setShowUrl] = useState(false);
+
+  async function onPick(e) {
+    const file = e.target.files?.[0];
+    e.target.value = ''; // reset so picking the same file twice still fires onChange
+    if (!file) return;
+    setErr('');
+    if (!PHOTO_MIME.test(file.type)) {
+      setErr('Pick an image file (PNG, JPEG, WEBP, GIF).');
+      return;
+    }
+    if (file.size > PHOTO_MAX_BYTES) {
+      setErr('Image must be under 5 MB.');
+      return;
+    }
+    setBusy(true);
+    try {
+      const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '');
+      const path = `${userId}/${Date.now()}.${ext}`;
+      const { error: upErr } = await supabase.storage
+        .from(PHOTO_BUCKET)
+        .upload(path, file, { cacheControl: '31536000', upsert: false, contentType: file.type });
+      if (upErr) throw upErr;
+      const { data } = supabase.storage.from(PHOTO_BUCKET).getPublicUrl(path);
+      if (!data?.publicUrl) throw new Error('Could not resolve public URL after upload.');
+      onChange(data.publicUrl);
+    } catch (e2) {
+      setErr(e2?.message || 'Upload failed.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function clear() {
+    onChange('');
+    setErr('');
+  }
+
+  return (
+    <div className="bp-sig-photo-upload">
+      <span className="bp-sig-field-label">Headshot</span>
+      <div className="bp-sig-photo-row">
+        {value ? (
+          <img
+            src={value}
+            alt={fullName || 'Headshot'}
+            className="bp-sig-photo-thumb"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
+        ) : (
+          <div className="bp-sig-photo-placeholder" aria-hidden="true">
+            {/* simple person silhouette */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="9" r="3.5" stroke="currentColor" strokeWidth="1.6" />
+              <path d="M5 19c1.5-3 4-4.5 7-4.5s5.5 1.5 7 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+            </svg>
+          </div>
+        )}
+        <div className="bp-sig-photo-actions">
+          <label className={`bp-sig-btn${busy ? ' bp-sig-btn-busy' : ''}`}>
+            {busy ? 'Uploading…' : (value ? 'Replace' : 'Upload image')}
+            <input
+              type="file"
+              accept="image/png,image/jpeg,image/webp,image/gif"
+              onChange={onPick}
+              disabled={busy}
+              style={{ display: 'none' }}
+            />
+          </label>
+          {value && !busy && (
+            <button type="button" className="bp-sig-link-btn" onClick={clear}>
+              Remove
+            </button>
+          )}
+          <button
+            type="button"
+            className="bp-sig-link-btn"
+            onClick={() => setShowUrl((s) => !s)}
+          >
+            {showUrl ? 'Hide URL' : 'Or paste a URL'}
+          </button>
+        </div>
+      </div>
+      {showUrl && (
+        <input
+          type="text"
+          value={value || ''}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder="https://…/your-photo.jpg"
+          className="bp-sig-photo-url-input"
+        />
+      )}
+      {err && <p className="bp-sig-photo-error">{err}</p>}
+    </div>
+  );
 }

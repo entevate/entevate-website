@@ -1967,8 +1967,8 @@ a.bp-img-card:hover {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
-  padding: 12px 14px;
+  gap: 6px;
+  padding: 16px 18px;
   background: #fff;
   border: 1px solid #d3d8df;
   border-radius: 6px;
@@ -1989,13 +1989,81 @@ a.bp-img-card:hover {
 }
 
 .bp-sig-export-name {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #181818;
 }
 
 .bp-sig-export-hint {
-  font-size: 11px;
+  font-size: 12px;
   color: #6b6b6b;
+  line-height: 1.55;
+}
+
+/* ── Photo upload ── */
+
+.bp-sig-photo-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bp-sig-photo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bp-sig-photo-thumb,
+.bp-sig-photo-placeholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background: #f4f5f7;
+  object-fit: cover;
+  border: 1px solid #e1e5ec;
+}
+
+.bp-sig-photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a8a8a8;
+}
+
+.bp-sig-photo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.bp-sig-btn-busy {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.bp-sig-photo-url-input {
+  height: 38px;
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: 13px;
+  border: 1px solid #d3d8df;
+  border-radius: 6px;
+  background: #fff;
+  color: #181818;
+  outline: none;
+  transition: border-color 120ms ease;
+}
+
+.bp-sig-photo-url-input:focus {
+  border-color: #181818;
+}
+
+.bp-sig-photo-error {
+  font-size: 12px;
+  color: #b3261e;
+  margin: 0;
   line-height: 1.45;
 }
