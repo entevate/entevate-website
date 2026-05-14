@@ -121,7 +121,6 @@ const pillarImages = [
 ];
 
 const clientLogos = [
-  { name: 'Caterpillar', path: '/logos/caterpillar.png' },
   { name: 'Mustang CAT', path: '/logos/mustang-cat.png' },
   { name: 'Trinity College', path: '/logos/trinity-college.png' },
   { name: 'Cisco', path: '/logos/cisco.png' },
@@ -1023,7 +1022,7 @@ function GTMToolkit() {
 
         {[
           { vertical: 'Automotive', color: '#247b96', companies: ['Rivian', 'Polestar', 'Cruise', 'Stellantis', 'Ford', 'Tesla', 'Navistar'] },
-          { vertical: 'Heavy Equipment', color: '#e8782a', companies: ['John Deere', 'Carter Machinery', 'Caterpillar Dealer Network'] },
+          { vertical: 'Heavy Equipment', color: '#e8782a', companies: ['John Deere', 'Carter Machinery', 'Blanchard Machinery', 'Mustang CAT'] },
           { vertical: 'Aviation', color: '#6a6b9e', companies: ['Blade', 'Gulfstream', 'Pilatus', 'Boeing', 'Collins Aerospace', 'Boom Supersonic'] },
           { vertical: 'Manufacturing', color: '#2bbfa8', companies: ['Siemens', 'Schneider Electric', 'Doble Electric', 'SunRun', 'Illuminate USA'] },
         ].map(v => (
