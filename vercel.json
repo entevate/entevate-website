@@ -20,6 +20,10 @@
     {
       "source": "/ENTEVATE-Logo_White.svg",
       "destination": "https://entevate-growth-engine.vercel.app/ENTEVATE-Logo_White.svg"
+    },
+    {
+      "source": "/brand/signature/:path*",
+      "destination": "https://entevate-growth-engine.vercel.app/brand/signature/:path*"
     }
   ],
   "redirects": [
