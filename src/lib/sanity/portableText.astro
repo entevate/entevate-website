@@ -1,0 +1,88 @@
+---
+/**
+ * Server-side Portable Text renderer.
+ *
+ * Wraps @portabletext/to-html so we can render Sanity's Portable Text at
+ * build time without shipping React to the client. Astro pages call this
+ * component and inline the resulting HTML.
+ *
+ * Custom serializers below handle:
+ *   - richImage (with alt, caption)
+ *   - quoteBlock (styled pull quote)
+ *   - ctaBand   (styled CTA section)
+ *
+ * Extend the `components` object to add serializers for new block types.
+ */
+import { toHTML } from '@portabletext/to-html'
+import { urlFor } from './urlBuilder'
+
+interface Props {
+  value: any[] | undefined | null
+  className?: string
+}
+
+const { value, className = 'portable-text' } = Astro.props as Props
+
+const components = {
+  types: {
+    richImage: ({ value }: any) => {
+      if (!value?.asset?._ref && !value?.asset?.url) return ''
+      const url = value.asset?.url || urlFor(value).width(1200).auto('format').url()
+      const alt = value.alt || ''
+      const caption = value.caption
+      return `
+        <figure class="pt-image">
+          <img src="${url}" alt="${alt}" loading="lazy" decoding="async" />
+          ${caption ? `<figcaption>${caption}</figcaption>` : ''}
+        </figure>
+      `
+    },
+    quoteBlock: ({ value }: any) => {
+      const quote = value?.quote || ''
+      const attribution = value?.attribution
+      const role = value?.attributionRole
+      return `
+        <blockquote class="pt-quote">
+          <p>${quote}</p>
+          ${
+            attribution
+              ? `<footer><cite>${attribution}${
+                  role ? `<span class="pt-quote-role">${role}</span>` : ''
+                }</cite></footer>`
+              : ''
+          }
+        </blockquote>
+      `
+    },
+    ctaBand: ({ value }: any) => {
+      const headline = value?.headline || ''
+      const subhead = value?.subhead || ''
+      const primary = value?.primaryCta
+      const secondary = value?.secondaryCta
+      return `
+        <section class="pt-cta-band pt-cta-${value?.backgroundVariant || 'bt3'}">
+          <h2>${headline}</h2>
+          ${subhead ? `<p>${subhead}</p>` : ''}
+          <div class="pt-cta-actions">
+            ${primary?.href ? `<a class="btn-primary" href="${primary.href}">${primary.label}</a>` : ''}
+            ${secondary?.href ? `<a class="btn-ghost-dark" href="${secondary.href}">${secondary.label}</a>` : ''}
+          </div>
+        </section>
+      `
+    },
+  },
+  marks: {
+    link: ({ children, value }: any) => {
+      const href = value?.href || '#'
+      const isExternal = /^https?:\/\//.test(href)
+      const rel = isExternal ? 'noopener noreferrer' : undefined
+      const target = isExternal ? '_blank' : undefined
+      return `<a href="${href}"${rel ? ` rel="${rel}"` : ''}${target ? ` target="${target}"` : ''}>${children}</a>`
+    },
+  },
+}
+
+const html = value && value.length ? toHTML(value, { components }) : ''
+---
+
+{html && <div class={className} set:html={html} />}
