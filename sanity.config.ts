@@ -9,16 +9,25 @@ import { structure } from './sanity/structure'
 /**
  * Sanity Studio configuration.
  *
- * Values read from Vite's public env (must be prefixed PUBLIC_ so they're
- * available in the client bundle where Studio runs).
+ * Loaded in two contexts:
+ *   1. Vite/Astro build for the embedded Studio (browser bundle).
+ *   2. Sanity CLI (Node) for commands like `sanity deploy`, `sanity dev`.
+ *
+ * `process.env` is available in both; `import.meta.env` is Vite-only and
+ * would throw here when the CLI loads this file, killing commands that
+ * don't need a project (login, projects list, init).
  */
 
-const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID
-const dataset = import.meta.env.PUBLIC_SANITY_DATASET || 'production'
+const envSource =
+  (typeof process !== 'undefined' && process.env) ||
+  (typeof (import.meta as any) !== 'undefined' && (import.meta as any).env) ||
+  ({} as Record<string, string | undefined>)
+
+const projectId = envSource.PUBLIC_SANITY_PROJECT_ID
+const dataset = envSource.PUBLIC_SANITY_DATASET || 'production'
+const siteUrl = envSource.PUBLIC_SITE_URL || 'http://localhost:4321'
 
 if (!projectId) {
-  // Don't throw at import time in production; the Studio route will surface
-  // a friendlier message. During dev, this warning helps.
   console.warn(
     '[sanity.config] PUBLIC_SANITY_PROJECT_ID is not set. Studio will fail to load until it is.',
   )
@@ -35,7 +44,7 @@ export default defineConfig({
     visionTool(),
     presentationTool({
       previewUrl: {
-        origin: import.meta.env.PUBLIC_SITE_URL || 'http://localhost:4321',
+        origin: siteUrl,
         previewMode: {
           enable: '/api/preview',
           disable: '/api/exit-preview',
