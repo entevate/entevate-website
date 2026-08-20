@@ -60,6 +60,13 @@ export const offering = defineType({
       initialValue: 'Learn More →',
     }),
     defineField({
+      name: 'cardCtaHref',
+      title: 'Card CTA href (override)',
+      description:
+        'Optional. Where the offering card links to. If blank, defaults to /{pillarSlug}/{slug} (the offering\'s own page).',
+      type: 'string',
+    }),
+    defineField({
       name: 'iconSvg',
       title: 'Card icon SVG path(s)',
       description: 'Raw SVG path data for the 24x24 icon (e.g. "M12 2L2 7l10 5..."). See existing offering cards for style.',
@@ -69,10 +76,26 @@ export const offering = defineType({
     defineField({
       name: 'colorVariant',
       title: 'Color variant',
-      description: 'CSS variant on the pillar landing card (oc-purple, oc-indigo, oc-violet, oc-slate, oc-lavender).',
+      description:
+        'CSS variant class on the pillar landing card. Each pillar defines its own palette in its landing page CSS.',
       type: 'string',
       options: {
-        list: ['oc-purple', 'oc-indigo', 'oc-violet', 'oc-slate', 'oc-lavender'],
+        list: [
+          // Operational Intelligence palette
+          'oc-purple',
+          'oc-indigo',
+          'oc-violet',
+          'oc-slate',
+          'oc-lavender',
+          // Experiential palette
+          'oc-teal',
+          'oc-teal-mid',
+          'oc-blue',
+          'oc-green',
+          // Innovation palette
+          'oc-orange-light',
+          'oc-orange-dark',
+        ],
       },
     }),
     defineField({

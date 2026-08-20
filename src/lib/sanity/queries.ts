@@ -198,7 +198,7 @@ export const offeringsByPillarQuery = /* groq */ `
   *[_type == "offering" && pillar->slug.current == $pillarSlug] | order(order asc) {
     _id, title, trademarkSuffix, shortName,
     "slug": slug.current,
-    cardSubtitle, cardDescription, cardCtaLabel,
+    cardSubtitle, cardDescription, cardCtaLabel, cardCtaHref,
     iconSvg, colorVariant, order
   }
 `
