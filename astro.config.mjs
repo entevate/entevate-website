@@ -56,5 +56,8 @@ export default defineConfig({
     '/transformation/cad-to-cgi': '/operational-intelligence/cad-to-cgi',
     '/transformation/remote-assistance': '/operational-intelligence',
     '/operational-intelligence/remote-assistance': '/operational-intelligence',
+    // Bare /insights/ index -> the Our Work listing page
+    '/insights': '/our-work',
+    '/insights/': '/our-work',
   }
 });
