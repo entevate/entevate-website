@@ -13,19 +13,32 @@ import { structure } from './sanity/structure'
  *   1. Vite/Astro build for the embedded Studio (browser bundle).
  *   2. Sanity CLI (Node) for commands like `sanity deploy`, `sanity dev`.
  *
- * `process.env` is available in both; `import.meta.env` is Vite-only and
- * would throw here when the CLI loads this file, killing commands that
- * don't need a project (login, projects list, init).
+ * IMPORTANT: Vite's build-time replacement of `import.meta.env.X` only
+ * happens for LITERAL property accesses. Dynamic access (e.g. via a
+ * `envSource[key]` abstraction) breaks that static analysis and ships
+ * an empty string to the browser bundle. Read each var directly below.
+ *
+ * In the Node CLI context, `import.meta.env` is undefined; the try/catch
+ * shields us there and we fall back to `process.env`.
  */
 
-const envSource =
-  (typeof process !== 'undefined' && process.env) ||
-  (typeof (import.meta as any) !== 'undefined' && (import.meta as any).env) ||
-  ({} as Record<string, string | undefined>)
+let viteProjectId: string | undefined
+let viteDataset: string | undefined
+let viteSiteUrl: string | undefined
+try {
+  viteProjectId = (import.meta as any).env?.PUBLIC_SANITY_PROJECT_ID
+  viteDataset = (import.meta as any).env?.PUBLIC_SANITY_DATASET
+  viteSiteUrl = (import.meta as any).env?.PUBLIC_SITE_URL
+} catch {
+  // Node CLI: import.meta.env is undefined; process.env fallback below.
+}
 
-const projectId = envSource.PUBLIC_SANITY_PROJECT_ID
-const dataset = envSource.PUBLIC_SANITY_DATASET || 'production'
-const siteUrl = envSource.PUBLIC_SITE_URL || 'http://localhost:4321'
+const nodeEnv =
+  typeof process !== 'undefined' && process.env ? process.env : ({} as NodeJS.ProcessEnv)
+
+const projectId = viteProjectId || nodeEnv.PUBLIC_SANITY_PROJECT_ID
+const dataset = viteDataset || nodeEnv.PUBLIC_SANITY_DATASET || 'production'
+const siteUrl = viteSiteUrl || nodeEnv.PUBLIC_SITE_URL || 'http://localhost:4321'
 
 if (!projectId) {
   console.warn(
