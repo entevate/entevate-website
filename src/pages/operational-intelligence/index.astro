@@ -3,6 +3,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeaderContainer from "../../components/HeaderContainer.astro";
 import FooterContainer from "../../components/FooterContainer.astro";
 import "../../global.css";
+import { sanityClient } from "../../lib/sanity/client";
+import { offeringsByPillarQuery } from "../../lib/sanity/queries";
+
+// Sanity-driven offering cards for this pillar (order controlled by
+// offering.order asc). Editors add/remove/reorder from Studio.
+const offerings = await sanityClient.fetch<any[]>(offeringsByPillarQuery, {
+  pillarSlug: "operational-intelligence",
+});
 
 // Page metadata
 const title = "Operational Intelligence — ENTEVATE";
@@ -106,141 +114,32 @@ const jsonLd = JSON.stringify([
       </div>
 
       <div class="offerings-grid">
-        <div class="offering-card oc-indigo fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <rect
-                x="3"
-                y="3"
-                width="7"
-                height="7"
-                rx="1.5"
-                stroke="currentColor"
-                stroke-width="1.6"></rect>
-              <rect
-                x="14"
-                y="3"
-                width="7"
-                height="7"
-                rx="1.5"
-                stroke="currentColor"
-                stroke-width="1.6"></rect>
-              <rect
-                x="3"
-                y="14"
-                width="7"
-                height="7"
-                rx="1.5"
-                stroke="currentColor"
-                stroke-width="1.6"></rect>
-              <rect
-                x="14"
-                y="14"
-                width="7"
-                height="7"
-                rx="1.5"
-                stroke="currentColor"
-                stroke-width="1.6"></rect>
-            </svg>
-          </div>
-          <h3>Operational Intelligence Assessment</h3>
-          <em>The diagnostic that starts every engagement.</em>
-          <p>
-            Our proprietary assessment evaluates your organization across
-            People, Platform, and Process to surface operational gaps, score
-            your readiness, and deliver a prioritized action plan covering
-            AI, automation, content systems, and cross-functional alignment.
-          </p>
-          <a href="/operational-intelligence/assessment" class="offering-cta"
-            >Take the Assessment →</a
-          >
-        </div>
-
-        <div class="offering-card oc-purple fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2L2 7v10l10 5 10-5V7L12 2z"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"></path>
-              <path
-                d="M12 22V12M12 12L2 7M12 12l10-5"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <h3>AI Foundry™</h3>
-          <em>Concept to production.</em>
-          <p>
-            Custom AI systems, from content pipelines and brand automation
-            to full-stack applications. We design, build, and manage
-            production-grade intelligent systems that integrate with your
-            people and processes from day one.
-          </p>
-          <a href="/operational-intelligence/ai-foundry" class="offering-cta"
-            >Explore the Foundry →</a
-          >
-        </div>
-
-        <div class="offering-card oc-violet fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2L2 7l10 5 10-5-10-5z"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linejoin="round"></path>
-              <path
-                d="M2 17l10 5 10-5M2 12l10 5 10-5"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <h3>Digital Transformation Strategy &amp; Execution</h3>
-          <em>Align people, platforms, and processes.</em>
-          <p>
-            We design and co-execute digital transformation strategies that
-            are human-centered, change-managed, and tied to real business
-            outcomes across learning, process, tools, and governance.
-          </p>
-          <a href="/operational-intelligence/digital-strategy" class="offering-cta"
-            >Build Your Strategy →</a
-          >
-        </div>
-
-        <div class="offering-card oc-slate fade-up">
-          <div class="offering-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8L14 2z"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-              <path
-                d="M14 2v6h6M16 13H8M16 17H8M10 9H8"
-                stroke="currentColor"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
-          </div>
-          <h3>CAD-to-CGI Conversion &amp; Visualization</h3>
-          <em>Engineering visualization, elevated.</em>
-          <p>
-            We transform technical CAD data into photorealistic CGI assets
-            for marketing, sales, training, and product storytelling. Our
-            pipeline gives engineering teams the visual language to sell
-            and inspire without waiting for physical prototypes.
-          </p>
-          <a href="/operational-intelligence/cad-to-cgi" class="offering-cta"
-            >See the Difference →</a
-          >
-        </div>
+        {offerings.map((o) => {
+          const href = o.cardCtaHref || `/operational-intelligence/${o.slug}`;
+          const displayTitle = `${o.title}${o.trademarkSuffix || ""}`;
+          return (
+            <div class={`offering-card ${o.colorVariant || "oc-purple"} fade-up`}>
+              <div class="offering-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  {o.iconSvg && (
+                    <path
+                      d={o.iconSvg}
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      fill="none"
+                    />
+                  )}
+                </svg>
+              </div>
+              <h3 set:html={displayTitle} />
+              {o.cardSubtitle && <em set:html={o.cardSubtitle} />}
+              {o.cardDescription && <p>{o.cardDescription}</p>}
+              <a href={href} class="offering-cta">{o.cardCtaLabel || "Learn More →"}</a>
+            </div>
+          );
+        })}
       </div>
     </div>
   </section>
