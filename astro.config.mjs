@@ -58,6 +58,5 @@ export default defineConfig({
     '/operational-intelligence/remote-assistance': '/operational-intelligence',
     // Bare /insights/ index -> the Our Work listing page
     '/insights': '/our-work',
-    '/insights/': '/our-work',
   }
 });
