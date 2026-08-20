@@ -1,6 +1,6 @@
 ---
-import Footer from "../../components/Footer.jsx";
-import Header from "../../components/Header.jsx";
+import FooterContainer from "../../components/FooterContainer.astro";
+import HeaderContainer from "../../components/HeaderContainer.astro";
 import "../../global.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -585,7 +585,7 @@ const jsonLd = JSON.stringify([
       background: rgba(255, 255, 255, 0.1);
     }
   </style>
-  <Header client:load />
+  <HeaderContainer />
 
   <!-- Hero -->
   <section class="hero" id="top">
@@ -1155,7 +1155,7 @@ const jsonLd = JSON.stringify([
     </div>
   </section>
 
-  <Footer client:load buttonStyle={{ background: "var(--orange)" }} />
+  <FooterContainer buttonStyle={{ background: "var(--orange)" }} />
 
   <script src="../../global.js"></script>
 </BaseLayout>

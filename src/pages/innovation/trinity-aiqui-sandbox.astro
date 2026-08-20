@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Header from "../../components/Header.jsx";
-import Footer from "../../components/Footer.jsx";
+import HeaderContainer from "../../components/HeaderContainer.astro";
+import FooterContainer from "../../components/FooterContainer.astro";
 import "../../global.css";
 
 const title = "Trinity College AIQUI Sandbox — Case Study — ENTEVATE";
@@ -31,7 +31,7 @@ const jsonLd = JSON.stringify([
 ---
 
 <BaseLayout title={title} description={description} ogImage="/images/og/irm-og.png" ogType="article" jsonLd={jsonLd}>
-  <Header client:load />
+  <HeaderContainer />
 
   <style>
     /* ── Hero ── */
@@ -1206,7 +1206,7 @@ const jsonLd = JSON.stringify([
     </div>
   </section>
 
-  <Footer client:load buttonStyle={{ background: "var(--purple-dark)" }} />
+  <FooterContainer buttonStyle={{ background: "var(--purple-dark)" }} />
 
   <script src="../../global.js"></script>
   <script></script>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Header from "../../components/Header.jsx";
-import Footer from "../../components/Footer.jsx";
+import HeaderContainer from "../../components/HeaderContainer.astro";
+import FooterContainer from "../../components/FooterContainer.astro";
 import "../../global.css";
 
 const title = "Angel Academy™ — Activating Sideline Capital | ENTEVATE";
@@ -763,7 +763,7 @@ const jsonLd = JSON.stringify([
       }
     }
   </style>
-  <Header client:load />
+  <HeaderContainer />
 
   <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
   <section class="hero" id="top">
@@ -1330,7 +1330,7 @@ const jsonLd = JSON.stringify([
     </div>
   </section>
 
-  <Footer client:load buttonStyle={{ background: "var(--purple-dark)" }} />
+  <FooterContainer buttonStyle={{ background: "var(--purple-dark)" }} />
 
   <script src="../../global.js"></script>
   <script>

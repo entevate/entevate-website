@@ -1,6 +1,6 @@
 ---
-import Footer from "../../components/Footer.jsx";
-import Header from "../../components/Header.jsx";
+import FooterContainer from "../../components/FooterContainer.astro";
+import HeaderContainer from "../../components/HeaderContainer.astro";
 import "../../global.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -31,7 +31,7 @@ const jsonLd = JSON.stringify([
 ---
 
 <BaseLayout title={title} description={description} ogImage="/images/og/irm-og.png" ogType="article" jsonLd={jsonLd}>
-  <Header client:load />
+  <HeaderContainer />
 
   <!-- Hero -->
   <section class="hero">
@@ -78,7 +78,7 @@ const jsonLd = JSON.stringify([
     </div>
   </div>
 
-  <Footer client:load buttonStyle={{ background: "var(--purple-dark)" }} />
+  <FooterContainer buttonStyle={{ background: "var(--purple-dark)" }} />
 
   <style>
     /* Page accent override - Innovation purple */

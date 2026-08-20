@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Header from "../../components/Header.jsx";
-import Footer from "../../components/Footer.jsx";
+import HeaderContainer from "../../components/HeaderContainer.astro";
+import FooterContainer from "../../components/FooterContainer.astro";
 import "../../global.css";
 
 const title = "Operational Intelligence Assessment — ENTEVATE";
@@ -817,7 +817,7 @@ const jsonLd = JSON.stringify([
       background: rgba(255, 255, 255, 0.1);
     }
   </style>
-  <Header client:load />
+  <HeaderContainer />
 
   <!-- Hero -->
   <section class="hero" id="top">
@@ -1803,7 +1803,7 @@ const jsonLd = JSON.stringify([
     </div>
   </section>
 
-  <Footer client:load buttonStyle={{ background: "var(--orange)" }} />
+  <FooterContainer buttonStyle={{ background: "var(--orange)" }} />
 
   <script src="../../global.js"></script>
   <script>

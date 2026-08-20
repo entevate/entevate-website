@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
+import HeaderContainer from "../components/HeaderContainer.astro";
+import FooterContainer from "../components/FooterContainer.astro";
 import "../global.css";
 
 const title = "Our Work — ENTEVATE";
@@ -26,7 +26,7 @@ const jsonLd = JSON.stringify({
 ---
 
 <BaseLayout title={title} description={description} jsonLd={jsonLd}>
-  <Header client:load />
+  <HeaderContainer />
 
   <!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
   <div class="page-hero">
@@ -452,7 +452,7 @@ const jsonLd = JSON.stringify({
     </div>
   </section>
 
-  <Footer client:load />
+  <FooterContainer />
 
   <script src="../global.js"></script>
   <script>

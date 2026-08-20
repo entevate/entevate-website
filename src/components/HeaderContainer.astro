@@ -1,0 +1,17 @@
+---
+/**
+ * Astro wrapper around the React Header. Fetches navigation data from
+ * the Sanity singleton at build time and passes it as a prop.
+ *
+ * Pages import this instead of the raw Header component when they want
+ * Sanity-driven nav. If Sanity is unavailable or returns null, the
+ * inner Header falls back to its hardcoded DEFAULT_NAV_DATA.
+ */
+import Header from './Header.jsx'
+import { sanityClient } from '../lib/sanity/client'
+import { navigationQuery } from '../lib/sanity/queries'
+
+const navData = await sanityClient.fetch<any>(navigationQuery)
+---
+
+<Header client:load navData={navData} />

@@ -1,0 +1,41 @@
+---
+/**
+ * Astro wrapper around the React Footer. Fetches footer + siteSettings
+ * from Sanity singletons at build time and passes them as a merged prop.
+ *
+ * Pages import this instead of the raw Footer component when they want
+ * Sanity-driven footer content. Falls back to Footer's DEFAULT_FOOTER_DATA
+ * when Sanity returns null.
+ */
+import Footer from './Footer.tsx'
+import { sanityClient } from '../lib/sanity/client'
+import { footerQuery, siteSettingsQuery } from '../lib/sanity/queries'
+
+interface Props {
+  buttonStyle?: Record<string, string | number>
+}
+
+const { buttonStyle } = Astro.props as Props
+
+const [footerContent, siteSettings] = await Promise.all([
+  sanityClient.fetch<any>(footerQuery),
+  sanityClient.fetch<any>(siteSettingsQuery),
+])
+
+// Merge address/contact/tagline/social from siteSettings into footerData so
+// the React component receives everything it needs in one prop.
+const footerData = {
+  ...(footerContent || {}),
+  addressStreet: siteSettings?.addressStreet,
+  addressCity: siteSettings?.addressCity,
+  addressRegion: siteSettings?.addressRegion,
+  addressPostal: siteSettings?.addressPostal,
+  contactPhone: siteSettings?.contactPhone,
+  tagline:
+    siteSettings?.brandBoilerplate ||
+    siteSettings?.tagline,
+  social: siteSettings?.social,
+}
+---
+
+<Footer client:load buttonStyle={buttonStyle} footerData={footerData} />

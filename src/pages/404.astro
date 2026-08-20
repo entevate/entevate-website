@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
+import HeaderContainer from "../components/HeaderContainer.astro";
+import FooterContainer from "../components/FooterContainer.astro";
 import "../global.css";
 
 const title = "Page Not Found — ENTEVATE";
@@ -112,7 +112,7 @@ const description = "The page you're looking for doesn't exist or has been moved
     }
   </style>
 
-  <Header client:load />
+  <HeaderContainer />
 
   <section class="error-section">
     <div class="error-inner">
@@ -126,6 +126,6 @@ const description = "The page you're looking for doesn't exist or has been moved
     </div>
   </section>
 
-  <Footer client:load buttonStyle={{ background: "var(--purple-dark)" }} />
+  <FooterContainer buttonStyle={{ background: "var(--purple-dark)" }} />
   <script src="../global.js"></script>
 </BaseLayout>
