@@ -3,6 +3,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import "../global.css";
+import { sanityClient } from "../lib/sanity/client";
+import { allPillarsQuery, allPostsQuery } from "../lib/sanity/queries";
+
+// Three pillars in order (10 = Experiential, 20 = OI, 30 = Innovation).
+// Each pillar's icon SVG path is stored on the document as iconSvg.
+const pillars = await sanityClient.fetch<any[]>(allPillarsQuery);
+
+// Latest 3 published insights for the "Our Work" blog grid.
+const recentPosts = (await sanityClient.fetch<any[]>(allPostsQuery)).slice(0, 3);
 
 const title =
   "ENTEVATE | Experiential Branding, Digital Transformation & Innovation Roadmapping";
@@ -151,77 +160,28 @@ const jsonLd = JSON.stringify({
         </p>
       </div>
       <div class="services-grid">
-        <div class="service-card s1 fade-up">
-          <div class="service-icon">
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-              ></polygon></svg
-            >
+        {pillars.map((p, i) => (
+          <div class={`service-card s${i + 1} fade-up`}>
+            <div class="service-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d={p.iconSvg} />
+              </svg>
+            </div>
+            <h3 set:html={p.name} />
+            {p.tagline && <em set:html={p.tagline} />}
+            {p.homepageCardDescription && <p>{p.homepageCardDescription}</p>}
+            <a href={`/${p.slug}`} class="learn-more">Learn More →</a>
           </div>
-          <h3>Experiential Branding &amp; Marketing</h3>
-          <em>Crafting immersive brand experiences that resonate, engage audiences, and drive measurable action.</em>
-          <p>
-            We spark connection through intentional, emotionally engaging brand
-            moments that are measurable, memorable, and built to scale.
-          </p>
-          <a href="/experiential" class="learn-more">Learn More →</a>
-        </div>
-        <div class="service-card s2 fade-up">
-          <div class="service-icon">
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-              ></path></svg
-            >
-          </div>
-          <h3>Operational Intelligence</h3>
-          <em>Align people, platforms, and processes for a more connected, adaptable, and future-ready business.</em>
-          <p>
-            We align people, platforms, and processes so your content is always
-            clear, strategic, and ready to perform.
-          </p>
-          <a href="/operational-intelligence" class="learn-more">Learn More →</a>
-        </div>
-        <div class="service-card s3 fade-up">
-          <div class="service-icon">
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              ><path
-                d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17H8v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"
-              ></path></svg
-            >
-          </div>
-          <h3>Innovation Roadmapping</h3>
-          <em>Clarity for bold ideas and the structured systems to bring them to life at scale.</em>
-          <p>
-            We turn big ideas into tangible strategies, from concept to
-            execution, aligning vision with action and clarity.
-          </p>
-          <a href="/innovation" class="learn-more">Learn More →</a>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -336,43 +296,44 @@ const jsonLd = JSON.stringify({
         <a href="/our-work" class="btn-ghost">See All →</a>
       </div>
       <div class="blog-grid">
-        <a
-          href="/insights/innovation-roadmapping"
-          class="blog-card card-irm fade-up"
-        >
-          <div class="blog-thumb bt3">Innovation</div>
-          <div class="blog-body">
-            <div class="blog-tag">Innovation | Ventures | Ecosystem</div>
-            <h4>
-              Innovation Roadmapping: Navigating from Ideation to Amplification
-            </h4>
-            <p>
-              Comprehensive plans to lead your business through rapid digital
-              evolution — from early ideation and validation through full-scale
-              execution and market growth.
-            </p>
-            <div class="blog-read-more">Read More →</div>
-          </div>
-        </a>
-        <a
-          href="/insights/beyond-the-hype-ar-vr-revenue"
-          class="blog-card card-ebm fade-up"
-        >
-          <div class="blog-thumb bt1">Experiential</div>
-          <div class="blog-body">
-            <div class="blog-tag">Experiential Branding &amp; Marketing</div>
-            <h4>
-              Beyond the Hype: How AR/VR/Spatial Computing is Fueling Real
-              Revenue Growth
-            </h4>
-            <p>
-              The concrete business outcomes that immersive technologies like
-              AR, VR, and spatial computing are delivering for forward-thinking
-              brands and enterprises today.
-            </p>
-            <div class="blog-read-more">Read More →</div>
-          </div>
-        </a>
+        {recentPosts.map((post) => {
+          // Map pillar slug -> legacy CSS card variant + background texture class.
+          const pillarSlug = post.pillarSlug || "";
+          const cardVariant =
+            pillarSlug === "experiential"
+              ? "card-ebm"
+              : pillarSlug === "operational-intelligence"
+              ? "card-dct"
+              : pillarSlug === "innovation"
+              ? "card-irm"
+              : "card-gen";
+          const thumbBg =
+            pillarSlug === "experiential"
+              ? "bt1"
+              : pillarSlug === "operational-intelligence"
+              ? "bt2"
+              : "bt3";
+          const shortLabel =
+            pillarSlug === "experiential"
+              ? "Experiential"
+              : pillarSlug === "operational-intelligence"
+              ? "Operational Intelligence"
+              : "Innovation";
+          return (
+            <a
+              href={`/insights/${post.slug}`}
+              class={`blog-card ${cardVariant} fade-up`}
+            >
+              <div class={`blog-thumb ${thumbBg}`}>{shortLabel}</div>
+              <div class="blog-body">
+                <div class="blog-tag" set:html={post.pillarName || shortLabel} />
+                <h4>{post.title}</h4>
+                {post.excerpt && <p>{post.excerpt}</p>}
+                <div class="blog-read-more">Read More →</div>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>

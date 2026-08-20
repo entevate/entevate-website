@@ -1,4 +1,7 @@
 ---
+import { sanityClient } from '../lib/sanity/client';
+import { siteSettingsQuery } from '../lib/sanity/queries';
+
 interface Props {
   title: string;
   description?: string;
@@ -11,56 +14,64 @@ interface Props {
 const {
   title,
   description,
-  ogImage = '/images/og/main-og.png',
+  ogImage,
   ogType = 'website',
   canonicalUrl,
   jsonLd,
 } = Astro.props;
 
+// Site-wide settings sourced from Sanity singleton. Falls back to sane
+// defaults if the singleton hasn't been created yet (e.g. new environment).
+const settings = (await sanityClient.fetch<any>(siteSettingsQuery)) || {};
+
 const siteUrl = 'https://www.entevate.com';
 const canonical = canonicalUrl || new URL(Astro.url.pathname, siteUrl).href;
-const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, siteUrl).href;
+const resolvedOgImage = ogImage || settings.defaultOgImage || '/images/og/main-og.png';
+const ogImageUrl = resolvedOgImage.startsWith('http')
+  ? resolvedOgImage
+  : new URL(resolvedOgImage, siteUrl).href;
+
+const sameAs = [
+  settings.social?.linkedin,
+  settings.social?.facebook,
+  settings.social?.twitter,
+  settings.social?.instagram,
+].filter(Boolean);
 
 const organizationSchema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "ENTEVATE",
-  "url": siteUrl,
-  "logo": `${siteUrl}/favicon.png`,
-  "description": "Human-centered innovation partner — experiential branding, digital transformation, and innovation roadmapping.",
-  "foundingDate": "2016",
-  "founder": {
-    "@type": "Person",
-    "name": "Jake Hamann"
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: settings.orgName || 'ENTEVATE',
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.png`,
+  description:
+    settings.brandBoilerplate ||
+    settings.tagline ||
+    'Human-centered innovation partner.',
+  ...(settings.foundingDate && { foundingDate: settings.foundingDate }),
+  ...(settings.founder && {
+    founder: { '@type': 'Person', name: settings.founder },
+  }),
+  areaServed: { '@type': 'Place', name: 'United States' },
+  ...(settings.addressStreet && {
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: settings.addressStreet,
+      addressLocality: settings.addressCity,
+      addressRegion: settings.addressRegion,
+      postalCode: settings.addressPostal,
+      addressCountry: settings.addressCountry,
+    },
+  }),
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    url: `${siteUrl}/contact`,
+    ...(settings.contactEmail && { email: settings.contactEmail }),
+    ...(settings.contactPhone && { telephone: settings.contactPhone }),
   },
-  "areaServed": {
-    "@type": "Place",
-    "name": "United States"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "sales",
-    "url": `${siteUrl}/contact`
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/entevate",
-    "https://www.facebook.com/entevate",
-    "https://twitter.com/entevate"
-  ],
-  "knowsAbout": [
-    "Experiential Branding",
-    "Digital Transformation",
-    "Operational Intelligence",
-    "Innovation Roadmapping",
-    "AR/VR/Spatial Computing",
-    "Innovation Ecosystems",
-    "Trade Show Activations",
-    "CAD to CGI Conversion",
-    "Angel Investing Education",
-    "Startup Ecosystem Development",
-    "AIQUI Framework",
-    "AI and Quantum Innovation"
-  ]
+  ...(sameAs.length > 0 && { sameAs }),
+  ...(settings.knowsAbout?.length > 0 && { knowsAbout: settings.knowsAbout }),
 });
 ---
 
@@ -84,7 +95,7 @@ const organizationSchema = JSON.stringify({
     <meta property="og:image:height" content="630" />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content={ogType} />
-    <meta property="og:site_name" content="ENTEVATE" />
+    <meta property="og:site_name" content={settings.orgName || 'ENTEVATE'} />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
