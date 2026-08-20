@@ -3,6 +3,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import "../global.css";
+import { sanityClient } from "../lib/sanity/client";
+import { allTeamMembersQuery } from "../lib/sanity/queries";
+import { urlFor } from "../lib/sanity/urlBuilder";
+
+// Team members come from Sanity. Order controlled by teamMember.order (asc).
+const teamMembers = await sanityClient.fetch<any[]>(allTeamMembersQuery);
 
 const title = "About Us — ENTEVATE";
 const description =
@@ -156,215 +162,44 @@ const jsonLd = JSON.stringify({
       </div>
 
       <div class="team-grid">
-        <div class="team-card fade-up">
-          <div class="team-avatar">
-            <img src="images/jake.png" alt="Jake Hamann" />
-          </div>
-          <div class="team-name">Jake Hamann</div>
-          <div class="team-title">Founder &amp; CEO</div>
-          <div class="team-linkedin">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-              aria-label="Jake Hamann on LinkedIn"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.8"></circle></svg
+        {teamMembers.map((m) => (
+          <div class="team-card fade-up">
+            <div class="team-avatar">
+              {m.headshot?.asset ? (
+                <img src={urlFor(m.headshot).width(400).height(400).fit("crop").url()} alt={m.name} />
+              ) : (
+                <img src={`/images/${m.slug}.png`} alt={m.name} />
+              )}
+            </div>
+            <div class="team-name">{m.name}</div>
+            <div class="team-title" set:html={m.role} />
+            <div class="team-linkedin">
+              <a
+                href={m.linkedIn || "#"}
+                target="_blank"
+                rel="noopener"
+                aria-label={`${m.name} on LinkedIn`}
               >
-            </a>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <circle
+                    cx="4"
+                    cy="4"
+                    r="2"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  ></circle>
+                </svg>
+              </a>
+            </div>
           </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar">
-            <img src="images/harsh.jpg" alt="Harsh Shah" />
-          </div>
-          <div class="team-name">Harsh Shah</div>
-          <div class="team-title">Co-Founder &amp; COO</div>
-          <div class="team-linkedin">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-              aria-label="Harsh Shah on LinkedIn"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.8"></circle></svg
-              >
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar">
-            <img src="images/binko.jpg" alt="Michael Binko" />
-          </div>
-          <div class="team-name">Michael Binko</div>
-          <div class="team-title">Managing Director, Innovation</div>
-          <div class="team-linkedin">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-              aria-label="Michael Binko on LinkedIn"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.8"></circle></svg
-              >
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar">
-            <img src="images/grant.jpg" alt="Grant Lonie" />
-          </div>
-          <div class="team-name">Grant Lonie</div>
-          <div class="team-title">Director of Engineering</div>
-          <div class="team-linkedin">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-              aria-label="Grant Lonie on LinkedIn"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.8"></circle></svg
-              >
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar">
-            <img src="images/hanah.jpg" alt="Hanah Zachariah" />
-          </div>
-          <div class="team-name">Hanah Zachariah</div>
-          <div class="team-title">XR Developer</div>
-          <div class="team-linkedin">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-              aria-label="Hanah Zachariah on LinkedIn"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.8"></circle></svg
-              >
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar">
-            <img src="images/sam.jpeg" alt="Sam Thibault" />
-          </div>
-          <div class="team-name">Sam Thibault</div>
-          <div class="team-title">Designer</div>
-          <div class="team-linkedin">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-              aria-label="Sam Thibault on LinkedIn"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.8"></circle></svg
-              >
-            </a>
-          </div>
-        </div>
-
-        <div class="team-card fade-up">
-          <div class="team-avatar">
-            <img src="images/steven.jpeg" alt="Steven Shaffer" />
-          </div>
-          <div class="team-name">Steven Shaffer</div>
-          <div class="team-title">Manufacturing SME</div>
-          <div class="team-linkedin">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
-              aria-label="Steven Shaffer on LinkedIn"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-                ><path
-                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path><circle
-                  cx="4"
-                  cy="4"
-                  r="2"
-                  stroke="currentColor"
-                  stroke-width="1.8"></circle></svg
-              >
-            </a>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
