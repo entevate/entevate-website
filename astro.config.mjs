@@ -1,14 +1,25 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { loadEnv } from 'vite';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
 import vercel from '@astrojs/vercel';
 
-// Read Sanity env vars at build time. Astro/Vite exposes PUBLIC_-prefixed vars
-// on both client and server; process.env is used here since this file runs in Node.
-const SANITY_PROJECT_ID = process.env.PUBLIC_SANITY_PROJECT_ID || '';
-const SANITY_DATASET = process.env.PUBLIC_SANITY_DATASET || 'production';
+// Astro does NOT auto-populate process.env from .env before this config file
+// runs. Use Vite's loadEnv to read .env / .env.local / .env.[mode] explicitly
+// so the @sanity/astro integration receives real credentials.
+// The '' prefix means "load all env vars regardless of prefix" (not just VITE_).
+const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
+
+const SANITY_PROJECT_ID = env.PUBLIC_SANITY_PROJECT_ID || process.env.PUBLIC_SANITY_PROJECT_ID || '';
+const SANITY_DATASET = env.PUBLIC_SANITY_DATASET || process.env.PUBLIC_SANITY_DATASET || 'production';
+
+if (!SANITY_PROJECT_ID) {
+  console.warn(
+    '[astro.config] PUBLIC_SANITY_PROJECT_ID is not set in .env. Sanity integration will fail to init.',
+  );
+}
 
 // https://astro.build/config
 export default defineConfig({
